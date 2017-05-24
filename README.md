@@ -42,6 +42,7 @@ Environment is being managed via [Bedrock](https://roots.io/bedrock/),  a modern
 * `WP_HOME` - Full URL to WordPress home (http://example.com)
 * `WP_SITEURL` - Full URL to WordPress including subdirectory (http://example.com/wp)
 * `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
+* `ACF_PRO_KEY` - If using acf pro, provide key with this configuration
 
 If you want to automatically generate the security keys (assuming you have wp-cli installed locally) you can use the very handy [wp-cli-dotenv-command][wp-cli-dotenv] or, you can cut and paste from the [Roots WordPress Salt Generator][roots-wp-salt].
 
