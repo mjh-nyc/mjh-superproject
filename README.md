@@ -70,8 +70,10 @@ If you want to automatically generate the security keys (assuming you have wp-cl
 
 ### Theme Management
 
-Please review documention in theme directory.
-Files can be comitted directly to the root of this git project repository https://github.com/mjh-nyc/mjh-superproject/tree/master/web/app/themes/mjh
+* To get the initial theme build, navigate to the theme dir `cd web/app/themes/mjh/`
+* Run `yarn`
+
+Please review documention in theme directory for further notes. Files can be comitted directly to the root of this git project repository https://github.com/mjh-nyc/mjh-superproject/tree/master/web/app/themes/mjh
 
 ### Plugin Management
 
