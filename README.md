@@ -8,12 +8,8 @@ The following notes are more guidelines than enforced policies. Please reach out
 
 - WordPress managed by Bedrock 
 - Noticably absent from this repo:
-- WordPress Core
-- this is by design, no need to replicate, please do not commit
-- Lastest WordPress will be installed on servers as part of deployment
-- Each dev is responsible for setting up there own local dev environment via composer
-- `web/app/uploads/`
-- also by design, please do not commit
+	- WordPress Core: this is by design, no need to replicate, please do not commit. Lastest WordPress will be installed on servers as part of deployment. Each dev is responsible for setting up their own local dev environment via composer.
+	- `web/app/uploads/`: also by design, please do not commit
 - `.gitignore` has been setup to help enforce these concepts, please update as needed or reasonable if it is causing problems.
 
 ## Environment setup
@@ -30,8 +26,7 @@ Environment is being managed via [Bedrock](https://roots.io/bedrock/),  a modern
 ### Installation
 
 1. Pull in git project repository:
-
-`git pull origin master`
+	`git pull origin master`
 
 2. MJH team can provide `.env` file and you can customize environment variables in `.env`  file
 * `DB_NAME` - Database name
@@ -52,7 +47,7 @@ If you want to automatically generate the security keys (assuming you have wp-cl
 
 5. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
 
-6. Run `composer update` to bring down wordpress core, dependencies and contributed plugins
+6. In project root, run `composer update` to bring down wordpress core, dependencies and contributed plugins
 
 7. Import your database provided by MJH team or it will ask to install barebones copy
 
@@ -76,7 +71,7 @@ If you want to automatically generate the security keys (assuming you have wp-cl
 ### Theme Management
 
 Please review documention in theme directory.
-Files can be comitted directly to the root of this git project repository
+Files can be comitted directly to the root of this git project repository https://github.com/mjh-nyc/mjh-superproject/tree/master/web/app/themes/mjh
 
 ### Plugin Management
 
