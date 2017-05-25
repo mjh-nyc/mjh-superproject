@@ -51,15 +51,15 @@
       "type": "package",
       "package": {
         "name": "mjh-nyc/mjh-custom-configurations",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"type": "wordpress-muplugin",
 	"source": {
 	  "type": "git",
 	   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-	   "reference":"1.0.1"
+	   "reference":"master"
 	},
 	"require": {
-		"mjh-nyc/mjh-custom-configurations":"^1.0",
+		"mjh-nyc/mjh-custom-configurations":"^1.0.0",
 		"composer/installers": "^1.0"
 	}
       }
@@ -73,7 +73,7 @@
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.5",
-    "mjh-nyc/mjh-custom-configurations": "1.0.1",
+    "mjh-nyc/mjh-custom-configurations": "^1.0.0",
     "wpackagist-plugin/formidable": "2.03.07"
   },
   "require-dev": {
