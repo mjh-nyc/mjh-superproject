@@ -41,7 +41,10 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'minitop_navigation' => __('Mini Top Navigation', 'sage'),
+        'buttontop_navigation' => __('Button Top Navigation', 'sage'),
+        'footer_navigation' => __('Footer Navigation', 'sage')
     ]);
 
     /**
@@ -50,6 +53,7 @@ add_action('after_setup_theme', function () {
      */
     add_theme_support('post-thumbnails');
     add_image_size( 'square', 800, 800);
+    add_image_size( 'header', 1600, 550);
 
     /**
      * Enable HTML5 markup support
@@ -80,13 +84,17 @@ add_action('widgets_init', function () {
         'before_title'  => '<h3>',
         'after_title'   => '</h3>'
     ];
-    register_sidebar([
+    /*register_sidebar([
         'name'          => __('Primary', 'sage'),
         'id'            => 'sidebar-primary'
-    ] + $config);
+    ] + $config);*/
     register_sidebar([
         'name'          => __('Footer', 'sage'),
         'id'            => 'sidebar-footer'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer Legal', 'sage'),
+        'id'            => 'sidebar-footer-legal'
     ] + $config);
 });
 
