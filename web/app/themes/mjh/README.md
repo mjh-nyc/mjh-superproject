@@ -36,7 +36,11 @@ Make sure all dependencies have been installed before moving on:
 
 ## Theme installation
 
-Theme should be install via git repository pull of project
+Theme files are downloaded via git repository pull of project.
+1. Navigate to theme directory in command line
+2. Run `composer update` to install dependencies
+3. Follow directions below under Theme Development to complete set up
+
 
 For a barebones theme, install Sage using Composer from your WordPress themes directory (replace `your-theme-name` below with the name of your theme):
 
@@ -101,6 +105,19 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 * `yarn run start` — Compile assets when file changes are made, start Browsersync session
 * `yarn run build` — Compile and optimize the files in your assets directory
 * `yarn run build:production` — Compile assets for production
+
+## Templates
+All templates are under `resources/views`
+The theme template system is managed by blade templating system
+Documentation on blade [https://laravel.com/docs/5.4/blade](https://laravel.com/docs/5.4/blade)
+
+All templates can use all defualt wordpress functions within template.
+
+For variables/ controller layers, we are using composer [https://github.com/soberwp/controller] (https://github.com/soberwp/controller) which is recommended by sage 9
+These files live under `resources/controller`
+Use these to set any variables needed. The idea is to manage any complex code snippets in the controller, set them as variables and are passed along to the blade template.  Controllers can be set up to be globally visible by all template to as granular for a specific template. Please review documentation, section on Blade debugging is very useful for development.
+
+
 
 ## Documentation
 
