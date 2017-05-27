@@ -1,6 +1,7 @@
 /** import external dependencies */
 import 'jquery';
 import 'bootstrap';
+import 'slick-carousel/slick/slick';
 
 /** import local dependencies */
 import Router from './util/Router';
