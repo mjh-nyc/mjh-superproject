@@ -13,17 +13,18 @@ class Homepage extends Controller
      * @return array
      */
     public function exhibitions() {
-      $exhibitions = new WP_Query( [ 'post_type' => 'exhibitions' ] );
+      $exhibitions = new WP_Query( [ 'post_type' => 'exhibition' ] );
       return $exhibitions;
     }
 
     /**
-     * Return images from Advanced Custom Fields
+     * Return carouselItem from Advanced Custom Fields
      *
      * @return array
      */
-    public function images()
+    public function carouselItem()
     {
-        return get_field('images');
+        $carousel_item = get_sub_field('carousel_item');
+        return $carousel_item;
     }
 }
