@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "862f38b4bcb25a84685e8d89e5549380",
+    "content-hash": "5f1af5a6d8bba48ffafd48aaf8034613",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -367,7 +367,7 @@
         },
         {
             "name": "mjh-nyc/mjh-custom-configurations",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
@@ -690,16 +690,16 @@
         },
         {
             "name": "wpackagist-plugin/formidable",
-            "version": "2.03.07",
+            "version": "2.03.09",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/formidable/",
-                "reference": "tags/2.03.07"
+                "reference": "tags/2.03.09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.2.03.07.zip",
-                "reference": "tags/2.03.07",
+                "url": "https://downloads.wordpress.org/plugin/formidable.2.03.09.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {

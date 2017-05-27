@@ -51,7 +51,7 @@
       "type": "package",
       "package": {
         "name": "mjh-nyc/mjh-custom-configurations",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"type": "wordpress-muplugin",
 	"source": {
 	  "type": "git",
@@ -74,7 +74,7 @@
     "roots/wp-password-bcrypt": "1.0.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.5",
     "mjh-nyc/mjh-custom-configurations": "^1.0.0",
-    "wpackagist-plugin/formidable": "2.03.07",
+    "wpackagist-plugin/formidable": "2.03.09",
     "soberwp/controller": "9.0.0-beta3"
   },
   "require-dev": {
