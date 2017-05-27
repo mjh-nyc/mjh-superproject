@@ -1,0 +1,147 @@
+.home {
+    .carousel {
+        background: rgba(0,0,0,0.85);
+        @include media-breakpoint-up(sm) {
+            padding-top: 143px;
+            margin-top: -143px;
+        }
+        .header h1 {
+            margin: 0 0 45px;
+            color: white;
+            text-align: center;
+            @include font-size(25);
+            @include media-breakpoint-up(sm) {
+                @include font-size(44);
+            }
+            @include media-breakpoint-up(lg) {
+                @include font-size(60);
+            }
+        }
+    }
+    .featured-carousel {
+        padding-bottom:40px;
+        @include media-breakpoint-up(sm) {
+            padding-bottom: 110px;
+        }
+        @include media-breakpoint-up(lg) {
+            padding-bottom: 120px;
+        }
+        .slick-arrow {
+            background: white;
+            overflow: hidden;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: 45px;
+            height: 40px;
+            width: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            border: 0;
+            font-size: 0;
+            line-height: 0;
+            @include media-breakpoint-up(lg) {
+                height: 50px;
+                width: 50px;
+                bottom: 40px;
+            }
+        }
+        .slick-prev:before, .slick-next:before { 
+            font-family: FontAwesome; 
+            font-size: 30px; 
+            line-height: 1; 
+            color:black; 
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale; 
+            text-indent: 0;
+        }   
+        .slick-prev:before { content: "\f053"; }
+        .slick-next:before { content: "\f054"; }
+        
+        .slick-prev {
+            margin-left: -60px;
+            text-indent: -4px;
+        }
+        .slick-next {
+            margin-left: 10px;
+             text-indent: 4px;
+        }
+        .slide {
+            margin: 0 5px;
+            height: 410px;
+            background: white;
+            box-shadow: 0 0 4px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+            position: relative;
+            h3 {
+                @include font-size(22);
+                @include media-breakpoint-up(sm) {
+                    @include font-size(28);
+                }
+                @include media-breakpoint-up(lg) {
+                    @include font-size(34);
+                }
+                padding: 15px 20px;
+                margin-bottom: 0;
+            }
+            .description {
+                padding: 0 20px;
+                color: #5F5F5F;
+                @include font-size(11);
+                @include media-breakpoint-up(sm) {
+                    @include font-size(12);
+                }
+                @include media-breakpoint-up(lg) {
+                    @include font-size(15);
+                }
+            }
+            .details {
+                text-align: center;
+                position: absolute;
+                bottom: 0;
+                padding-bottom: 20px;
+                width:100%;
+                h4 {
+                    @include font-size(13);
+                    @include media-breakpoint-up(sm) {
+                        @include font-size(15);
+                    }
+                    @include media-breakpoint-up(lg) {
+                        @include font-size(18);
+                    }
+                    border-top: 1px solid #9B9B9B;
+                    margin: 0 20px;
+                    padding: 20px 0 0;
+                }
+                p {
+                    @include font-size(11);
+                    @include media-breakpoint-up(sm) {
+                        @include font-size(12);
+                    }
+                    @include media-breakpoint-up(lg) {
+                        @include font-size(14);
+                    }
+                    margin: 0;
+                }
+            }
+            @include media-breakpoint-up(sm) {
+                -webkit-transform: scale(0.95, 0.95);
+                -o-transform: scale(0.95, 0.95);
+                transform: scale(0.95, 0.95);
+                
+            }
+            @include media-breakpoint-up(lg) {
+              
+            }
+            
+        }
+        .slick-current {
+            
+                -webkit-transform: scale(1, 1);
+                -o-transform: scale(1, 1);
+                    transform: scale(1, 1);
+        }
+        .slick-list {
+            overflow: visible;
+        }
+    }
+}

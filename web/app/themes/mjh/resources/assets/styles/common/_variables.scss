@@ -2,3 +2,9 @@
 $brand-primary:         #27ae60;
 
 $fa-font-path:          '~font-awesome/fonts';
+
+
+@mixin font-size($size) {
+  font-size: $size * 1px;
+  font-size: $size * 0.1rem;
+}

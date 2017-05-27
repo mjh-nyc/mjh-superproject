@@ -1,6 +1,78 @@
 .banner .nav li {
   @extend .nav-item;
 }
-.banner .nav a {
-  @extend .nav-link;
+// .banner .nav a {
+//   @extend .nav-link;
+// }
+.banner {
+  color: white;
+  position: relative;
+  z-index: 10;
+  a {
+    color: white;
+  }
+  height: 58px;
+  background: black;
+  @include media-breakpoint-up(sm) {
+    background: transparent;
+    height: 143px;
+  }
+  .custom-logo-link { 
+    float: left;
+    img {
+      width: 203px;
+
+      @include media-breakpoint-up(sm) {
+        width: auto;
+      }
+    }
+  }
+  .top-links {
+    height: 46px;
+    padding-top: 5px;
+    display: none;
+    border-bottom:1px solid #fff;
+    margin-bottom: 10px;
+    @include font-size(12);
+    @include media-breakpoint-up(sm) {
+      display: block;
+    }
+    @include media-breakpoint-up(lr) {
+      @include font-size(14);
+    }
+    .social-channels {
+      float:left;
+      @include font-size(23);
+    }
+    .nav-secondary {
+      font-weight: bold;
+      float: right;
+      padding-top:5px;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        float: left;
+        padding-left: 15px;
+      }
+    }
+  }
+  .actions {
+    float: right;
+    a {
+      margin-left: 20px;
+    }
+    .cta {
+      display: none;
+      @include media-breakpoint-up(sm) {
+        display: inline-block;
+      }
+      
+    }
+    .toggle {
+      @include font-size(30);
+    }
+  }
 }

@@ -1,0 +1,26 @@
+.cta.sqr {
+    border: 3px solid black;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    height: 36px;
+    line-height: 30px;
+    padding: 0 2rem;
+    @include font-size(13);
+    @include media-breakpoint-up(lg) {
+        @include font-size(16);
+        height: 40px;
+        line-height: 34px;
+    }
+}
+.cta.sqr:hover {
+    border-color: red;
+    color: red;
+}
+.banner {
+    .cta.sqr {
+
+        border-color: white;
+        color: white;
+    }
+}
