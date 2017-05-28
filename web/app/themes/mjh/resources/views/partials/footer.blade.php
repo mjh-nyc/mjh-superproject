@@ -12,27 +12,26 @@
 
         <h5>Find Us</h5>
 
-        <p>Edmond J. Safra Plaza
-        36 Battery Place
-        New York, NY 10280
+        <p>Edmond J. Safra Plaza<br>
+        36 Battery Place<br>
+        New York, NY 10280<br>
         (646) 437–4202</p>
       </div>
 
       <div class="box">
         <h5>Stay in Touch!</h5>
         <p>Sign up with your email to receive news, updates and exclusive event invitations from the Museum of Jewish Heritage.</p>
-        Sign up
+        <a href="" class="cta">Sign up</a>
       </div>
 
       <div class="box">
         <h5>Supporters</h5>
-
         <p>Suspendisse vehicula nisl quis enim sagittis, nec mollis purus lacinia. In fringilla vel orci eu sagittis.</p>
-
+        <a href="" class="cta">Learn more</a>
       </div>
       <div class="box">
-        <h5>Learn more</h5>
-        <p>Visit Our Resident Theater Company</p>
+        
+        <h5>Visit Our Resident Theater Company</h5>
       </div>
 
     </div>
