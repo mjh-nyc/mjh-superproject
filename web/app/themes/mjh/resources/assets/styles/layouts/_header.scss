@@ -5,14 +5,14 @@
 //   @extend .nav-link;
 // }
 .banner {
-  color: white;
+  color: $color-header-text;
   position: relative;
   z-index: 10;
   a {
-    color: white;
+    color: $color-header-links;
   }
   height: 58px;
-  background: black;
+  background: $color-header-mobile-bg;
   @include media-breakpoint-up(sm) {
     background: transparent;
     height: 143px;
@@ -37,7 +37,7 @@
     height: 46px;
     padding-top: 5px;
     display: none;
-    border-bottom:1px solid #fff;
+    border-bottom:1px solid $color-header-separator;
     margin-bottom: 10px;
     @include font-size(12); 
     @include media-breakpoint-up(lg) {

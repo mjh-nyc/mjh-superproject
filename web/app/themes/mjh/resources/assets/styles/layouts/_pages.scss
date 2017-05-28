@@ -70,15 +70,15 @@
         .slide {
             margin: 0 5px;
             height: 410px;
-            background: white;
+            background: $color-slide-bg;
             box-shadow: 0 0 4px rgba(0,0,0,0.5);
             transition: all 0.3s;
             position: relative;
-            color: #5F5F5F;
+            color: $color-slide-text;
             h3 {
                 padding: 15px 20px 0;
                 margin-bottom: 0;
-                color: black;
+                color: $color-slide-headline;
                 @include font-size(22);
                 @include media-breakpoint-up(sm) {
                     @include font-size(28);
@@ -90,7 +90,6 @@
             }
             .description {
                 padding: 0 20px;
-                color: #5F5F5F;
                 @include font-size(11);
                 @include media-breakpoint-up(sm) {
                     @include font-size(12);
@@ -113,10 +112,10 @@
                     @include media-breakpoint-up(lg) {
                         @include font-size(18);
                     }
-                    border-top: 1px solid #9B9B9B;
+                    border-top: 1px solid $color-slide-separator;
                     margin: 0 20px;
                     padding: 20px 0 0;
-                    color: #222222;
+                    color: $color-slide-subhead;
                 }
                 p {
                     @include font-size(11);
