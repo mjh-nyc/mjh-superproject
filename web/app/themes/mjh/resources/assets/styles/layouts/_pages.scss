@@ -132,7 +132,7 @@
                 -webkit-transform: scale(0.95, 0.95);
                 -o-transform: scale(0.95, 0.95);
                 transform: scale(0.95, 0.95);
-                
+                opacity: 0.75;
             }
             @include media-breakpoint-up(lg) {
               
@@ -140,10 +140,10 @@
             
         }
         .slick-current {
-            
-                -webkit-transform: scale(1, 1);
-                -o-transform: scale(1, 1);
-                    transform: scale(1, 1);
+            opacity: 1;
+            -webkit-transform: scale(1, 1);
+            -o-transform: scale(1, 1);
+            transform: scale(1, 1);
         }
         .slick-list {
             overflow: visible;
