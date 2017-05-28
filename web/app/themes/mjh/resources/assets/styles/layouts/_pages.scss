@@ -6,12 +6,14 @@
             margin-top: -143px;
         }
         .header h1 {
-            margin: 0 0 45px;
+            padding: 16px 0 16px;
+            margin: 0;
             color: white;
             text-align: center;
             @include font-size(25);
             @include media-breakpoint-up(sm) {
                 @include font-size(44);
+                padding: 0 0 45px;
             }
             @include media-breakpoint-up(lg) {
                 @include font-size(60);
@@ -72,16 +74,19 @@
             box-shadow: 0 0 4px rgba(0,0,0,0.5);
             transition: all 0.3s;
             position: relative;
+            color: #5F5F5F;
             h3 {
+                padding: 15px 20px 0;
+                margin-bottom: 0;
+                color: black;
                 @include font-size(22);
                 @include media-breakpoint-up(sm) {
                     @include font-size(28);
+                    padding: 15px 20px;
                 }
                 @include media-breakpoint-up(lg) {
                     @include font-size(34);
                 }
-                padding: 15px 20px;
-                margin-bottom: 0;
             }
             .description {
                 padding: 0 20px;
@@ -111,6 +116,7 @@
                     border-top: 1px solid #9B9B9B;
                     margin: 0 20px;
                     padding: 20px 0 0;
+                    color: #222222;
                 }
                 p {
                     @include font-size(11);

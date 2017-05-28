@@ -11,8 +11,8 @@ export default {
           breakpoint: 768,
           settings: {
             centerMode: true,
-            centerPadding: '0',
-            slidesToShow: 3,
+            centerPadding: '150',
+            slidesToShow: 1,
           },
         },
         {

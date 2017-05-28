@@ -19,11 +19,17 @@
   }
   .custom-logo-link { 
     float: left;
+    padding-top: 13px;
+    @include media-breakpoint-up(sm) {
+      padding-top: 0;
+    }
     img {
       width: 203px;
-
-      @include media-breakpoint-up(sm) {
+      @include media-breakpoint-up(md) {
         width: auto;
+      }
+      @include media-breakpoint-up(lg) {
+        width: 363px;
       }
     }
   }
@@ -33,21 +39,31 @@
     display: none;
     border-bottom:1px solid #fff;
     margin-bottom: 10px;
-    @include font-size(12);
+    @include font-size(12); 
+    @include media-breakpoint-up(lg) {
+      @include font-size(14);
+    }
     @include media-breakpoint-up(sm) {
       display: block;
     }
-    @include media-breakpoint-up(lr) {
-      @include font-size(14);
-    }
+
     .social-channels {
       float:left;
-      @include font-size(23);
+      padding-top: 4px;
+      @include font-size(20);
+      @include media-breakpoint-up(md) {
+        @include font-size(23);
+        padding-top: 3px;
+      }
     }
     .nav-secondary {
       font-weight: bold;
       float: right;
-      padding-top:5px;
+      padding-top: 9px;
+
+      @include media-breakpoint-up(lg) {
+        padding-top:5px;
+      }
       ul {
         list-style: none;
         margin: 0;
@@ -61,8 +77,16 @@
   }
   .actions {
     float: right;
+    @include media-breakpoint-up(md) {
+      padding-top: 5px;
+    }
+    @include media-breakpoint-up(lg) {
+      padding-top: 10px;
+    }
     a {
+      display: inline-block;
       margin-left: 20px;
+      float: left;
     }
     .cta {
       display: none;
@@ -73,6 +97,13 @@
     }
     .toggle {
       @include font-size(30);
+      padding-top: 5px;
+      @include media-breakpoint-up(sm) {
+        display: inline-block;
+        padding-top: 3px;
+        line-height: 1;
+      }
+
     }
   }
 }
