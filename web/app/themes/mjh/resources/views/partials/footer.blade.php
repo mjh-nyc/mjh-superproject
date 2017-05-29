@@ -35,14 +35,9 @@
     </div>
 
     <div class="copyright row">
-      <nav class="links">
-        <ul>
-          <li><a href="">Contact</a></li>      
-          <li><a href="">Jobs</a></li>      
-          <li><a href="">Sitemap</a></li>     
-          <li><a href="">Terms of Use</a></li>
-        </ul>
-      </nav>
+      @if (has_nav_menu('footer_navigation'))
+        {!! wp_nav_menu(['theme_location' => 'footer_navigation', 'container_class' => 'links']) !!}
+      @endif
       <div class="content">
         <p>&copy; 2017 Museum of Jewish Heritage—A Living Memorial to the Holocaust. All rights reserved. </p>
       </div>
