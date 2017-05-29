@@ -1,4 +1,5 @@
-.cta.sqr {
+.cta.sqr,
+.actions li a {
     border: 3px solid black;
     color: black;
     font-weight: bold;
@@ -13,12 +14,14 @@
         line-height: 34px;
     }
 }
-.cta.sqr:hover {
+.cta.sqr:hover,
+.actions li a:hover {
     border-color: red;
     color: red;
 }
 .banner {
-    .cta.sqr {
+    .cta.sqr,
+    .actions li a {
 
         border-color: white;
         color: white;

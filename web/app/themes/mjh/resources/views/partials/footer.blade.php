@@ -9,9 +9,7 @@
 
     <div class="row">
       <div class="box">
-
         <h5>Find Us</h5>
-
         <p>Edmond J. Safra Plaza<br>
         36 Battery Place<br>
         New York, NY 10280<br>

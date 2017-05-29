@@ -146,7 +146,9 @@
             transform: scale(1, 1);
         }
         .slick-list {
-            overflow: visible;
+            @include media-breakpoint-up(sm) {
+                overflow: visible;
+            }
         }
     }
 }
