@@ -26,6 +26,30 @@ $color-slide-separator: #9B9B9B;
 
 $fa-font-path:          '~font-awesome/fonts';
 
+//BentonSans
+@mixin bentonReg() {
+    font-family: "Benton Sans Reg";
+    font-style: Normal;
+    font-weight: Normal;
+}
+
+@mixin bentonIt(){
+    font-family: "Benton Sans It";
+    font-style: Italic;
+    font-weight: Normal;
+}
+
+@mixin bentonBd(){
+    font-family: "Benton Sans Bd";
+    font-style: Normal;
+    font-weight: Normal;
+}
+
+@mixin bentonBdIt(){
+    font-family: "Benton Sans Bd It";
+    font-style: Italic;
+    font-weight: Normal;
+}
 
 @mixin font-size($size) {
   font-size: $size * 1px;

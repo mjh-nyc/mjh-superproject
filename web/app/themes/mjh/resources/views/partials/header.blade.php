@@ -29,7 +29,7 @@
     </div>
     <a class="brand" href="{{ home_url('/') }}">{!!  get_custom_logo() !!}</a>
     <div class="overlay-toggle">
-      <a href="" class=""><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="" class="" id="primary-nav-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
     </div>
     @if (has_nav_menu('buttontop_navigation'))
       {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
@@ -39,6 +39,9 @@
 
 <div class="overlay-nav container-fluid no-gutters" style="">
   <div class="container">
+    <div class="overlay-toggle">
+      <a href="#" id="primary-nav-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
     <div class="row">
       <div class="wrapper">
         <div class="site-search">

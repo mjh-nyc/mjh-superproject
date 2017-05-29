@@ -1,3 +1,6 @@
+body {
+    @include bentonReg();
+}
 .home {
     .carousel {
         background: rgba(0,0,0,0.85);
@@ -56,8 +59,8 @@
             -moz-osx-font-smoothing: grayscale; 
             text-indent: 0;
         }   
-        .slick-prev:before { content: "\f053"; }
-        .slick-next:before { content: "\f054"; }
+        .slick-prev:before { content: "\f104"; }
+        .slick-next:before { content: "\f105"; }
         
         .slick-prev {
             margin-left: -60px;
@@ -133,9 +136,6 @@
                 -o-transform: scale(0.95, 0.95);
                 transform: scale(0.95, 0.95);
                 opacity: 0.75;
-            }
-            @include media-breakpoint-up(lg) {
-              
             }
             
         }
