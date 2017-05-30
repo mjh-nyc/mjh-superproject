@@ -42,5 +42,35 @@ class App extends Controller
 		return $image[0];
 	}
 
+    /**
+     * Return the sub head custo field value (available for default page template)
+     *
+     * @return string
+     */
+    public static function pageSubHeader()
+    {
+        $page_subheader = get_field('page_subheader'); 
+        if ($page_subheader) :
+            return $page_subheader;
+        endif;
+    }
+
+
+    /**
+     * Return related links
+     *
+     * @return array
+     */
+    public static function relatedLinks()
+    {
+        //setup array holder
+        $linkArray = array();
+        // check if the repeater field has rows of data
+        if( have_rows('related_link_repeater') ):
+            $linkArray = get_field('related_link_repeater');      
+        endif;
+        return $linkArray;
+    }
+
 
 }

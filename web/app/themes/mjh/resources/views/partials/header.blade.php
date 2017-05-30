@@ -11,7 +11,7 @@
         <a href="https://www.youtube.com/MuseumJewishHeritage/" target="_blank" onclick="return trackOutboundLink('https://www.youtube.com/MuseumJewishHeritage/', true)">
           <i class="fa fa-youtube" aria-hidden="true"></i></a>
         <a href="" target="_bank" class="yf">
-          <img src="app/themes/mjh/dist/images/young-friends.svg">
+          <img src="../app/themes/mjh/dist/images/young-friends.svg">
           </a>
       </div>
       <nav class="nav-secondary">
@@ -35,6 +35,13 @@
       {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
     @endif
   </div>
+
+  <!-- featured image and page title area -->
+  @if (!is_front_page())
+    <div class="hero-area" style="background-image:url('{{App::featuredImageSrc()}}')">
+      @include('partials.page-header')
+    </div>
+  @endif
 </header>
 
 <div class="overlay-nav container-fluid no-gutters" style="">
