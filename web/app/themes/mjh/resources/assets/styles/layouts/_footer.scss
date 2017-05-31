@@ -19,7 +19,7 @@ footer {
             @include font-size(32);
         }
     }
-    .box {
+    section.widget {
         @include make-col-ready();
 
         border-bottom:1px solid $color-footer-separator;
@@ -34,7 +34,10 @@ footer {
             border-bottom:0;
         }
 
-        h5 {
+        h3 {
+            @extend h5;
+            padding: 0;
+            text-align: left;
             @include bentonBd();
             margin: 0 0 8px;
             @include font-size(16);
@@ -46,6 +49,7 @@ footer {
                 @include font-size(18);
             }
         }
+        
         .cta {
             font-weight: bold;
             color:$color-footer-cta;
