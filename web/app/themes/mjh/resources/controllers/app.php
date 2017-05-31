@@ -32,7 +32,7 @@ class App extends Controller
      *
      * @return html
      */
-    public static function featuredImage($size='full',$id=false)
+    public static function featuredImage($size='large',$id=false)
     {
         $image = "";
         if (!$id){
@@ -43,6 +43,23 @@ class App extends Controller
 		}
 		return $image;
 	}
+
+    /**
+     * Return featured image of post src only
+     *
+     * @return string
+     */
+    public static function featuredImageSrc($size='large',$id=false)
+    {
+        $image = "";
+        if (!$id){
+            $id = get_the_ID();
+        }
+        if (has_post_thumbnail( $id ) ) {
+            $image = get_the_post_thumbnail_url($id, $size);
+        }
+        return $image;
+    }
 
     /**
      * Return the sub head custo field value (available for default page template)
@@ -64,6 +81,9 @@ class App extends Controller
      */
     public static function postTitle($id=false)
     {
+        if (!$id){
+            $id = get_the_ID();
+        }
         return get_the_title($id);
     }
 
@@ -74,6 +94,9 @@ class App extends Controller
      */
     public static function postExcerpt($id=false)
     {
+        if (!$id){
+            $id = get_the_ID();
+        }
         return get_the_excerpt($id);
     }
 
@@ -103,6 +126,9 @@ class App extends Controller
     public static function get_field($fieldname, $id=false)
     {
         $field_value = "";
+        if (!$id){
+            $id = get_the_ID();
+        }
         if ($fieldname) {
             return get_field($fieldname,$id);
         } else {

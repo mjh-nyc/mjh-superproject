@@ -38,7 +38,7 @@
 
   <!-- featured image and page title area -->
   @if (!is_front_page())
-    <div class="hero-area" style="background-image:url('{{App::featuredImageSrc()}}')">
+    <div class="hero-area" style="background-image:url('{{App::featuredImageSrc('large')}}')">
       @include('partials.page-header')
     </div>
   @else
