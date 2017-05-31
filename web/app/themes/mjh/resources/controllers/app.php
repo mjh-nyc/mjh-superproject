@@ -37,6 +37,7 @@ class App extends Controller
 		$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 		return $image;
 	}
+
     /**
      * Return featured image of post
      *
