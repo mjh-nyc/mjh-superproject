@@ -16,6 +16,16 @@ class App extends Controller
     {
         return get_bloginfo('name');
     }
+
+    /**
+     * Return site description
+     *
+     * @return varchar
+     */
+    public static function siteDescription()
+    {
+        return get_bloginfo('description');
+    }
     /**
      * Return site logo image hash
      *

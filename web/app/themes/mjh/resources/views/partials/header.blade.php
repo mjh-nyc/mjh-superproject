@@ -1,4 +1,12 @@
 <header class="banner">
+  <div class="announcement" style="background: #033EFB">
+    <div class="announcement-content"><i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>Attention<br>
+    Due to the sever weather, we will be closed for the day
+    </div>
+  </div>
+  <div class="moto" style="background: #000">
+    {{ App::siteDescription() }}
+  </div>
   <div class="container">
     <div class="top-links">
       <div class="social-channels">
