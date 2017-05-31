@@ -136,4 +136,37 @@ class App extends Controller
         }
     }
 
+    /**
+     * Get social channels, these come from the ACF options page under Settings-->Theme Options
+     *
+     * @return varchar
+     */
+    public static function get_social()
+    {
+        $social="";
+        $facebook = get_field('facebook_link', 'option');
+        $twitter = get_field('twitter_handle', 'option');
+        $instagram = get_field('instagram_handle', 'option');
+        $youtube = get_field('youtube_link', 'option');
+        $young_friends = get_field('young_friends_link', 'option');
+
+        if ($facebook) {
+            $social .='<a href="'.$facebook.'" target="_blank" onclick="return trackOutboundLink(\''.$facebook.'\', true)"><i class="fa fa-facebook" aria-hidden="true"></i></a>';
+        }
+        if ($twitter) {
+            $social .='<a href="https://twitter.com/'.$twitter.'" target="_blank" onclick="return trackOutboundLink(\'https://twitter.com/'.$twitter.'\', true)"><i class="fa fa-twitter" aria-hidden="true"></i></a>';
+        }
+        if ($instagram) {
+            $social .='<a href="https://www.instagram.com/'.$instagram.'" target="_blank" onclick="return trackOutboundLink(\'https://www.instagram.com/'.$instagram.'\', true)"><i class="fa fa-instagram" aria-hidden="true"></i></a>';
+        }
+        if ($youtube) {
+            $social .='<a href="'.$youtube.'" target="_blank" onclick="return trackOutboundLink(\''.$youtube.'\', true)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>';
+        }
+        if ($young_friends) {
+            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="../app/themes/mjh/dist/images/young-friends.svg" alt="'.__("Young Friends","sage").'"></a>';
+        }
+
+        return $social;
+    }
+
 }
