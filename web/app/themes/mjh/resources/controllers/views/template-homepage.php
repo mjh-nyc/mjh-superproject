@@ -20,11 +20,17 @@ class Homepage extends Controller
     /**
      * Return carouselItem from Advanced Custom Fields
      *
-     * @return array
+     * @return int
      */
-    public function carouselItem()
+    public static function carouselItems()
     {
-        $carousel_item = get_sub_field('carousel_item');
-        return $carousel_item;
+        //setup array holder
+        $carousel_items = array();
+        // check if the repeater field has rows of data
+        if( have_rows('featured_carousel_repeater') ):
+            $carousel_items = get_field('featured_carousel_repeater');      
+        endif;
+        return $carousel_items;
     }
+   
 }

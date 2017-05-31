@@ -1,22 +1,23 @@
-@if (have_rows('featured_carousel_repeater') )
+@if (Homepage::carouselItems())
 <div class="onview">
 	<div class="header"><h1>Now on view</h1></div>
-	<div class="featured-carousel container">
-	  @while(have_rows('featured_carousel_repeater')) @php(the_row())
+	<div class="featured-carousel slider-nav container">
+		@foreach (Homepage::carouselItems() as $carousel_item_id)
       		<div class="slide">
-				<div><a href=""><img src=""></a></div>
-				<h3>@php
-        		 	$post_obj = get_sub_field('carousel_item');
-        		  	echo($post_obj->post_title);
-        			@endphp
-        		</h3>
-				<p class="description">Post excerpt post excerpt post excerpt</p>
+				<!-- Hero bg in header template -->
+				<div class="featured-image">
+					<a href="{!! get_the_permalink($carousel_item_id['carousel_item']); !!}">{!! App::featuredImage('square@1x',$carousel_item_id['carousel_item']) !!}</a>
+				</div>
+				<h3>{{App::postTitle($carousel_item_id['carousel_item'])}}</h3>
+				<p class="description">{{App::postExcerpt($carousel_item_id['carousel_item'])}}</p>
 				<div class="details">
-					<h4>On View</h4>
-						<p>January 18 - July 23, 2017</p>
+					<h4>{{App::get_field('exhibition_type',$carousel_item_id['carousel_item'])}}</h4>
+					@if (App::get_field('exhibition_start_date',$carousel_item_id['carousel_item']))
+						<p>{{App::get_field('exhibition_start_date',$carousel_item_id['carousel_item'])}} &#8211; {{App::get_field('exhibition_end_date',$carousel_item_id['carousel_item'])}}</p>
+					@endif
 				</div>
       		</div>
-    	@endwhile
+    	@endforeach
 	</div>
 </div>
 @endif

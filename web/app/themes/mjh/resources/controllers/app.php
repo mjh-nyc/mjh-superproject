@@ -12,7 +12,7 @@ class App extends Controller
      *
      * @return varchar
      */
-    public function siteName()
+    public static function siteName()
     {
         return get_bloginfo('name');
     }
@@ -30,16 +30,18 @@ class App extends Controller
     /**
      * Return featured image of post
      *
-     * @return array
+     * @return html
      */
-    public static function featuredImageSrc()
+    public static function featuredImage($size='full',$id=false)
     {
-        $image[0] = '';
-        $post_id = get_the_ID();
-        if (has_post_thumbnail( $post_id ) ) {
-		    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ) , 'full' );
+        $image = "";
+        if (!$id){
+            $id = get_the_ID();
+        }
+        if (has_post_thumbnail( $id ) ) {
+		    $image = get_the_post_thumbnail( $id, $size );
 		}
-		return $image[0];
+		return $image;
 	}
 
     /**
@@ -53,6 +55,26 @@ class App extends Controller
         if ($page_subheader) :
             return $page_subheader;
         endif;
+    }
+
+    /**
+     * Return the post title, if no ID provided, will use current post id
+     *
+     * @return string
+     */
+    public static function postTitle($id=false)
+    {
+        return get_the_title($id);
+    }
+
+    /**
+     * Return the post excerpt, if no ID provided, will use current post id
+     *
+     * @return string
+     */
+    public static function postExcerpt($id=false)
+    {
+        return get_the_excerpt($id);
     }
 
 
@@ -72,5 +94,20 @@ class App extends Controller
         return $linkArray;
     }
 
+    /**
+     * Return a single ACF pro field links, if $id is empty, will use current post's id
+     * $fieldname must be passed
+     *
+     * @return varchar
+     */
+    public static function get_field($fieldname, $id=false)
+    {
+        $field_value = "";
+        if ($fieldname) {
+            return get_field($fieldname,$id);
+        } else {
+            return false;
+        }
+    }
 
 }

@@ -142,7 +142,8 @@ add_filter( 'image_size_names_choose', 'my_custom_sizes' );
  
 function my_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
-        'square' => __( 'Large square' ),
+        'square@2x' => __( 'Large square' ),
+        'square@1x' => __( 'Medium square' ),
         'header' => __( 'Header hero' ),
     ) );
 }

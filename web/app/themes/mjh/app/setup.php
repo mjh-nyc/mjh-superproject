@@ -52,7 +52,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
      */
     add_theme_support('post-thumbnails');
-    add_image_size( 'square', 800, 800);
+    add_image_size( 'square@2x', 800, 800, true);
+    add_image_size( 'square@1x', 400, 400, true);
     add_image_size( 'header', 1600, 550);
 
     /**

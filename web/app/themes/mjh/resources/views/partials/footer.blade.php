@@ -3,8 +3,7 @@
     @php(dynamic_sidebar('sidebar-footer'))
 
     <h4>
-      Museum of Jewish Heritage
-      A Living Memorial to the Holocaust
+      {{App::siteName()}}
     </h4>
 
     <div class="row">
