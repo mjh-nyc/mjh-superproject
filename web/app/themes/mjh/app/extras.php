@@ -138,7 +138,7 @@ if( function_exists('acf_add_options_page') ) {
 
 /**** You can also make your custom sizes selectable from your WordPress admin. **/
 
-add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+add_filter( 'image_size_names_choose', 'App\\my_custom_sizes' );
  
 function my_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
