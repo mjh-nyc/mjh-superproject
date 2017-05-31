@@ -14,11 +14,9 @@ export default {
       centerPadding: '0',
       slidesToScroll: 1,
       asNavFor: '.slider-for',
-      dots: true,
-      autoplay: true,
-      mobileFirst: true,
+      arrows: true,
+      autoplay: false,
       centerMode: true,
-      focusOnSelect: true,
       responsive: [
         {
           breakpoint: 768,

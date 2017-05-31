@@ -46,6 +46,7 @@
             margin-top: -143px;
         }
         .header h1 {
+            position: relative;
             padding: 16px 0 16px;
             margin: 0;
             color: white;
@@ -58,6 +59,35 @@
             @include media-breakpoint-up(lg) {
                 @include font-size(60);
             }
+        }
+    }
+    .hero-area-home {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        @include media-breakpoint-up(md) {
+            display: block;
+        }
+        .slide {
+            @include media-breakpoint-up(sm) {
+                height: 781px;
+            }
+            @include media-breakpoint-up(lg) {
+                height: 884px;
+            }
+            background-size: cover;
+        }
+        .slide:after {
+            opacity: 0.75;
+            position: absolute;
+            width:100%;
+            height:100%;
+            content: ' ';
+            display: block;
+            background: black;
         }
     }
     .featured-carousel {
@@ -110,11 +140,39 @@
         .slide {
             margin: 0 5px;
             height: 410px;
+            @include media-breakpoint-up(sm) {
+                height: 435px;
+            }
+            @include media-breakpoint-up(lg) {
+                height: 510px;
+            }
             background: $color-slide-bg;
             box-shadow: 0 0 4px rgba(0,0,0,0.5);
             transition: all 0.3s;
             position: relative;
             color: $color-slide-text;
+            .featured-image {
+                width: 100%;
+                height: 0;
+                padding-bottom: 84%;
+                position: relative;
+                .wrap {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width:100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    overflow: hidden;
+                    a {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                }
+            }
             h3 {
                 padding: 15px 20px 0;
                 margin-bottom: 0;
@@ -145,6 +203,7 @@
                 padding-bottom: 20px;
                 width:100%;
                 h4 {
+                    @include bentonBd();
                     @include font-size(13);
                     @include media-breakpoint-up(sm) {
                         @include font-size(15);

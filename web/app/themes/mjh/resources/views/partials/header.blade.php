@@ -32,15 +32,6 @@
     <div class="hero-area parallax-window" style="background-image:url('{{App::featuredImageSrc('large')}}')" data-parallax="scroll" data-image-src="{{App::featuredImageSrc('large')}}">
       @include('partials.page-header')
     </div>
-  @else
-    <div class="hero-area-home">   
-      <div class="featured-carousel slider-for">
-        @foreach (Homepage::carouselItems() as $carousel_item_id)
-              <div class="slide" style="background-image:url('{{App::get_field('hero_image',$carousel_item_id['carousel_item'])['sizes']['large']}}');">
-              </div>
-          @endforeach
-      </div>
-    </div>
   @endif
 </header>
 
