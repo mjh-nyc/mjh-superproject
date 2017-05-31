@@ -4,7 +4,7 @@ footer {
     @include media-breakpoint-up(md) {
         @include font-size(14);
     }
-    h4 {
+    h3 {
         color:$color-footer-header;
         padding:25px 0 30px;
         margin: 0;
@@ -35,7 +35,7 @@ footer {
         }
 
         h5 {
-            font-weight: bold;
+            @include bentonBd();
             margin: 0 0 8px;
             @include font-size(16);
             @include media-breakpoint-up(sm) {

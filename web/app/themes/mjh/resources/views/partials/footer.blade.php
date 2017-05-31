@@ -1,11 +1,9 @@
 <footer class="content-info container-fluid">
   <div class="container">
     @php(dynamic_sidebar('sidebar-footer'))
-
-    <h4>
+    <h3>
       {{App::siteName()}}
-    </h4>
-
+    </h3>
     <div class="row">
       <div class="box">
         <h5>Find Us</h5>

@@ -1,9 +1,9 @@
 // Colors
-$brand-primary:         #27ae60;
+$brand-primary:         #2447AB;
 
 $color-text:            #4A4A4A;
 $color-primary-header:  white;
-
+$color-mission:         #2B68A9;
 //header
 $color-header-text:     white;
 $color-header-links:    white;
@@ -16,6 +16,7 @@ $color-footer-header:   #A5A4A6;
 $color-footer-cta:      #2447AB;
 $color-footer-links:    black;
 $color-footer-separator:#979797;
+
 //slide cards
 $color-slide-bg:        white;
 $color-slide-text:      #5F5F5F;
@@ -26,6 +27,16 @@ $color-slide-separator: #9B9B9B;
 
 $fa-font-path:          '~font-awesome/fonts';
 
+//
+@font-face {
+  font-family: 'EksellDisplay';
+  src: url('../fonts/EksellDisplayWeb-Medium.eot');
+  src: url('../fonts/EksellDisplayWeb-Medium.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/EksellDisplayWeb-Medium.woff2') format('woff2'), 
+       url('../fonts/EksellDisplayWeb-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 //BentonSans
 @mixin bentonReg() {
     font-family: "Benton Sans Reg";
