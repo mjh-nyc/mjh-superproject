@@ -99,6 +99,19 @@ class App extends Controller
     }
 
     /**
+     * Return the post categories
+     *
+     * @return array
+     */
+    public static function postCategories($id=false)
+    {
+        if (!$id){
+            $id = get_the_ID();
+        }
+        return wp_get_post_categories($id);
+    }
+
+    /**
      * Return the post excerpt, if no ID provided, will use current post id
      *
      * @return string

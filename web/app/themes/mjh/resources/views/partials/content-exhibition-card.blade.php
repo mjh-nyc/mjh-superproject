@@ -1,14 +1,15 @@
+{{-- You must pass the post ID to this template as $item_id --}}
 <div class="slide exhibtion-card">
 	<!-- Hero bg in header template -->
 	<div class="featured-image"><div class="wrap">
-		<a href="{!! get_the_permalink($carousel_item_id['carousel_item']); !!}">{!! App::featuredImage('square@1x',$carousel_item_id['carousel_item']) !!}</a>
+		<a href="{!! get_the_permalink($item_id); !!}">{!! App::featuredImage('square@1x',$item_id) !!}</a>
 	</div></div>
-	<h3>{{App::postTitle($carousel_item_id['carousel_item'])}}</h3>
-	<p class="description">{{App::postExcerpt($carousel_item_id['carousel_item'])}}</p>
+	<h3>{{ get_the_title($item_id) }}</h3>
+	<p class="description">{{App::postExcerpt($item_id)}}</p>
 	<div class="details">
-		<h4>{{App::get_field('exhibition_type',$carousel_item_id['carousel_item'])}}</h4>
-		@if (App::get_field('exhibition_start_date',$carousel_item_id['carousel_item']))
-			<p>{{App::get_field('exhibition_start_date',$carousel_item_id['carousel_item'])}} &#8211; {{App::get_field('exhibition_end_date',$carousel_item_id['carousel_item'])}}</p>
+		<h4>{{App::get_field('exhibition_type',$item_id)}}</h4>
+		@if (App::get_field('exhibition_start_date',$item_id))
+			<p>{{App::get_field('exhibition_start_date',$item_id)}} &#8211; {{App::get_field('exhibition_end_date',$item_id)}}</p>
 		@endif
 	</div>
 </div>
