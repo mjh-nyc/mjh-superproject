@@ -27,3 +27,22 @@
         color: white;
     }
 }
+.cta-round {
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 20px;
+    @include font-size(14);
+    @include media-breakpoint-up(lg) {
+        @include font-size(16);
+        padding: 0 30px;
+    }
+    background: #222;
+    display: inline-block;
+}
+.cta-round.secondary {
+    background: white;
+    color: #222222;
+}

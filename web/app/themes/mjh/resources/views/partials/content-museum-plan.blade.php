@@ -17,6 +17,7 @@
             <div><a class="button" href="#">@php _e("Buy Tickets","sage"); @endphp</a></div>
           </div>
         </div>
+      </div>
       <div class="plan-item">
         <div class="plan-icon">[ICON]</div>
         <div class="plan-title">Hours &amp; Location</div>
@@ -33,7 +34,6 @@
             <div><a class="button" href="#">@php _e("Plan your visit","sage"); @endphp</a></div>
           </div>
         </div>
-      </div>
       </div>
     </div>
       <div class="plan-bottom">
