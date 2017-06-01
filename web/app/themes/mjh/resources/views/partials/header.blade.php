@@ -21,18 +21,20 @@
         @endif
       </nav>
     </div>
-    <a class="brand" href="{{ home_url('/') }}">{!!  get_custom_logo() !!}</a>
-    <div class="overlay-toggle">
-      <a href="" class="" id="primary-nav-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+    <div class="sticky">
+      {!!  get_custom_logo() !!}
+      <div class="overlay-toggle">
+        <a href="" class="" id="primary-nav-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      </div>
+      @if (has_nav_menu('buttontop_navigation'))
+        {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
+      @endif
     </div>
-    @if (has_nav_menu('buttontop_navigation'))
-      {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
-    @endif
   </div>
 
   <!-- featured image and page title area -->
   @if (!is_front_page())
-    <div class="hero-area parallax-window" style="background-image:url('{{App::featuredImageSrc('large')}}')" data-parallax="scroll" data-image-src="{{App::featuredImageSrc('large')}}">
+    <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="{{App::featuredImageSrc('large')}}" data-over-scroll-fix="true">
       @include('partials.page-header')
     </div>
   @endif
