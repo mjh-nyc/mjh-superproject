@@ -112,24 +112,28 @@ class App extends Controller
     }
 
 
+
     /**
-     * Return related links
+     * Return repeater field from Advanced Custom Fields
      *
      * @return array
      */
-    public static function relatedLinks()
+    public static function get_repeater_field($fieldname, $id=false)
     {
         //setup array holder
-        $linkArray = array();
+        $repeater_items = array();
+        if (!$id){
+            $id = get_the_ID();
+        }
         // check if the repeater field has rows of data
-        if( have_rows('related_link_repeater') ):
-            $linkArray = get_field('related_link_repeater');
+        if( $fieldname && have_rows($fieldname,$id) ):
+            $repeater_items = get_field($fieldname,$id);
         endif;
-        return $linkArray;
+        return $repeater_items;
     }
 
     /**
-     * Return a single ACF pro field links, if $id is empty, will use current post's id
+     * Return a single ACF pro field, if $id is empty, will use current post's id
      * $fieldname must be passed
      *
      * @return varchar
@@ -157,6 +161,16 @@ class App extends Controller
         if($attachment_id){
             return wp_get_attachment_image_url( $attachment_id, $size );
         }
+    }
+
+    /**
+     * Return global site announcement (if exists)
+     *
+     * @return string
+     */
+    public static function getAnnouncement()
+    {
+        return get_field('annoucements','option');
     }
 
     /**
