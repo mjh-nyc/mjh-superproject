@@ -1,15 +1,19 @@
 <header class="banner">
-  <div class="announcement" style="">
+  @if (App::getAnnouncement())
+  <div class="announcement">
     <div class="announcement-header">
-      <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> Attention
+      <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> @php _e("Attention","sage"); @endphp
     </div>
     <div class="announcement-content">
-      Due to the sever weather, we will be closed for the day
+      {{App::getAnnouncement()}}
     </div>
   </div>
+  @else
   <div class="moto">
     {{ App::siteDescription() }}
   </div>
+  @endif
+
   <div class="container">
     <div class="top-links">
       <div class="social-channels">
