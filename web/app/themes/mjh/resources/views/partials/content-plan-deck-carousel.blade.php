@@ -9,9 +9,11 @@
           </div>
           @endif
           <div class="card-caption">{{$plan_deck_carousel_item['card_caption']}}</div>
+          @if($plan_deck_carousel_item['card_url'])
           <div class="card_url">
-            <a class="button" href="{!!$plan_deck_carousel_item['card_url']!!}">Link</a>
+            <a class="button" href="{!!$plan_deck_carousel_item['card_url']!!}">{!!$plan_deck_carousel_item['card_url_label']!!}</a>
           </div>
+          @endif
         </div>
     	@endforeach
 	</div>
