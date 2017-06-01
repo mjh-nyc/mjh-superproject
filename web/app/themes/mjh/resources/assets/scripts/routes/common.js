@@ -17,6 +17,9 @@ export default {
       
     })
 
+    //init Gallery
+    $('.gallery').slick();
+
     /*new Waypoint.Sticky({
       element: jQuery('.sticky')[0],
     })*/
