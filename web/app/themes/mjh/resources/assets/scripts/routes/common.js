@@ -16,6 +16,10 @@ export default {
       jQuery(this).parent().toggleClass('open').find('ul').slideToggle();
       
     })
+
+    /*new Waypoint.Sticky({
+      element: jQuery('.sticky')[0],
+    })*/
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
