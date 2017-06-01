@@ -132,14 +132,19 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title' 	=> 'Theme Options',
 		'parent_slug' 	=> 'options-general.php',
 	));
-
+ 	// add sub page
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Museum Stats',
+		'menu_title' 	=> 'Museum Stats',
+		'parent_slug' 	=> 'options-general.php',
+	));
 }
 
 
 /**** You can also make your custom sizes selectable from your WordPress admin. **/
 
 add_filter( 'image_size_names_choose', 'App\\my_custom_sizes' );
- 
+
 function my_custom_sizes( $sizes ) {
     return array_merge( $sizes, array(
         'square@2x' => __( 'Large square' ),
@@ -246,10 +251,10 @@ class find_us extends \WP_Widget {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'sage' );
 		?>
 		<p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'sage' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'sage' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
-		<?php 
+		<?php
 	}
 
 	/**

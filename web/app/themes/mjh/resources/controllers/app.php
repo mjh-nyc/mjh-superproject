@@ -78,7 +78,7 @@ class App extends Controller
      */
     public static function pageSubHeader()
     {
-        $page_subheader = get_field('page_subheader'); 
+        $page_subheader = get_field('page_subheader');
         if ($page_subheader) :
             return $page_subheader;
         endif;
@@ -122,7 +122,7 @@ class App extends Controller
         $linkArray = array();
         // check if the repeater field has rows of data
         if( have_rows('related_link_repeater') ):
-            $linkArray = get_field('related_link_repeater');      
+            $linkArray = get_field('related_link_repeater');
         endif;
         return $linkArray;
     }
@@ -143,6 +143,18 @@ class App extends Controller
             return get_field($fieldname,$id);
         } else {
             return false;
+        }
+    }
+
+    /**
+     * Return image thumbnail with attachmend id
+     *
+     * @return string
+     */
+    public static function getAttachmentById($attachment_id=false,$size='large')
+    {
+        if($attachment_id){
+            return wp_get_attachment_image_url( $attachment_id, $size );
         }
     }
 
