@@ -23,8 +23,9 @@
         <div class="plan-title">Hours &amp; Location</div>
         <div class="content">
           <div>
-            <div class="bold">{!! $get_current_hours !!}</div>
-            <div class="small">*Last admission to the Museum is <span="bold">30 minutes</span> prior to closing time</div>
+            <div class="bold">{!! $get_current_schedule_text !!}</div>
+            <div>{!! get_field('regular_hours_additional_notes', 'option') !!}</div>
+            <div>{!! get_field('holiday_additional_notes', 'option') !!}</div>
           </div>
           <div>
             <div class="bold">{!! get_field('street_address', 'option') !!}</div>
