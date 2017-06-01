@@ -1,9 +1,7 @@
 .banner .nav li {
   @extend .nav-item;
 }
-// .banner .nav a {
-//   @extend .nav-link;
-// }
+
 .banner {
   color: $color-header-text;
   a {
@@ -12,6 +10,36 @@
   background: $color-header-mobile-bg;
   @include media-breakpoint-up(sm) {
     background:transparent;
+  }
+  .moto {
+    background: $color-header-mobile-bg;
+    text-align: center;
+    font-family: 'EksellDisplay';
+    letter-spacing: 1px;
+    @include font-size(12);
+    padding: 0.5em 1em;
+    @include media-breakpoint-up(md) {
+      @include font-size(16);
+    }
+    @include media-breakpoint-up(lg) {
+      @include font-size(20); 
+    }
+  }
+  .announcement {
+    background: $color-header-alertbg;
+    text-align: center;
+    padding: 0.5em 1em;
+    @include font-size(14);
+    @include media-breakpoint-up(lg) {
+      @include font-size(16); 
+    }
+    .announcement-header {
+      @include bentonBd();
+      @include font-size(16);
+      @include media-breakpoint-up(lg) {
+        @include font-size(18); 
+      }
+    }
   }
   
   .container {

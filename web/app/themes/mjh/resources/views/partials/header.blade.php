@@ -1,10 +1,13 @@
 <header class="banner">
-  <div class="announcement" style="background: #033EFB">
-    <div class="announcement-content"><i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>Attention<br>
-    Due to the sever weather, we will be closed for the day
+  <div class="announcement" style="">
+    <div class="announcement-header">
+      <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> Attention
+    </div>
+    <div class="announcement-content">
+      Due to the sever weather, we will be closed for the day
     </div>
   </div>
-  <div class="moto" style="background: #000">
+  <div class="moto">
     {{ App::siteDescription() }}
   </div>
   <div class="container">
@@ -33,15 +36,6 @@
   @if (!is_front_page())
     <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="{{App::featuredImageSrc('large')}}" data-over-scroll-fix="true">
       @include('partials.page-header')
-    </div>
-  @else
-    <div class="hero-area-home">   
-      <div class="featured-carousel slider-for">
-        @foreach (Homepage::carouselItems() as $carousel_item_id)
-              <div class="slide" style="background-image:url('{{App::get_field('hero_image',$carousel_item_id['carousel_item'])['sizes']['large']}}');">
-              </div>
-          @endforeach
-      </div>
     </div>
   @endif
 </header>
