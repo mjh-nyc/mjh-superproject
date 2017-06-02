@@ -21,11 +21,16 @@
     </div>
 
     <div class="left-sidebar">
-      <!-- Primary sponsors -->
-      @include('partials.content-sponsors', ['sectionTitle' => __("Sponsors","sage"),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
+      
+      @if (App::get_repeater_field('primary_sponsors_repeater'))
+        <!-- Primary sponsors -->
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
+      @endif
 
-      <!-- Secondary sponsors -->
-      @include('partials.content-sponsors', ['sectionTitle' => __("Special thanks to:","sage"),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
+      @if (App::get_repeater_field('secondary_sponsors_repeater'))
+        <!-- Secondary sponsors -->
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
+      @endif
     </div>
 
 

@@ -9,20 +9,23 @@
           <ul>
             @foreach (App::get_repeater_field('event_dates') as $event_date)
               <li>{{ $event_date['event_start_date'] }} @if ($event_date['event_end_date']) &#8211; {{ $event_date['event_end_date'] }}@endif
+              </li>
             @endforeach
           </ul>
         </div>
         @endif
-        <div class="event-location">
-          <div>{{App::get_field('event_location')}}</div>
-          <div>{{App::get_field('event_street')}} {{App::get_field('event_secondary_street')}}</div>
-          <div>{{App::get_field('event_city')}}, {{App::get_field('event_state')}} {{App::get_field('event_zip_code')}}</div>
-        </div>
+        @if (App::get_field('event_has_location'))
+          <div class="event-location">
+            <div>{{App::get_field('event_location')}}</div>
+            <div>{{App::get_field('event_street')}} {{App::get_field('event_secondary_street')}}</div>
+            <div>{{App::get_field('event_city')}}, {{App::get_field('event_state')}} {{App::get_field('event_zip_code')}}</div>
+          </div>
+        @endif
         @if (App::get_repeater_field('event_pricing'))
         <div class="event-pricing">
           <ul>
             @foreach (App::get_repeater_field('event_pricing') as $event_pricing)
-              <li>${{ $event_pricing['event_price'] }} {{ $event_pricing['event_price_label'] }}</li>
+              <li><span class="price">${{ $event_pricing['event_price'] }}</span> {{ $event_pricing['event_price_label'] }}</li>
             @endforeach
           </ul>
         </div>
@@ -42,11 +45,15 @@
     </div>
 
     <div class="left-sidebar">
-      <!-- Primary sponsors -->
-      @include('partials.content-sponsors', ['sectionTitle' => __("Presented by","sage"),'sectionClass'=>"event",'sectionType'=>"primary"])
+      @if (App::get_repeater_field('primary_sponsors_repeater'))
+        <!-- Primary sponsors -->
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
+      @endif
 
-      <!-- Secondary sponsors -->
-      @include('partials.content-sponsors', ['sectionTitle' => __("Co-presented by","sage"),'sectionClass'=>"event",'sectionType'=>"secondary"])
+      @if (App::get_repeater_field('secondary_sponsors_repeater'))
+        <!-- Secondary sponsors -->
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
+      @endif
     </div>
 
   </div>
