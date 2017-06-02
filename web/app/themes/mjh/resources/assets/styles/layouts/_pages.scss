@@ -278,6 +278,17 @@
             }
         }
     }
+    .plan-top {
+        .plan-item {
+            @include make-col-ready();
+            @include media-breakpoint-up(md) {
+                @include make-col(6);
+            }
+            @include media-breakpoint-up(lg) {
+                @include make-col(4);
+            }
+        }
+    }
 }
 
 .exhibtion-card {
