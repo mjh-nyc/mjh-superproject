@@ -22,32 +22,15 @@
 
     <div class="left-sidebar">
       <!-- Primary sponsors -->
-      <div class="exhibition-primary-sponsors sponsors">
-        <h4 class="subhead">@php _e("Sponsors","sage"); @endphp</h4>
-        <div class="sponsor-name">
-          Lorem Ipsum
-        </div>
-        <div class="exhibition-sponsor-image">
-          <img src="http://mjh.local/app/uploads/2017/05/garden-of-stones-card-hero-150x150.jpg">
-        </div>
-      </div>
+      @include('partials.content-sponsors', ['sectionTitle' => __("Sponsors","sage"),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
 
       <!-- Secondary sponsors -->
-      <div class="exhibition-secondary-sponsors sponsors">
-        <h4 class="subhead">@php _e("Special thanks to:","sage"); @endphp</h4>
-        <div class="sponsor-name">
-          <ul>
-            <li>Consequunturn Magni</li>
-            <li> Quia Conseguuntu</li>
-            <li> Ratione Volupetem</li>
-          </ul>
-        </div>
-      </div>
+      @include('partials.content-sponsors', ['sectionTitle' => __("Special thanks to:","sage"),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
     </div>
 
 
   </div>
   <footer>
-    
+
   </footer>
 </article>
