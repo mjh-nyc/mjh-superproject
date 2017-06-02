@@ -1,3 +1,3 @@
 <article @php(post_class())>
-  @include('partials.content-exhibition-card')
+  @include('partials.content-exhibition-card', ['item_id'=>$post->ID])
 </article>
