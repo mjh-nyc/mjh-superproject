@@ -1,8 +1,8 @@
 {{-- You must pass the post ID to this template as $item_id --}}
-<div class="slide exhibtion-card">
+<div class="slide-card exhibtion-card">
 	<!-- Hero bg in header template -->
-	<div class="featured-image"><div class="wrap">
-		<a href="{!! get_the_permalink($item_id); !!}">{!! App::featuredImage('square@1x',$item_id) !!}</a>
+	<div class="card-image"><div class="wrap">
+		<span><a href="{!! get_the_permalink($item_id); !!}">{!! App::featuredImage('square@1x',$item_id) !!}</a></span>
 	</div></div>
 	<h3>{{ get_the_title($item_id) }}</h3>
 	<p class="description">{{App::postExcerpt($item_id)}}</p>

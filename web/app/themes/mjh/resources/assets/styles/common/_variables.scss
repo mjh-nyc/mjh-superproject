@@ -1,45 +1,38 @@
 // Colors
-$brand-primary:         #2447AB;
-
-$color-text:            #4A4A4A;
-$color-primary-header:  white;
-$color-mission:         #2B68A9;
-
+$brand-primary: #2447AB;
+$color-text: #4A4A4A;
+$color-primary-header: white;
+$color-mission: #2B68A9;
 //header
-$color-header-text:     white;
-$color-header-links:    white;
+$color-header-text: white;
+$color-header-links: white;
 $color-header-mobile-bg:black;
-$color-header-separator:white; 
-$color-header-alertbg:  #033EFB;
-
+$color-header-separator:white;
+$color-header-alertbg: #033EFB;
 //footer
-$color-footer-bg:       #DBDBDB;
-$color-footer-header:   #A5A4A6;
-$color-footer-cta:      #2447AB;
-$color-footer-links:    black;
+$color-footer-bg: #DBDBDB;
+$color-footer-header: #A5A4A6;
+$color-footer-cta: #2447AB;
+$color-footer-links: black;
 $color-footer-separator:#979797;
-
 //slide cards
-$color-slide-bg:        white;
-$color-slide-text:      #5F5F5F;
-$color-slide-headline:  black;
-$color-slide-subhead:   #222222;
+$color-slide-bg: white;
+$color-slide-text: #5F5F5F;
+$color-slide-headline: black;
+$color-slide-subhead: #222222;
 $color-slide-separator: #9B9B9B;
-
-$color-exhibit-infobg:  #1C1C1D;
-
-$fa-font-path:          '~font-awesome/fonts';
-
+$color-exhibit-infobg: #1C1C1D;
+$color-visitplanbg: #74479C;
+$fa-font-path: '~font-awesome/fonts';
 //
 @font-face {
-  font-family: 'EksellDisplay';
-  src: url('../fonts/EksellDisplayWeb-Medium.eot');
-  src: url('../fonts/EksellDisplayWeb-Medium.eot?#iefix') format('embedded-opentype'), 
-       url('../fonts/EksellDisplayWeb-Medium.woff2') format('woff2'), 
-       url('../fonts/EksellDisplayWeb-Medium.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'EksellDisplay';
+    src: url('../fonts/EksellDisplayWeb-Medium.eot');
+    src: url('../fonts/EksellDisplayWeb-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/EksellDisplayWeb-Medium.woff2') format('woff2'), url('../fonts/EksellDisplayWeb-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+
 //BentonSans
 @mixin bentonReg() {
     font-family: "Benton Sans Reg";
@@ -47,25 +40,25 @@ $fa-font-path:          '~font-awesome/fonts';
     font-weight: Normal;
 }
 
-@mixin bentonIt(){
+@mixin bentonIt() {
     font-family: "Benton Sans It";
     font-style: Italic;
     font-weight: Normal;
 }
 
-@mixin bentonBd(){
+@mixin bentonBd() {
     font-family: "Benton Sans Bd";
     font-style: Normal;
     font-weight: Normal;
 }
 
-@mixin bentonBdIt(){
+@mixin bentonBdIt() {
     font-family: "Benton Sans Bd It";
     font-style: Italic;
     font-weight: Normal;
 }
 
 @mixin font-size($size) {
-  font-size: $size * 1px;
-  font-size: $size * 0.1rem;
+    font-size: $size * 1px;
+    font-size: $size * 0.1rem;
 }

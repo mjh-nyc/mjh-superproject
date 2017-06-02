@@ -7,6 +7,9 @@
     <div class="wrap carousel container-fluid" role="document">
           @yield('carousel')
     </div>
+    <div class="wrap museum-plan container-fluid" role="document">
+          @yield('museum-plan')
+    </div>
     <div class="wrap container" role="document">
       <div class="content">
         <main class="main">

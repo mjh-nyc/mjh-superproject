@@ -1,9 +1,9 @@
-<div class="museum-plan">
+<div class="container museum-plan">
   <div class="header">
     <h1>Plan your visit</h1>
   </div>
   <div class="museum-plans">
-    <div class="plan-top row">
+    <div class="plan-top row justify-content-center">
       <div class="plan-item">
         <div class="plan-icon">[ICON]</div>
         <div class="plan-title">Tickets</div>

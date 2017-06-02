@@ -181,13 +181,8 @@
             margin: 0;
             color: white;
             text-align: center;
-            @include font-size(25);
             @include media-breakpoint-up(sm) {
-                @include font-size(44);
                 padding: 0 0 45px;
-            }
-            @include media-breakpoint-up(lg) {
-                @include font-size(60);
             }
         }
     }
@@ -201,7 +196,7 @@
         @include media-breakpoint-up(md) {
             display: block;
         }
-        .slide {
+        .slide-card {
             @include media-breakpoint-up(sm) {
                 height: 781px;
             }
@@ -210,7 +205,7 @@
             }
             background-size: cover;
         }
-        .slide:after {
+        .slide-card:after {
             opacity: 0.75;
             position: absolute;
             width: 100%;
@@ -229,47 +224,17 @@
             padding-bottom: 120px;
         }
         .slick-arrow {
-            background: white;
-            overflow: hidden;
-            border-radius: 50%;
-            position: absolute;
             left: 50%;
             bottom: 45px;
-            height: 40px;
-            width: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-            border: 0;
-            font-size: 0;
-            line-height: 0;
             @include media-breakpoint-up(lg) {
-                height: 50px;
-                width: 50px;
                 bottom: 40px;
             }
         }
-        .slick-prev:before,
-        .slick-next:before {
-            font-family: FontAwesome;
-            font-size: 30px;
-            line-height: 1;
-            color: black;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-indent: 0;
-        }
-        .slick-prev:before {
-            content: "\f104";
-        }
-        .slick-next:before {
-            content: "\f105";
-        }
         .slick-prev {
             margin-left: -60px;
-            text-indent: -4px;
         }
         .slick-next {
             margin-left: 10px;
-            text-indent: 4px;
         }
         .slick-current {
             opacity: 1;
@@ -287,7 +252,15 @@
         background: $color-visitplanbg;
         color: white;
         .header {
-            @include font-size(19)
+            text-align: center;
+            padding: 36px 0
+        }
+        .slide-card {
+            height: 380px;
+            @include media-breakpoint-up(md) {
+                height: 394px;
+            }
+            text-align: center;
         }
     }
     .plan-top {
@@ -299,25 +272,20 @@
             @include media-breakpoint-up(lg) {
                 @include make-col(4);
             }
+            text-align: center;
         }
     }
 }
 
-.exhibtion-card {
-    margin: 0 5px;
-    height: 410px;
-    @include media-breakpoint-up(sm) {
-        height: 435px;
+.mjh-slider {
+    .slide-card {
+        background: $color-slide-bg;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s;
+        position: relative;
+        color: $color-slide-text;
     }
-    @include media-breakpoint-up(lg) {
-        height: 510px;
-    }
-    background: $color-slide-bg;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s;
-    position: relative;
-    color: $color-slide-text;
-    .featured-image {
+    .card-image {
         width: 100%;
         height: 0;
         padding-bottom: 35%;
@@ -337,7 +305,7 @@
             display: flex;
             justify-content: center;
             overflow: hidden;
-            a {
+            span {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -349,6 +317,56 @@
             }
         }
     }
+    .slick-arrow {
+        background: white;
+        overflow: hidden;
+        border-radius: 50%;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        border: 0;
+        font-size: 0;
+        line-height: 0;
+        @include media-breakpoint-up(lg) {
+            height: 50px;
+            width: 50px;
+        }
+    }
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: FontAwesome;
+        font-size: 30px;
+        line-height: 1;
+        color: black;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-indent: 0;
+    }
+    .slick-prev:before {
+        content: "\f104";
+    }
+    .slick-next:before {
+        content: "\f105";
+    }
+    .slick-prev {
+        text-indent: -4px;
+    }
+    .slick-next {
+        text-indent: 4px;
+    }
+}
+
+.exhibtion-card {
+    margin: 0 5px;
+    height: 410px;
+    @include media-breakpoint-up(sm) {
+        height: 435px;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 510px;
+    }
+    .card-image {}
     h3 {
         padding: 15px 20px 0;
         margin-bottom: 0;
