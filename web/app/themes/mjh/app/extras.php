@@ -287,4 +287,89 @@ class find_us extends \WP_Widget {
 add_action( 'widgets_init', function(){
      register_widget( 'App\\find_us' );
 });
+
 /* END find us widget  ****************************/
+
+// hook add_query_vars function into query_vars
+function mjh_add_query_vars($aVars) {
+    $aVars[] = "on_exhibit";
+    return $aVars;
+}
+add_filter('query_vars', 'App\\mjh_add_query_vars');
+
+// hook add_rewrite_rules function into rewrite_rules_array
+function mjh_add_rewrite_rules($aRules) {
+    $aNewRules = array('exhibitions/on_exhibit/([^/]+)/?$' => 'index.php?post_type=exhibition&on_exhibit=$matches[1]');
+    $aRules = $aNewRules + $aRules;
+    return $aRules;
+}
+add_filter('rewrite_rules_array', 'App\\mjh_add_rewrite_rules');
+
+// hook to modify the post query
+function mjh_meta_query( $query ) {
+    if ( $query->is_archive){
+        switch($query->query_vars['post_type']){
+            case'exhibition':
+                if(isset($query->query_vars['on_exhibit'])) {
+                    $on_exhibit = urldecode($query->query_vars['on_exhibit']);
+                    $currentDate = strtotime('today midnight');
+                    $queryHash = array();
+                    switch($on_exhibit){
+                        case'current':
+                            $queryHash['relation'] = 'OR';
+                            $queryHash[0] = array(
+                                'key'	 	=> 'exhibition_type',
+                                'value'	  	=> 'collection',
+                                'compare' 	=> '=',
+                            );
+
+                            $queryHash[1]['relation'] = 'AND';
+                            $queryHash[1][0] = array(
+                                'key'	  	=> 'exhibition_start_date',
+                                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                                'type'		=> 'DATETIME',
+                                'compare' 	=> '<',
+                            );
+                            $queryHash[1][1] = array(
+                                'key'	  	=> 'exhibition_end_date',
+                                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                                'type'		=> 'DATETIME',
+                                'compare' 	=> '>',
+                            );
+                        break;
+                        case'upcoming':
+                            $queryHash['relation'] = 'AND';
+                            $queryHash[0] = array(
+                                'key'	 	=> 'exhibition_type',
+                                'value'	  	=> 'On View',
+                                'compare' 	=> '=',
+                            );
+                             $queryHash[1] = array(
+                                'key'	  	=> 'exhibition_start_date',
+                                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                                'type'		=> 'DATETIME',
+                                'compare' 	=> '>',
+                            );
+                        break;
+                        case'past':
+                            $queryHash['relation'] = 'AND';
+                            $queryHash[0] = array(
+                                'key'	 	=> 'exhibition_type',
+                                'value'	  	=> 'On View',
+                                'compare' 	=> '=',
+                            );
+                             $queryHash[1] = array(
+                                'key'	  	=> 'exhibition_end_date',
+                                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                                'type'		=> 'DATETIME',
+                                'compare' 	=> '<',
+                            );
+                        break;
+                    }
+                    $query->set( 'meta_query', $queryHash );
+                }
+            break;
+        }
+    }
+}
+add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
