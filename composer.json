@@ -51,7 +51,7 @@
       "type": "package",
       "package": {
         "name": "mjh-nyc/mjh-custom-configurations",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"type": "wordpress-muplugin",
 	"source": {
 	  "type": "git",
