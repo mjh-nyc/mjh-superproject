@@ -1,11 +1,11 @@
-<div class="{{ $sectionType }}-sponsors {{ $sectionClass }}-sponsors">
+<div class="{{ $sectionType }}-sponsors {{ $sectionClass }}-sponsors sponsors">
   <h4 class="subhead">{{$sectionTitle}}</h4>
   <ul>
   @foreach (App::get_repeater_field( $sectionType.'_sponsors_repeater') as $sponsors)
-    <li>
+    <li> 
       @if ($sponsors['sponsor_image'])
       <div class="{{ $sectionType }}-sponsor-image image">
-        @if ($sponsors['sponsor_url'])<a href="{{ $sponsors['sponsor_url'] }}" target="_blank">@endif <img src="{!! App::getAttachmentById($sponsors['sponsor_image']['ID'],'medium') !!}"> @if ($sponsors['sponsor_url'])</a>@endif
+        @if ($sponsors['sponsor_url'])<a href="{{ $sponsors['sponsor_url'] }}" target="_blank">@endif <img src="{!! $sponsors['sponsor_image']['sizes']['large'] !!}" alt="{!! $sponsors['sponsor_image']['alt'] !!}" title="{{$sponsors['sponsor_name']}}"> @if ($sponsors['sponsor_url'])</a>@endif
       </div>
       @else
 
