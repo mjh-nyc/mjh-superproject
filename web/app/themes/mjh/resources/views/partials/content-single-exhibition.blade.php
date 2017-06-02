@@ -30,7 +30,11 @@
 
 
   </div>
-  <footer>
-
-  </footer>
+  <div class="related-content">
+    {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}
+    @for ($i = 0; $i < 2; $i++)
+        @php $item_id = '28'; @endphp
+        @include('partials.content-exhibition-card')
+    @endfor
+  </div>
 </article>
