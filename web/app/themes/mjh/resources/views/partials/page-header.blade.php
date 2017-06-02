@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>{!! App\title() !!}</h1>
-  @if ($post->post_type =='post')
+  @if ( !empty($post) && $post->post_type =='post')
     <div>@php(the_date('l, F j, Y'))</div>
   @endif
   @if (is_search())
