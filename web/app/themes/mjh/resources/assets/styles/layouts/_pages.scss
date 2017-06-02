@@ -87,36 +87,41 @@
             }
         }
     }
-    .exhibition-primary-sponsors {
-        margin-bottom: 25px;
-        h4 {
-            text-align: center;
-        }
-        .sponsor-name {
-            margin-bottom: 13px;
-        }
-        img {
-            min-width: 100%;
-            height: auto;
+}
+
+.sponsors {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            padding: 0.2em 0;
         }
     }
-    .exhibition-secondary-sponsors {
+}
+
+.primary-sponsors {
+    margin-bottom: 25px;
+    h4 {
+        text-align: center;
+    }
+    .sponsor-name {
+        margin-bottom: 13px;
+    }
+    img {
+        min-width: 100%;
+        height: auto;
+    }
+}
+
+.secondary-sponsors {
+    @include font-size(12);
+    @include media-breakpoint-up(lg) {
+        @include font-size(16);
+    }
+    h4 {
         @include font-size(12);
         @include media-breakpoint-up(lg) {
             @include font-size(16);
-        }
-        h4 {
-            @include font-size(12);
-            @include media-breakpoint-up(lg) {
-                @include font-size(16);
-            }
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            li {
-                padding: 0.2em 0;
-            }
         }
     }
 }
@@ -276,6 +281,13 @@
             @include media-breakpoint-up(sm) {
                 overflow: visible;
             }
+        }
+    }
+    .museum-plan {
+        background: $color-visitplanbg;
+        color: white;
+        .header {
+            @include font-size(19)
         }
     }
     .plan-top {
