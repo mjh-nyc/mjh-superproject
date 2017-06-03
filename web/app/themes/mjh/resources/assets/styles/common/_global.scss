@@ -46,6 +46,10 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.bold {
+    @include bentonBd();
+}
+
 .stuck {
     position: fixed;
     top: 0;

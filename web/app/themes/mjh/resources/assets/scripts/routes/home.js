@@ -47,26 +47,10 @@ export default {
         });
         jQuery('.slider-plan-deck').slick({
             centerMode: true,
-            centerPadding: '10px',
+            centerPadding: 0,
             slidesToShow: 1,
-            responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        centerMode: true,
-                        centerPadding: '150',
-                        slidesToShow: 1,
-                    },
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        centerPadding: '0',
-                        slidesToShow: 1,
-                    },
-                },
-            ],
+            arrows: true,
+            autoplay: true,
         });
     },
     finalize() {

@@ -14,19 +14,21 @@
         line-height: 34px;
     }
 }
+
 .cta.sqr:hover,
 .actions li a:hover {
     border-color: red;
     color: red;
 }
+
 .banner {
     .cta.sqr,
     .actions li a {
-
         border-color: white;
         color: white;
     }
 }
+
 .cta-round {
     border-radius: 20px;
     height: 40px;
@@ -35,14 +37,56 @@
     line-height: 4rem;
     padding: 0 20px;
     @include font-size(14);
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
+        border-radius: 25px;
+        height: 50px;
+        line-height: 50px;
+        height: 5rem;
+        line-height: 5rem;
         @include font-size(16);
         padding: 0 30px;
     }
     background: #222;
     display: inline-block;
 }
-.cta-round.secondary {
+
+.cta-outline {
+    border: 2px solid white;
+    height: 36px;
+    line-height: 36px;
+    height: 3.6rem;
+    line-height: 3.3rem;
+    @include media-breakpoint-up(md) {
+        height: 46px;
+        line-height: 46px;
+        height: 4.6rem;
+        line-height: 4.2rem;
+    }
+}
+
+.cta-secondary {
     background: white;
-    color: #222222;
+    color: #222222 !important;
+    border-color: #222222;
+}
+
+.cta-arrow {
+    position: relative;
+    padding: 0 70px 0 27px;
+    padding: 0 7rem 0 2.7rem;
+}
+
+.cta-arrow:before {
+    position: absolute;
+    font-family: FontAwesome;
+    font-size: 30px;
+    line-height: 1;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-indent: 0;
+    content: "\f105";
+    right: 14px;
+    top: 50%;
+    margin-top: -15px;
 }
