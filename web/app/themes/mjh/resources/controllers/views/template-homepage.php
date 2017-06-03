@@ -37,7 +37,11 @@ class Homepage extends Controller
 	);
       $events = new WP_Query( $pParamHash);
       remove_filter('posts_where', 'App\\mjh_events_posts_where');
-      return $events;
+      if($events->posts){
+         return $events->posts;
+      }else{
+         return false;
+      }
     }
 
     /**
@@ -72,7 +76,11 @@ class Homepage extends Controller
         $pParamHash['post_type'] = 'post';
         $pParamHash['post_per_page'] = 10;
         $posts = new WP_Query( $pParamHash);
-        return $posts;
+        if($posts->posts){
+         return $posts->posts;
+      }else{
+         return false;
+      }
     }
 
     /**

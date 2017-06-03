@@ -112,6 +112,40 @@ class App extends Controller
     }
 
     /**
+     * Return the post terms
+     *
+     * @return array
+     */
+    public static function postTerms($id=false, $taxonomy = '')
+    {
+        if (!$id){
+            $id = get_the_ID();
+        }
+        return get_the_terms($id,$taxonomy);
+    }
+
+
+    /**
+     * Return the post categories in a string
+     *
+     * @return string
+     */
+    public static function postTermsString($id=false, $taxonomy = '')
+    {
+        $terms = App::postTerms($id, $taxonomy);
+        $term_string = '';
+        if(!empty($terms)){
+            foreach ($terms as $key=> $term){
+                if($key > 0){
+                    $term_string.=", ";
+                }
+                $term_string.=$term->name;
+            }
+        }
+        return $term_string;
+    }
+
+    /**
      * Return the post excerpt, if no ID provided, will use current post id
      *
      * @return string
