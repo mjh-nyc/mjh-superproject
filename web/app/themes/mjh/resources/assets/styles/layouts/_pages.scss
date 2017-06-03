@@ -51,6 +51,15 @@
     .entry-summary {
         margin-bottom: 3rem;
     }
+    .nav-next {
+        float: right;
+    }
+    .nav-next a,
+    .nav-previous a {
+        @extend .cta-round;
+        @extend .cta-outline;
+        @extend .cta-secondary;
+    }
 }
 
 .event-template-default,
