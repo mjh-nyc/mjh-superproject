@@ -1,3 +1,4 @@
+.search-results,
 .page-template-default {
     .wrap.container {
         .content {
@@ -22,6 +23,33 @@
                 }
             }
         }
+    }
+}
+
+.search-results {
+    article {
+        border-bottom: 1px solid $color-footer-separator;
+        margin-bottom: 3rem;
+    }
+    .entry-title {
+        @include font-size(22);
+        @include media-breakpoint-up(md) {
+            @include font-size(26);
+        }
+        @include media-breakpoint-up(lg) {
+            @include font-size(30);
+        }
+        @include bentonBd();
+    }
+    .byline {
+        font-size: 0.7em;
+        margin-bottom: 1rem;
+        a {
+            @include bentonBd();
+        }
+    }
+    .entry-summary {
+        margin-bottom: 3rem;
     }
 }
 
