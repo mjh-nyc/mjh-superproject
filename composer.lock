@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "69e409a53ef19d347a5357a4c6861c09",
+    "content-hash": "be8eb25eb591d57825cdb2b95256e0d3",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -367,7 +367,7 @@
         },
         {
             "name": "mjh-nyc/mjh-custom-configurations",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
@@ -540,12 +540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/soberwp/controller.git",
-                "reference": "33ae1cc3b4b0ec3a8a3e2949a500e78880ad01db"
+                "reference": "a3082338d33600311c708c6fd14bc44301ca78fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/soberwp/controller/zipball/33ae1cc3b4b0ec3a8a3e2949a500e78880ad01db",
-                "reference": "33ae1cc3b4b0ec3a8a3e2949a500e78880ad01db",
+                "url": "https://api.github.com/repos/soberwp/controller/zipball/a3082338d33600311c708c6fd14bc44301ca78fa",
+                "reference": "a3082338d33600311c708c6fd14bc44301ca78fa",
                 "shasum": ""
             },
             "require": {

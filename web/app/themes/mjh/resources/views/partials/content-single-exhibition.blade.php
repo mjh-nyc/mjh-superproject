@@ -1,4 +1,4 @@
-<article @php(post_class())>
+<article @php(post_class(App::addSponsorsClass()))>
   <div class="col-content row">
 
     <div class="right-sidebar">
@@ -20,24 +20,26 @@
       @include('partials.content-related-links')
     </div>
 
-    <div class="left-sidebar">
-      
-      @if (App::get_repeater_field('primary_sponsors_repeater'))
-        <!-- Primary sponsors -->
-        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
-      @endif
+    @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsor_header'))
+      <div class="left-sidebar">
+        
+        @if (App::get_repeater_field('primary_sponsors_repeater'))
+          <!-- Primary sponsors -->
+          @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
+        @endif
 
-      @if (App::get_repeater_field('secondary_sponsors_repeater'))
-        <!-- Secondary sponsors -->
-        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
-      @endif
-    </div>
+        @if (App::get_repeater_field('secondary_sponsor_header'))
+          <!-- Secondary sponsors -->
+          @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
+        @endif
+      </div>
+    @endif
 
 
   </div>
   <div class="related-content">
     <div class="header">
-      {{ __('Also In View', 'sage') }}
+      {{ __('Also on View', 'sage') }}
     </div>
     <div class="row no-gutters">
     {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}

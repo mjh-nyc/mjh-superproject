@@ -198,6 +198,26 @@ class App extends Controller
         }
     }
 
+
+    
+
+    /**
+     * Decide if we should add a no-sponsor class name to article element
+     *
+     * @return string
+     */
+    public static function addSponsorsClass()
+    {
+        $primary_sponsors_repeater = get_field('primary_sponsors_repeater');
+        $secondary_sponsors_repeater = get_field('secondary_sponsors_repeater');
+        $add_class = "";
+        if (!$primary_sponsors_repeater && !$secondary_sponsors_repeater) {
+            $add_class = 'no-sponsors';
+        }
+        return $add_class;
+
+    }
+
     /**
      * Return image thumbnail with attachmend id
      *

@@ -74,3 +74,10 @@ $fa-font-path: '~font-awesome/fonts';
         }
     }
 }
+
+@mixin fa-inline-prep() {
+    font-family: FontAwesome;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-indent: 0
+}
