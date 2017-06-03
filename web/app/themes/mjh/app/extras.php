@@ -292,14 +292,14 @@ add_action( 'widgets_init', function(){
 
 // hook add_query_vars function into query_vars
 function mjh_add_query_vars($aVars) {
-    $aVars[] = "on_exhibit";
+    $aVars[] = "status";
     return $aVars;
 }
 add_filter('query_vars', 'App\\mjh_add_query_vars');
 
 // hook add_rewrite_rules function into rewrite_rules_array
 function mjh_add_rewrite_rules($aRules) {
-    $aNewRules = array('exhibitions/on_exhibit/([^/]+)/?$' => 'index.php?post_type=exhibition&on_exhibit=$matches[1]');
+    $aNewRules = array('exhibitions/status/([^/]+)/?$' => 'index.php?post_type=exhibition&status=$matches[1]');
     $aRules = $aNewRules + $aRules;
     return $aRules;
 }
@@ -310,11 +310,11 @@ function mjh_meta_query( $query ) {
     if ( $query->is_archive){
         switch($query->query_vars['post_type']){
             case'exhibition':
-                if(isset($query->query_vars['on_exhibit'])) {
-                    $on_exhibit = urldecode($query->query_vars['on_exhibit']);
+                if(isset($query->query_vars['status'])) {
+                    $status = urldecode($query->query_vars['status']);
                     $currentDate = strtotime('today midnight');
                     $queryHash = array();
-                    switch($on_exhibit){
+                    switch($status){
                         case'current':
                             $queryHash['relation'] = 'OR';
                             $queryHash[0] = array(
@@ -379,3 +379,36 @@ function mjh_events_posts_where( $where ) {
 	$where = str_replace("meta_key = 'event_dates_%", "meta_key LIKE 'event_dates_%", $where);
 	return $where;
 }
+
+//Update tites of the listing pages, using archives wp template
+add_filter( 'get_the_archive_title', function ( $title ) {
+   if ( is_category() ) {
+        /* translators: Category archive title. 1: Category name */
+        $title = sprintf( __( 'Category: %s' ), single_cat_title( '', false ) );
+    } elseif ( is_tag() ) {
+        /* translators: Tag archive title. 1: Tag name */
+        $title = sprintf( __( 'Tag: %s' ), single_tag_title( '', false ) );
+    } elseif ( is_author() ) {
+        /* translators: Author archive title. 1: Author name */
+        $title = sprintf( __( 'Author: %s' ), '<span class="vcard">' . get_the_author() . '</span>' );
+    } elseif ( is_year() ) {
+        /* translators: Yearly archive title. 1: Year */
+        $title = sprintf( __( 'Year: %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );
+    } elseif ( is_month() ) {
+        /* translators: Monthly archive title. 1: Month name and year */
+        $title = sprintf( __( 'Month: %s' ), get_the_date( _x( 'F Y', 'monthly archives date format' ) ) );
+    } elseif ( is_day() ) {
+        /* translators: Daily archive title. 1: Date */
+        $title = sprintf( __( 'Day: %s' ), get_the_date( _x( 'F j, Y', 'daily archives date format' ) ) );
+    } elseif ( is_post_type_archive() ) {
+        /* translators: Post type archive title. 1: Post type name */
+        $title = sprintf( __( ''.get_query_var('status').' %s' ), post_type_archive_title( '', false ) );
+    } elseif ( is_tax() ) {
+        $tax = get_taxonomy( get_queried_object()->taxonomy );
+        /* translators: Taxonomy term archive title. 1: Taxonomy singular name, 2: Current taxonomy term */
+        $title = sprintf( __( '%1$s: %2$s' ), $tax->labels->singular_name, single_term_title( '', false ) );
+    } else {
+        $title = __( 'Archives' );
+    }
+    return $title;
+});
