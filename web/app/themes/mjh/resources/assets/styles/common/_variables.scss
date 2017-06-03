@@ -21,8 +21,10 @@ $color-slide-text: #5F5F5F;
 $color-slide-headline: black;
 $color-slide-subhead: #222222;
 $color-slide-separator: #9B9B9B;
+//other items
 $color-exhibit-infobg: #1C1C1D;
 $color-visitplanbg: #74479C;
+$color-eventinfobg: #50E3C2;
 $fa-font-path: '~font-awesome/fonts';
 //
 @font-face {
@@ -61,4 +63,14 @@ $fa-font-path: '~font-awesome/fonts';
 @mixin font-size($size) {
     font-size: $size * 1px;
     font-size: $size * 0.1rem;
+}
+
+@mixin listReset() {
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            padding: 0.2em 0;
+        }
+    }
 }

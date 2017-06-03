@@ -35,11 +35,16 @@
 
 
   </div>
-  <div class="related-content row no-gutters">
+  <div class="related-content">
+    <div class="header">
+      {{ __('Also In View', 'sage') }}
+    </div>
+    <div class="row no-gutters">
     {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}
     @for ($i = 0; $i < 2; $i++)
         @php $item_id = '28'; @endphp
         @include('partials.content-exhibition-card')
     @endfor
+    </div>
   </div>
 </article>

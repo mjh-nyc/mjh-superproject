@@ -32,7 +32,7 @@
         @endif
         @if (App::get_field('event_ticket_url'))
         <div class="buy-tix">
-          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round secondary">@php _e("Buy Tickets","sage"); @endphp</a>
+          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
         </div>
         @endif
       </div>
