@@ -15,27 +15,31 @@
   @endif
 
   <div class="container">
-    <div class="top-links">
-      <div class="social-channels">
+    <div class="top-links row">
+      <div class="social-channels col-4">
         {!! App::get_social() !!}
       </div>
-      <nav class="nav-secondary">
+      <div class="nav-secondary col-8">
        @if (has_nav_menu('minitop_navigation'))
         {!! wp_nav_menu(['theme_location' => 'minitop_navigation']) !!}
         @endif
-      </nav>
-    </div>
-    <div class="sticky">
-      {!!  get_custom_logo() !!}
-      <div class="overlay-toggle">
-        <a href="" class="" id="primary-nav-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
       </div>
-      @if (has_nav_menu('buttontop_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
-      @endif
+    </div>
+    <div class="sticky row justify-content-between">
+      <div class="col-3">
+        {!!  get_custom_logo() !!}
+      </div>
+      <div class="col-9 right">
+        @if (has_nav_menu('buttontop_navigation'))
+          {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
+        @endif
+        <div class="overlay-toggle">
+          <a href="" class="" id="primary-nav-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+        </div>
+      </div>
     </div>
   </div>
-
+  <div class="clearfix"></div>
   <!-- featured image and page title area -->
   @if (!is_front_page())
     <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="{{App::featuredImageSrc('large')}}" data-over-scroll-fix="true">
