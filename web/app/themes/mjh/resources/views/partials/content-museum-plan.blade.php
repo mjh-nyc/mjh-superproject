@@ -43,10 +43,14 @@
       <div class="plan-item">
         <div class="plan-title">Recommended by:</div>
         <ul class="bold">
-          <li><a href="#">Yelp</a></li>
-          <li><a href="#">Trip Advisor</a></li>
-          <li><a href="#">Timeout New York</a></li>
-          <li><a href="#">Lonely Planet</a></li>
+          <li><a href="#"><img src="../app/themes/mjh/dist/images/Yelp_trademark_RGB_outline.png" alt="Yelp" /></a></li>
+          <li><a href="#"><img src="../app/themes/mjh/dist/images/Trip Advisor Logo.png" alt="Trip Advisor" /></a></li>
+          <li><a href="#"><img src="../app/themes/mjh/dist/images/time-out-new-york-logo.png" alt="Timeout New York<" /></a></li>
+          <li><a href="#"><img src="../app/themes/mjh/dist/images/800px-Lonely_Planet.png" alt="Lonely Planet" /></a></li>
+          
+
+
+
         </ul>
       </div>
     </div>
