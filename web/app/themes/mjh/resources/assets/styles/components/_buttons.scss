@@ -36,6 +36,7 @@
     height: 4rem;
     line-height: 4rem;
     padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     @include font-size(14);
     @include media-breakpoint-up(md) {
         border-radius: 25px;
@@ -47,7 +48,15 @@
         padding: 0 30px;
     }
     background: #222;
+    color: white;
     display: inline-block;
+    transition: all 0.2s;
+}
+
+.cta-round:hover {
+    text-decoration: none;
+    color: #222;
+    background: white;
 }
 
 .cta-outline {
@@ -70,6 +79,12 @@
     border-color: #222222;
 }
 
+.cta-secondary:hover {
+    text-decoration: none;
+    background: #222;
+    color: white !important;
+}
+
 .cta-arrow {
     position: relative;
     padding: 0 70px 0 27px;
@@ -81,7 +96,7 @@
     font-family: FontAwesome;
     font-size: 30px;
     line-height: 1;
-    color: black;
+    color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-indent: 0;
@@ -89,4 +104,17 @@
     right: 14px;
     top: 50%;
     margin-top: -15px;
+    transition: all 0.2s;
+}
+
+.cta-arrow:hover:before {
+    color: #222 !important;
+}
+
+.cta-secondary.cta-arrow:before {
+    color: #222;
+}
+
+.cta-secondary.cta-arrow:hover:before {
+    color: white !important;
 }

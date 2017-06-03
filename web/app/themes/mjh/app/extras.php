@@ -374,6 +374,11 @@ function mjh_meta_query( $query ) {
 }
 add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
 
+// hook to modify the post where query for events
+function mjh_events_posts_where( $where ) {
+	$where = str_replace("meta_key = 'event_dates_%", "meta_key LIKE 'event_dates_%", $where);
+	return $where;
+}
 
 //Update tites of the listing pages, using archives wp template
 add_filter( 'get_the_archive_title', function ( $title ) {

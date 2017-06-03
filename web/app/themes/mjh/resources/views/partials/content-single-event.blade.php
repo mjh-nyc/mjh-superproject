@@ -5,8 +5,10 @@
     <div class="right-sidebar">
       <div class="event-info">
         <h4 class="subhead">@php _e("Event details","sage"); @endphp</h4>
+        <div class="row">
+        <div class="col-md-6 col-lg-12">
         @if (App::get_repeater_field('event_dates'))
-        <div class="event-dates">
+        <div class="event-dates item">
           <ul>
             @foreach (App::get_repeater_field('event_dates') as $event_date)
               <li>{{ $event_date['event_start_date'] }} @if ($event_date['event_end_date']) &#8211; {{ $event_date['event_end_date'] }}@endif
@@ -16,26 +18,30 @@
         </div>
         @endif
         @if (App::get_field('event_has_location'))
-          <div class="event-location">
+          <div class="event-location item">
             <div>{{App::get_field('event_location')}}</div>
             <div>{{App::get_field('event_street')}} {{App::get_field('event_secondary_street')}}</div>
             <div>{{App::get_field('event_city')}}, {{App::get_field('event_state')}} {{App::get_field('event_zip_code')}}</div>
           </div>
         @endif
+        </div>
+        <div class="col-md-6 col-lg-12">
         @if (App::get_repeater_field('event_pricing'))
-        <div class="event-pricing">
+        <div class="event-pricing item">
           <ul>
             @foreach (App::get_repeater_field('event_pricing') as $event_pricing)
-              <li><span class="price">${{ $event_pricing['event_price'] }}</span> {{ $event_pricing['event_price_label'] }}</li>
+              <li><span class="bold">${{ $event_pricing['event_price'] }}</span> {{ $event_pricing['event_price_label'] }}</li>
             @endforeach
           </ul>
         </div>
         @endif
         @if (App::get_field('event_ticket_url'))
         <div class="buy-tix">
-          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round secondary">@php _e("Buy Tickets","sage"); @endphp</a>
+          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
         </div>
         @endif
+        </div>
+        </div>
       </div>
     </div>
 
