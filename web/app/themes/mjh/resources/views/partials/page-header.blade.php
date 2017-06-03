@@ -4,6 +4,6 @@
     <div>@php(the_date('l, F j, Y'))</div>
   @endif
   @if (is_search())
-     <p class="results-stats"><span>{{ Search::resultsFound() }}</span> results for &#8220; {!! get_search_query() !!} &#8221;</p>
+     <p class="results-stats"><span class="bold">{{ Search::resultsFound() }}</span> results for &#8220; {!! get_search_query() !!} &#8221;</p>
   @endif
 </div>
