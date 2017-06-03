@@ -207,7 +207,7 @@ function hook_meta() {
 		$output.='<meta name="description" property="og:description" content="'.$site_description.'">';
 
 		//Twitter
-		$output.='<meta name="twitter:title" content="'.str_replace('"','&quot;',get_the_title($post->ID)).'">';
+		$output.='<meta name="twitter:title" content="'.get_bloginfo("name").'">';
 		$output.='<meta name="twitter:description" content="'.$site_description.'">';
 	}
 	//Facebook image

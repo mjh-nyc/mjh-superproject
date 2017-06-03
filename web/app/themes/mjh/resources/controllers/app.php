@@ -69,6 +69,10 @@ class App extends Controller
         if (has_post_thumbnail( $id ) ) {
             $image = get_the_post_thumbnail_url($id, $size);
         }
+        if (!$image) {
+            //use default image entered under social in theme toptions
+            $image = get_field('social','option');
+        }
         return $image;
     }
 
