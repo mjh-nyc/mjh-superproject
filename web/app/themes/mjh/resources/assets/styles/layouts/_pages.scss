@@ -277,7 +277,13 @@
         .card-caption {
             color: $color-text;
             padding: 0 1rem;
-            margin-bottom: 0;
+            margin-bottom: 1rem;
+        }
+        .card_url {
+            padding: 0 1rem;
+            .cta-round {
+                width: 100%;
+            }
         }
         .slick-arrow {
             top: 50%;
