@@ -47,10 +47,6 @@
           <li><a href="#"><img src="../app/themes/mjh/dist/images/Trip Advisor Logo.png" alt="Trip Advisor" /></a></li>
           <li><a href="#"><img src="../app/themes/mjh/dist/images/time-out-new-york-logo.png" alt="Timeout New York<" /></a></li>
           <li><a href="#"><img src="../app/themes/mjh/dist/images/800px-Lonely_Planet.png" alt="Lonely Planet" /></a></li>
-          
-
-
-
         </ul>
       </div>
     </div>

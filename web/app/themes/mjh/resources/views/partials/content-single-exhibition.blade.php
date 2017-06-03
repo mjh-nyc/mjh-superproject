@@ -8,7 +8,7 @@
           <p>{{App::get_field('exhibition_start_date')}} &#8211; {{App::get_field('exhibition_end_date')}}</p>
         @endif
         <div class="buy-tix">
-          <a href="#" class="cta-round secondary">@php _e("Buy Tickets","sage"); @endphp</a>
+          <a href="#" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
 
 
   </div>
-  <div class="related-content">
+  <div class="related-content row no-gutters">
     {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}
     @for ($i = 0; $i < 2; $i++)
         @php $item_id = '28'; @endphp
