@@ -35,4 +35,3 @@
     @include('partials.content-page')
   @endwhile
 @endsection
-@debug('hierarchy')
