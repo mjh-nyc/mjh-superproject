@@ -7,10 +7,6 @@
     a {
         color: $color-header-links;
     }
-    background: $color-header-mobile-bg;
-    @include media-breakpoint-up(sm) {
-        background: transparent;
-    }
     .moto {
         background: $color-header-mobile-bg;
         text-align: center;
@@ -54,6 +50,10 @@
         @include clearfix;
         .sticky {
             @include clearfix;
+        }
+        background: $color-header-mobile-bg;
+        @include media-breakpoint-up(sm) {
+            background: transparent;
         }
     }
     .custom-logo-link {
