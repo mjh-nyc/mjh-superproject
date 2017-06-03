@@ -170,9 +170,9 @@ function hook_meta() {
 	$twitter_handle = get_field('twitter_handle', 'option');
 	$output.='<meta name="twitter:card" content="summary_large_image">';
 	$output.='<meta name="twitter:site" content="@'.$twitter_handle.'">';
-	$output.='<meta name="twitter:creator" content="@'.$twitter_handle.'">';		
-			
-	
+	$output.='<meta name="twitter:creator" content="@'.$twitter_handle.'">';
+
+
 	//if single post, use the content of the post
 	if (is_single() || is_page()) {
 		//check if featured image is set
@@ -197,7 +197,7 @@ function hook_meta() {
 		//Twitter
 		$output.='<meta name="twitter:title" content="'.get_the_title($post->ID).' | '.get_bloginfo("name").'">';
 		$output.='<meta name="twitter:description" content="'.$desc.'">';
-		
+
 	} else {
 		//otherwise show general blog description and image
 		//Facebook
@@ -215,7 +215,7 @@ function hook_meta() {
 
 	//Twitter
 	$output.='<meta name="twitter:image" content="'.$featured_img_url.'">';
-	
+
 
 	echo $output;
 }
@@ -308,6 +308,7 @@ add_filter('query_vars', 'App\\mjh_add_query_vars');
 
 // hook add_rewrite_rules function into rewrite_rules_array
 function mjh_add_rewrite_rules($aRules) {
+    $aNewRules = array('events' => 'events-listing');
     $aNewRules = array('exhibitions/status/([^/]+)/?$' => 'index.php?post_type=exhibition&status=$matches[1]');
     $aRules = $aNewRules + $aRules;
     return $aRules;
