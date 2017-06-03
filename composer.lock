@@ -540,12 +540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/soberwp/controller.git",
-                "reference": "a3082338d33600311c708c6fd14bc44301ca78fa"
+                "reference": "54cfd29e8695960421d9dda1b177a04c9e76aa9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/soberwp/controller/zipball/a3082338d33600311c708c6fd14bc44301ca78fa",
-                "reference": "a3082338d33600311c708c6fd14bc44301ca78fa",
+                "url": "https://api.github.com/repos/soberwp/controller/zipball/54cfd29e8695960421d9dda1b177a04c9e76aa9f",
+                "reference": "54cfd29e8695960421d9dda1b177a04c9e76aa9f",
                 "shasum": ""
             },
             "require": {
