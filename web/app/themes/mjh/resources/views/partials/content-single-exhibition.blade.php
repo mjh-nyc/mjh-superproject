@@ -39,7 +39,7 @@
   </div>
   <div class="related-content">
     <div class="header">
-      {{ __('Also In View', 'sage') }}
+      {{ __('Also on View', 'sage') }}
     </div>
     <div class="row no-gutters">
     {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}
