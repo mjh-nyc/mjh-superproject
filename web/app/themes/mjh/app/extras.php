@@ -160,57 +160,66 @@ function hook_meta() {
 	//default image, if there's no featured
 	//image added via the options page under Settings --> Theme options
 	$featured_img_url = get_field('social', 'option');
-
+	$site_description = get_field('site_description', 'option');
 
 	//Facebook
 	$output='<meta property="og:type" content="website">';
 	$output.='<meta property="og:site_name" content="'.get_bloginfo("name").'">';
+
 	//Twitter
 	$twitter_handle = get_field('twitter_handle', 'option');
-	$output='<meta name="twitter:site" content="@'.$twitter_handle.'">';
-	$output='<meta name="twitter:creator" content="@'.$twitter_handle.'">';
-
+	$output.='<meta name="twitter:card" content="summary_large_image">';
+	$output.='<meta name="twitter:site" content="@'.$twitter_handle.'">';
+	$output.='<meta name="twitter:creator" content="@'.$twitter_handle.'">';		
+			
+	
 	//if single post, use the content of the post
-	if (is_single()) {
-		//Twitter card to pull the image along with a tweet
+	if (is_single() || is_page()) {
 		//check if featured image is set
-		$featured = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
+		$featured = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" );
 		if( $featured ) {
 			$featured_img_url = $featured[0];
-			$featured_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "thumbnail" );
-			$featured_thumbnail_url = $featured_thumbnail[0];
-
-			//use square thumbanil for twitter card
-			$output.='<meta name="twitter:image" content="'.$featured_thumbnail_url.'">';
-			$output.='<meta name="twitter:image:alt" content="'.str_replace('"','&quot;',get_the_title($post->ID)).'">';
+		}
+		//See if excerpt is set for this page or post
+		$desc = get_the_excerpt($post->ID);
+		if ($desc) {
+			$desc = str_replace('"','&quot;',$desc);
+		} else {
+			//if not set, use generic one
+			$desc = $site_description;
 		}
 
 		//Facebook
 		$output.='<meta property="og:url" content="'.get_the_permalink($post->ID).'">';
 		$output.='<meta property="og:title" content="'.str_replace('"','&quot;',get_the_title($post->ID)).' | '.get_bloginfo("name").'">';
-		$output.='<meta property="og:description" content="'.str_replace('"','&quot;',get_the_excerpt($post->ID)).'">';
-		//Twitter
-		$output.='<meta name="twitter:title" content="'.str_replace('"','&quot;',get_the_title($post->ID)).'">';
-		$output.='<meta name="twitter:description" content="'.str_replace('"','&quot;',get_the_excerpt($post->ID)).'">';
+		$output.='<meta name="description" property="og:description" content="'.$desc.'">';
 
+		//Twitter
+		$output.='<meta name="twitter:title" content="'.get_the_title($post->ID).' | '.get_bloginfo("name").'">';
+		$output.='<meta name="twitter:description" content="'.$desc.'">';
+		
 	} else {
 		//otherwise show general blog description and image
+		//Facebook
 		$output.='<meta property="og:title" content="'.get_bloginfo("name").'">';
 		$output.='<meta property="og:url" content="'.get_bloginfo("url").'">';
-		$output.='<meta property="og:description" content="'.get_bloginfo("description").'">';
+		$output.='<meta property="description" content="'.$site_description.'">';
+		$output.='<meta name="description" property="og:description" content="'.$site_description.'">';
+
 		//Twitter
-		$output.='<meta name="twitter:card" content="summary_large_image">';
-		$output.='<meta name="twitter:title" content="'.get_bloginfo("name").'">';
-		$output.='<meta name="twitter:description" content="'.get_bloginfo("description").'">';
-		$output.='<meta name="twitter:image" content="'.$featured_img_url.'">';
+		$output.='<meta name="twitter:title" content="'.str_replace('"','&quot;',get_the_title($post->ID)).'">';
+		$output.='<meta name="twitter:description" content="'.$site_description.'">';
 	}
 	//Facebook image
 	$output.='<meta property="og:image" content="'.$featured_img_url.'">';
 
+	//Twitter
+	$output.='<meta name="twitter:image" content="'.$featured_img_url.'">';
+	
 
 	echo $output;
 }
-add_action('wp_head', 'App\\hook_meta');
+add_action('wp_head', __NAMESPACE__ . '\\hook_meta');
 /* END meta tags ****************************/
 
 
