@@ -373,3 +373,9 @@ function mjh_meta_query( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
+
+// hook to modify the post where query for events
+function mjh_events_posts_where( $where ) {
+	$where = str_replace("meta_key = 'event_dates_%", "meta_key LIKE 'event_dates_%", $where);
+	return $where;
+}
