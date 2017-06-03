@@ -255,6 +255,9 @@
             text-align: center;
             padding: 36px 0
         }
+        .mjh-slider {
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
         .slide-card {
             height: 380px;
             @include media-breakpoint-up(md) {

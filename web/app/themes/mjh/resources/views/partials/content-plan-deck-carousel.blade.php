@@ -1,6 +1,6 @@
 @if (Homepage::planDeckCarouselItems())
 <div class="plan-item flex-lg-first">
-	<div class="slider-plan-deck container mjh-slider">
+	<div class="slider-plan-deck mjh-slider">
 		@foreach (Homepage::planDeckCarouselItems() as $plan_deck_carousel_item)
         <div class="slide-card">
           @if($plan_deck_carousel_item['card_image'])
