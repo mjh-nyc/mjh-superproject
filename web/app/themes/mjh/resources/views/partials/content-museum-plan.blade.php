@@ -5,7 +5,7 @@
   <div class="museum-plans">
     <div class="plan-top row justify-content-center">
       <div class="plan-item">
-        <div class="plan-icon"><img src="../app/themes/mjh/dist/images/tickets.svg" alt="'.__("Tickets","sage").'"></div>
+        <div class="plan-icon"><img src="@asset('images/tickets.svg')" alt="{!! _e("Tickets","sage") !!}"></div>
         <div class="plan-title">Tickets</div>
         <div class="content">
           <div>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="plan-item">
-        <div class="plan-icon"><img src="../app/themes/mjh/dist/images/mjh_logo_icon.svg" alt="'.__("MJH","sage").'"></div>
+        <div class="plan-icon"><img src="@asset('images/mjh_logo_icon.svg')" alt="{!! _e("Museum building icon","sage") !!}"></div>
         <div class="plan-title">Hours &amp; Location</div>
         <div class="content">
           <div>
