@@ -13,7 +13,7 @@ body {
     }
 }
 
-p {
+p, ol, ul, dl {
     margin-bottom: 1.7em;
 }
 
@@ -47,9 +47,34 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.bold {
+.bold, b, strong {
     @include bentonBd();
 }
+
+i, em {
+    @include bentonIt();
+}
+
+i strong, i bold, em strong, em bold,
+strong i, bold i, strong em, bold em {
+  @include bentonBdIt();
+}
+
+/* Default styles */
+
+/* unvisited link */
+/*a:link {
+    text-decoration: underline;
+}
+
+a:visited {
+    text-decoration: underline;
+}
+a:hover, a:active {
+    text-decoration: none;
+    color: $color-text;
+} */
+
 
 .stuck {
     position: fixed;
