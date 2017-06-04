@@ -3,7 +3,7 @@
 
     @if (App::get_field('exhibition_admission_required'))
       <div class="right-sidebar">
-        
+
           <div class="exhibition-info">
             <h4 class="subhead">{{App::get_field('exhibition_type')}}</h4>
             @if (App::get_field('exhibition_start_date'))
@@ -13,7 +13,7 @@
               <a href="#" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
             </div>
           </div>
-        
+
       </div>
     @endif
 
@@ -26,7 +26,7 @@
 
     @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsor_header'))
       <div class="left-sidebar">
-        
+
         @if (App::get_repeater_field('primary_sponsors_repeater'))
           <!-- Primary sponsors -->
           @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
@@ -47,10 +47,9 @@
     </div>
     <div class="row no-gutters">
     {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}
-    @for ($i = 0; $i < 2; $i++)
-        @php $item_id = '28'; @endphp
-        @include('partials.content-exhibition-card')
-    @endfor
+      @foreach ($exhibitions_widget_listings as $exhibition_widget)
+          @include('partials.content-exhibition-card', ['item_id'=>$exhibition_widget->ID])
+      @endforeach
     </div>
   </div>
 </article>
