@@ -482,7 +482,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/formidable.2.03.09.zip",
-                "reference": "tags/2.03.09",
+                "reference": null,
                 "shasum": null
             },
             "require": {

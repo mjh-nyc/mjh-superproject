@@ -9,7 +9,7 @@
     </div>
   </div>
   @else
-  <div class="moto">
+  <div class="moto hidden-sm-down">
     {{ App::siteDescription() }}
   </div>
   @endif

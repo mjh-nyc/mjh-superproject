@@ -220,7 +220,7 @@ class App extends Controller
         }
         //for exhibitions, also check if ticket is required, if not, add a free-admission class
         $exhibition_admission_required = get_field('exhibition_admission_required');
-        if (!$exhibition_admission_required) {
+        if (!$exhibition_admission_required && get_post_type() == "exhibition") {
             $add_class .= ' free-admission';
         }
 
