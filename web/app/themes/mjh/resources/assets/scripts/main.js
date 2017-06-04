@@ -10,6 +10,9 @@ import 'jquery-parallax.js/parallax.min';
 import 'waypoints/lib/jquery.waypoints.min';
 import 'waypoints/lib/shortcuts/sticky.min';
 
+//Import animsition library
+import 'animsition/dist/js/animsition.min';
+
 /** import local dependencies */
 import Router from './util/Router';
 import common from './routes/common';

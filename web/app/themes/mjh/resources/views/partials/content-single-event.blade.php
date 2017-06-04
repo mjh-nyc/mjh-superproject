@@ -1,5 +1,5 @@
 
-<article @php(post_class(App::addSponsorsClass()))>
+<article @php(post_class(App::addLayoutClasses()))>
   <div class="col-content row">
 
     <div class="right-sidebar">
