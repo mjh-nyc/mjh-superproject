@@ -6,7 +6,6 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
-    @include('partials.page-header')
       <div class"event-form">
         <form id="event-listing-form" name="event-listing-form" method='get'>
           <div>
