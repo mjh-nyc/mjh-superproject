@@ -203,7 +203,7 @@ class App extends Controller
     }
 
 
-    
+
 
     /**
      * Decide if we should add a no-sponsor class name to article element
@@ -281,6 +281,15 @@ class App extends Controller
         }
 
         return $social;
+    }
+
+    public static function isPageTemplate($page_template){
+        $currentPageTemplate = get_page_template_slug();
+        if($currentPageTemplate == $page_template){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

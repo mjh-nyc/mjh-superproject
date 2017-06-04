@@ -42,7 +42,7 @@
   <div class="clearfix"></div>
   <!-- featured image and page title area -->
   @if (!is_front_page())
-    <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="{{App::featuredImageSrc('large')}}" data-over-scroll-fix="true">
+    <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ) {!! $highlighted_exhibition_featured_image !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true">
       @include('partials.page-header')
     </div>
   @endif
