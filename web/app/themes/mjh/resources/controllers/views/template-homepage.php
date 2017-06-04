@@ -161,7 +161,7 @@ class Homepage extends Controller
             if($hoursHash[0]['is_museum_closed']){
                 $hoursOutput = "We’re closed today";
             }else{
-                 $hoursOutput = "We’re open today</br> ".$hoursHash[0]['opening_hour'].". &mdash; ".$hoursHash[0]['closing_hour'].".";
+                 $hoursOutput = "We’re open today</br> ".$hoursHash[0]['opening_hour']." &#8211; ".$hoursHash[0]['closing_hour'];
             }
         }else{
             $hoursOutput = "We’re closed today";
