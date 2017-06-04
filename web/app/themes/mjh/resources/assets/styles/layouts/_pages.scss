@@ -171,6 +171,14 @@
             }
         }
     }
+    .free-admission {
+        .entry-content {
+            @include media-breakpoint-up(md) {
+                @include make-col(8);
+                @include make-col-offset(2);
+            }
+        }
+    }
 }
 
 .event-info {

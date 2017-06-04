@@ -210,7 +210,7 @@ class App extends Controller
      *
      * @return string
      */
-    public static function addSponsorsClass()
+    public static function addLayoutClasses()
     {
         $primary_sponsors_repeater = get_field('primary_sponsors_repeater');
         $secondary_sponsors_repeater = get_field('secondary_sponsors_repeater');
@@ -218,6 +218,12 @@ class App extends Controller
         if (!$primary_sponsors_repeater && !$secondary_sponsors_repeater) {
             $add_class = 'no-sponsors';
         }
+        //for exhibitions, also check if ticket is required, if not, add a free-admission class
+        $exhibition_admission_required = get_field('exhibition_admission_required');
+        if (!$exhibition_admission_required) {
+            $add_class .= ' free-admission';
+        }
+
         return $add_class;
 
     }
