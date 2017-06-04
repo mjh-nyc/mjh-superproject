@@ -37,27 +37,27 @@ $fa-font-path: '~font-awesome/fonts';
 
 //BentonSans
 @mixin bentonReg() {
-    font-family: "Benton Sans Reg";
-    font-style: Normal;
-    font-weight: Normal;
+    font-family: benton-sans, sans-serif;
+    font-style: normal;
+    font-weight: 500;
 }
 
 @mixin bentonIt() {
-    font-family: "Benton Sans It";
-    font-style: Italic;
-    font-weight: Normal;
+    font-family: benton-sans, sans-serif;
+    font-style: italic;
+    font-weight: 500;
 }
 
 @mixin bentonBd() {
-    font-family: "Benton Sans Bd";
-    font-style: Normal;
-    font-weight: Normal;
+    font-family: benton-sans, sans-serif;
+    font-style: normal;
+    font-weight: 700;
 }
 
 @mixin bentonBdIt() {
-    font-family: "Benton Sans Bd It";
-    font-style: Italic;
-    font-weight: Normal;
+    font-family: benton-sans, sans-serif;
+    font-style: italic;
+    font-weight: 700;
 }
 
 @mixin font-size($size) {
