@@ -286,13 +286,17 @@
         color: white;
         text-align: center;
         margin-bottom: 3rem;
+        margin-top: 0;
+        padding: 30px;
         @include font-size(16);
-        @include media-breakpoint-up(lg) {
-            @include font-size(19);
+        @include media-breakpoint-up(sm) {
+            margin-top: 3rem;
         }
-        padding: 10px 18px 25px;
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        }
         @include media-breakpoint-up(lg) {
-            padding: 15px 18px 50px;
+            @include font-size(19); 
         }
         .buy-tix {
             margin-top: 15px;

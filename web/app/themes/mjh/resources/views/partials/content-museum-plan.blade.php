@@ -9,11 +9,11 @@
         <div class="plan-title">{!! _e('Tickets','sage') !!}</div>
         <div class="content">
           <div>
-            <p class="bold">Free admission* for members and every Wednesday from 4 PM &#8211; 8PM</p>
-            <p class="small">*There may be a separate ticket fee for programs</p>
+            <p class="bold">Purchase Museum admission tickets in advance for a discount.</p>
+            <p class="small">There may be a separate ticket fee for programs.</p>
           </div>
           <div>
-            <p>{!! _e('Interested in becoming a member?','sage') !!}<br>
+            <p>{!! _e('Interested in getting free admission by becoming a member?','sage') !!}<br>
             <span class="bold"><a href="/join/" style="text-decoration: underline;">{!! _e('Find out more','sage') !!}</a></p>
             <div><a class="cta-round cta-arrow cta-secondary" href="/tickets/">@php _e("Buy Tickets","sage"); @endphp</a></div>
           </div>
@@ -33,7 +33,7 @@
             {!! get_field('secondary_street_address', 'option') !!}<br>
             {!! get_field('city_address', 'option') !!}, {!! get_field('state_address', 'option') !!} {!! get_field('zip_code_address', 'option') !!}</span><br>
             {!! get_field('phone_number', 'option') !!}</p>
-            <div><a class="cta-round cta-arrow cta-secondary" href="/location-directions/">{!! _e('Plan your visit','sage') !!}</a></div>
+            <div><a class="cta-round cta-arrow cta-secondary" href="/location-directions/">{!! _e('Plan Your Visit','sage') !!}</a></div>
           </div>
         </div>
       </div>

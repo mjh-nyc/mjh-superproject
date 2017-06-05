@@ -35,7 +35,7 @@ class Events extends Controller
     public function events()
     {
         $currentDate = strtotime('today midnight');
-        $pParamHash = array('post_type' => 'event','post_per_page' => 3);
+        $pParamHash = array('post_type' => 'event','posts_per_page' => -1);
         add_filter('posts_where', 'App\\mjh_events_posts_where');
 
         if($this->eventDates=='upcoming'){
@@ -79,23 +79,6 @@ class Events extends Controller
         }else{
             return false;
         }
-    }
-
-    /**
-     * Return 10 recent blog posts
-     *
-     * @return array
-     */
-    private function getPosts($pParamHash) {
-        $cat_id  = get_cat_ID( 'press' );
-        $pParamHash['post_type'] = 'post';
-        $pParamHash['post_per_page'] = 10;
-        $posts = new WP_Query( $pParamHash);
-        if($posts->posts){
-         return $posts->posts;
-      }else{
-         return false;
-      }
     }
 
     /**

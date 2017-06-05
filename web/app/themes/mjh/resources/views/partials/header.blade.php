@@ -16,20 +16,20 @@
 
   <div class="top-wrapper container">
     <div class="top-links row">
-      <div class="social-channels col-4">
+      <div class="social-channels col-sm-5">
         {!! App::get_social() !!}
       </div>
-      <div class="nav-secondary col-8">
+      <div class="nav-secondary col-sm-7">
        @if (has_nav_menu('minitop_navigation'))
         {!! wp_nav_menu(['theme_location' => 'minitop_navigation']) !!}
         @endif
       </div>
     </div>
     <div class="sticky row justify-content-between">
-      <div class="col-3">
+      <div class="col-3 col-md-5">
         {!!  get_custom_logo() !!}
       </div>
-      <div class="col-9 right align-items-center">
+      <div class="col-9 col-md-7 right align-items-center">
         <div class="overlay-toggle"><a href="" class="" id="primary-nav-toggle"><span class="sr-only"> @php _e("Navigation","sage"); @endphp</span></a></div>
         @if (has_nav_menu('buttontop_navigation'))
           {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
