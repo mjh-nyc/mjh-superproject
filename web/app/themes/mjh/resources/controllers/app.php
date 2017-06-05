@@ -303,6 +303,9 @@ class App extends Controller
      * @return string
      */
     public static function cleanDateOutput($start_date, $end_date){
+        if( empty($end_date) ){
+            return $start_date;
+        }
         $start_date_day = date('Y-m-d', strtotime($start_date));
         $end_date_day = date('Y-m-d', strtotime($end_date));
         if($start_date_day == $end_date_day ){
