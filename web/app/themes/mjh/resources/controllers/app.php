@@ -283,6 +283,11 @@ class App extends Controller
         return $social;
     }
 
+    /**
+     * Check current template with variable
+     *
+     * @return boolean
+     */
     public static function isPageTemplate($page_template){
         $currentPageTemplate = get_page_template_slug();
         if($currentPageTemplate == $page_template){
@@ -290,6 +295,22 @@ class App extends Controller
         }else{
             return false;
         }
+    }
+
+    /**
+     * Compares start and end date and cleans output if same day
+     *
+     * @return string
+     */
+    public static function cleanDateOutput($start_date, $end_date){
+        $start_date_day = date('Y-m-d', strtotime($start_date));
+        $end_date_day = date('Y-m-d', strtotime($end_date));
+        if($start_date_day == $end_date_day ){
+            $date_output = $start_date." &#8211; ".date('g:i a', strtotime($end_date));
+        }else{
+            $date_output = $start_date." &#8211; ".$end_date;
+        }
+        return $date_output;
     }
 
 }
