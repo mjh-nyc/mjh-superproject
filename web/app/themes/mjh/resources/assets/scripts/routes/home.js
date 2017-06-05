@@ -41,8 +41,9 @@ export default {
             var $currTarget = $(e.currentTarget),
                 index = $currTarget.data('slick-index'),
                 slickObj = $('.slider-for').slick('getSlick');
-
-            slickObj.slickGoTo(index);
+            if (slickObj.slideCount < 4) {
+                slickObj.slickGoTo(index);
+            }
 
         });
         jQuery('.slider-plan-deck').slick({
