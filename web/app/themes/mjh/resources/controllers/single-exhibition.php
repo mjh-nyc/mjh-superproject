@@ -20,7 +20,7 @@ class Exhibition extends Controller
             'post_type' => 'exhibition',
             'post__not_in' => array($exclude_id ),
             'orderby'  => 'rand',
-            'post_per_page'=>2,
+            'posts_per_page'=>2,
             'status'=>'current' ]
         );
         if($exhibitions->posts){
