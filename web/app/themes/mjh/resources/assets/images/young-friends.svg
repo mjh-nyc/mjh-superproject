@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="121px" height="28px" viewBox="0 0 121 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="69px" height="16px" viewBox="0 0 69 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>Untitled</title>
+    <title>Young friends txt</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Young-friends-txt">
-            <path d="M1.47826087,8.6898884 L1.47826087,19.1361986 C1.47826087,23.1142685 4.70883423,26.3478261 8.68725271,26.3478261 L111.435475,26.3478261 C115.413622,26.3478261 118.644466,23.1172966 118.644466,19.1361986 L118.644466,8.6898884 C118.644466,4.71181846 115.413893,1.47826087 111.435475,1.47826087 L8.68725271,1.47826087 C4.70910549,1.47826087 1.47826087,4.70879033 1.47826087,8.6898884 Z" id="Rectangle-2" stroke="#FFFFFF" stroke-width="2.95652174"></path>
-            <text id="YOUNG-FRIENDS" font-family="OSAran-600, OS Aran" font-size="15.6521739" font-weight="500" fill="#FFFFFF">
-                <tspan x="10.4454545" y="17.6086957">YOUNG FRIENDS</tspan>
-            </text>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Header" transform="translate(-153.000000, -13.000000)">
+            <g transform="translate(0.000000, -10.000000)" id="Social">
+                <g transform="translate(2.000000, 19.000000)">
+                    <g id="Young-friends-txt" transform="translate(151.000000, 4.000000)">
+                        <path d="M0.85,4.99668583 L0.85,11.0033142 C0.85,13.2908986 2.70548801,15.15 4.99006683,15.15 L64.0099332,15.15 C66.2943566,15.15 68.15,13.29264 68.15,11.0033142 L68.15,4.99668583 C68.15,2.70910142 66.294512,0.85 64.0099332,0.85 L4.99006683,0.85 C2.70564341,0.85 0.85,2.70736003 0.85,4.99668583 Z" id="Rectangle-2" stroke="#FFFFFF" stroke-width="1.7"></path>
+                        <text id="YOUNG-FRIENDS" font-family="OSAran-600, OS Aran" font-size="9" font-weight="500" fill="#FFFFFF">
+                            <tspan x="6" y="10.5">YOUNG FRIENDS</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
         </g>
     </g>
 </svg>
