@@ -14,8 +14,8 @@
           </div>
           <div>
             <p>{!! _e('Interested in becoming a member?','sage') !!}<br>
-            <span class="bold"><a href="#">{!! _e('Find out more','sage') !!}</a></p>
-            <div><a class="cta-round cta-arrow cta-secondary" href="#">@php _e("Buy Tickets","sage"); @endphp</a></div>
+            <span class="bold"><a href="/join/" style="text-decoration: underline;">{!! _e('Find out more','sage') !!}</a></p>
+            <div><a class="cta-round cta-arrow cta-secondary" href="/tickets/">@php _e("Buy Tickets","sage"); @endphp</a></div>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
             {!! get_field('secondary_street_address', 'option') !!}<br>
             {!! get_field('city_address', 'option') !!}, {!! get_field('state_address', 'option') !!} {!! get_field('zip_code_address', 'option') !!}</span><br>
             {!! get_field('phone_number', 'option') !!}</p>
-            <div><a class="cta-round cta-arrow cta-secondary" href="#">{!! _e('Plan your visit','sage') !!}</a></div>
+            <div><a class="cta-round cta-arrow cta-secondary" href="/location-directions/">{!! _e('Plan your visit','sage') !!}</a></div>
           </div>
         </div>
       </div>
