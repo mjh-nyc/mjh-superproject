@@ -8,16 +8,17 @@
     </div>
     <div class="info">
       <h3>{{ get_the_title($item_id) }}</h3>
-      <p class="description">{{App::postExcerpt($item_id)}}</p>
+      <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
     </div>
     <div class="details">
       @if (App::get_repeater_field('event_dates',$item_id))
       <div class="event-dates">
         <ul>
           @foreach (App::get_repeater_field('event_dates',$item_id) as $event_date)
-          <li>{{ $event_date['event_start_date'] }} @if ($event_date['event_end_date']) &#8211; {{ $event_date['event_end_date']
-            }}@endif
-          </li>
+	          <li>{{ $event_date['event_start_date'] }} <!--@if ($event_date['event_end_date']) &#8211; {{ $event_date['event_end_date']
+	            }}@endif-->
+	          </li>
+	          @break
           @endforeach
         </ul>
       </div>
