@@ -57,6 +57,14 @@ export default {
           overlayParentElement : 'body',
           transition: function(url){ window.location.href = url; },
         });
+
+        /* Event listing form events */
+        $( "#event-dates" ).change(function() {
+          $( "#event-listing-form" ).submit();
+        });
+        $( "#event-category" ).change(function() {
+          $( "#event-listing-form" ).submit();
+        });
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
