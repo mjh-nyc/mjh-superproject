@@ -5,6 +5,8 @@
   "images/800px-Lonely_Planet.png": "images/800px-Lonely_Planet_89826118.png",
   "images/Trip Advisor Logo.png": "images/Trip Advisor Logo_2b178c3f.png",
   "images/Yelp_trademark_RGB_outline.png": "images/Yelp_trademark_RGB_outline_dcb90474.png",
+  "images/icon-close-white.svg": "images/icon-close-white_fb416d44.svg",
+  "images/icon-hamburger-white.svg": "images/icon-hamburger-white_136cf2b8.svg",
   "images/mjh_logo_icon.svg": "images/mjh_logo_icon_38eabaf5.svg",
   "images/tickets.svg": "images/tickets_3d045793.svg",
   "images/time-out-new-york-logo.png": "images/time-out-new-york-logo_d7319047.png",
@@ -16,7 +18,7 @@
   "vendor/fontawesome-webfont.ttf?v=4.7.0": "vendor/fontawesome-webfont_b06871f2.ttf",
   "vendor/fontawesome-webfont.woff2?v=4.7.0": "vendor/fontawesome-webfont_af7ae505.woff2",
   "vendor/fontawesome-webfont.woff?v=4.7.0": "vendor/fontawesome-webfont_fee66e71.woff",
-  "scripts/customizer.js": "scripts/customizer_8953d3bc.js",
-  "styles/main.css": "styles/main_8953d3bc.css",
-  "scripts/main.js": "scripts/main_8953d3bc.js"
+  "scripts/customizer.js": "scripts/customizer_3a871332.js",
+  "styles/main.css": "styles/main_3a871332.css",
+  "scripts/main.js": "scripts/main_3a871332.js"
 }
