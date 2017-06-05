@@ -637,6 +637,17 @@
                 @include make-col(4);
             }
         }
+        .see-all {
+            margin-bottom: 3rem;
+            @include make-col-ready();
+            @include media-breakpoint-up(sm) {
+                @include make-col(6);
+            }
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
     }
 }
 
