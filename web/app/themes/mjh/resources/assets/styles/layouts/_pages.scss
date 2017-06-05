@@ -69,6 +69,7 @@
     }
     .main {
         @include make-row();
+        margin-top: 30px;
         justify-content: center !important;
         @include media-breakpoint-up(md) {
             margin-top: -100px;
@@ -688,8 +689,11 @@
         width: 100%;
         height: 0;
         padding-bottom: 35%;
-        @media (max-width: 575px) {
+        @media (max-width: 375px) {
             padding-bottom: 75%;
+        }
+        @media (max-width: 575px) {
+            padding-bottom: 55%;
         }
         @include media-breakpoint-up(md) {
             padding-bottom: 75%;
@@ -813,7 +817,10 @@
     @include media-breakpoint-up(lg) {
         height: 510px;
     }
-    .card-image {}
+    .card-image {
+        background-size: cover;
+        background-position: center center;
+    }
     h3 {
         padding: 15px 20px 0;
         margin-bottom: 0;
