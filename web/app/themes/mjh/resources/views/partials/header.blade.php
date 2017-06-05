@@ -29,13 +29,12 @@
       <div class="col-3">
         {!!  get_custom_logo() !!}
       </div>
-      <div class="col-9 right">
+      <div class="col-9 right align-items-center">
+        <div class="overlay-toggle"><a href="" class="" id="primary-nav-toggle"><span class="sr-only"> @php _e("Navigation","sage"); @endphp</span></a></div>
         @if (has_nav_menu('buttontop_navigation'))
           {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
         @endif
-        <div class="overlay-toggle">
-          <a href="" class="" id="primary-nav-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -51,7 +50,7 @@
 <div class="overlay-nav container-fluid no-gutters" style="">
   <div class="container">
     <div class="overlay-toggle">
-      <a href="#" id="primary-nav-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+      <a href="#" id="primary-nav-close"><span class="sr-only"> @php _e("Close Navigation","sage"); @endphp</span></a>
     </div>
     <div class="row">
       <div class="wrapper">

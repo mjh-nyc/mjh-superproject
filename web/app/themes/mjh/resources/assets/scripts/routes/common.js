@@ -3,12 +3,14 @@ export default {
         // JavaScript to be fired on all pages
         jQuery('#primary-nav-toggle').bind('click', function(event) {
             event.preventDefault();
-            jQuery('.overlay-nav').fadeToggle();
+            jQuery(this).toggleClass('open');
+            jQuery('.overlay-nav').css({ 'height': jQuery(document).height() }).fadeToggle();
             jQuery("html, body").animate({ scrollTop: 0 });
         })
         jQuery('#primary-nav-close').bind('click', function(event) {
             event.preventDefault();
             jQuery('.overlay-nav').fadeOut();
+            jQuery('#primary-nav-toggle').removeClass('open');
             jQuery('#menu-primary-navigation .open').removeClass('open').find('ul').hide();
         })
         jQuery('#menu-primary-navigation .menu-item-has-children > a').bind('click', function(event) {
@@ -36,34 +38,34 @@ export default {
 
 
         $(".animsition").animsition({
-          inClass: 'fade-in',
-          outClass: 'fade-out',
-          inDuration: 1500,
-          outDuration: 800,
-          linkElement: '.animsition-link',
-          // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-          loading: true,
-          loadingParentElement: 'body', //animsition wrapper element
-          loadingClass: 'animsition-loading',
-          loadingInner: '', // e.g '<img src="loading.svg" />'
-          timeout: false,
-          timeoutCountdown: 5000,
-          onLoadEvent: true,
-          browser: [ 'animation-duration', '-webkit-animation-duration'],
-          // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-          // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-          overlay : false,
-          overlayClass : 'animsition-overlay-slide',
-          overlayParentElement : 'body',
-          transition: function(url){ window.location.href = url; },
+            inClass: 'fade-in',
+            outClass: 'fade-out',
+            inDuration: 1500,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: 'body', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: ['animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay: false,
+            overlayClass: 'animsition-overlay-slide',
+            overlayParentElement: 'body',
+            transition: function(url) { window.location.href = url; },
         });
 
         /* Event listing form events */
-        $( "#event-dates" ).change(function() {
-          $( "#event-listing-form" ).submit();
+        $("#event-dates").change(function() {
+            $("#event-listing-form").submit();
         });
-        $( "#event-category" ).change(function() {
-          $( "#event-listing-form" ).submit();
+        $("#event-category").change(function() {
+            $("#event-listing-form").submit();
         });
     },
     finalize() {
