@@ -42,15 +42,23 @@
     }
 }
 
+.template-exhibitions-listing,
 .post-type-archive-exhibition {
     .banner .hero-area {
         @include media-breakpoint-up(md) {
-            height: 460px;
-            height: 46rem;
+            padding-bottom: 165px;
         }
         @include media-breakpoint-up(lg) {
-            height: 700px;
-            height: 70rem;
+            padding-bottom: 290px;
+        }
+        .post-excerpt {
+            margin: 18px 0;
+            @include media-breakpoint-up(md) {
+                margin: 18px 0 30px;
+            }
+            @include media-breakpoint-up(lg) {
+                margin: 18px 0 36px;
+            }
         }
     }
     .content {
@@ -597,12 +605,11 @@
         justify-content: center;
         article {
             margin-bottom: 3rem;
+            @include make-col-ready();
             @include media-breakpoint-up(md) {
-                @include make-col-ready();
                 @include make-col(6);
             }
             @include media-breakpoint-up(lg) {
-                @include make-col-ready();
                 @include make-col(4);
             }
             .event-card {
