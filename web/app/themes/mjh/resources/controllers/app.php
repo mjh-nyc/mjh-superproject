@@ -159,9 +159,24 @@ class App extends Controller
         if (!$id){
             $id = get_the_ID();
         }
-        return get_the_excerpt($id);
+        $excerpt = get_the_excerpt($id);
+        if ($excerpt) {
+            $limit = 20;
+            if (str_word_count($excerpt, 0) > $limit) {
+                  $words = str_word_count($excerpt, 2);
+                  $pos = array_keys($words);
+                  $excerpt = substr($excerpt, 0, $pos[$limit]) . '...';
+              }
+        }
+        //also if the title is too long, hide the description
+        if (strlen(get_the_title($id)) >30) {
+            return false;
+        } else {
+            return $excerpt;
+        }
+        
     }
-
+   
 
 
     /**
@@ -277,12 +292,17 @@ class App extends Controller
             $social .='<a href="'.$youtube.'" target="_blank" onclick="return trackOutboundLink(\''.$youtube.'\', true)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>';
         }
         if ($young_friends) {
-            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="../app/themes/mjh/dist/images/young-friends.svg" alt="'.__("Young Friends","sage").'"></a>';
+            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="@asset("images/young-friends.svg")" alt="'.__("Young Friends","sage").'"></a>';
         }
 
         return $social;
     }
 
+    /**
+     * Check current template with variable
+     *
+     * @return boolean
+     */
     public static function isPageTemplate($page_template){
         $currentPageTemplate = get_page_template_slug();
         if($currentPageTemplate == $page_template){
@@ -290,6 +310,25 @@ class App extends Controller
         }else{
             return false;
         }
+    }
+
+    /**
+     * Compares start and end date and cleans output if same day
+     *
+     * @return string
+     */
+    public static function cleanDateOutput($start_date, $end_date){
+        if( empty($end_date) ){
+            return $start_date;
+        }
+        $start_date_day = date('Y-m-d', strtotime($start_date));
+        $end_date_day = date('Y-m-d', strtotime($end_date));
+        if($start_date_day == $end_date_day ){
+            $date_output = $start_date." &#8211; ".date('g:i a', strtotime($end_date));
+        }else{
+            $date_output = $start_date." &#8211; ".$end_date;
+        }
+        return $date_output;
     }
 
 }

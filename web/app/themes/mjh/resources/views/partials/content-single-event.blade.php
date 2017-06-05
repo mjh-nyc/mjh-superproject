@@ -11,7 +11,7 @@
         <div class="event-dates item">
           <ul>
             @foreach (App::get_repeater_field('event_dates') as $event_date)
-              <li>{{ $event_date['event_start_date'] }} @if ($event_date['event_end_date']) &#8211; {{ $event_date['event_end_date'] }}@endif
+              <li>{!! App::cleanDateOutput($event_date['event_start_date'] , $event_date['event_end_date'])!!}
               </li>
             @endforeach
           </ul>
@@ -53,7 +53,7 @@
 
      @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsor_header'))
       <div class="left-sidebar">
-        
+
         @if (App::get_repeater_field('primary_sponsors_repeater'))
           <!-- Primary sponsors -->
           @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])

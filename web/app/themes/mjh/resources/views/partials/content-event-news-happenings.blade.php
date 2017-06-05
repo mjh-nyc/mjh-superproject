@@ -1,8 +1,6 @@
 <div class="container event-news-happenings">
   <div class="header">
     <h1>@php _e("Events, News &amp; Happenings","sage"); @endphp</h1>
-    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dui orci, sollicitudin eu massa vel, fermentum laoreet
-      tellus. Etiam eu egestas felis, sit amet rhoncus dui.</div>
   </div>
   <div class="events listing hompage row">
     @foreach ($upcoming_events as $event)
@@ -10,6 +8,10 @@
       @include('partials.content-event-card', ['item_id'=>$event->ID])
     </article>
     @endforeach
+    <div class="w-100"></div>
+    <div class="see-all">
+      <a href="/current-events/" class="cta-round cta-outline cta-secondary">@php _e("See All","sage"); @endphp</a>
+    </div>
   </div>
   <div class="post listing homepage">
     <div class="blog">
