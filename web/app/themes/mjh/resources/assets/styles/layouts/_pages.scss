@@ -637,6 +637,17 @@
                 @include make-col(4);
             }
         }
+        .see-all {
+            margin-bottom: 3rem;
+            @include make-col-ready();
+            @include media-breakpoint-up(sm) {
+                @include make-col(6);
+            }
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
     }
 }
 
@@ -657,49 +668,54 @@
         @include media-breakpoint-up(lg) {
             @include font-size(26);
         }
-        .styled-select select {
-            /* If you add too much padding here, the options won't show in IE */
-        }
         .styled-select.slate {
             height: 50px;
             display: inline-block;
+            position: relative;
         }
         .styled-select.slate select {
             border: 1px solid #2447AB;
             font-size: 16px;
-            height: 50px;
             overflow: hidden;
-            line-height: 50px;
             border-radius: 0;
-            padding: 0 40px 0 10px;
+            padding: 0 50px 0 10px;
             background: white;
             -webkit-appearance: none;
+            height: 30px;
+            line-height: 30px;
             @include font-size(18);
             @include media-breakpoint-up(md) {
                 @include font-size(22);
+                height: 40px;
+                line-height: 40px;
             }
             @include media-breakpoint-up(lg) {
                 @include font-size(26);
+                height: 50px;
             }
-            position: relative;
         }
-        .styled-select.slate select:after {
+        .styled-select.slate:after {
             @include fa-inline-prep();
             font-size: 30px;
             line-height: 1;
-            color: 2447AB;
+            color: #2447AB;
             content: "\f107";
             position: absolute;
             right: 10px;
-            top: 20px;
+            @include media-breakpoint-up(md) {
+                top: 4px;
+            }
+            @include media-breakpoint-up(lg) {
+                top: 10px;
+            }
         }
     }
 }
 
 .event-card {
-    height: 365px;
     position: relative;
     @include media-breakpoint-up(md) {
+        height: 365px;
         height: 422px;
     }
     @include media-breakpoint-up(lg) {
@@ -739,14 +755,14 @@
     .event-dates {
         background: white;
         padding: 14px 20px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
         width: 100%;
         @include bentonBd();
         @include listReset();
         @include font-size(12);
         @include media-breakpoint-up(md) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             @include font-size(14);
         }
     }
