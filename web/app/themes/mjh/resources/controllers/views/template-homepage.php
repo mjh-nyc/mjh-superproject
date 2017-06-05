@@ -24,7 +24,7 @@ class Homepage extends Controller
      */
     public function upcomingEvents() {
         $currentDate = strtotime('today midnight');
-        $pParamHash = array('post_type' => 'event','post_per_page' => 3);
+        $pParamHash = array('post_type' => 'event','posts_per_page' => 3);
         add_filter('posts_where', 'App\\mjh_events_posts_where');
         $pParamHash['meta_query'] =  array(
             'relation'      => 'AND',
@@ -35,6 +35,7 @@ class Homepage extends Controller
                 'compare' 	=> '>',
 		    )
 	);
+
       $events = new WP_Query( $pParamHash);
       remove_filter('posts_where', 'App\\mjh_events_posts_where');
       if($events->posts){
