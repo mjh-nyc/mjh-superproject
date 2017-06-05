@@ -2,6 +2,27 @@
     @extend .nav-item;
 }
 
+.social-channels {
+    padding-top: 4px;
+    @include font-size(20);
+    @include media-breakpoint-up(md) {
+        @include font-size(23);
+        padding-top: 3px;
+    }
+    a {
+        margin-right: 10px;
+        @include media-breakpoint-up(md) {
+            margin-right: 20px;
+        }
+    }
+    .yf {
+        margin: 0;
+        img {
+            height: 16px;
+        }
+    }
+}
+
 .banner {
     color: $color-header-text;
     a {
@@ -87,26 +108,7 @@
         @media (max-width: 575px) {
             display: none;
         }
-        .social-channels {
-            padding-top: 4px;
-            @include font-size(20);
-            @include media-breakpoint-up(md) {
-                @include font-size(23);
-                padding-top: 3px;
-            }
-            a {
-                margin-right: 10px;
-                @include media-breakpoint-up(md) {
-                    margin-right: 20px;
-                }
-            }
-            .yf {
-                margin: 0;
-                img {
-                    height: 16px;
-                }
-            }
-        }
+        
         .nav-secondary {
             @include bentonBd();
             padding-top: 9px;
