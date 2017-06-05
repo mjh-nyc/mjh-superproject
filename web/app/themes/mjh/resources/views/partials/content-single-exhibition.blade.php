@@ -10,7 +10,7 @@
               <p>{{App::get_field('exhibition_start_date')}} &#8211; {{App::get_field('exhibition_end_date')}}</p>
             @endif
             <div class="buy-tix">
-              <a href="#" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
+              <a href="/tickets/" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
             </div>
           </div>
 
