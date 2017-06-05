@@ -14,7 +14,7 @@
   </div>
   @endif
 
-  <div class="container">
+  <div class="top-wrapper container">
     <div class="top-links row">
       <div class="social-channels col-4">
         {!! App::get_social() !!}

@@ -37,7 +37,7 @@
             }
         }
     }
-    .container {
+    .top-wrapper {
         position: relative;
         z-index: 10;
         height: 58px;
@@ -58,6 +58,7 @@
     }
     .custom-logo-link {
         padding-top: 13px;
+        display: inline-block;
         @include media-breakpoint-up(sm) {
             padding-top: 0;
         }
@@ -164,23 +165,21 @@
     }
     .hero-area {
         background-size: cover;
-        height: 180px;
-        height: 18rem;
+        padding-top: 50px;
+        padding-bottom: 50px;
         @include media-breakpoint-up(sm) {
-            height: 260px;
-            height: 26rem;
-            padding-top: 132px;
             margin-top: -132px;
+            padding-top: 132px + 34px;
+            padding-bottom: 74px;
         }
         @include media-breakpoint-up(md) {
-            height: 360px;
-            height: 36rem;
-            padding-top: 143px;
+            padding-top: 143px + 45px;
             margin-top: -143px;
+            padding-bottom: 85px;
         }
         @include media-breakpoint-up(lg) {
-            height: 460px;
-            height: 46rem;
+            padding-top: 143px + 80px;
+            padding-bottom: 120px;
         }
         position: relative;
         .page-header {
@@ -188,14 +187,11 @@
             z-index: 1;
             text-align: center;
             h1 {
+                margin: 0;
                 @include font-size(25);
-                padding-top: 3em;
-                @include media-breakpoint-up(sm) {
-                    padding-top: 1em;
-                }
+                @include media-breakpoint-up(sm) {}
                 @include media-breakpoint-up(md) {
                     @include font-size(44);
-                    padding-top: 1.5em;
                 }
                 @include media-breakpoint-up(lg) {
                     @include font-size(60);

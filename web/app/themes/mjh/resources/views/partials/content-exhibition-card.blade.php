@@ -2,9 +2,9 @@
 <div class="slide-card exhibtion-card">
 	<!-- Hero bg in header template -->
 	<a href="{!! get_the_permalink($item_id); !!}" class="card-link">
-	<div class="card-image"><div class="wrap">
-		<span>{!! App::featuredImage('square@1x',$item_id) !!}</span>
-	</div></div>
+	<div class="card-image" style="background-image:url({{App::featuredImageSrc('square@1x',$item_id)}})">
+		<span></span>
+	</div>
 	<h3>{{ get_the_title($item_id) }}</h3>
 	<p class="description">{{App::postExcerpt($item_id)}}</p>
 	<div class="details">

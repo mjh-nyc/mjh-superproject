@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="page-header container">
   <h1>@if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ){{$highlighted_exhibition_post_title}} @else {!! App\title() !!}@endif</h1>
   @if ( !empty($post) && $post->post_type =='post')
     <div class="post-date">@php(the_date('l, F j, Y'))</div>
