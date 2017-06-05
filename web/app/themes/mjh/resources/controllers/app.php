@@ -159,9 +159,24 @@ class App extends Controller
         if (!$id){
             $id = get_the_ID();
         }
-        return get_the_excerpt($id);
+        $excerpt = get_the_excerpt($id);
+        if ($excerpt) {
+            $limit = 20;
+            if (str_word_count($excerpt, 0) > $limit) {
+                  $words = str_word_count($excerpt, 2);
+                  $pos = array_keys($words);
+                  $excerpt = substr($excerpt, 0, $pos[$limit]) . '...';
+              }
+        }
+        //also if the title is too long, hide the description
+        if (strlen(get_the_title($id)) >30) {
+            return false;
+        } else {
+            return $excerpt;
+        }
+        
     }
-
+   
 
 
     /**
