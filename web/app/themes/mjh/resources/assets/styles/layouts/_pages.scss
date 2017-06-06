@@ -296,7 +296,7 @@
             margin-top: 0;
         }
         @include media-breakpoint-up(lg) {
-            @include font-size(19); 
+            @include font-size(19);
         }
         .buy-tix {
             margin-top: 15px;
@@ -500,6 +500,7 @@
                 opacity: 0.75;
             }
         }
+        .slide-card:hover,
         .slide-card.slick-current {
             opacity: 1;
             -webkit-transform: scale(1, 1);
@@ -829,6 +830,12 @@
             }
         }
     }
+}
+
+.slide-card:hover {
+    -webkit-transform: scale(1.05, 1.05);
+    -o-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
 }
 
 .mjh-slider {
