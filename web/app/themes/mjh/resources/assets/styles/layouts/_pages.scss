@@ -339,7 +339,7 @@
 .sponsors {
     @include listReset();
     .image {
-        padding-right: 30px;
+        padding: 30px;
     }
     img {
         min-width: 50%;
