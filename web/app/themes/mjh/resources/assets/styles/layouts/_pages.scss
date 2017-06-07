@@ -351,6 +351,8 @@
     }
 }
 
+
+
 .primary-sponsors {
     margin-bottom: 25px;
     h4 {
@@ -1114,5 +1116,11 @@
         }
         font-family: EksellDisplay;
         color: #333333;
+    }
+}
+
+.schedule {
+    .day {
+        @extend strong;
     }
 }
