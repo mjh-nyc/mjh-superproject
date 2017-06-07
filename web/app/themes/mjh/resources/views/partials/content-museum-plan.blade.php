@@ -1,27 +1,23 @@
 <div class="container museum-plan">
   <div class="header">
-    <h1>Plan your visit</h1>
+    <h1>{!! _e('Plan your visit','sage') !!}</h1>
   </div>
   <div class="museum-plans">
     <div class="plan-top row justify-content-center">
       <div class="plan-item">
         <div class="plan-icon"><img src="@asset('images/tickets.svg')" alt="{!! _e('Tickets','sage') !!}"></div>
-        <div class="plan-title">{!! _e('Tickets','sage') !!}</div>
+        <div class="plan-title">{{ App::get_field('tickets_header','option')}}</div>
         <div class="content">
-          <div>
-            <p class="bold">Purchase Museum admission tickets in advance for a discount.</p>
-            <p class="small">There may be a separate ticket fee for programs.</p>
-          </div>
-          <div>
-            <p>{!! _e('Interested in getting free admission by becoming a member?','sage') !!}<br>
-            <span class="bold"><a href="/join/" style="text-decoration: underline;">{!! _e('Find out more','sage') !!}</a></p>
-            <div><a class="cta-round cta-arrow cta-secondary" href="/tickets/">@php _e("Buy Tickets","sage"); @endphp</a></div>
-          </div>
+          {!! App::get_field('ticketing_information','option') !!}
+          @if (App::get_field('buy_tickets_button','option'))
+            <a class="cta-round cta-arrow cta-secondary" href="{{ App::get_field('buy_tickets_button_url','option') }}">{{ App::get_field('buy_tickets_button_label','option') }}</a>
+          @endif
+          
         </div>
       </div>
       <div class="plan-item">
         <div class="plan-icon" style="margin-top: 10px;height: 60px;"><img src="@asset('images/mjh_logo_icon.svg')" alt="{!! _e("Museum building icon","sage") !!}"></div>
-        <div class="plan-title">{!! _e('Hours &amp; Location','sage') !!}</div>
+        <div class="plan-title">{{ App::get_field('hours_and_location_header','option') }}</div>
         <div class="content">
           <div>
             <p class="bold">{!! $get_current_schedule_text !!}</p>
@@ -33,7 +29,9 @@
             {!! get_field('secondary_street_address', 'option') !!}<br>
             {!! get_field('city_address', 'option') !!}, {!! get_field('state_address', 'option') !!} {!! get_field('zip_code_address', 'option') !!}</span><br>
             {!! get_field('phone_number', 'option') !!}</p>
-            <div><a class="cta-round cta-arrow cta-secondary" href="/location-directions/">{!! _e('Plan Your Visit','sage') !!}</a></div>
+            @if (App::get_field('plan_your_visit_button_url','option'))
+              <div><a class="cta-round cta-arrow cta-secondary" href="{{ App::get_field('plan_your_visit_button_url','option') }}">{{ App::get_field('plan_your_visit_button_label','option') }}</a></div>
+            @endif
           </div>
         </div>
       </div>
