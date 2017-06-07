@@ -791,6 +791,12 @@
     .card-link {
         color: $color-slide-text;
         text-transform: none;
+        display: block;
+        height: 100%;
+        outline: none;
+    }
+    .card-link:focus {
+        outline: none;
     }
     .card-link:hover {
         text-transform: none;
