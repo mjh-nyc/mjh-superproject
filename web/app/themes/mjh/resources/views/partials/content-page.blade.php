@@ -3,7 +3,7 @@
 		{{App::pageSubHeader()}}
 	</div>
 @endif
-
+@include('partials.content-side-navigation')
 <div class="page-content">
 	@php(the_content())
 </div>

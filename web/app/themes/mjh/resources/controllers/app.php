@@ -331,4 +331,77 @@ class App extends Controller
         return $date_output;
     }
 
+
+    /**
+     * Get secondary nav items, pass current page/post ID
+     *
+     * @return array
+     */
+    public static function getSubPageNav($id=false){
+        if (!$id){
+            $id = get_the_ID();
+        }
+        $pages = array();
+
+        if (App::is_child($id) || App::is_ancestor($id)) {
+            $parent_id = App::get_parent_id($id);
+            $pages = App::get_submenu($parent_id);
+        }
+        return $pages;
+    }
+    //Get Parent id (used from template as well, hence public declaration)
+    public static function get_parent_id( $id ) { 
+        $parent_id = wp_get_post_parent_id($id);
+        if ($parent_id == 0) {
+            //this is the parent, use its id
+            $parent_id = $id;
+        }
+        return $parent_id;
+    }
+
+    // Check if page is direct child
+    private static function is_child( $id ) { 
+        
+        if( is_page() && (wp_get_post_parent_id( $id ) > 0) ) {
+           return true;
+        } else { 
+           return false; 
+        }
+    }
+
+    // Check if page is an ancestor
+    public static function is_ancestor( $id ) {
+       $children = get_pages( array( 'child_of' => $id ) );
+        if( count( $children ) == 0 ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //get the subnav page links
+    private static function get_submenu($parent) {
+        $args = array(
+            'sort_order' => 'asc',
+            'sort_column' => 'post_title',
+            'hierarchical' => 1,
+            'exclude' => '',
+            'include' => '',
+            'meta_key' => '',
+            'meta_value' => '',
+            'authors' => '',
+            'child_of' => $parent,
+            'parent' => -1,
+            'exclude_tree' => '',
+            'number' => '',
+            'offset' => 0,
+            'post_type' => 'page',
+            'post_status' => 'publish'
+        ); 
+        $pages = get_pages($args);
+        return $pages;
+    }
+    /************ END Submenu *********************/
+
+
+
 }
