@@ -410,6 +410,7 @@ class App extends Controller
      */
     public static function get_posts_nav() {
         $args = array(
+            'mid_size'           => 4,
             'prev_next'          => false,
         );
         $pagination = get_the_posts_pagination( $args );

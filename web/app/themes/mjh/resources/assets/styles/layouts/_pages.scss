@@ -1,4 +1,8 @@
 .search-results,
+.archive.author,
+.archive.category,
+.archive.tag,
+.archive.date,
 .search-no-results,
 .error404,
 .post-template-default,
@@ -117,7 +121,7 @@
     }
 }
 
-.search-results {
+.search-results, .archive.author, .archive.category, .archive.tag, .archive.date {
     article {
         border-bottom: 1px solid $color-footer-separator;
         margin-bottom: 3rem;

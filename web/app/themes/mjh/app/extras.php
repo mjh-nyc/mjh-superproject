@@ -309,7 +309,7 @@ add_filter('rewrite_rules_array', 'App\\mjh_add_rewrite_rules');
 
 // hook to modify the post query
 function mjh_meta_query( $query ) {
-    if ( $query->is_archive){
+    if ( $query->is_archive && !empty($query->query_vars['post_type'])){
         switch($query->query_vars['post_type']){
             case'exhibition':
                 if(isset($query->query_vars['status'])) {
