@@ -20,24 +20,50 @@ export default {
         })
 
         //init Gallery
-        $('.gallery').slick({
-            responsive: [{
-                breakpoint: 576,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '0',
-                    slidesToShow: 1,
-                },
-            }],
-        });
+        var mjh_gallery = jQuery('.mjh-gallery');
+        if (mjh_gallery.length) {
+          mjh_gallery.slick({
+              responsive: [{
+                  breakpoint: 576,
+                  settings: {
+                      arrows: false,
+                      centerMode: true,
+                      centerPadding: '0',
+                      slidesToShow: 1,
+                  },
+              }],
+          });
+        }
+        //set the width of the mjh-slider content using the 4:6 ratio
+        //first get width of the container
+        var set_mjh_slider_width = function() {
+          var content_col_width = jQuery('.entry-content, .page-content').width();
+          var mjh_slider_height = content_col_width * (4/6);
+          jQuery('.mjh-gallery .slide-image').css('height', mjh_slider_height);
+        };
+        var didResize = false;
+        jQuery(window).resize(function() {
+          didResize = true;
+         });
+         
+         setInterval(function() {  
+          if(didResize) {
+            didResize = false;
+            set_mjh_slider_width();
+          }
+         }, 250);
+         //set on load too
+         set_mjh_slider_width();
+
+         //wrap video embeds with elastic container to make them responsive
+         jQuery('.entry-content, .page-content').find( "iframe, object, embed" ).wrap( "<div class='video-container'></div>" );
 
         /*new Waypoint.Sticky({
           element: jQuery('.sticky')[0],
         })*/
 
 
-        $(".animsition").animsition({
+        jQuery(".animsition").animsition({
             inClass: 'fade-in',
             outClass: 'fade-out',
             inDuration: 1500,
@@ -61,10 +87,10 @@ export default {
         });
 
         /* Event listing form events */
-        $("#event-dates").change(function() {
+        jQuery("#event-dates").change(function() {
             $("#event-listing-form").submit();
         });
-        $("#event-category").change(function() {
+        jQuery("#event-category").change(function() {
             $("#event-listing-form").submit();
         });
     },

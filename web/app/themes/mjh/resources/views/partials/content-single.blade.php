@@ -1,9 +1,10 @@
 <article @php(post_class())>
-  <header>
-    <h1 class="entry-title">{{ get_the_title() }}</h1>
-    @include('partials/entry-meta')
-  </header>
-  <div class="entry-content">
+  {{-- <header>
+    @if (get_post_type() != "attachment")
+      @include('partials/entry-meta')
+    @endif
+  </header> --}}
+  <div class="entry-content" style="margin-top: 30px">
     @php(the_content())
   </div>
   <footer>

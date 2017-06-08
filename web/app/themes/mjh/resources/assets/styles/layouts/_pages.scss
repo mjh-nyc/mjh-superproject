@@ -341,11 +341,22 @@
     .image {
         padding: 30px;
     }
+    .subhead {
+        text-align: center;
+         @include media-breakpoint-up(md) {
+            text-align: left;
+        }
+    }
+    a {
+        display: block;
+        text-align: center;
+    }
     img {
-        min-width: 50%;
+        width: 50%;
+        margin: 0 auto;
+        height: auto;
         @include media-breakpoint-up(md) {
-            min-width: 100%;
-            max-width: 100%;
+            width:100%;
         }
         height: auto;
     }
@@ -910,7 +921,7 @@
     }
 }
 
-.gallery {
+.mjh-slider {
     margin-bottom: 21px;
     @include media-breakpoint-up(md) {
         margin-bottom: 34px;

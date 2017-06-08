@@ -402,6 +402,19 @@ class App extends Controller
     }
     /************ END Submenu *********************/
 
+    /********** Paged navigation ******************/
+    /**
+     * Format pagination as numbered links
+     *
+     * @return string
+     */
+    public static function get_posts_nav() {
+        $args = array(
+            'prev_next'          => false,
+        );
+        $pagination = get_the_posts_pagination( $args );
 
+        return $pagination;
+    }
 
 }
