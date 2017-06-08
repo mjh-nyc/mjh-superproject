@@ -77,6 +77,34 @@ class App extends Controller
     }
 
     /**
+     * Return featured image alt
+     *
+     * @return string
+     */
+    public static function featuredImageAlt($id=false)
+    {
+        $image_alt = "";
+        if ($id) {
+            $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
+        }
+        return $image_alt;
+    }
+
+    /**
+     * Return featured image description (used for photo credits)
+     *
+     * @return string
+     */
+    public static function featuredImageDesc($id=false)
+    {
+        $image_desc = "";
+        if ($id) {
+            $image_desc = get_post($id)->post_content;
+        }
+        return $image_desc;
+    }
+
+    /**
      * Return the sub head custo field value (available for default page template)
      *
      * @return string

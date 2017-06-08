@@ -139,6 +139,20 @@ a:hover, a:active {
   }
 }
 
+.image-credit {
+    z-index: 20;
+    position: absolute;
+    font-size: 12px;
+    opacity: 1;
+    right: 5%;
+    bottom: 5%;
+    @extend em;
+    display: none;
+    @include media-breakpoint-up(sm) {
+      display: block;
+    }
+}
+
 /************ PAGINATION *****************/
 .pagination {
   .nav-links {
