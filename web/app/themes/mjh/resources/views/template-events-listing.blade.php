@@ -1,5 +1,5 @@
 {{--
-  Template Name: Events Listing Template
+  Template Name: Events Listing
 --}}
 
 @extends('layouts.app')
@@ -38,7 +38,10 @@
           </article>
         @endforeach
       @else
-        <h3>There are no events to display</h3>
+        <div style="margin-bottom: 100px;">
+          <div class="alert alert-warning">@php _e("There are no events to display","sage"); @endphp</div>
+          {!! get_search_form(false) !!}
+        </div>
       @endif
       </div>
     @include('partials.content-page')

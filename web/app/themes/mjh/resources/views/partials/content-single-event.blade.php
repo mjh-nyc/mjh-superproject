@@ -20,7 +20,7 @@
         @if (App::get_field('event_has_location'))
           <div class="event-location item">
             <div>{{App::get_field('event_location')}}</div>
-            <div>{{App::get_field('event_street')}} {{App::get_field('event_secondary_street')}}</div>
+            <div>{{App::get_field('event_street')}} <span style="display: block;">{{App::get_field('event_secondary_street')}}</span></div>
             <div>{{App::get_field('event_city')}}, {{App::get_field('event_state')}} {{App::get_field('event_zip_code')}}</div>
           </div>
         @endif
@@ -37,7 +37,7 @@
         @endif
         @if (App::get_field('event_ticket_url'))
         <div class="buy-tix">
-          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
+          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">@php _e("Get Tickets","sage"); @endphp</a>
         </div>
         @endif
         </div>
@@ -46,7 +46,14 @@
     </div>
 
     <div class="entry-content">
-      @include('partials.content-share')
+      <div class="row">
+        <div class="col-md-8">
+          @include('partials.content-share')
+        </div>
+        <div class="cold-md-4 see-all">
+          @php _e("All events","sage"); @endphp
+        </div>
+      </div>
       @php(the_content())
       @include('partials.content-related-links')
     </div>

@@ -1,10 +1,10 @@
-@if (App::pageSubHeader())
-	<div class="page-subheader">
-		{{App::pageSubHeader()}}
-	</div>
-@endif
-
+@include('partials.content-side-navigation')
 <div class="page-content">
+	@if (App::pageSubHeader())
+		<div class="page-subheader">
+			{{App::pageSubHeader()}}
+		</div>
+	@endif
 	@php(the_content())
 </div>
 @include('partials.content-gallery')

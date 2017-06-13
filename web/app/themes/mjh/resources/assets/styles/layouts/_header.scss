@@ -108,7 +108,6 @@
         @media (max-width: 575px) {
             display: none;
         }
-        
         .nav-secondary {
             @include bentonBd();
             padding-top: 9px;
@@ -302,10 +301,12 @@
         }
         label {
             margin-bottom: 0;
+            width: 100%;
         }
         .search-field {
             background: transparent;
             color: white;
+            width: 100%;
             @include font-size(17);
             @include media-breakpoint-up(md) {
                 @include font-size(22);
