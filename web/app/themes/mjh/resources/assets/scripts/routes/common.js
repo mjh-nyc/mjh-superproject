@@ -84,6 +84,8 @@ export default {
             overlayClass: 'animsition-overlay-slide',
             overlayParentElement: 'body',
             transition: function(url) { window.location.href = url; },
+        }).one('animsition.inStart', function(){
+          jQuery(".parallax-mirror").fadeIn("slow");
         });
 
         /* Event listing form events */
