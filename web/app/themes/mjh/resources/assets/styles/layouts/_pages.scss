@@ -207,7 +207,11 @@
     }
 }
 
-.search-results, .archive.author, .archive.category, .archive.tag, .archive.date {
+.search-results,
+.archive.author,
+.archive.category,
+.archive.tag,
+.archive.date {
     article {
         border-bottom: 1px solid $color-footer-separator;
         margin-bottom: 3rem;
@@ -433,7 +437,7 @@
     }
     .subhead {
         text-align: center;
-         @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(md) {
             text-align: left;
         }
     }
@@ -446,7 +450,7 @@
         margin: 0 auto;
         height: auto;
         @include media-breakpoint-up(md) {
-            width:100%;
+            width: 100%;
         }
         height: auto;
     }
@@ -549,10 +553,10 @@
         }
         .slide-card {
             @include media-breakpoint-up(sm) {
-                height: 781px;
+                height: 815px;
             }
             @include media-breakpoint-up(lg) {
-                height: 884px;
+                height: 939px;
             }
             background-size: cover;
         }
