@@ -53,8 +53,21 @@ export default {
             arrows: true,
             autoplay: true,
         });
+
+        //plan your visit cards
+        jQuery('.cardslider').cardslider({
+            swipe: true,
+            dots: false,
+            loop: true,
+            direction: 'right',
+        }).data('cardslider');
+
+        
+        
     },
     finalize() {
         // JavaScript to be fired on the home page, after the init JS
+
+
     },
 };
