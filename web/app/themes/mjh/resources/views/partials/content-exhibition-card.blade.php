@@ -3,7 +3,7 @@
 	<!-- Hero bg in header template -->
 	<a href="{!! get_the_permalink($item_id); !!}" class="card-link">
 	<div class="card-image" style="background-image:url({{App::featuredImageSrc('square@1x',$item_id)}})">
-		<span></span>
+		<span class="sr-only"></span>
 	</div>
 	<h3>{{ get_the_title($item_id) }}</h3>
 	<p class="description">{{App::postExcerpt($item_id)}}</p>

@@ -48,10 +48,28 @@ export default {
         });
         jQuery('.slider-plan-deck').slick({
             centerMode: true,
-            centerPadding: 0,
-            slidesToShow: 1,
-            arrows: true,
-            autoplay: true,
+              centerPadding: '25px',
+              slidesToShow: 1,
+              responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1,
+                  },
+                },
+                {
+                  breakpoint: 576,
+                  settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1,
+                  },
+                },
+              ],
         });
 
         //plan your visit cards

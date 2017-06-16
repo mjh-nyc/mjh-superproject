@@ -77,7 +77,7 @@ class App extends Controller
     }
 
     /**
-     * Return featured image alt
+     * Return featured image alt, pass post ID
      *
      * @return string
      */
@@ -189,12 +189,7 @@ class App extends Controller
         }
         $excerpt = get_the_excerpt($id);
         if ($excerpt) {
-            $limit = 20;
-            if (str_word_count($excerpt, 0) > $limit) {
-                  $words = str_word_count($excerpt, 2);
-                  $pos = array_keys($words);
-                  $excerpt = substr($excerpt, 0, $pos[$limit]) . '...';
-              }
+            $excerpt = App::truncateString($excerpt, 20);
         }
         //also if the title is too long, hide the description
         if (strlen(get_the_title($id)) >30) {
@@ -203,6 +198,17 @@ class App extends Controller
             return $excerpt;
         }
         
+    }
+    //used by various functions to truncate the string to specified number of words
+    public static function truncateString($string, $limit=5) {
+        if ($string) {
+            if (str_word_count($string, 0) > $limit) {
+                  $words = str_word_count($string, 2);
+                  $pos = array_keys($words);
+                  $string = substr($string, 0, $pos[$limit]) . '...';
+              }
+              return $string;
+        }
     }
    
 
