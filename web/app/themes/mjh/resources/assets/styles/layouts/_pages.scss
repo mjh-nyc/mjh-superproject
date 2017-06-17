@@ -636,6 +636,12 @@
             @include media-breakpoint-up(sm) {
                 height: 410px;
             }
+
+            -moz-transform: scale(.95);
+            -webkit-transform: scale(.95);
+            -o-transform: scale(.95);
+            -ms-transform: scale(.95);
+            transform: scale(.95);
            
             &:hover {
                 -moz-transform:none;
@@ -669,23 +675,38 @@
             background-size: cover;
             background-position: center center;
         }
-        .card-caption {
-            color: $color-text;
-            padding: 0 1rem;
-            margin-bottom: 1rem;
-        }
-        .card_url {
-            padding: 0 1rem;
-            .cta-round {
-                width: 90%;
+        .card-copy {
+            /*display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: auto;
+            @include media-breakpoint-up(sm) {
+            }
+            @include media-breakpoint-up(lg) {
+                height: 170px;
+            }
+            @include media-breakpoint-up(xlg) {
+                height: 130px;
+            }*/
+            .card-caption {
+                @include bentonBd();
+                color: $color-text;
+                padding: 0 1rem;
+                margin-bottom: 1rem;
+            }
+            .card_url {
+                padding: 0 1rem;
+                .cta-round {
+                    width: 90%;
+                }
             }
         }
+
         a {
             color: white;
+            text-decoration: underline;
         }
-        .card-caption {
-            @include bentonBd();
-        }
+
     }
     .plan-top {
         .plan-item {

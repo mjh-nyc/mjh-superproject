@@ -48,9 +48,13 @@ export default {
         });
         jQuery('.slider-plan-deck').slick({
             centerMode: true,
-              centerPadding: '25px',
-              slidesToShow: 1,
-              responsive: [
+            centerPadding: '30px',
+            slidesToShow: 1,
+            //autoplay: true,
+            pauseOnHover: true,
+            speed: 100,
+            autoplaySpeed:5000,
+            responsive: [
                 {
                   breakpoint: 768,
                   settings: {
