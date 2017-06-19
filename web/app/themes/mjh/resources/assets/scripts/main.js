@@ -13,9 +13,6 @@ import 'waypoints/lib/shortcuts/sticky.min';
 //Import animsition library
 import 'animsition/dist/js/animsition.min';
 
-//Import cardslider
-import 'cardslider/dist/js/jquery.cardslider.min';
-
 
 
 /** import local dependencies */
