@@ -15,6 +15,8 @@ export default {
             slidesToScroll: 1,
             asNavFor: '.slider-for',
             arrows: true,
+            speed: 900,
+            autoplaySpeed:5000,
             autoplay: true,
             centerMode: true,
             pauseOnHover: true,
@@ -37,6 +39,7 @@ export default {
                 },
             ],
         });
+        // there are less then 4 slides, create a rollover that highlights and loads the bg above
         jQuery('.slider-nav').on('mouseenter', '.slick-slide', function(e) {
             var $currTarget = $(e.currentTarget),
                 index = $currTarget.data('slick-index'),
@@ -46,6 +49,23 @@ export default {
             }
 
         });
+        //update the header title based on slide loaded
+        var header_container = jQuery('.onview h1');
+        var curr_header = jQuery('.exhibtion-card.slick-center').attr('data-header');
+        jQuery('.slider-nav').on('afterChange', function(){
+            // let's do this after changing slides
+            //get the value of the data-header attr of the current slide\
+            var new_header = jQuery('.exhibtion-card.slick-center').attr('data-header');
+            if (curr_header!=new_header) {
+                header_container.css('display','none');
+                header_container.text( new_header );
+                header_container.fadeIn('slow');
+                curr_header = new_header;
+            }
+        });
+
+
+
         jQuery('.slider-plan-deck').slick({
             centerMode: true,
             centerPadding: '30px',
@@ -74,17 +94,7 @@ export default {
                   },
                 },
               ],
-        });
-
-        //plan your visit cards
-        jQuery('.cardslider').cardslider({
-            swipe: true,
-            dots: false,
-            loop: true,
-            direction: 'right',
-        }).data('cardslider');
-
-        
+        });  
         
     },
     finalize() {

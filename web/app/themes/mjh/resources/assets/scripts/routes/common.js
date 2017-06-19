@@ -58,10 +58,11 @@ export default {
          //wrap video embeds with elastic container to make them responsive
          jQuery('.entry-content, .page-content').find( "iframe, object, embed" ).wrap( "<div class='video-container'></div>" );
 
-        /*new Waypoint.Sticky({
-          element: jQuery('.sticky')[0],
-        })*/
 
+        //init sticky header
+       /*var sticky = new Waypoint.Sticky({
+          element: jQuery('.sticky')[0],
+        }).data(sticky);*/
 
         jQuery(".animsition").animsition({
             inClass: 'fade-in',

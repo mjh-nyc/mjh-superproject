@@ -41,15 +41,16 @@
 
 
   </div>
-  <div class="related-content">
-    <div class="header">
-      {{ __('Also on View', 'sage') }}
+  @if ($exhibitions_widget_listings)
+    <div class="related-content">
+      <div class="header">
+        {{ __('Also on View', 'sage') }}
+      </div>
+      <div class="row no-gutters">
+        @foreach ($exhibitions_widget_listings as $exhibition_widget)
+            @include('partials.content-exhibition-card', ['item_id'=>$exhibition_widget->ID, 'header'=>''])
+        @endforeach
+      </div>
     </div>
-    <div class="row no-gutters">
-    {{-- TBD : actually pull 2 random exhibits that are not the current one, must only be for current on view or collection --}}
-      @foreach ($exhibitions_widget_listings as $exhibition_widget)
-          @include('partials.content-exhibition-card', ['item_id'=>$exhibition_widget->ID])
-      @endforeach
-    </div>
-  </div>
+  @endif
 </article>

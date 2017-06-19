@@ -46,14 +46,7 @@
     </div>
 
     <div class="entry-content">
-      <div class="row">
-        <div class="col-md-8">
-          @include('partials.content-share')
-        </div>
-        <div class="cold-md-4 see-all">
-          @php _e("All events","sage"); @endphp
-        </div>
-      </div>
+      @include('partials.content-share')
       @php(the_content())
       @include('partials.content-related-links')
     </div>
