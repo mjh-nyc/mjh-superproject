@@ -434,12 +434,10 @@
     @include listReset();
     .image {
         padding: 30px;
+        text-align: center;
     }
     .subhead {
         text-align: center;
-        @include media-breakpoint-up(md) {
-            text-align: left;
-        }
     }
     a {
         display: block;
@@ -995,12 +993,14 @@
         display: block;
         height: 100%;
         outline: none;
+        text-decoration: none;
     }
-    .card-link:focus {
-        outline: none;
-    }
-    .card-link:hover {
-        text-transform: none;
+    .card-link {
+        &:focus, &:active, &:visited, &:hover {
+            outline: none;
+            text-transform: none;
+            text-decoration: none;
+        }
     }
     .card-image {
         width: 100%;
@@ -1324,6 +1324,7 @@
         }
         font-family: EksellDisplay;
         color: #333333;
+        display:block;
     }
 }
 
