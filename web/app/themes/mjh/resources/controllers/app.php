@@ -85,7 +85,8 @@ class App extends Controller
     {
         $image_alt = "";
         if ($id) {
-            $image_alt = get_post_meta( $id, '_wp_attachment_image_alt', true);
+            $post_thumbnail_id = get_post_thumbnail_id($id);
+            $image_alt = get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true);
         }
         return $image_alt;
     }
