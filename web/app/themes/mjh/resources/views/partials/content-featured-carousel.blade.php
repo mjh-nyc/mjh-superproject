@@ -9,9 +9,8 @@
 <div class="onview">
 		<div class="header"><h1>@php _e("Now on view","sage"); @endphp</h1></div>
 		<div class="featured-carousel  mjh-slider slider-nav container">
-				@foreach (App::get_repeater_field('featured_carousel_repeater') as $item)
-						@php $item_id = $item['carousel_item'] @endphp
-						@include('partials.content-exhibition-card')
+				@foreach (App::get_repeater_field('featured_carousel_repeater') as $item)						
+						@include('partials.content-exhibition-card',['item_id' => $item['carousel_item'],'header' => $item['carousel_item_header']])
 				@endforeach
 		</div>
 </div>

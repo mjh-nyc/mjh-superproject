@@ -3,7 +3,7 @@
   <!-- Hero bg in header template -->
   <a href="{!! get_the_permalink($item_id); !!}" class="card-link">
     <div class="card-image" style="background-image:url({{App::featuredImageSrc('square@1x',$item_id)}})">
-      <span class="sr-only">TODO: Add Alt text</span>
+      <span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
       <span class="card-category">{!! App::postTermsString($item_id,'event_category') !!}</span>
     </div>
     <div class="info">
