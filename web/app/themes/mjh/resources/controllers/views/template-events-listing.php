@@ -10,6 +10,8 @@ class Events extends Controller
 
     var $eventDates;
     var $eventCategory;
+    var $paged = 1;
+    var $events;
     /**
      * Constructor
      *
@@ -24,7 +26,7 @@ class Events extends Controller
         if( !empty($_REQUEST['event-category']) ){
             $this->eventCategory = (int)$_REQUEST['event-category'];
         }
-
+        $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
     /**
@@ -35,7 +37,7 @@ class Events extends Controller
     public function events()
     {
         $currentDate = strtotime('today midnight');
-        $pParamHash = array('post_type' => 'event','posts_per_page' => -1);
+        $pParamHash = array('post_type' => 'event','posts_per_page' => 9,'paged'=>$this->paged);
         if($this->eventDates=='upcoming'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
@@ -76,9 +78,9 @@ class Events extends Controller
             );
         }
 
-	    $events = new WP_Query( $pParamHash);
-        if($events->posts){
-            return $events->posts;
+	    $this->events = new WP_Query( $pParamHash);
+        if($this->events->posts){
+            return $this->events->posts;
         }else{
             return false;
         }
@@ -102,4 +104,12 @@ class Events extends Controller
         return $this->eventCategory;
     }
 
+    /**
+     * Return max page for pagination
+     *
+     * @return int
+     */
+    public function getMaxNumPages() {
+        return $this->events->max_num_pages;
+    }
 }

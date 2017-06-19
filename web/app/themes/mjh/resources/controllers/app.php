@@ -27,6 +27,15 @@ class App extends Controller
         return get_bloginfo('description');
     }
     /**
+     * Return permalink
+     *
+     * @return varchar
+     */
+    public static function currentPermalink()
+    {
+        return get_permalink();
+    }
+    /**
      * Return site logo image hash
      *
      * @return array
@@ -198,7 +207,7 @@ class App extends Controller
         } else {
             return $excerpt;
         }
-        
+
     }
     //used by various functions to truncate the string to specified number of words
     public static function truncateString($string, $limit=5) {
@@ -211,7 +220,7 @@ class App extends Controller
               return $string;
         }
     }
-   
+
 
 
     /**
@@ -385,7 +394,7 @@ class App extends Controller
         return $pages;
     }
     //Get Parent id (used from template as well, hence public declaration)
-    public static function get_parent_id( $id ) { 
+    public static function get_parent_id( $id ) {
         $parent_id = wp_get_post_parent_id($id);
         if ($parent_id == 0) {
             //this is the parent, use its id
@@ -395,12 +404,12 @@ class App extends Controller
     }
 
     // Check if page is direct child
-    private static function is_child( $id ) { 
-        
+    private static function is_child( $id ) {
+
         if( is_page() && (wp_get_post_parent_id( $id ) > 0) ) {
            return true;
-        } else { 
-           return false; 
+        } else {
+           return false;
         }
     }
 
@@ -431,7 +440,7 @@ class App extends Controller
             'offset' => 0,
             'post_type' => 'page',
             'post_status' => 'publish'
-        ); 
+        );
         $pages = get_pages($args);
         return $pages;
     }
@@ -452,5 +461,20 @@ class App extends Controller
 
         return $pagination;
     }
-
+    /**
+     * Pagination for custom WP_Query executions
+     *
+     * @return string
+     */
+    public static function paginate_links ($max_num_pages){
+      $big = 999999999; // need an unlikely integer
+      return paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'mid_size'  => 4,
+        'prev_next' => false,
+        'total' => $max_num_pages
+        ) );
+    }
 }
