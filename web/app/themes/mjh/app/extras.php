@@ -291,6 +291,21 @@ add_action( 'widgets_init', function(){
 
 /* END find us widget  ****************************/
 
+function redirect_events() {
+    $path = '';
+    if( !empty( $_SERVER['REDIRECT_URL'] ) ){
+        $path =  $_SERVER['REDIRECT_URL'];
+        $root_url = get_bloginfo('url');
+        switch($path){
+            case'/events/':
+                wp_redirect( $root_url.'/current-events' );
+                exit;
+            break;
+        }
+    }
+}
+add_action( 'init', 'App\\redirect_events' );
+
 // hook add_query_vars function into query_vars
 function mjh_add_query_vars($aVars) {
     $aVars[] = "status";
@@ -300,7 +315,6 @@ add_filter('query_vars', 'App\\mjh_add_query_vars');
 
 // hook add_rewrite_rules function into rewrite_rules_array
 function mjh_add_rewrite_rules($aRules) {
-    $aNewRules = array('events' => 'events-listing');
     $aNewRules = array('exhibitions/status/([^/]+)/?$' => 'index.php?post_type=exhibition&status=$matches[1]');
     $aRules = $aNewRules + $aRules;
     return $aRules;
@@ -446,7 +460,7 @@ function get_hours( $atts="" ) {
 	 	// loop through the rows of data
 		$prev_exception = ""; //keep track of prev day in case the next in loop repeats, just print an asterisk and move the hours into the footnote
 		$exception_notice = false;
-		
+
 
 	    while ( have_rows('regular_hours_repeater','options') ) : the_row();
 	        $exception_start = get_sub_field('hours_start_date_range');
@@ -481,11 +495,11 @@ function get_hours( $atts="" ) {
 	    //add exceptions notes if encountered
 	    if ($exception_notice) {
 		    $hours .='<div class="alert alert-warning">';
-		    	$hours .= __("* Note that our hours change during these times:","sage");	
-		    	$hours .= $exception_notice;    	
+		    $hours .= __("* Note that our hours change during these times:","sage");
+		    $hours .= $exception_notice;
 		    $hours .='</div>';
 		}
-	endif;  
+	endif;
 
 	return $hours;
 }
@@ -498,7 +512,7 @@ function get_holiday_hours( $atts="" ) {
 		$hours = '<div class="schedule row">';
 	 	// loop through the rows of data
 		while ( have_rows('holiday_hours_repeater','options') ) : the_row();
-	        
+
 	        $holiday = get_sub_field('holiday_name');
 	        $holiday_date = get_sub_field('holiday_date');
 	        $opening_hour = get_sub_field('opening_hour');
@@ -510,10 +524,10 @@ function get_holiday_hours( $atts="" ) {
 		        $hours .= '</strong>';
 		        $hours .= ', ';
 		        $hours .= $holiday;
-		       
+
 		    $hours .= '</div>';
 		    $hours .= '<div class="col-sm-5 hours">';
-		        
+
 		        if (get_sub_field('is_museum_closed')) {
 		        	$hours .= __("Closed","sage");
 		        } else {
@@ -521,11 +535,11 @@ function get_holiday_hours( $atts="" ) {
 			        $hours .= ' &#8211; ';
 			        $hours .= $closing_hour;
 			    }
-			    
+
 		    $hours .= '</div>';
 	    endwhile;
 	    $hours .='</div>';
-	endif;  
+	endif;
 
 	return $hours;
 }

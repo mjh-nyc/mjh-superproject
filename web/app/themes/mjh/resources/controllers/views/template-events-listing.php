@@ -36,28 +36,32 @@ class Events extends Controller
     {
         $currentDate = strtotime('today midnight');
         $pParamHash = array('post_type' => 'event','posts_per_page' => -1);
-        add_filter('posts_where', 'App\\mjh_events_posts_where');
-
         if($this->eventDates=='upcoming'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
                 '0'=> array(
-                    'key'	 	=> 'event_dates_%_event_start_date',
+                    'key'	 	=> 'event_start_date',
                     'value'	  	=> date('Y-m-d H:i:s', $currentDate),
                     'type'		=> 'DATETIME',
                     'compare' 	=> '>',
                 )
             );
+            $pParamHash['meta_key']	= 'event_start_date';
+            $pParamHash['orderby']	= 'meta_value';
+            $pParamHash['order']	= 'ASC';
 	    }elseif($this->eventDates=='past'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
                 '0'=> array(
-                    'key'	 	=> 'event_dates_%_event_end_date',
+                    'key'	 	=> 'event_end_date',
                     'value'	  	=> date('Y-m-d H:i:s', $currentDate),
                     'type'		=> 'DATETIME',
                     'compare' 	=> '<',
                 )
             );
+            $pParamHash['meta_key']	= 'event_end_date';
+            $pParamHash['orderby']	= 'meta_value';
+            $pParamHash['order']	= 'DESC';
         }
 
         if (!empty($this->eventCategory) ){
@@ -73,7 +77,6 @@ class Events extends Controller
         }
 
 	    $events = new WP_Query( $pParamHash);
-        remove_filter('posts_where', 'App\\mjh_events_posts_where');
         if($events->posts){
             return $events->posts;
         }else{
