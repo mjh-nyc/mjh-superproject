@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b81eb62406e3aedd8243c1a60b3eb17",
+    "content-hash": "6488caea7289adbfe712f322dc62e883",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -254,7 +254,7 @@
         },
         {
             "name": "mjh-nyc/mjh-custom-configurations",
-            "version": "1.0.18",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
@@ -490,6 +490,46 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/formidable/"
+        },
+        {
+            "name": "wpackagist-plugin/safe-redirect-manager",
+            "version": "1.7.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/safe-redirect-manager/",
+                "reference": "tags/1.7.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/safe-redirect-manager.1.7.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/safe-redirect-manager/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "4.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/4.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.4.9.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         }
     ],
     "packages-dev": [
