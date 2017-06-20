@@ -7,7 +7,7 @@
 @section('content')
   @while(have_posts()) @php(the_post())
       <div class="event-form">
-        <form id="event-listing-form" name="event-listing-form" method='get' action="{!! APP::currentPermalink() !!}">
+        <form id="event-listing-form" name="event-listing-form" method='get' action="{!! APP::getPermalink() !!}">
           <div class="wrap">
             <label for="event-dates">@php _e("Display","sage"); @endphp</label>
             <div class="styled-select slate">

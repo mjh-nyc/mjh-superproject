@@ -31,8 +31,11 @@ class App extends Controller
      *
      * @return varchar
      */
-    public static function currentPermalink()
+    public static function getPermalink($id = false)
     {
+        if($id){
+            return get_permalink($id);
+        }
         return get_permalink();
     }
     /**
@@ -354,6 +357,14 @@ class App extends Controller
         }else{
             return false;
         }
+    }
+    /**
+     * Get press category
+     *
+     * @return object
+     */
+    public static function getPressCategory(){
+        return  get_term_by( 'slug', 'press', 'category');
     }
 
     /**
