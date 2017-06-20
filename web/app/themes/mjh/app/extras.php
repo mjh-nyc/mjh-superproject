@@ -155,7 +155,7 @@ function my_custom_sizes( $sizes ) {
 
 /********************************************
 /* Adding open graph sharing meta tags *****/
-function hook_meta() {
+/*function hook_meta() {
 	global $post;
 	//default image, if there's no featured
 	//image added via the options page under Settings --> Theme options
@@ -219,7 +219,7 @@ function hook_meta() {
 
 	echo $output;
 }
-add_action('wp_head', __NAMESPACE__ . '\\hook_meta');
+add_action('wp_head', __NAMESPACE__ . '\\hook_meta');*/
 /* END meta tags ****************************/
 
 

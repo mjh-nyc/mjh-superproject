@@ -11,6 +11,8 @@
 		<h4>{{App::get_field('exhibition_type',$item_id)}}</h4>
 		@if (App::get_field('exhibition_start_date',$item_id))
 			<p>{{App::get_field('exhibition_start_date',$item_id)}} &#8211; {{App::get_field('exhibition_end_date',$item_id)}}</p>
+		@elseif (get_post_type($item_id) == "event")
+			<p>Event date</p>
 		@endif
 	</div>
 	</a>

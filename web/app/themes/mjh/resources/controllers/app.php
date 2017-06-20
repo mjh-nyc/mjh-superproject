@@ -379,11 +379,40 @@ class App extends Controller
         $start_date_day = date('Y-m-d', strtotime($start_date));
         $end_date_day = date('Y-m-d', strtotime($end_date));
         if($start_date_day == $end_date_day ){
-            $date_output = $start_date." &#8211; ".date('g:i a', strtotime($end_date));
+            $date_output = $start_date;
         }else{
-            $date_output = $start_date." &#8211; ".$end_date;
+            $date_output = date('F j', strtotime($start_date))." &#8211; ".$end_date;
         }
         return $date_output;
+    }
+
+    /**
+     * Evaluate if an event or exhibition is PAST, returns true if past, requires start and end dates
+     *
+     * @return bool
+     */
+    public static function evalEventStatus($start_date, $end_date){
+        //convert to timestamp
+        $start_date = strtotime($start_date);
+        $end_date = strtotime($end_date);
+        date_default_timezone_set('America/New_York');
+        $now = time();
+        if($start_date == $end_date ){
+           //just look at the start date
+            if ($now > $start_date) {
+                return true; //passed
+            } else {
+                return false;
+            }
+        }else{
+           //if the end date is in the future, this is not a past event
+            //use the past date for comparison
+            if ($now > $end_date) {
+                return true; //passed
+            } else {
+                return false;
+            }
+        }
     }
 
 
