@@ -153,7 +153,7 @@ class Homepage extends Controller
                         $hoursHash[0] = $hoursHash[$x];
                         break;
                     }else{
-                        unset($x);
+                        unset($hoursHash[$x]);
                     }
                 }
                 $hoursHash = array_values($hoursHash);
