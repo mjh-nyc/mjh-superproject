@@ -5,6 +5,7 @@
 .archive.date,
 .search-no-results,
 .error404,
+.archive-event-data,
 .post-template-default {
     .wrap.container {
         .content {
@@ -323,6 +324,9 @@
 
 .event-info {
     background-color: $color-eventinfobg;
+    &.past {
+        background-color: $color-grey;
+    }
     color: white;
     padding: 1.5rem 1.8rem 3rem;
     margin-bottom: 3rem;
@@ -359,6 +363,9 @@
     }
     .event-dates:before {
         content: '\f274';
+    }
+    .event-dates-content {
+        padding-top: 5px;
     }
     .event-location:before {
         content: '\f041';

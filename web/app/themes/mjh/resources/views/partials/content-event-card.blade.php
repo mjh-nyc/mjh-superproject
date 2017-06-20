@@ -11,16 +11,16 @@
       <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
     </div>
     <div class="details">
-      @if (App::get_repeater_field('event_dates',$item_id))
+      @if (App::get_field('event_start_date',$item_id))
       <div class="event-dates">
-        <ul>
-          @foreach (App::get_repeater_field('event_dates',$item_id) as $event_date)
-	          <li>{{ $event_date['event_start_date'] }} <!--@if ($event_date['event_end_date']) &#8211; {{ $event_date['event_end_date']
-	            }}@endif-->
-	          </li>
-	          @break
-          @endforeach
-        </ul>
+          	@if (App::get_field('event_end_date',$item_id))
+          		{{ App::cleanDateOutput(App::get_field('event_start_date',$item_id),App::get_field('event_end_date',$item_id)) }}
+          	@else
+          		{{ App::get_field('event_start_date',$item_id) }} 
+          	@endif
+          	@if (App::get_field('one_off_bool',$item_id))
+          		/ {{ App::get_field('event_start_time',$item_id) }}
+	        @endif
       </div>
       @endif
     </div>

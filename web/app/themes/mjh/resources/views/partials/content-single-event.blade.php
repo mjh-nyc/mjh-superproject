@@ -1,20 +1,39 @@
 
+@php 
+  $status = App::evalEventStatus(App::get_field('event_start_date'),App::get_field('event_end_date'));
+  if ($status) {
+    $status = 'past';
+  }
+@endphp
 <article @php(post_class(App::addLayoutClasses()))>
   <div class="col-content row">
 
     <div class="right-sidebar">
-      <div class="event-info">
-        <h4 class="subhead">@php _e("Event details","sage"); @endphp</h4>
+      <div class="event-info {{ $status }}">
+        <h4 class="subhead">
+          @php _e("Event details","sage"); @endphp
+        </h4>
         <div class="row">
         <div class="col-md-6 col-lg-12">
-        @if (App::get_repeater_field('event_dates'))
+        @if (App::get_field('event_start_date'))
         <div class="event-dates item">
-          <ul>
-            @foreach (App::get_repeater_field('event_dates') as $event_date)
-              <li>{!! App::cleanDateOutput($event_date['event_start_date'] , $event_date['event_end_date'])!!}
-              </li>
-            @endforeach
-          </ul>
+          
+          <div class="event-dates-content">
+            <strong>
+            @if (App::get_field('event_end_date'))
+              {{ App::cleanDateOutput(App::get_field('event_start_date'),App::get_field('event_end_date')) }}
+            @else
+              {{ App::get_field('event_start_date') }} 
+            @endif
+            </strong>
+            @if (App::get_field('one_off_bool'))
+              <br> {{ App::get_field('event_start_time') }}
+              @if (App::get_field('event_end_time'))
+                  &#8211; {{ App::get_field('event_end_time') }}
+              @endif
+            @endif
+          </div>
+
         </div>
         @endif
         @if (App::get_field('event_has_location'))
@@ -35,7 +54,7 @@
           </ul>
         </div>
         @endif
-        @if (App::get_field('event_ticket_url'))
+        @if (App::get_field('event_ticket_url') && !$status)
         <div class="buy-tix">
           <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">@php _e("Get Tickets","sage"); @endphp</a>
         </div>
