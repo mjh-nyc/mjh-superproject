@@ -932,7 +932,7 @@
     }
 }
 
-.event-card {
+.event-card, .blog-card {
     position: relative;
     @include media-breakpoint-up(md) {
         height: 365px;
@@ -972,7 +972,7 @@
             }
         }
     }
-    .event-dates {
+    .event-dates, .post-date {
         background: white;
         padding: 14px 20px;
         width: 100%;
