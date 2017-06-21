@@ -94,8 +94,29 @@ export default {
                   },
                 },
               ],
-        });  
-        
+        });
+
+        jQuery('.slider-posts').slick({
+            dots: false,
+            pauseOnHover: true,
+            speed: 100,
+            autoplaySpeed:5000,
+            responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                    arrows: false,
+                  },
+                },
+                {
+                  breakpoint: 576,
+                  settings: {
+                    arrows: false,
+                  },
+                },
+              ],
+        });
+
     },
     finalize() {
         // JavaScript to be fired on the home page, after the init JS
