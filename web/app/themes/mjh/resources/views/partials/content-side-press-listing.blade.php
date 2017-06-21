@@ -1,4 +1,4 @@
-@if (App::getStickyPosts() && has_category( 'press' ))
+@if (App::getStickyPosts())
   <h3>@php _e("Museum Press  ","sage"); @endphp</h3>
 	<div class="side press-list">
 		<ul>
