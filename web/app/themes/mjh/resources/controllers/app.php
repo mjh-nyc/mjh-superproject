@@ -344,7 +344,14 @@ class App extends Controller
 
         return $social;
     }
-
+    /**
+     * Get sticky default posts
+     *
+     * @return array
+     */
+    public static function getStickyPosts(){
+        return  get_option( 'sticky_posts' );
+    }
     /**
      * Check current template with variable
      *
