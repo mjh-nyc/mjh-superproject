@@ -5,6 +5,7 @@
 .archive.date,
 .search-no-results,
 .error404,
+.template-press-listing,
 .archive-event-data,
 .post-template-default {
     .wrap.container {
@@ -205,6 +206,10 @@
             @include make-col(4);
             margin-bottom: 6rem;
         }
+    }
+    h2 {
+        @include bentonBd();
+        color: $color-slide-text;
     }
 }
 
