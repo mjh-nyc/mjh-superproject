@@ -405,7 +405,7 @@ class App extends Controller
      *
      * @return bool
      */
-    public static function evalDateStatus($start_date, $end_date=''){
+    public static function evalDateStatus($start_date, $end_date){
         //convert to timestamp 
         $start_date = strtotime($start_date);
         $end_date = strtotime($end_date);
