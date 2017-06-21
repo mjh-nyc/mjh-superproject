@@ -7,7 +7,7 @@
 @section('content')
   @while(have_posts()) @php(the_post())
       @if($blogs)
-      <div class="listing-wrapper">
+      <div class="listing-wrapper row">
         @foreach ($blogs as $blog_post)
           <article @php(post_class())>
             @include('partials.content-blog-card', ['item_id'=>$blog_post->ID])
