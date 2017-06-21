@@ -52,8 +52,8 @@ class Homepage extends Controller
      * @return array
      */
     public function blogPosts() {
-        $cat_id  = get_cat_ID( 'press' );
-        $pParamHash = array('category__not_in'=>$cat_id);
+        $cat = App::getPressCategory();
+        $pParamHash = array('category__not_in'=>$cat->term_id);
         return $this->getPosts($pParamHash);
     }
 
@@ -63,8 +63,8 @@ class Homepage extends Controller
      * @return array
      */
     public function pressPosts() {
-        $cat_id  = get_cat_ID( 'press' );
-        $pParamHash = array('category__in'=>$cat_id);
+        $cat = App::getPressCategory();
+        $pParamHash = array('category__in'=>$cat->term_id);
         return $this->getPosts($pParamHash);
     }
 
