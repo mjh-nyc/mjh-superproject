@@ -392,13 +392,20 @@ class App extends Controller
         }
         return $date_output;
     }
-
     /**
-     * Evaluate if an event or exhibition is PAST, returns true if past, requires start and end dates
+     * Evaluate if an event is PAST, returns true if past, requires start and end dates
      *
      * @return bool
      */
     public static function evalEventStatus($start_date, $end_date){
+        return app::evalDateStatus($start_date, $end_date);
+    }
+    /**
+     * Evaluate if date is in the past
+     *
+     * @return bool
+     */
+    public static function evalDateStatus($start_date, $end_date){
         //convert to timestamp
         $start_date = strtotime($start_date);
         $end_date = strtotime($end_date);
@@ -421,8 +428,6 @@ class App extends Controller
             }
         }
     }
-
-
     /**
      * Get secondary nav items, pass current page/post ID
      *
