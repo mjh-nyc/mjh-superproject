@@ -76,7 +76,8 @@
     "mjh-nyc/mjh-custom-configurations": "^1.0.0",
     "wpackagist-plugin/formidable": "2.03.09",
     "wpackagist-plugin/safe-redirect-manager": "1.7.8",
-    "wpackagist-plugin/wordpress-seo": "4.9"
+    "wpackagist-plugin/wordpress-seo": "4.9",
+    "wpackagist-plugin/simple-sitemap": "2.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
