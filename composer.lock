@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ca4f45889e34ee7f4305a1be2572fe7",
+    "content-hash": "6488caea7289adbfe712f322dc62e883",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -510,26 +510,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/safe-redirect-manager/"
-        },
-        {
-            "name": "wpackagist-plugin/simple-sitemap",
-            "version": "2.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/simple-sitemap/",
-                "reference": "tags/2.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/simple-sitemap.2.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/simple-sitemap/"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
