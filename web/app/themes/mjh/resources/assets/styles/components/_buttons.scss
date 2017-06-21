@@ -37,6 +37,7 @@
     line-height: 4rem;
     padding: 0 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    text-decoration: none !important;
     @include font-size(14);
     @include media-breakpoint-up(md) {
         border-radius: 25px;

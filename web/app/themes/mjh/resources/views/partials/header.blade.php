@@ -41,8 +41,12 @@
   <div class="clearfix"></div>
   <!-- featured image and page title area -->
   @if (!is_front_page())
-    <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ) {!! $highlighted_exhibition_featured_image !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true">
+    <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ) {!! $highlighted_exhibition_featured_image !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true" alt="{{App::featuredImageAlt(get_post_thumbnail_id())}}">
+      <div class="sr-only">{{App::featuredImageAlt(get_post_thumbnail_id())}}</div>
       @include('partials.page-header')
+      <div class="image-credit">
+        {{App::featuredImageDesc(get_post_thumbnail_id())}}
+      </div>
     </div>
   @endif
 </header>

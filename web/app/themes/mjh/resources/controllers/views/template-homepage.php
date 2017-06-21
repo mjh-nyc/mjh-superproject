@@ -22,27 +22,28 @@ class Homepage extends Controller
      *
      * @return array
      */
-    public function upcomingEvents() {
+    public function upcomingEvents()
+    {
         $currentDate = strtotime('today midnight');
         $pParamHash = array('post_type' => 'event','posts_per_page' => 3);
-        add_filter('posts_where', 'App\\mjh_events_posts_where');
         $pParamHash['meta_query'] =  array(
             'relation'      => 'AND',
             '0'=> array(
-                'key'	 	=> 'event_dates_%_event_start_date',
+                'key'	 	=> 'event_start_date',
                 'value'	  	=> date('Y-m-d H:i:s', $currentDate),
                 'type'		=> 'DATETIME',
                 'compare' 	=> '>',
-		    )
-	);
-
-      $events = new WP_Query( $pParamHash);
-      remove_filter('posts_where', 'App\\mjh_events_posts_where');
-      if($events->posts){
+            )
+        );
+        $pParamHash['meta_key']	= 'event_start_date';
+        $pParamHash['orderby']	= 'meta_value';
+        $pParamHash['order']	= 'ASC';
+        $events = new WP_Query( $pParamHash);
+        if($events->posts){
          return $events->posts;
-      }else{
+        }else{
          return false;
-      }
+        }
     }
 
     /**
@@ -51,8 +52,8 @@ class Homepage extends Controller
      * @return array
      */
     public function blogPosts() {
-        $cat_id  = get_cat_ID( 'press' );
-        $pParamHash = array('category__not_in'=>$cat_id);
+        $cat = App::getPressCategory();
+        $pParamHash = array('category__not_in'=>$cat->term_id);
         return $this->getPosts($pParamHash);
     }
 
@@ -62,8 +63,8 @@ class Homepage extends Controller
      * @return array
      */
     public function pressPosts() {
-        $cat_id  = get_cat_ID( 'press' );
-        $pParamHash = array('category__in'=>$cat_id);
+        $cat = App::getPressCategory();
+        $pParamHash = array('category__in'=>$cat->term_id);
         return $this->getPosts($pParamHash);
     }
 
@@ -152,7 +153,7 @@ class Homepage extends Controller
                         $hoursHash[0] = $hoursHash[$x];
                         break;
                     }else{
-                        unset($x);
+                        unset($hoursHash[$x]);
                     }
                 }
                 $hoursHash = array_values($hoursHash);

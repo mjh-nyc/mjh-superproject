@@ -10,6 +10,8 @@ class Events extends Controller
 
     var $eventDates;
     var $eventCategory;
+    var $paged = 1;
+    var $events;
     /**
      * Constructor
      *
@@ -24,7 +26,7 @@ class Events extends Controller
         if( !empty($_REQUEST['event-category']) ){
             $this->eventCategory = (int)$_REQUEST['event-category'];
         }
-
+        $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
     /**
@@ -35,29 +37,33 @@ class Events extends Controller
     public function events()
     {
         $currentDate = strtotime('today midnight');
-        $pParamHash = array('post_type' => 'event','posts_per_page' => -1);
-        add_filter('posts_where', 'App\\mjh_events_posts_where');
-
+        $pParamHash = array('post_type' => 'event','posts_per_page' => 9,'paged'=>$this->paged);
         if($this->eventDates=='upcoming'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
                 '0'=> array(
-                    'key'	 	=> 'event_dates_%_event_start_date',
+                    'key'	 	=> 'event_start_date',
                     'value'	  	=> date('Y-m-d H:i:s', $currentDate),
                     'type'		=> 'DATETIME',
                     'compare' 	=> '>',
                 )
             );
+            $pParamHash['meta_key']	= 'event_start_date';
+            $pParamHash['orderby']	= 'meta_value';
+            $pParamHash['order']	= 'ASC';
 	    }elseif($this->eventDates=='past'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
                 '0'=> array(
-                    'key'	 	=> 'event_dates_%_event_end_date',
+                    'key'	 	=> 'event_end_date',
                     'value'	  	=> date('Y-m-d H:i:s', $currentDate),
                     'type'		=> 'DATETIME',
                     'compare' 	=> '<',
                 )
             );
+            $pParamHash['meta_key']	= 'event_end_date';
+            $pParamHash['orderby']	= 'meta_value';
+            $pParamHash['order']	= 'DESC';
         }
 
         if (!empty($this->eventCategory) ){
@@ -72,10 +78,9 @@ class Events extends Controller
             );
         }
 
-	    $events = new WP_Query( $pParamHash);
-        remove_filter('posts_where', 'App\\mjh_events_posts_where');
-        if($events->posts){
-            return $events->posts;
+	    $this->events = new WP_Query( $pParamHash);
+        if($this->events->posts){
+            return $this->events->posts;
         }else{
             return false;
         }
@@ -99,4 +104,12 @@ class Events extends Controller
         return $this->eventCategory;
     }
 
+    /**
+     * Return max page for pagination
+     *
+     * @return int
+     */
+    public function getMaxNumPages() {
+        return $this->events->max_num_pages;
+    }
 }

@@ -75,6 +75,100 @@ a:hover, a:active {
     color: $color-text;
 } */
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* common styles to pages and posts */
+.entry-content, .page-content {
+  .gallery {
+    margin-bottom: 1.7em;
+    @extend .row;
+    .gallery-item {
+      margin-bottom: 15px;
+      .gallery-caption {
+        @extend .small;
+        line-height: normal;
+        display: block;
+        padding-top: .5em;
+      }
+    }
+    &.gallery-columns-1 {
+      .gallery-item {
+        @extend .col-12;
+      }  
+    }
+    &.gallery-columns-2 {
+      .gallery-item {
+        @extend .col-md-6;
+      }  
+    }
+    &.gallery-columns-3 {
+      .gallery-item {
+        @extend .col-md-4;
+      }  
+    }
+    &.gallery-columns-4 {
+      .gallery-item {
+        @extend .col-md-3;
+      }  
+    }
+    &.gallery-columns-6 {
+      .gallery-item {
+        @extend .col-md-2;
+      }  
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.image-credit {
+    z-index: 20;
+    position: absolute;
+    font-size: 12px;
+    opacity: 1;
+    right: 5%;
+    bottom: 5%;
+    @extend em;
+    display: none;
+    @include media-breakpoint-up(sm) {
+      display: block;
+    }
+}
+
+.parallax-mirror {
+  display: none;
+}
+
+/************ PAGINATION *****************/
+.pagination {
+  .nav-links {
+    margin: 50px auto;
+    span, a {
+      font-size: 1.5em;
+      display: inline-block;
+      padding: 10px;
+      @extend .bold;
+    }
+  }
+}
 
 .stuck {
     position: fixed;

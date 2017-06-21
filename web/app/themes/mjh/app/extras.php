@@ -155,7 +155,7 @@ function my_custom_sizes( $sizes ) {
 
 /********************************************
 /* Adding open graph sharing meta tags *****/
-function hook_meta() {
+/*function hook_meta() {
 	global $post;
 	//default image, if there's no featured
 	//image added via the options page under Settings --> Theme options
@@ -219,7 +219,7 @@ function hook_meta() {
 
 	echo $output;
 }
-add_action('wp_head', __NAMESPACE__ . '\\hook_meta');
+add_action('wp_head', __NAMESPACE__ . '\\hook_meta');*/
 /* END meta tags ****************************/
 
 
@@ -246,15 +246,7 @@ class find_us extends \WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
-		$address = get_field('street_address', 'option');
-		$address .="<br>";
-		$address .= get_field('secondary_street_address', 'option');
-		$address .="<br>";
-		$address .= get_field('city_address', 'option').", ";
-		$address .= get_field('state_address', 'option')." ";
-		$address .= get_field('zip_code_address', 'option');
-		$address .="<br>";
-		$address .= get_field('phone_number', 'option');
+		$address = get_address();
 
 		echo $address;
 		echo $args['after_widget'];
@@ -299,6 +291,21 @@ add_action( 'widgets_init', function(){
 
 /* END find us widget  ****************************/
 
+function redirect_events() {
+    $path = '';
+    if( !empty( $_SERVER['REDIRECT_URL'] ) ){
+        $path =  $_SERVER['REDIRECT_URL'];
+        $root_url = get_bloginfo('url');
+        switch($path){
+            case'/events/':
+                wp_redirect( $root_url.'/current-events' );
+                exit;
+            break;
+        }
+    }
+}
+add_action( 'init', 'App\\redirect_events' );
+
 // hook add_query_vars function into query_vars
 function mjh_add_query_vars($aVars) {
     $aVars[] = "status";
@@ -308,7 +315,6 @@ add_filter('query_vars', 'App\\mjh_add_query_vars');
 
 // hook add_rewrite_rules function into rewrite_rules_array
 function mjh_add_rewrite_rules($aRules) {
-    $aNewRules = array('events' => 'events-listing');
     $aNewRules = array('exhibitions/status/([^/]+)/?$' => 'index.php?post_type=exhibition&status=$matches[1]');
     $aRules = $aNewRules + $aRules;
     return $aRules;
@@ -317,7 +323,7 @@ add_filter('rewrite_rules_array', 'App\\mjh_add_rewrite_rules');
 
 // hook to modify the post query
 function mjh_meta_query( $query ) {
-    if ( $query->is_archive){
+    if ( $query->is_archive && !empty($query->query_vars['post_type'])){
         switch($query->query_vars['post_type']){
             case'exhibition':
                 if(isset($query->query_vars['status'])) {
@@ -422,3 +428,160 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     }
     return $title;
 });
+
+
+/******************************/
+/*** Set up shortcodes ********/
+//Get phone number
+function get_phone( $atts="" ) {
+	return get_field('phone_number', 'option');
+}
+add_shortcode( 'phone', 'App\\get_phone' );
+
+//Get address
+function get_address( $atts="" ) {
+	$address = get_field('street_address', 'option');
+	$address .="<br>";
+	$address .= get_field('secondary_street_address', 'option');
+	$address .="<br>";
+	$address .= get_field('city_address', 'option').", ";
+	$address .= get_field('state_address', 'option')." ";
+	$address .= get_field('zip_code_address', 'option');
+	$address .="<br>";
+	return $address;
+}
+add_shortcode( 'address', 'App\\get_address' );
+
+//Get openning hours
+function get_hours( $atts="" ) {
+	// check if the repeater field has rows of data
+	if( have_rows('regular_hours_repeater','options') ):
+		$hours = '<div class="schedule row">';
+	 	// loop through the rows of data
+		$prev_exception = ""; //keep track of prev day in case the next in loop repeats, just print an asterisk and move the hours into the footnote
+		$exception_notice = false;
+
+
+	    while ( have_rows('regular_hours_repeater','options') ) : the_row();
+	        $exception_start = get_sub_field('hours_start_date_range');
+	        $exception_end = get_sub_field('hours_end_date_range');
+
+	        $day = get_sub_field('day_of_week');
+	        $opening_hour = get_sub_field('opening_hour');
+	        $closing_hour = get_sub_field('closing_hour');
+
+	        if (!$exception_start) {
+		        $hours .= '<div class="col-3 day">';
+		        	$hours .= $day;
+		        	$hours .= $prev_exception;
+		        	$prev_exception = "";
+		        $hours .= '</div>';
+		        $hours .= '<div class="col-9 hours">';
+		        	if (get_sub_field('is_museum_closed')) {
+		        		$hours .= __("Closed","sage");
+		        	} else {
+			        	$hours .= $opening_hour;
+			        	$hours .= ' &#8211; ';
+			        	$hours .= $closing_hour;
+			        }
+		        $hours .= '</div>';
+		    } else {
+		    	$prev_exception = " *";
+		    	$exception_notice .= '<br><span style="display: block; margin-left: 14px;">From <strong>'.$exception_start.'</strong> through <strong>'.$exception_end.'</strong>, we will be open from <strong>'.$opening_hour.'</strong> to <strong>'. $closing_hour .'</strong> on <strong>'. $day .'s.</strong></span>';
+		    }
+
+	    endwhile;
+	    $hours .='</div>';
+	    //add exceptions notes if encountered
+	    if ($exception_notice) {
+		    $hours .='<div class="alert alert-warning">';
+		    $hours .= __("* Note that our hours change during these times:","sage");
+		    $hours .= $exception_notice;
+		    $hours .='</div>';
+		}
+	endif;
+
+	return $hours;
+}
+add_shortcode( 'hours', 'App\\get_hours' );
+
+//Get holidays openning hours
+function get_holiday_hours( $atts="" ) {
+	// check if the repeater field has rows of data
+	if( have_rows('holiday_hours_repeater','options') ):
+		$hours = '<div class="schedule row">';
+	 	// loop through the rows of data
+		while ( have_rows('holiday_hours_repeater','options') ) : the_row();
+
+	        $holiday = get_sub_field('holiday_name');
+	        $holiday_date = get_sub_field('holiday_date');
+	        $opening_hour = get_sub_field('opening_hour');
+	        $closing_hour = get_sub_field('closing_hour');
+
+	        $hours .= '<div class="col-sm-7">';
+		        $hours .= '<strong>';
+		        $hours .= $holiday_date;
+		        $hours .= '</strong>';
+		        $hours .= ', ';
+		        $hours .= $holiday;
+
+		    $hours .= '</div>';
+		    $hours .= '<div class="col-sm-5 hours">';
+
+		        if (get_sub_field('is_museum_closed')) {
+		        	$hours .= __("Closed","sage");
+		        } else {
+			        $hours .= $opening_hour;
+			        $hours .= ' &#8211; ';
+			        $hours .= $closing_hour;
+			    }
+
+		    $hours .= '</div>';
+	    endwhile;
+	    $hours .='</div>';
+	endif;
+
+	return $hours;
+}
+add_shortcode( 'holidays', 'App\\get_holiday_hours' );
+
+//Get schedule notes
+function get_hours_notes( $atts="" ) {
+	return get_field('regular_hours_additional_notes', 'option');
+}
+add_shortcode( 'hours-notes', 'App\\get_hours_notes' );
+
+//Get holiday notes
+function get_holiday_notes( $atts="" ) {
+	return get_field('holiday_additional_notes', 'option');
+}
+add_shortcode( 'holiday-notes', 'App\\get_holiday_notes' );
+
+
+
+//Create a sitemap of pages
+//https://developer.wordpress.org/reference/functions/wp_list_pages/
+function make_sitemap( $atts="" ) {
+	$sitemap = "";
+	$args = array(
+		'child_of' => 0,
+		'authors' => '',
+		'depth' => 0,
+		'echo' => false,
+		'exclude' => '',
+		'include' => '',
+		'link_after' => '',
+		'link_before' => '',
+		'post_type' => 'page',
+		'post_status' => 'publish',
+		'sort_column' => 'post_title',
+		'title_li' => '<h2 class="sitemap-header">Pages</h2>',
+	); 
+	$sitemap = "<ul>" . wp_list_pages($args) . "</ul>";
+
+	return $sitemap;
+}
+add_shortcode( 'sitemap', 'App\\make_sitemap' );
+
+/***** //END Shortcodes ********/
+

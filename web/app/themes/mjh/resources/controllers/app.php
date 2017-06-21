@@ -27,6 +27,18 @@ class App extends Controller
         return get_bloginfo('description');
     }
     /**
+     * Return permalink
+     *
+     * @return varchar
+     */
+    public static function getPermalink($id = false)
+    {
+        if($id){
+            return get_permalink($id);
+        }
+        return get_permalink();
+    }
+    /**
      * Return site logo image hash
      *
      * @return array
@@ -74,6 +86,35 @@ class App extends Controller
             $image = get_field('social','option');
         }
         return $image;
+    }
+
+    /**
+     * Return featured image alt, pass post ID
+     *
+     * @return string
+     */
+    public static function featuredImageAlt($id=false)
+    {
+        $image_alt = "";
+        if ($id) {
+            $post_thumbnail_id = get_post_thumbnail_id($id);
+            $image_alt = get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true);
+        }
+        return $image_alt;
+    }
+
+    /**
+     * Return featured image description (used for photo credits)
+     *
+     * @return string
+     */
+    public static function featuredImageDesc($id=false)
+    {
+        $image_desc = "";
+        if ($id) {
+            $image_desc = get_post($id)->post_content;
+        }
+        return $image_desc;
     }
 
     /**
@@ -161,12 +202,7 @@ class App extends Controller
         }
         $excerpt = get_the_excerpt($id);
         if ($excerpt) {
-            $limit = 20;
-            if (str_word_count($excerpt, 0) > $limit) {
-                  $words = str_word_count($excerpt, 2);
-                  $pos = array_keys($words);
-                  $excerpt = substr($excerpt, 0, $pos[$limit]) . '...';
-              }
+            $excerpt = App::truncateString($excerpt, 20);
         }
         //also if the title is too long, hide the description
         if (strlen(get_the_title($id)) >30) {
@@ -174,9 +210,20 @@ class App extends Controller
         } else {
             return $excerpt;
         }
-        
+
     }
-   
+    //used by various functions to truncate the string to specified number of words
+    public static function truncateString($string, $limit=5) {
+        if ($string) {
+            if (str_word_count($string, 0) > $limit) {
+                  $words = str_word_count($string, 2);
+                  $pos = array_keys($words);
+                  $string = substr($string, 0, $pos[$limit]) . '...';
+              }
+              return $string;
+        }
+    }
+
 
 
     /**
@@ -311,6 +358,14 @@ class App extends Controller
             return false;
         }
     }
+    /**
+     * Get press category
+     *
+     * @return object
+     */
+    public static function getPressCategory(){
+        return  get_term_by( 'slug', 'press', 'category');
+    }
 
     /**
      * Compares start and end date and cleans output if same day
@@ -324,11 +379,142 @@ class App extends Controller
         $start_date_day = date('Y-m-d', strtotime($start_date));
         $end_date_day = date('Y-m-d', strtotime($end_date));
         if($start_date_day == $end_date_day ){
-            $date_output = $start_date." &#8211; ".date('g:i a', strtotime($end_date));
+            $date_output = $start_date;
         }else{
-            $date_output = $start_date." &#8211; ".$end_date;
+            $date_output = date('F j', strtotime($start_date))." &#8211; ".$end_date;
         }
         return $date_output;
     }
 
+    /**
+     * Evaluate if an event or exhibition is PAST, returns true if past, requires start and end dates
+     *
+     * @return bool
+     */
+    public static function evalEventStatus($start_date, $end_date){
+        //convert to timestamp
+        $start_date = strtotime($start_date);
+        $end_date = strtotime($end_date);
+        date_default_timezone_set('America/New_York');
+        $now = time();
+        if($start_date == $end_date ){
+           //just look at the start date
+            if ($now > $start_date) {
+                return true; //passed
+            } else {
+                return false;
+            }
+        }else{
+           //if the end date is in the future, this is not a past event
+            //use the past date for comparison
+            if ($now > $end_date) {
+                return true; //passed
+            } else {
+                return false;
+            }
+        }
+    }
+
+
+    /**
+     * Get secondary nav items, pass current page/post ID
+     *
+     * @return array
+     */
+    public static function getSubPageNav($id=false){
+        if (!$id){
+            $id = get_the_ID();
+        }
+        $pages = array();
+
+        if (App::is_child($id) || App::is_ancestor($id)) {
+            $parent_id = App::get_parent_id($id);
+            $pages = App::get_submenu($parent_id);
+        }
+        return $pages;
+    }
+    //Get Parent id (used from template as well, hence public declaration)
+    public static function get_parent_id( $id ) {
+        $parent_id = wp_get_post_parent_id($id);
+        if ($parent_id == 0) {
+            //this is the parent, use its id
+            $parent_id = $id;
+        }
+        return $parent_id;
+    }
+
+    // Check if page is direct child
+    private static function is_child( $id ) {
+
+        if( is_page() && (wp_get_post_parent_id( $id ) > 0) ) {
+           return true;
+        } else {
+           return false;
+        }
+    }
+
+    // Check if page is an ancestor
+    public static function is_ancestor( $id ) {
+       $children = get_pages( array( 'child_of' => $id ) );
+        if( count( $children ) == 0 ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //get the subnav page links
+    private static function get_submenu($parent) {
+        $args = array(
+            'sort_order' => 'asc',
+            'sort_column' => 'post_title',
+            'hierarchical' => 1,
+            'exclude' => '',
+            'include' => '',
+            'meta_key' => '',
+            'meta_value' => '',
+            'authors' => '',
+            'child_of' => $parent,
+            'parent' => -1,
+            'exclude_tree' => '',
+            'number' => '',
+            'offset' => 0,
+            'post_type' => 'page',
+            'post_status' => 'publish'
+        );
+        $pages = get_pages($args);
+        return $pages;
+    }
+    /************ END Submenu *********************/
+
+    /********** Paged navigation ******************/
+    /**
+     * Format pagination as numbered links
+     *
+     * @return string
+     */
+    public static function get_posts_nav() {
+        $args = array(
+            'mid_size'           => 4,
+            'prev_next'          => false,
+        );
+        $pagination = get_the_posts_pagination( $args );
+
+        return $pagination;
+    }
+    /**
+     * Pagination for custom WP_Query executions
+     *
+     * @return string
+     */
+    public static function paginate_links ($max_num_pages){
+      $big = 999999999; // need an unlikely integer
+      return paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'mid_size'  => 4,
+        'prev_next' => false,
+        'total' => $max_num_pages
+        ) );
+    }
 }

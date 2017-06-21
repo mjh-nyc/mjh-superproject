@@ -1,5 +1,5 @@
 {{--
-  Template Name: Events Listing Template
+  Template Name: Events Listing
 --}}
 
 @extends('layouts.app')
@@ -7,7 +7,7 @@
 @section('content')
   @while(have_posts()) @php(the_post())
       <div class="event-form">
-        <form id="event-listing-form" name="event-listing-form" method='get'>
+        <form id="event-listing-form" name="event-listing-form" method='get' action="{!! APP::getPermalink() !!}">
           <div class="wrap">
             <label for="event-dates">@php _e("Display","sage"); @endphp</label>
             <div class="styled-select slate">
@@ -38,9 +38,15 @@
           </article>
         @endforeach
       @else
-        <h3>There are no events to display</h3>
+        <div style="margin-bottom: 100px;">
+          <div class="alert alert-warning">@php _e("There are no events to display","sage"); @endphp</div>
+          {!! get_search_form(false) !!}
+        </div>
       @endif
       </div>
+      @if ($get_max_num_pages)
+        @include('partials.pagination',['max_num_pages'=>$get_max_num_pages])
+      @endif
     @include('partials.content-page')
   @endwhile
 @endsection
