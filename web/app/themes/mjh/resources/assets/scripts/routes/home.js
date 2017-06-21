@@ -99,8 +99,7 @@ export default {
         jQuery('.slider-posts').slick({
             dots: false,
             pauseOnHover: true,
-            speed: 100,
-            autoplaySpeed:5000,
+            infinite: false,
             responsive: [
                 {
                   breakpoint: 768,

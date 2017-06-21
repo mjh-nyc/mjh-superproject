@@ -836,6 +836,28 @@
     }
 }
 
+.post.listing.homepage {
+    .wrapper {
+
+        .press, .blog {
+            background: $blog-press-features;
+            padding: 2em 2em 6em 2em;
+            color: $color-header-text;
+            .card-category {
+                @include bentonBd();
+            }
+            h2 {
+                @include font-size(42);
+                margin-top:.5em;
+            }
+            a {
+                color: $color-header-text;
+            }
+
+        }
+    }
+}
+
 .event-news-happenings {
     padding-bottom: 32px;
     @include media-breakpoint-up(md) {
@@ -1116,6 +1138,34 @@
     }
     .slick-next {
         text-indent: 4px;
+    }
+    .slick-disabled {
+        background:none;
+        &:hover {
+             background:none;
+        }
+    }
+
+    &.blog, &.press {
+        button {
+            &:focus {
+                outline: none;
+            }
+            bottom: 35px;
+            top: inherit;
+            &.slick-prev {
+               left: 37%;
+                @include media-breakpoint-up(md) {
+                    left: 37%;
+                }
+            }
+            &.slick-next {
+                right: 37%;
+                @include media-breakpoint-up(md) {
+                    right: 37%;
+                }
+            }
+        }
     }
 }
 
