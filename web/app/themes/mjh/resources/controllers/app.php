@@ -352,6 +352,24 @@ class App extends Controller
     public static function getStickyPosts(){
         return  get_option( 'sticky_posts' );
     }
+
+    /**
+     * Get press sticky posts
+     *
+     * @return array
+     */
+    public static function getPressStickyPosts(){
+        $sticky_posts = App::getStickyPosts();
+        $pParamHash = array();
+        if(!empty($sticky_posts)){
+             foreach($sticky_posts as $post_id){
+                if(has_category('press',$post_id)){
+                    $pParamHash[] = $post_id;
+                }
+             }
+        }
+        return $pParamHash;
+    }
     /**
      * Check current template with variable
      *
