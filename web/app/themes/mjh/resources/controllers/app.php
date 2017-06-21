@@ -405,13 +405,13 @@ class App extends Controller
      *
      * @return bool
      */
-    public static function evalDateStatus($start_date, $end_date){
-        //convert to timestamp
+    public static function evalDateStatus($start_date, $end_date=''){
+        //convert to timestamp 
         $start_date = strtotime($start_date);
         $end_date = strtotime($end_date);
         date_default_timezone_set('America/New_York');
         $now = time();
-        if($start_date == $end_date ){
+        if($start_date == $end_date || !$end_date){
            //just look at the start date
             if ($now > $start_date) {
                 return true; //passed
@@ -420,9 +420,10 @@ class App extends Controller
             }
         }else{
            //if the end date is in the future, this is not a past event
-            //use the past date for comparison
+            //use the end date for comparison
             if ($now > $end_date) {
                 return true; //passed
+
             } else {
                 return false;
             }
