@@ -1,5 +1,4 @@
 <article @php(post_class())>
-  @include('partials.content-side-press-listing')
   <div class="entry-content">
     @include('partials.content-share')
     <div class="author">
