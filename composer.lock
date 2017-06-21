@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6488caea7289adbfe712f322dc62e883",
+    "content-hash": "2a739d55d2da947c07aea7ac96d49092",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -490,26 +490,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/formidable/"
-        },
-        {
-            "name": "wpackagist-plugin/safe-redirect-manager",
-            "version": "1.7.8",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/safe-redirect-manager/",
-                "reference": "tags/1.7.8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/safe-redirect-manager.1.7.8.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/safe-redirect-manager/"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
