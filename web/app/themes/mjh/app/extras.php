@@ -557,5 +557,31 @@ function get_holiday_notes( $atts="" ) {
 }
 add_shortcode( 'holiday-notes', 'App\\get_holiday_notes' );
 
+
+
+//Create a sitemap of pages
+//https://developer.wordpress.org/reference/functions/wp_list_pages/
+function make_sitemap( $atts="" ) {
+	$sitemap = "";
+	$args = array(
+		'child_of' => 0,
+		'authors' => '',
+		'depth' => 0,
+		'echo' => false,
+		'exclude' => '',
+		'include' => '',
+		'link_after' => '',
+		'link_before' => '',
+		'post_type' => 'page',
+		'post_status' => 'publish',
+		'sort_column' => 'post_title',
+		'title_li' => '<h2 class="sitemap-header">Pages</h2>',
+	); 
+	$sitemap = "<ul>" . wp_list_pages($args) . "</ul>";
+
+	return $sitemap;
+}
+add_shortcode( 'sitemap', 'App\\make_sitemap' );
+
 /***** //END Shortcodes ********/
 

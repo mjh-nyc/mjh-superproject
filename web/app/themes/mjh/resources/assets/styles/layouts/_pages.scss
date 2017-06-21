@@ -1340,3 +1340,8 @@
         @extend strong;
     }
 }
+
+.sitemap-header {
+    @include bentonBd();
+    @include font-size(24);
+}
