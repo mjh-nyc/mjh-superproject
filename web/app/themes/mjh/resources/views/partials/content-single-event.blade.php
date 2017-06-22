@@ -26,7 +26,7 @@
               {{ App::get_field('event_start_date') }} 
             @endif
             </strong>
-            @if (App::get_field('one_off_bool'))
+            @if (App::get_field('event_type') == 'onetime')
               <br> {{ App::get_field('event_start_time') }}
               @if (App::get_field('event_end_time'))
                   &#8211; {{ App::get_field('event_end_time') }}

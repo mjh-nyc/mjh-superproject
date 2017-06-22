@@ -17,7 +17,7 @@
           	@else
           		{{ App::get_field('event_start_date',$item_id) }} 
           	@endif
-          	@if (App::get_field('one_off_bool',$item_id))
+          	@if (App::get_field('event_type',$item_id) == 'onetime' && App::get_field('event_start_time',$item_id))
           		/ {{ App::get_field('event_start_time',$item_id) }}
 	        @endif
       </div>

@@ -18,6 +18,7 @@
   <div class="post listing homepage row">
     @if ($press_posts)
       <div class="col-md-6 wrapper">
+        <div class="see-all"><a href="/press/">{!! _e("See all &#8594;","sage") !!}</a></div>
         <div class="press slider-posts mjh-slider">
         @foreach ($press_posts as $press_post)
           @include('partials.content-blog-press-slideshow', ['item_id'=>$press_post->ID,'post_type_title'=>__("From the press room","sage")])
@@ -27,6 +28,7 @@
     @endif
     @if ($blog_posts)
       <div class="col-md-6 wrapper">
+        <div class="see-all"><a href="/blog/">{!! _e("See all &#8594;","sage") !!}</a></div>
         <div class="blog slider-posts mjh-slider">
         @foreach ($blog_posts as $blog_post)
           @include('partials.content-blog-press-slideshow', ['item_id'=>$blog_post->ID,'post_type_title'=>__("From the blog","sage")])

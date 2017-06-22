@@ -853,6 +853,18 @@
 .post.listing.homepage {
     .wrapper {
 
+        .see-all {
+            position: absolute;
+            color: #fff;
+            z-index: 100;
+            right: 53px;
+            top: 30px;
+            @include media-breakpoint-up(md) {
+                top: 40px;
+            }
+            @include font-size(14);
+        }
+
         .press, .blog {
             background: $blog-press-features;
             padding: 2em 2em 6em 2em;
@@ -864,10 +876,10 @@
                 @include font-size(42);
                 margin-top:.5em;
             }
-            a {
-                color: $color-header-text;
-            }
 
+        }
+        a {
+            color: $color-header-text;
         }
     }
 }
