@@ -316,44 +316,24 @@ add_filter('query_vars', 'App\\mjh_add_query_vars');
 // hook add_rewrite_rules function into rewrite_rules_array
 function mjh_add_rewrite_rules($aRules) {
     $aNewRules = array('exhibitions/status/([^/]+)/?$' => 'index.php?post_type=exhibition&status=$matches[1]');
-    $aRules = $aNewRules + $aRules;
+    $aNewRulesPage = array('exhibitions/status/([^/]+)/page/?([0-9]{1,})/?$' => 'index.php?post_type=exhibition&status=$matches[1]&paged=$matches[2]');
+    $aRules = $aNewRules + $aNewRulesPage + $aRules;
     return $aRules;
 }
 add_filter('rewrite_rules_array', 'App\\mjh_add_rewrite_rules');
 
 // hook to modify the post query
 function mjh_meta_query( $query ) {
-    if ( $query->is_archive && !empty($query->query_vars['post_type'])){
+    if ( $query->is_archive && empty($query-> is_admin) && !empty($query->query_vars['post_type'])){
         switch($query->query_vars['post_type']){
             case'exhibition':
+                $currentDate = strtotime('today midnight');
+                $queryHash = array();
                 if(isset($query->query_vars['status'])) {
                     $status = urldecode($query->query_vars['status']);
-                    $currentDate = strtotime('today midnight');
-                    $queryHash = array();
                     switch($status){
-                        case'current':
-                            $queryHash['relation'] = 'OR';
-                            $queryHash[0] = array(
-                                'key'	 	=> 'exhibition_type',
-                                'value'	  	=> 'collection',
-                                'compare' 	=> '=',
-                            );
-
-                            $queryHash[1]['relation'] = 'AND';
-                            $queryHash[1][0] = array(
-                                'key'	  	=> 'exhibition_start_date',
-                                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-                                'type'		=> 'DATETIME',
-                                'compare' 	=> '<',
-                            );
-                            $queryHash[1][1] = array(
-                                'key'	  	=> 'exhibition_end_date',
-                                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-                                'type'		=> 'DATETIME',
-                                'compare' 	=> '>',
-                            );
-                        break;
                         case'upcoming':
+                            $query->set('posts_per_page', 9);
                             $queryHash['relation'] = 'AND';
                             $queryHash[0] = array(
                                 'key'	 	=> 'exhibition_type',
@@ -368,6 +348,7 @@ function mjh_meta_query( $query ) {
                             );
                         break;
                         case'past':
+                            $query->set('posts_per_page', 9);
                             $queryHash['relation'] = 'AND';
                             $queryHash[0] = array(
                                 'key'	 	=> 'exhibition_type',
@@ -381,9 +362,15 @@ function mjh_meta_query( $query ) {
                                 'compare' 	=> '<',
                             );
                         break;
+                        default:
+                            $query->query_vars['status']='';
+                            mjh_exhbitions_default( $queryHash );
+                        break;
                     }
-                    $query->set( 'meta_query', $queryHash );
+                }else{
+                    mjh_exhbitions_default( $queryHash );
                 }
+                $query->set( 'meta_query', $queryHash );
             break;
         }
     }
@@ -391,9 +378,28 @@ function mjh_meta_query( $query ) {
 add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
 
 // hook to modify the post where query for events
-function mjh_events_posts_where( $where ) {
-	$where = str_replace("meta_key = 'event_dates_%", "meta_key LIKE 'event_dates_%", $where);
-	return $where;
+function mjh_exhbitions_default( &$queryHash ) {
+	$currentDate = strtotime('today midnight');
+	$queryHash['relation'] = 'OR';
+    $queryHash[0] = array(
+        'key'	 	=> 'exhibition_type',
+        'value'	  	=> 'collection',
+        'compare' 	=> '=',
+    );
+
+    $queryHash[1]['relation'] = 'AND';
+    $queryHash[1][0] = array(
+        'key'	  	=> 'exhibition_start_date',
+        'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+        'type'		=> 'DATETIME',
+        'compare' 	=> '<',
+    );
+    $queryHash[1][1] = array(
+        'key'	  	=> 'exhibition_end_date',
+        'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+        'type'		=> 'DATETIME',
+        'compare' 	=> '>',
+    );
 }
 
 //Update tites of the listing pages, using archives wp template
@@ -576,7 +582,7 @@ function make_sitemap( $atts="" ) {
 		'post_status' => 'publish',
 		'sort_column' => 'post_title',
 		'title_li' => '<h2 class="sitemap-header">Pages</h2>',
-	); 
+	);
 	$sitemap = "<ul>" . wp_list_pages($args) . "</ul>";
 
 	return $sitemap;
