@@ -5,7 +5,6 @@
 .archive.date,
 .search-no-results,
 .error404,
-.template-press-listing,
 .archive-event-data,
 .post-template-default {
     .wrap.container {
@@ -32,6 +31,16 @@
                 @include media-breakpoint-up(lg) {
                     @include font-size(24);
                 }
+            }
+        }
+    }
+}
+.template-press-listing {
+    .wrap.container {
+        .content {
+            padding: 5rem 0;
+            @include media-breakpoint-up(md) {
+                padding: 5rem 0 10rem;
             }
         }
     }
@@ -860,6 +869,14 @@
             }
 
         }
+    }
+}
+
+.press-content-aside {
+    h3 {
+        @include bentonBd();
+        @include font-size(21);
+        color: $color-text;
     }
 }
 
