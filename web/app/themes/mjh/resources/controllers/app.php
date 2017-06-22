@@ -429,14 +429,16 @@ class App extends Controller
         $end_date = strtotime($end_date);
         date_default_timezone_set('America/New_York');
         $now = time();
-        if($start_date == $end_date || !$end_date){
+        if (!$start_date && !$end_date) {
+            return false;
+        } elseif($start_date == $end_date || !$end_date){
            //just look at the start date
             if ($now > $start_date) {
                 return true; //passed
             } else {
                 return false;
             }
-        }else{
+        } else {
            //if the end date is in the future, this is not a past event
             //use the end date for comparison
             if ($now > $end_date) {

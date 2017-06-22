@@ -35,6 +35,12 @@
           </div>
 
         </div>
+        @elseif (App::get_field('event_type') == 'recurring')
+          <div class="event-dates item">
+            <div class="event-dates-content">
+              {{ App::get_field('event_recurrence') }}
+            </div>
+          </div>
         @endif
         @if (App::get_field('event_has_location'))
           <div class="event-location item">
