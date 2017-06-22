@@ -65,6 +65,12 @@ export default {
         });
 
 
+        //Unslick it if we have just one slide
+        jQuery('.slider-plan-deck').on('init', function(event, slick){
+            if (slick.slideCount === 1) {
+                slick.unslick();
+            }
+        });
 
         jQuery('.slider-plan-deck').slick({
             centerMode: true,
@@ -95,7 +101,11 @@ export default {
                 },
               ],
         });
+        
+        
 
+
+        //Blog and press
         jQuery('.slider-posts').slick({
             dots: false,
             pauseOnHover: true,
