@@ -26,7 +26,7 @@
               {{ App::get_field('event_start_date') }} 
             @endif
             </strong>
-            @if (App::get_field('one_off_bool'))
+            @if (App::get_field('event_type') == 'onetime')
               <br> {{ App::get_field('event_start_time') }}
               @if (App::get_field('event_end_time'))
                   &#8211; {{ App::get_field('event_end_time') }}
@@ -35,6 +35,12 @@
           </div>
 
         </div>
+        @elseif (App::get_field('event_type') == 'recurring')
+          <div class="event-dates item">
+            <div class="event-dates-content">
+              {{ App::get_field('event_recurrence') }}
+            </div>
+          </div>
         @endif
         @if (App::get_field('event_has_location'))
           <div class="event-location item">

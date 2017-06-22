@@ -1,5 +1,5 @@
 {{-- You must pass the post ID to this template as $item_id --}}
-<div class="listing-wrapper row">
+<div class="listing-wrapper">
 	<div class="listing-group">
 		<h2>{{$press_group['display_date']}}</h2>
 		<ul class="listing-items">

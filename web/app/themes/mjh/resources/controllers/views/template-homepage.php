@@ -54,6 +54,10 @@ class Homepage extends Controller
     public function blogPosts() {
         $cat = App::getPressCategory();
         $pParamHash = array('category__not_in'=>$cat->term_id);
+        $stickyHash = App::getPressStickyPosts();
+        if(!empty($stickyHash)){
+            $pParamHash['post__not_in'] = $stickyHash;
+        }
         return $this->getPosts($pParamHash);
     }
 

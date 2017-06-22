@@ -41,11 +41,19 @@ class Events extends Controller
         if($this->eventDates=='upcoming'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
-                '0'=> array(
-                    'key'	 	=> 'event_start_date',
-                    'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-                    'type'		=> 'DATETIME',
-                    'compare' 	=> '>',
+                 array(
+                    'relation'      => 'OR',
+                    '0'=> array(
+                        'key'	 	=> 'event_start_date',
+                        'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                        'type'		=> 'DATETIME',
+                        'compare' 	=> '>',
+                    ),
+                    '1'=> array(
+                        'key'	 	=> 'event_start_date',
+                        'compare' 	=> '=',
+                        'value'     => ''
+                    )
                 )
             );
             $pParamHash['meta_key']	= 'event_start_date';

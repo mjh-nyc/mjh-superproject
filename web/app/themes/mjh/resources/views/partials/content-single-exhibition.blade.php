@@ -9,11 +9,12 @@
             @if (App::get_field('exhibition_start_date'))
               <p>{{App::get_field('exhibition_start_date')}} &#8211; {{App::get_field('exhibition_end_date')}}</p>
             @endif
+            @if  (empty($is_exhibtion_past))
             <div class="buy-tix">
               <a href="/tickets/" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
             </div>
+            @endif
           </div>
-
       </div>
     @endif
 
@@ -41,7 +42,7 @@
 
 
   </div>
-  @if ($exhibitions_widget_listings)
+  @if ($exhibitions_widget_listings && empty($is_exhibtion_past))
     <div class="related-content">
       <div class="header">
         {{ __('Also on View', 'sage') }}

@@ -202,7 +202,7 @@ class App extends Controller
         }
         $excerpt = get_the_excerpt($id);
         if ($excerpt) {
-            $excerpt = App::truncateString($excerpt, 20);
+            $excerpt = App::truncateString($excerpt, 16);
         }
         //also if the title is too long, hide the description
         if (strlen(get_the_title($id)) >30) {
@@ -344,7 +344,32 @@ class App extends Controller
 
         return $social;
     }
+    /**
+     * Get sticky default posts
+     *
+     * @return array
+     */
+    public static function getStickyPosts(){
+        return  get_option( 'sticky_posts' );
+    }
 
+    /**
+     * Get press sticky posts
+     *
+     * @return array
+     */
+    public static function getPressStickyPosts(){
+        $sticky_posts = App::getStickyPosts();
+        $pParamHash = array();
+        if(!empty($sticky_posts)){
+             foreach($sticky_posts as $post_id){
+                if(has_category('press',$post_id)){
+                    $pParamHash[] = $post_id;
+                }
+             }
+        }
+        return $pParamHash;
+    }
     /**
      * Check current template with variable
      *
@@ -385,37 +410,45 @@ class App extends Controller
         }
         return $date_output;
     }
-
     /**
-     * Evaluate if an event or exhibition is PAST, returns true if past, requires start and end dates
+     * Evaluate if an event is PAST, returns true if past, requires start and end dates
      *
      * @return bool
      */
     public static function evalEventStatus($start_date, $end_date){
-        //convert to timestamp
+        return app::evalDateStatus($start_date, $end_date);
+    }
+    /**
+     * Evaluate if date is in the past
+     *
+     * @return bool
+     */
+    public static function evalDateStatus($start_date, $end_date){
+        //convert to timestamp 
         $start_date = strtotime($start_date);
         $end_date = strtotime($end_date);
         date_default_timezone_set('America/New_York');
         $now = time();
-        if($start_date == $end_date ){
+        if (!$start_date && !$end_date) {
+            return false;
+        } elseif($start_date == $end_date || !$end_date){
            //just look at the start date
             if ($now > $start_date) {
                 return true; //passed
             } else {
                 return false;
             }
-        }else{
+        } else {
            //if the end date is in the future, this is not a past event
-            //use the past date for comparison
+            //use the end date for comparison
             if ($now > $end_date) {
                 return true; //passed
+
             } else {
                 return false;
             }
         }
     }
-
-
     /**
      * Get secondary nav items, pass current page/post ID
      *

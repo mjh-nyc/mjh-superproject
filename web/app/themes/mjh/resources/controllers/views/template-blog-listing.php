@@ -40,7 +40,10 @@ class Blogs extends Controller
         );
         $pParamHash['orderby']	= 'post_date';
         $pParamHash['order']	= 'DESC';
-
+        $stickyHash = App::getPressStickyPosts();
+        if(!empty($stickyHash)){
+            $pParamHash['post__not_in'] = $stickyHash;
+        }
 	    $this->blogs = new WP_Query( $pParamHash);
         if($this->blogs->posts){
             return $this->blogs->posts;

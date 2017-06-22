@@ -29,4 +29,18 @@ class Exhibition extends Controller
             return false;
         }
     }
+    /**
+     * Check if current exhibition is in the past
+     *
+     * @return boolean
+     */
+    public function isExhibtionPast()
+    {
+        //Collections have no dates, always false
+        if( App::get_field('exhibition_type') == 'Collection'){
+            return false;
+        }else{
+            return App::evalDateStatus(App::get_field('exhibition_start_date'),App::get_field('exhibition_end_date'));
+        }
+    }
 }
