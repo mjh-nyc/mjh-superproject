@@ -202,7 +202,7 @@ class App extends Controller
         }
         $excerpt = get_the_excerpt($id);
         if ($excerpt) {
-            $excerpt = App::truncateString($excerpt, 20);
+            $excerpt = App::truncateString($excerpt, 16);
         }
         //also if the title is too long, hide the description
         if (strlen(get_the_title($id)) >30) {
