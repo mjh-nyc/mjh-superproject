@@ -220,6 +220,9 @@
         @include bentonBd();
         color: $color-slide-text;
     }
+    a {
+        display: block;
+    }
 }
 
 .search-results,
@@ -890,6 +893,9 @@
         @include font-size(21);
         color: $color-text;
     }
+    a {
+        display: block;
+    }
 }
 
 .event-news-happenings {
@@ -1041,6 +1047,9 @@
             left: 0;
             @include font-size(14);
         }
+    }
+    .event-recurrence {
+        color: $color-header-alertbg;
     }
 }
 
