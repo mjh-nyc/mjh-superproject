@@ -377,7 +377,7 @@ function mjh_meta_query( $query ) {
 }
 add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
 
-// hook to modify the post where query for events
+// helper function to set default exhibition list query
 function mjh_exhbitions_default( &$queryHash ) {
 	$currentDate = strtotime('today midnight');
 	$queryHash['relation'] = 'OR';
@@ -401,6 +401,22 @@ function mjh_exhbitions_default( &$queryHash ) {
         'compare' 	=> '>',
     );
 }
+function mjh_acf_save_post( $post_id ) {
+    // bail early if no ACF data
+    if( empty($_POST['acf']) || empty($_POST['post_type'])) {
+        return;
+    }
+     switch( $_POST['post_type'] ){
+        case 'event':
+            if(!isset($_POST['acf']['field_5930950a5dfdb'])){
+                $_POST['acf']['field_5930950a5dfdb']='';
+            }
+        break;
+    }
+}
+
+add_action('acf/save_post', 'APP\\mjh_acf_save_post', 1);
+
 
 //Update tites of the listing pages, using archives wp template
 add_filter( 'get_the_archive_title', function ( $title ) {
