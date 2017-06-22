@@ -24,15 +24,32 @@ class Homepage extends Controller
      */
     public function upcomingEvents()
     {
-        $currentDate = strtotime('today midnight');
+        $currentDate = strtotime('yesterday 11:59');
         $pParamHash = array('post_type' => 'event','posts_per_page' => 3);
         $pParamHash['meta_query'] =  array(
             'relation'      => 'AND',
-            '0'=> array(
-                'key'	 	=> 'event_start_date',
-                'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-                'type'		=> 'DATETIME',
-                'compare' 	=> '>',
+             array(
+                'relation'      => 'OR',
+                '0'=> array(
+                    'key'	 	=> 'event_start_date',
+                    'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                    'type'		=> 'DATETIME',
+                    'compare' 	=> '>',
+                ),
+                '1'=> array(
+                    'relation'      => 'AND',
+                    '0'=> array(
+                        'key'	 	=> 'event_end_date',
+                        'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                        'type'		=> 'DATETIME',
+                        'compare' 	=> '>',
+                    ),
+                    '1'=> array(
+                        'key'	 	=> 'event_type',
+                        'compare' 	=> '=',
+                        'value'     => 'ongoing'
+                    )
+                ),
             )
         );
         $pParamHash['meta_key']	= 'event_start_date';
