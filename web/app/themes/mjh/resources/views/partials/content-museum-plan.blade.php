@@ -9,7 +9,7 @@
         <div class="plan-title">{{ App::get_field('tickets_header','option')}}</div>
         <div class="content">
           {!! App::get_field('ticketing_information','option') !!}
-          @if (App::get_field('buy_tickets_button','option'))
+          @if (App::get_field('buy_tickets_button_url','option'))
             <a class="cta-round cta-arrow cta-secondary" href="{{ App::get_field('buy_tickets_button_url','option') }}">{{ App::get_field('buy_tickets_button_label','option') }}</a>
           @endif
           
