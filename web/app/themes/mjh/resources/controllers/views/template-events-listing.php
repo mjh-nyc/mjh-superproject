@@ -36,7 +36,7 @@ class Events extends Controller
      */
     public function events()
     {
-        $currentDate = strtotime('today midnight');
+        $currentDate = strtotime('yesterday 11:59');
         $pParamHash = array('post_type' => 'event','posts_per_page' => 9,'paged'=>$this->paged);
         if($this->eventDates=='upcoming'){
             $pParamHash['meta_query'] =  array(
@@ -53,7 +53,21 @@ class Events extends Controller
                         'key'	 	=> 'event_start_date',
                         'compare' 	=> '=',
                         'value'     => ''
-                    )
+                    ),
+                    '2'=> array(
+                        'relation'      => 'AND',
+                        '0'=> array(
+                            'key'	 	=> 'event_end_date',
+                            'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                            'type'		=> 'DATETIME',
+                            'compare' 	=> '>',
+                        ),
+                        '1'=> array(
+                            'key'	 	=> 'event_type',
+                            'compare' 	=> '=',
+                            'value'     => 'ongoing'
+                        )
+                    ),
                 )
             );
             $pParamHash['meta_key']	= 'event_start_date';
@@ -62,14 +76,39 @@ class Events extends Controller
 	    }elseif($this->eventDates=='past'){
             $pParamHash['meta_query'] =  array(
                 'relation'      => 'AND',
-                '0'=> array(
-                    'key'	 	=> 'event_end_date',
-                    'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-                    'type'		=> 'DATETIME',
-                    'compare' 	=> '<',
+                 array(
+                    'relation'      => 'OR',
+                     array(
+                        'relation'      => 'AND',
+                        '0'=> array(
+                            'key'	 	=> 'event_end_date',
+                            'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                            'type'		=> 'DATETIME',
+                            'compare' 	=> '<',
+                        ),
+                        '1'=> array(
+                            'key'	 	=> 'event_type',
+                            'compare' 	=> '=',
+                            'value'     => 'ongoing'
+                        )
+                    ),
+                    array(
+                        'relation'      => 'AND',
+                        '0'=> array(
+                            'key'	 	=> 'event_start_date',
+                            'value'	  	=> date('Y-m-d H:i:s', $currentDate),
+                            'type'		=> 'DATETIME',
+                            'compare' 	=> '<',
+                        ),
+                        '1'=> array(
+                            'key'	 	=> 'event_type',
+                            'compare' 	=> '=',
+                            'value'     => 'onetime'
+                        )
+                    ),
                 )
             );
-            $pParamHash['meta_key']	= 'event_end_date';
+            $pParamHash['meta_key']	= 'event_start_date';
             $pParamHash['orderby']	= 'meta_value';
             $pParamHash['order']	= 'DESC';
         }
