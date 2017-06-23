@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1922a9908ef8ff6f55d5ead51d638f52",
+    "content-hash": "d27243e9f71229ad03bdad3dd7a1a89d",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -127,6 +127,17 @@
                 "zikula"
             ],
             "time": "2016-08-13T20:53:52+00:00"
+        },
+        {
+            "name": "formidableforms/formidable-pro",
+            "version": "2.03.09",
+            "dist": {
+                "type": "zip",
+                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-2.03.09.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "wordpress-plugin"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -254,7 +265,7 @@
         },
         {
             "name": "mjh-nyc/mjh-custom-configurations",
-            "version": "1.0.22",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
@@ -472,44 +483,15 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
-            "name": "wpackagist-plugin/formidable",
-            "version": "2.03.09",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/formidable/",
-                "reference": "tags/2.03.09"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.2.03.09.zip",
-                "reference": "tags/2.03.09",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/formidable/"
-        },
-        {
-            "name": "wpackagist-plugin/wordpress-seo",
+            "name": "yoast/wordpress-seo-premium",
             "version": "4.9",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/4.9"
-            },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.4.9.zip",
+                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-4.9.zip",
                 "reference": null,
                 "shasum": null
             },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
+            "type": "wordpress-plugin"
         }
     ],
     "packages-dev": [
