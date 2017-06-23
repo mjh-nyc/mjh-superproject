@@ -62,7 +62,7 @@
         @endif
         @if (App::get_field('event_ticket_url') && !$status)
         <div class="buy-tix">
-          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">@php _e("Get Tickets","sage"); @endphp</a>
+          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">{!! App::get_field('event_ticket_button_label') !!}</a>
         </div>
         @endif
         </div>
