@@ -16,12 +16,16 @@ class Exhibition extends Controller
     public function exhibitionsWidgetListings()
     {
         $exclude_id = get_the_ID();
+        $status = 'current';
+        if( $this->isExhibtionUpcoming() ){
+            $status = 'upcoming';
+        }
         $exhibitions = new WP_Query( [
             'post_type' => 'exhibition',
             'post__not_in' => array($exclude_id ),
             'orderby'  => 'rand',
             'posts_per_page'=>2,
-            'status'=>'current' ]
+            'status'=>$status ]
         );
         if($exhibitions->posts){
             return $exhibitions->posts;
@@ -43,4 +47,20 @@ class Exhibition extends Controller
             return App::evalDateStatus(App::get_field('exhibition_start_date'),App::get_field('exhibition_end_date'));
         }
     }
+    /**
+     * Check if  exhibition is upcoming
+     *
+     * @return boolean
+     */
+    public function isExhibtionUpcoming()
+    {
+        if( App::get_field('exhibition_type') != 'Collection'){
+            $start_date = strtotime(App::get_field('exhibition_start_date'));
+            if($start_date > time() ){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

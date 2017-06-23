@@ -45,7 +45,11 @@
   @if ($exhibitions_widget_listings && empty($is_exhibtion_past))
     <div class="related-content">
       <div class="header">
-        {{ __('Also on View', 'sage') }}
+        @if (!empty($is_exhibtion_upcoming))
+          {{ __('Also Upcoming', 'sage') }}
+        @else
+          {{ __('Also on View', 'sage') }}
+        @endif
       </div>
       <div class="row no-gutters">
         @foreach ($exhibitions_widget_listings as $exhibition_widget)

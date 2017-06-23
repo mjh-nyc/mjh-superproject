@@ -428,7 +428,7 @@ class App extends Controller
         $start_date = strtotime($start_date);
         $end_date = strtotime($end_date);
         date_default_timezone_set('America/New_York');
-        $now = time();
+        $now = strtotime('yesterday 11:59:59');
         if (!$start_date && !$end_date) {
             return false;
         } elseif($start_date == $end_date || !$end_date){

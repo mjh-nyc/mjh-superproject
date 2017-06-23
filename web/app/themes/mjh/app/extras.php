@@ -346,6 +346,9 @@ function mjh_meta_query( $query ) {
                                 'type'		=> 'DATETIME',
                                 'compare' 	=> '>',
                             );
+                            $query->set('meta_key', 'exhibition_start_date');
+                            $query->set('orderby', 'meta_value');
+                            $query->set('order', 'ASC');
                         break;
                         case'past':
                             $query->set('posts_per_page', 9);
@@ -361,6 +364,9 @@ function mjh_meta_query( $query ) {
                                 'type'		=> 'DATETIME',
                                 'compare' 	=> '<',
                             );
+                            $query->set('meta_key', 'exhibition_start_date');
+                            $query->set('orderby', 'meta_value');
+                            $query->set('order', 'DESC');
                         break;
                         default:
                             $query->query_vars['status']='';
@@ -379,7 +385,7 @@ add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
 
 // helper function to set default exhibition list query
 function mjh_exhbitions_default( &$queryHash ) {
-	$currentDate = strtotime('today midnight');
+	$currentDate = strtotime('yesterday 11:59');
 	$queryHash['relation'] = 'OR';
     $queryHash[0] = array(
         'key'	 	=> 'exhibition_type',
