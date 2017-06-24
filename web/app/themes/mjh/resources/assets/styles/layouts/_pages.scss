@@ -1434,7 +1434,26 @@
     }
 }
 
-.sitemap-header {
-    @include bentonBd();
-    @include font-size(24);
+.sitemap-tree {
+    .menu-item-has-children {
+        a {
+            @include bentonBd();
+            @include font-size(24);
+            color:$color-text;
+            text-decoration: none;
+        }
+    }
+    .sub-menu {
+        a {
+            @include bentonReg();
+            @include font-size(18);
+            color:$link-color;
+            &:link {
+                text-decoration:none;
+            }
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
 }
