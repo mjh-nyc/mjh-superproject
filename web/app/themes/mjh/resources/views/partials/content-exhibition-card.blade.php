@@ -5,7 +5,7 @@
 	<div class="card-image" style="background-image:url({{App::featuredImageSrc('square@1x',$item_id)}})">
 		<span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
 	</div>
-	<h3>{{ get_the_title($item_id) }}</h3>
+	<h3 class="card-title">{{ get_the_title($item_id) }}</h3>
 	<p class="description">{{App::postExcerpt($item_id)}}</p>
 	<div class="details">
 		<h4>{{App::get_field('exhibition_type',$item_id)}}</h4>
