@@ -57,21 +57,6 @@
     }
 }
 
-h2.page-subheader {
-    color: $color-mission;
-    margin-bottom: 2em;
-    @include font-size(16);
-    @include bentonReg();
-    line-height: 1.5;
-    @include media-breakpoint-up(md) {
-        @include font-size(20);
-    }
-    @include media-breakpoint-up(lg) {
-         @include font-size(24);
-    }
-}
-
-
 
 .page-template-default.page-parent,
 .page-template-default.page-child {
@@ -358,6 +343,7 @@ h2.page-subheader {
     .subhead {
         text-align: center;
         margin-bottom: 2rem;
+        color: $color-primary-header !important;
     }
     .item {
         padding: 0 0 0 3.2rem;
