@@ -406,7 +406,7 @@ class App extends Controller
         if($start_date_day == $end_date_day ){
             $date_output = $start_date;
         }else{
-            $date_output = date('F j', strtotime($start_date))." &#8211; ".$end_date;
+            $date_output = date('M j', strtotime($start_date))." &#8211; ".date('M j, Y', strtotime($end_date));
         }
         return $date_output;
     }
