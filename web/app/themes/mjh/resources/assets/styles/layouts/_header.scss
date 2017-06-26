@@ -386,6 +386,11 @@
                         line-height: 77px;
                     }
                 }
+                &.current-menu-item {
+                    a {
+                        color: $color-header-alertbg;
+                    }
+                }
             }
             .menu-item-has-children {
                 ul {

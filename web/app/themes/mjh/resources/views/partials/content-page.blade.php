@@ -1,9 +1,9 @@
 @include('partials.content-side-navigation')
 <div class="page-content">
 	@if (App::pageSubHeader())
-		<div class="page-subheader">
+		<h2 class="page-subheader">
 			{{App::pageSubHeader()}}
-		</div>
+		</h2>
 	@endif
 	@php(the_content())
 	@include('partials.content-gallery')

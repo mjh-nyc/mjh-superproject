@@ -591,7 +591,7 @@ add_shortcode( 'holiday-notes', 'App\\get_holiday_notes' );
 //https://developer.wordpress.org/reference/functions/wp_list_pages/
 function make_sitemap( $atts="" ) {
 	$sitemap = "";
-	$args = array(
+	/*$args = array(
 		'child_of' => 0,
 		'authors' => '',
 		'depth' => 0,
@@ -605,9 +605,26 @@ function make_sitemap( $atts="" ) {
 		'sort_column' => 'post_title',
 		'title_li' => '<h2 class="sitemap-header">Pages</h2>',
 	);
-	$sitemap = "<ul>" . wp_list_pages($args) . "</ul>";
+	
+	$sitemap = "<ul>" . wp_list_pages($args) . "</ul>";*/
+	$sitemap = wp_nav_menu(get_nav_args('primary_navigation'));
+	$sitemap .= wp_nav_menu(get_nav_args('minitop_navigation'));
+	$sitemap .= wp_nav_menu(get_nav_args('buttontop_navigation'));
+	$sitemap .= wp_nav_menu(get_nav_args('footer_navigation'));
 
 	return $sitemap;
+}
+function get_nav_args($nav) {
+	$args = array(
+		'theme_location' => $nav,
+		'menu_class' => 'sitemap-tree',
+		'menu_id' => 'sitemap_'.$nav,
+		'container' => '',
+		'container_class' => '',
+		'container_id' => '',
+		'echo' => false,
+	);
+	return $args;
 }
 add_shortcode( 'sitemap', 'App\\make_sitemap' );
 

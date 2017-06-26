@@ -18,6 +18,8 @@ export default {
             jQuery(this).parent().toggleClass('open').find('ul').slideToggle();
 
         })
+        //automatically expand parent if we're on a subpage
+        jQuery('#menu-primary-navigation .current-menu-parent').toggleClass('open').find('ul').slideToggle();
 
         //init Gallery
         var mjh_gallery = jQuery('.mjh-gallery');

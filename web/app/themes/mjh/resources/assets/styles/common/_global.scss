@@ -133,11 +133,109 @@ a:hover, a:active {
       }  
     }
   }
-  img {
-    width: 100%;
+  img, figure {
+    max-width: 100%;
     height: auto;
+    &.alignleft {
+      padding-right: 20px;
+      padding-bottom: 5px;
+    }
+    &.alignright {
+      padding-left: 20px;
+      padding-bottom: 5px;
+    }
   }
 }
+
+/*Formatting for the WYSIWYG and posts and pages body formatting for pages and posts */ 
+.content {
+  .main {
+          h2, h3, h4, h5, h6 {
+                line-height: 1.5;
+                color:$color-text;
+            }
+            h2 {
+                @include bentonBd();
+                @include font-size(20);
+                line-height: 1.3;
+                @include media-breakpoint-up(md) {
+                    @include font-size(24);
+                }
+                @include media-breakpoint-up(lg) {
+                     @include font-size(36);
+                }
+                &.page-subheader {
+                  color: $color-mission;
+                  margin-bottom: 2em;
+                  @include font-size(16);
+                  @include bentonReg();
+                  line-height: 1.5;
+                  @include media-breakpoint-up(md) {
+                      @include font-size(20);
+                  }
+                  @include media-breakpoint-up(lg) {
+                       @include font-size(24);
+                  }
+              }
+                
+            }
+            h3 {
+                @include bentonBd();
+                @include font-size(18);
+                line-height: 1.3;
+                @include media-breakpoint-up(md) {
+                    @include font-size(20);
+                }
+                @include media-breakpoint-up(lg) {
+                     @include font-size(24);
+                }
+            }
+            h2, h3 {
+              &.card-title {
+                  font-family: 'EksellDisplay';
+                  font-weight: normal;
+                  line-height: 1.1;
+                }
+            }
+            h4 {
+                @include font-size(18);
+            }
+            blockquote {
+                position: relative;
+                @include bentonIt();
+                color: $color-mission;
+                &:before {
+                    position:absolute;
+                    content: '“';
+                    @include font-size(24);
+                    left: -13px;
+                    top: -2px;
+                }
+
+            }
+            table {
+                margin: 1em 0 2em 0;
+                tr {
+                    th, td {
+                        padding: 10px;
+                        vertical-align: top;
+                        border: 1px solid $divider;
+
+                    }
+                }
+            }
+            figure {
+                margin: 1em 0 2em 0;
+                max-width: 100%;
+                .wp-caption-text {
+                    @include bentonIt();
+                    @include font-size(14);
+                    color: $color-dark-grey;
+                }
+            }
+        }
+}
+
 
 .image-credit {
     z-index: 20;
