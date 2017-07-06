@@ -9,6 +9,7 @@
   "images/icon-close-white.svg": "images/icon-close-white_fb416d44.svg",
   "images/icon-hamburger-white.svg": "images/icon-hamburger-white_136cf2b8.svg",
   "images/mjh_logo_icon.svg": "images/mjh_logo_icon_38eabaf5.svg",
+  "images/play-button.svg": "images/play-button_33ee6b6c.svg",
   "images/tickets.svg": "images/tickets_3d045793.svg",
   "images/time-out-new-york-logo.png": "images/time-out-new-york-logo_d7319047.png",
   "images/yelp-logo-on-purple.png": "images/yelp-logo-on-purple_6842b74f.png",
@@ -20,7 +21,7 @@
   "vendor/fontawesome-webfont.ttf?v=4.7.0": "vendor/fontawesome-webfont_b06871f2.ttf",
   "vendor/fontawesome-webfont.woff2?v=4.7.0": "vendor/fontawesome-webfont_af7ae505.woff2",
   "vendor/fontawesome-webfont.woff?v=4.7.0": "vendor/fontawesome-webfont_fee66e71.woff",
-  "scripts/customizer.js": "scripts/customizer_796ed7f4.js",
-  "styles/main.css": "styles/main_796ed7f4.css",
-  "scripts/main.js": "scripts/main_796ed7f4.js"
+  "scripts/customizer.js": "scripts/customizer_53f05f98.js",
+  "styles/main.css": "styles/main_53f05f98.css",
+  "scripts/main.js": "scripts/main_53f05f98.js"
 }
