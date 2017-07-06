@@ -265,7 +265,7 @@ class App extends Controller
             $excerpt = App::truncateString($excerpt, 16);
         }
         //also if the title is too long, hide the description
-        if (strlen(get_the_title($id)) >30) {
+        if (strlen(get_the_title($id)) >30 && get_post_type($id)!='testimony') {
             return false;
         } else {
             return $excerpt;
