@@ -80,6 +80,9 @@ class App extends Controller
         }
         if (has_post_thumbnail( $id ) ) {
             $image = get_the_post_thumbnail_url($id, $size);
+        } elseif (get_field('testimony_platform',$id)) {
+            //this is a testimony, use the video screenshot as featured image
+            $image = App::featuredTestimonailImageSrc('large',$id);
         }
         if (!$image) {
             //use default image entered under social in theme toptions
@@ -87,6 +90,63 @@ class App extends Controller
         }
         return $image;
     }
+
+    /**
+     * Return featured image of a testimononial src only
+     *
+     * @return string
+     */
+    public static function featuredTestimonailImageSrc($size='large',$id=false)
+    {
+        $image = "";
+        if (!$id){
+            $id = get_the_ID();
+        }
+        //is this a youtube, vimeo or other?
+        $testimony_platform = get_field('testimony_platform',$id);
+        //get the video ID (if set)
+        $testimony_video_id = get_field('testimony_video_id',$id);
+
+        if (has_post_thumbnail( $id ) ) {
+            //if featured image set, use that
+            $image = get_the_post_thumbnail_url($id, $size);
+        } elseif($testimony_platform =='youtube' && $testimony_video_id) {
+            $image = 'https://img.youtube.com/vi/'.$testimony_video_id.'/hqdefault.jpg';
+        } elseif($testimony_platform =='vimeo' && $testimony_video_id) {
+            $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$testimony_video_id.".php"));
+            $image = $hash[0]['thumbnail_large'];
+        }else {
+            $image = get_field('social','option');
+        }
+        return $image;
+    }
+
+    /**
+     * Return link for the video popup for testimonies
+     *
+     * @return url
+     */
+    public static function getTestimonyLink($id=false)
+    {
+        $url = '';
+        if ($id) {
+            //is this a youtube, vimeo or other?
+            $testimony_platform = get_field('testimony_platform',$id);
+            //get the video ID (if set)
+            $testimony_video_id = get_field('testimony_video_id',$id);
+            if($testimony_platform =='youtube') {
+                $url = 'https://www.youtube.com/watch?v='.$testimony_video_id;
+            } elseif($testimony_platform =='vimeo') {
+                $url = 'https://vimeo.com/'.$testimony_video_id;
+            }else {
+                $url = get_the_permalink($id);
+            }
+        }
+        return $url;
+    }
+
+
+
 
     /**
      * Return featured image alt, pass post ID
@@ -390,6 +450,25 @@ class App extends Controller
      */
     public static function getPressCategory(){
         return  get_term_by( 'slug', 'press', 'category');
+    }
+
+    /**
+     * Get testimony category
+     *
+     * @return object
+     */
+    public static function getTestimonyCategory($id=false){
+        
+        $cats = '';
+        if ($id) {
+            $terms = wp_get_object_terms( $id, 'testimony_category' );
+
+            foreach( $terms as $term )
+                $term_names[] = $term->name;
+
+            $cats = implode( ', ', $term_names );
+        }
+        return $cats;
     }
 
     /**

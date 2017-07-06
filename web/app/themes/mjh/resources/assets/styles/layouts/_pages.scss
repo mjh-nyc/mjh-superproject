@@ -6,6 +6,7 @@
 .search-no-results,
 .error404,
 .archive-event-data,
+.single-testimony,
 .post-template-default {
     .wrap.container {
         .content {
@@ -976,7 +977,7 @@
     }
 }
 
-.event-card, .blog-card {
+.event-card, .blog-card, .testimony-card {
     position: relative;
     @include media-breakpoint-up(md) {
         height: 365px;
@@ -987,6 +988,9 @@
     }
     .card-image {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .card-category {
             position: absolute;
             bottom: 20px;
@@ -1003,6 +1007,9 @@
             }
         }
     }
+    .play-btn {
+        position: relative;
+    }
     .info {
         padding: 18px 20px;
         @include font-size(12);
@@ -1016,7 +1023,7 @@
             }
         }
     }
-    .event-dates, .post-date {
+    .event-dates, .post-date, .testimony-category {
         background: white;
         padding: 14px 20px;
         width: 100%;
@@ -1032,6 +1039,33 @@
     }
     .event-recurrence {
         color: $color-header-alertbg;
+    }
+}
+
+.testimony-card {
+    .card-image {
+        &.tint:before {
+            background: none;
+            transition: all .3s linear;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        &.tint:hover:before {
+            background: $color-card-overlay;        
+        }
+    }
+    .more {
+        position: absolute;
+        right: 0;
+        width: 40px;
+        padding-left: 20px;
+        bottom: 15px;
+
     }
 }
 
@@ -1057,21 +1091,22 @@
         }
     }
     .card-image {
+        position: relative;
         width: 100%;
         height: 0;
-        padding-bottom: 35%;
         background-position: center center;
         background-size: cover;
-        @media (max-width: 375px) {
-            padding-bottom: 75%;
+        height: 250px;
+        /*@media (max-width: 375px) {
+            height: 250px;
         }
         @media (max-width: 575px) {
-            padding-bottom: 55%;
+            height: 250px;
         }
         @include media-breakpoint-up(md) {
-            padding-bottom: 75%;
-        }
-        position: relative;
+           height: 250px;
+        }*/
+
         .wrap {
             position: absolute;
             top: 0;

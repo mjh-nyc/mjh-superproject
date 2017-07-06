@@ -93,10 +93,17 @@ export default {
 
         /* Event listing form events */
         jQuery("#event-dates").change(function() {
-            $("#event-listing-form").submit();
+            jQuery("#event-listing-form").submit();
         });
         jQuery("#event-category").change(function() {
-            $("#event-listing-form").submit();
+            jQuery("#event-listing-form").submit();
+        });
+
+        //testimony card more link trigger
+        jQuery(".testimony-card .more").on( "click", function(event) {
+            event.preventDefault();
+            var $link = jQuery(this).find( "i" ).attr('data-link');
+            window.location = $link;
         });
     },
     finalize() {
