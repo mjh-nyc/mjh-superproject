@@ -7,13 +7,13 @@
     </div>
     <div class="info">
       <h3 class="card-title">{{ App::truncateString(get_the_title($item_id),20) }}</h3>
-      <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
+      <p class="description">{{App::postExcerpt($item_id)}}</p>
     </div>
     <div class="details">
       <div class="testimony-category">
         {!! App::getTestimonyCategory($item_id) !!}
         <div class="more">
-          <i class="fa fa-ellipsis-v" aria-hidden="true" data-link="{!! get_the_permalink($item_id); !!}"></i>
+          <i class="fa fa-ellipsis-v" aria-hidden="true" data-link="{!! get_the_permalink($item_id); !!}" title="{!! _e("See more","sage") !!}"></i>
         </div>
       </div>
       <!--
