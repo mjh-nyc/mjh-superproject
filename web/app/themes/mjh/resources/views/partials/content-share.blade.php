@@ -7,7 +7,7 @@
 			<a href="https://www.facebook.com/sharer/sharer.php?u={!! get_the_permalink(); !!}" target="_blank" onclick="ga('send', 'event', 'social', 'share', 'facebook');"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 		</div>
 		<div class="share-channel">
-			<a href="https://twitter.com/intent/tweet?text={!! urlencode(App::postTitle()); !!}&via={!! App::get_field('twitter_handle', 'option') !!}" onclick="ga('send', 'event', 'social', 'share', 'twitter');" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://twitter.com/intent/tweet?text={!! urlencode(App::postTitle()); !!}&url={!! get_the_permalink(); !!}&via={!! App::get_field('twitter_handle', 'option') !!}" onclick="ga('send', 'event', 'social', 'share', 'twitter');" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 		</div>
 		@if ( App::featuredImageSrc() )
 			<div class="share-channel">

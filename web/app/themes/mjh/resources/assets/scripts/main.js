@@ -13,6 +13,8 @@ import 'waypoints/lib/shortcuts/sticky.min';
 //Import animsition library
 import 'animsition/dist/js/animsition.min';
 
+//Import lity responsive lightbox
+import 'lity/dist/lity.min';
 
 
 /** import local dependencies */
