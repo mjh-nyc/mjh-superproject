@@ -130,9 +130,10 @@ class Homepage extends Controller
     public function getCurrentScheduleText() {
         $regularHours =  get_field('regular_hours_repeater', 'option');
         $holidays =  get_field('holiday_hours_repeater', 'option');
-        $currentDay = date('l');
-        $currentDate = strtotime('today midnight');
-        $currentTomarrow = strtotime('today midnight + 1day');
+        $currentTimeZone = get_option('timezone_string');
+        $currentDay = date('l', strtotime($currentTimeZone));
+        $currentDate = strtotime('today midnight '.$currentTimeZone);
+        $currentTomarrow = strtotime('today midnight '.$currentTimeZone.' + 1day');
         $hoursHash = array();
         $hoursOutput ='';
         // Holiday hour schedule
