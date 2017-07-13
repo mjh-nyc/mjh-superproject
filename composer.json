@@ -76,17 +76,13 @@
       "type": "package",
       "package": {
         "name": "mjh-nyc/mjh-custom-configurations",
-	"version": "1.1.1",
-	"type": "wordpress-muplugin",
-	"source": {
-	  "type": "git",
-	   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-	   "reference":"master"
-	},
-	"require": {
-		"mjh-nyc/mjh-custom-configurations":"^1.0.0",
-		"composer/installers": "^1.0"
-	}
+		"version": "dev-master",
+		"type": "wordpress-muplugin",
+		"source": {
+		  "type": "git",
+		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
+		   "reference": "1.1.1"
+		}
       }
     }
   ],
@@ -98,7 +94,7 @@
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.5",
-    "mjh-nyc/mjh-custom-configurations": "^1.0.0",
+    "mjh-nyc/mjh-custom-configurations": "dev-master",
     "formidableforms/formidable-pro": "^2.03.08",
     "yoast/wordpress-seo-premium": "^4.9"
   },
