@@ -136,11 +136,13 @@
         }
         .post-excerpt {
             margin: 18px 0;
+
             @include media-breakpoint-up(md) {
-                margin: 18px 0 30px;
+                margin: 18px auto 30px auto;
+                width:75%;
             }
             @include media-breakpoint-up(lg) {
-                margin: 18px 0 36px;
+                margin: 18px auto 36px auto;
             }
         }
     }
@@ -389,6 +391,9 @@
         margin-bottom: 3rem;
         margin-top: 0;
         padding: 30px;
+        h4 {
+            color: white;
+        }
         @include font-size(16);
         @include media-breakpoint-up(sm) {
             margin-top: 3rem;
@@ -1097,15 +1102,16 @@
         background-position: center center;
         background-size: cover;
         height: 250px;
-        /*@media (max-width: 375px) {
-            height: 250px;
-        }
-        @media (max-width: 575px) {
-            height: 250px;
-        }
+       
         @include media-breakpoint-up(md) {
+           height: 150px;
+        }
+        @include media-breakpoint-up(lg) {
+           height: 200px;
+        }
+        @include media-breakpoint-up(xl) {
            height: 250px;
-        }*/
+        }
 
         .wrap {
             position: absolute;
