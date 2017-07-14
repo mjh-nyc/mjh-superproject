@@ -1,5 +1,5 @@
 
-@php 
+@php
   $status = App::evalEventStatus(App::get_field('event_start_date'),App::get_field('event_end_date'));
   if ($status) {
     $status = 'past';
@@ -17,13 +17,13 @@
         <div class="col-md-6 col-lg-12">
         @if (App::get_field('event_start_date'))
         <div class="event-dates item">
-          
+
           <div class="event-dates-content">
             <strong>
             @if (App::get_field('event_end_date'))
               {{ App::cleanDateOutput(App::get_field('event_start_date'),App::get_field('event_end_date')) }}
             @else
-              {{ App::get_field('event_start_date') }} 
+              {{ App::get_field('event_start_date') }}
             @endif
             </strong>
             @if (App::get_field('event_type') == 'onetime')
@@ -76,15 +76,15 @@
       @include('partials.content-related-links')
     </div>
 
-     @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsor_header'))
-      <div class="left-sidebar">
+     @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsors_repeater'))
+      <div class="content-sponsors">
 
         @if (App::get_repeater_field('primary_sponsors_repeater'))
           <!-- Primary sponsors -->
           @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
         @endif
 
-        @if (App::get_repeater_field('secondary_sponsor_header'))
+        @if (App::get_repeater_field('secondary_sponsors_repeater'))
           <!-- Secondary sponsors -->
           @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
         @endif
