@@ -1,22 +1,23 @@
 <article @php(post_class(App::addLayoutClasses()))>
-  <div class="col-content row">
-
-    @if (App::get_field('exhibition_admission_required'))
-      <div class="right-sidebar">
-
-          <div class="exhibition-info">
-            <h4 class="subhead">{{App::get_field('exhibition_type')}}</h4>
-            @if (App::get_field('exhibition_start_date'))
+  
+  @if (App::get_field('exhibition_admission_required'))
+      <div class="exhibition-info">
+          <h4 class="subhead">{{App::get_field('exhibition_type')}}</h4>
+          @if (App::get_field('exhibition_start_date'))
               <p>{{App::get_field('exhibition_start_date')}} &#8211; {{App::get_field('exhibition_end_date')}}</p>
-            @endif
-            @if  (empty($is_exhibtion_past))
+          @endif
+          @if  (empty($is_exhibtion_past))
             <div class="buy-tix">
               <a href="/tickets/" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
             </div>
-            @endif
-          </div>
+          @endif
       </div>
+      
     @endif
+
+
+  <div class="col-content row">
+
 
     <div class="entry-content">
       @include('partials.content-share')

@@ -6,15 +6,13 @@
   }
 @endphp
 <article @php(post_class(App::addLayoutClasses()))>
-  <div class="col-content row">
-
-    <div class="right-sidebar">
-      <div class="event-info {{ $status }}">
+  
+  <div class="event-info {{ $status }}">
         <h4 class="subhead">
           @php _e("Event details","sage"); @endphp
         </h4>
         <div class="row">
-        <div class="col-md-6 col-lg-12">
+        <div class="col-12">
         @if (App::get_field('event_start_date'))
         <div class="event-dates item">
 
@@ -50,7 +48,7 @@
           </div>
         @endif
         </div>
-        <div class="col-md-6 col-lg-12">
+        <div class="col-12">
         @if (App::get_repeater_field('event_pricing'))
         <div class="event-pricing item">
           <ul>
@@ -68,7 +66,8 @@
         </div>
         </div>
       </div>
-    </div>
+
+  <div class="col-content row">
 
     <div class="entry-content">
       @include('partials.content-share')
