@@ -8,9 +8,9 @@
 <article @php(post_class(App::addLayoutClasses()))>
   
   <div class="event-info {{ $status }}">
-        <h4 class="subhead">
+        <h3 class="subhead">
           @php _e("Event details","sage"); @endphp
-        </h4>
+        </h3>
         <div class="row">
         <div class="col-12">
         @if (App::get_field('event_start_date'))
@@ -48,22 +48,25 @@
           </div>
         @endif
         </div>
-        <div class="col-12">
+        
         @if (App::get_repeater_field('event_pricing'))
-        <div class="event-pricing item">
-          <ul>
-            @foreach (App::get_repeater_field('event_pricing') as $event_pricing)
-              <li><span class="bold">${{ $event_pricing['event_price'] }}</span> {{ $event_pricing['event_price_label'] }}</li>
-            @endforeach
-          </ul>
-        </div>
+          <div class="col-12">
+            <div class="event-pricing item">
+              <ul>
+                @foreach (App::get_repeater_field('event_pricing') as $event_pricing)
+                  <li><span class="bold">${{ $event_pricing['event_price'] }}</span> {{ $event_pricing['event_price_label'] }}</li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
         @endif
         @if (App::get_field('event_ticket_url') && !$status)
-        <div class="buy-tix">
-          <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">{!! App::get_field('event_ticket_button_label') !!}</a>
-        </div>
+          <div class="col-12">
+            <div class="buy-tix item">
+              <a href="{!! App::get_field('event_ticket_url') !!}" target="_blank" class="cta-round cta-secondary">{!! App::get_field('event_ticket_button_label') !!}</a>
+            </div>
+          </div>
         @endif
-        </div>
         </div>
       </div>
 

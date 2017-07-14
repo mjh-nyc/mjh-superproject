@@ -2,7 +2,7 @@
   
   @if (App::get_field('exhibition_admission_required'))
       <div class="exhibition-info">
-          <h4 class="subhead">{{App::get_field('exhibition_type')}}</h4>
+          <h3 class="subhead">{{App::get_field('exhibition_type')}}</h3>
           @if (App::get_field('exhibition_start_date'))
               <p>{{App::get_field('exhibition_start_date')}} &#8211; {{App::get_field('exhibition_end_date')}}</p>
           @endif
