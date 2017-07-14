@@ -1,5 +1,9 @@
 <div class="{{ $sectionType }}-sponsors {{ $sectionClass }}-sponsors sponsors">
-  <h4 class="subhead">{{$sectionTitle}}</h4>
+  @if ($sectionType == 'primary')
+    <h3 class="subhead">{{$sectionTitle}}</h3>
+  @else
+     <h4 class="subhead">{{$sectionTitle}}</h4>
+  @endif
   <ul>
   @foreach (App::get_repeater_field( $sectionType.'_sponsors_repeater') as $sponsors)
     <li> 
