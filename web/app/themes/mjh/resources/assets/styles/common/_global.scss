@@ -269,7 +269,32 @@ a:hover, a:active {
   }
 }
 
+.sticky-container {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 0;
+  }
+}
+.sticky {
+-webkit-transition: background .2s linear;
+-moz-transition: background .2s linear;
+-ms-transition: background .2s linear;
+-o-transition: background .2s linear;
+transition: background .2s linear;
+   @include media-breakpoint-up(sm) {
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+}
 .stuck {
     position: fixed;
+    @extend .container;
+    background-color: #000;
+    -webkit-box-shadow: 0 12px 28px 0 rgba(0,0,0,.4);
+    box-shadow: 0 12px 28px 0 rgba(0,0,0,.4);
+    width: 100%;
     top: 0;
+    left: 0;
 }
