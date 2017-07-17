@@ -62,9 +62,14 @@ export default {
 
 
         //init sticky header
-       /*var sticky = new Waypoint.Sticky({
+      var Waypoint = window.Waypoint;
+       var sticky = new Waypoint.Sticky({
           element: jQuery('.sticky')[0],
-        }).data(sticky);*/
+        })
+       sticky.options.enabled = true;
+
+
+
 
         jQuery(".animsition").animsition({
             inClass: 'fade-in',
