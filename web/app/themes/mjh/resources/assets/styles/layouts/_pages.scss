@@ -998,12 +998,14 @@
             right: 20px;
             background: $color-eventinfobg;
             color: white;
-            line-height: 1;
+            line-height: normal;
+            display: table;
+            max-width: 85%;
             padding: 7px 10px;
             @include bentonBd();
-            @include font-size(15);
+            @include font-size(12);
             @include media-breakpoint-up(lg) {
-                @include font-size(20);
+                @include font-size(18);
             }
         }
     }

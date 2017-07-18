@@ -246,7 +246,10 @@ class find_us extends \WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
-		$address = get_address();
+		$address = '<p>'.get_address().'</p>';
+        if ( ! empty( $instance['link_label'] ) && ! empty( $instance['link_url'] ) ) {
+            $address .= '<a href="'.$instance['link_url'].'" class="cta">'.$instance['link_label'].'</a>';
+        }
 
 		echo $address;
 		echo $args['after_widget'];
@@ -260,11 +263,24 @@ class find_us extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'sage' );
+        $link_label = ! empty( $instance['link_label'] ) ? $instance['link_label'] : '';
+        $link_url = ! empty( $instance['link_url'] ) ? $instance['link_url'] : '';
 		?>
 		<p>
 		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'sage' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
+
+        <p>
+        <label for="<?php echo esc_attr( $this->get_field_id( 'link_label' ) ); ?>"><?php esc_attr_e( 'Link label:', 'sage' ); ?></label>
+        <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'link_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'link_label' ) ); ?>" type="text" value="<?php echo esc_attr( $link_label ); ?>">
+        </p>
+
+        <p>
+        <label for="<?php echo esc_attr( $this->get_field_id( 'link_url' ) ); ?>"><?php esc_attr_e( 'Link URL:', 'sage' ); ?></label>
+        <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'link_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'link_url' ) ); ?>" type="text" value="<?php echo esc_attr( $link_url ); ?>">
+        </p>
+
 		<?php
 	}
 
@@ -281,6 +297,8 @@ class find_us extends \WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['link_label'] = ( ! empty( $new_instance['link_label'] ) ) ? strip_tags( $new_instance['link_label'] ) : '';
+        $instance['link_url'] = ( ! empty( $new_instance['link_url'] ) ) ? strip_tags( $new_instance['link_url'] ) : '';
 
 		return $instance;
 	}
