@@ -85,12 +85,16 @@
         }
         img {
             width: 203px;
-            @include media-breakpoint-up(md) {
-                width: auto;
+            height: auto;
+             @include media-breakpoint-up(md) {
+                width: 273px;
+                height: auto;
             }
             @include media-breakpoint-up(lg) {
                 width: 363px;
+                height: auto;
             }
+
         }
     }
     .top-links {
