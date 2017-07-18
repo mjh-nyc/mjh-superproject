@@ -58,6 +58,10 @@ footer {
             @include media-breakpoint-up(lg) {
                 @include font-size(18);
             }
+            &:hover {
+                color:$color-text;
+                text-decoration: underline;
+            }
         }
     }
     .copyright {
