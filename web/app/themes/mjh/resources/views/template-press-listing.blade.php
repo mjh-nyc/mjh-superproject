@@ -5,11 +5,11 @@
 @extends('layouts.app')
 @section('content')
   <div class="row">
-    @if (App::getStickyPosts())
+    @if (App::getPressStickyPosts())
       @include('partials.content-side-press-listing')
     @endif
     @while(have_posts()) @php(the_post())
-          <div class="press-content-main col-md-7"> 
+          <div class="press-content-main col-md-6 @if (!App::getPressStickyPosts()) offset-md-3 @endif"> 
             @include('partials.content-page')
             @if($press)
               @foreach ($press as $press_group)
