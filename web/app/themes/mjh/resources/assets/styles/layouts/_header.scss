@@ -19,6 +19,7 @@
         margin: 0;
         img {
             height: 17px;
+            image-rendering: -webkit-optimize-contrast;
         }
     }
 }
@@ -84,6 +85,7 @@
             padding-top: 0;
         }
         img {
+            image-rendering: -webkit-optimize-contrast;
             width: 203px;
             height: auto;
              @include media-breakpoint-up(md) {

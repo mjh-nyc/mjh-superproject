@@ -933,6 +933,12 @@
         @include media-breakpoint-up(lg) {
             @include font-size(26);
         }
+        label {
+            display: block;
+            @include media-breakpoint-up(sm) {
+                display: inline;
+            }
+        }
         .styled-select.slate {
             height: 50px;
             display: inline-block;
@@ -967,6 +973,7 @@
             content: "\f107";
             position: absolute;
             right: 10px;
+            top: 0;
             @include media-breakpoint-up(md) {
                 top: 4px;
             }
