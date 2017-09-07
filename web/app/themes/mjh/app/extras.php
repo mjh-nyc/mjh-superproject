@@ -403,7 +403,7 @@ add_action( 'pre_get_posts', 'App\\mjh_meta_query', 1 );
 
 // helper function to set default exhibition list query
 function mjh_exhbitions_default( &$queryHash ) {
-	$currentDate = strtotime('yesterday 11:59');
+	$currentDate = strtotime('today');
 	$queryHash['relation'] = 'OR';
     $queryHash[0] = array(
         'key'	 	=> 'exhibition_type',
@@ -414,15 +414,15 @@ function mjh_exhbitions_default( &$queryHash ) {
     $queryHash[1]['relation'] = 'AND';
     $queryHash[1][0] = array(
         'key'	  	=> 'exhibition_start_date',
-        'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-        'type'		=> 'DATETIME',
-        'compare' 	=> '<',
+        'value'	  	=> date('Ymd', $currentDate),
+        'type'		=> 'NUMERIC',
+        'compare' 	=> '<=',
     );
     $queryHash[1][1] = array(
         'key'	  	=> 'exhibition_end_date',
-        'value'	  	=> date('Y-m-d H:i:s', $currentDate),
-        'type'		=> 'DATETIME',
-        'compare' 	=> '>',
+        'value'	  	=> date('Ymd', $currentDate),
+        'type'		=> 'NUMERIC',
+        'compare' 	=> '>=',
     );
 }
 function mjh_acf_save_post( $post_id ) {
@@ -623,7 +623,7 @@ function make_sitemap( $atts="" ) {
 		'sort_column' => 'post_title',
 		'title_li' => '<h2 class="sitemap-header">Pages</h2>',
 	);
-	
+
 	$sitemap = "<ul>" . wp_list_pages($args) . "</ul>";*/
 	$sitemap = wp_nav_menu(get_nav_args('primary_navigation'));
 	$sitemap .= wp_nav_menu(get_nav_args('minitop_navigation'));
