@@ -43,11 +43,13 @@ class App extends Controller
      *
      * @return array
      */
-    public function siteLogo()
+    public static function siteLogo()
     {
         $custom_logo_id = get_theme_mod( 'custom_logo' );
 		$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-		return $image;
+        //print_r($image);
+        //break;
+		return $image[0];
 	}
 
     /**
@@ -578,7 +580,7 @@ class App extends Controller
     private static function get_submenu($parent) {
         $args = array(
             'sort_order' => 'asc',
-            'sort_column' => 'post_title',
+            'sort_column' => 'menu_order',
             'hierarchical' => 1,
             'exclude' => '',
             'include' => '',

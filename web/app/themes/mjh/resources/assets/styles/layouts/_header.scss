@@ -19,6 +19,7 @@
         margin: 0;
         img {
             height: 17px;
+            image-rendering: -webkit-optimize-contrast;
         }
     }
 }
@@ -60,7 +61,7 @@
     }
     .top-wrapper {
         position: relative;
-        z-index: 10;
+        z-index: 1049;
         height: 58px;
         @include media-breakpoint-up(sm) {
             height: 132px;
@@ -84,13 +85,18 @@
             padding-top: 0;
         }
         img {
+            image-rendering: -webkit-optimize-contrast;
             width: 203px;
-            @include media-breakpoint-up(md) {
-                width: auto;
+            height: auto;
+             @include media-breakpoint-up(md) {
+                width: 273px;
+                height: auto;
             }
             @include media-breakpoint-up(lg) {
                 width: 363px;
+                height: auto;
             }
+
         }
     }
     .top-links {

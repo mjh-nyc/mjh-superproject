@@ -459,8 +459,14 @@
     li {
         padding:1rem !important;
         img {
-            height:80px;
             width: auto;
+            height: auto;
+            max-width: 75%;
+            @include media-breakpoint-up(sm) {
+                max-height:80px;
+                width: auto;
+                max-width: 100%;
+            }
         }
     }
   }
@@ -933,6 +939,12 @@
         @include media-breakpoint-up(lg) {
             @include font-size(26);
         }
+        label {
+            display: block;
+            @include media-breakpoint-up(sm) {
+                display: inline;
+            }
+        }
         .styled-select.slate {
             height: 50px;
             display: inline-block;
@@ -967,6 +979,7 @@
             content: "\f107";
             position: absolute;
             right: 10px;
+            top: 0;
             @include media-breakpoint-up(md) {
                 top: 4px;
             }
@@ -998,12 +1011,14 @@
             right: 20px;
             background: $color-eventinfobg;
             color: white;
-            line-height: 1;
+            line-height: normal;
+            display: table;
+            max-width: 85%;
             padding: 7px 10px;
             @include bentonBd();
-            @include font-size(15);
+            @include font-size(12);
             @include media-breakpoint-up(lg) {
-                @include font-size(20);
+                @include font-size(18);
             }
         }
     }

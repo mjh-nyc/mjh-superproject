@@ -25,16 +25,20 @@
         @endif
       </div>
     </div>
-    <div class="sticky row justify-content-between">
-      <div class="col-3 col-md-5">
-        {!!  get_custom_logo() !!}
-      </div>
-      <div class="col-9 col-md-7 right align-items-center">
-        <div class="overlay-toggle"><a href="" class="" id="primary-nav-toggle"><span class="sr-only"> @php _e("Navigation","sage"); @endphp</span></a></div>
-        @if (has_nav_menu('buttontop_navigation'))
-          {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
-        @endif
-        
+    <div class="sticky">
+      <div class="sticky-container">
+        <div class="row justify-content-between">
+          <div class="col-8 col-sm-4 ">
+            {!!  get_custom_logo() !!}
+          </div>
+          <div class="col-4 col-sm-8 right align-items-center">
+            <div class="overlay-toggle"><a href="" class="" id="primary-nav-toggle"><span class="sr-only"> @php _e("Navigation","sage"); @endphp</span></a></div>
+            @if (has_nav_menu('buttontop_navigation'))
+              {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
+            @endif
+            
+          </div>
+        </div>
       </div>
     </div>
   </div>
