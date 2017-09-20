@@ -1,9 +1,9 @@
 <header class="banner">
   @if (App::getAnnouncement())
   <div class="announcement">
-    <div class="announcement-header">
+    <!--<div class="announcement-header">
       <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> @php _e("Attention","sage"); @endphp
-    </div>
+    </div>-->
     <div class="announcement-content">
       {{App::getAnnouncement()}}
     </div>
