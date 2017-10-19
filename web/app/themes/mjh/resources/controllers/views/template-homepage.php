@@ -52,14 +52,32 @@ class Homepage extends Controller
                 ),
             )
         );
-        $pParamHash['meta_key']	= 'event_start_date';
-        $pParamHash['orderby']	= 'meta_value';
-        $pParamHash['order']	= 'ASC';
-        $events = new WP_Query( $pParamHash);
+        $events = array();
+        // check if the featured_events repeater field has event to pull out
+        if( have_rows('featured_events_repeater') ){
+            $eventIdHash = array();
+            $eventsRepeater = get_field('featured_events_repeater');
+            foreach($eventsRepeater as $featureEvent){
+                $eventIdHash[] = $featureEvent['event_item'];
+            }
+            $pParamHash['post__in'] = $eventIdHash;
+            $events = new WP_Query($pParamHash);
+            if(empty($events->posts)){
+                unset($pParamHash['post__in']);
+                unset($events);
+            }
+        }
+        // if no events from repeater are active, default by upcoming start date
+        if( empty($events) ){
+            $pParamHash['meta_key']	= 'event_start_date';
+            $pParamHash['orderby']	= 'meta_value';
+            $pParamHash['order']	= 'ASC';
+            $events = new WP_Query( $pParamHash);
+        }
         if($events->posts){
-         return $events->posts;
+            return $events->posts;
         }else{
-         return false;
+            return false;
         }
     }
 
