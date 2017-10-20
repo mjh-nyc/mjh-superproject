@@ -24,8 +24,9 @@ class Homepage extends Controller
      */
     public function upcomingEvents()
     {
+        $total_posts = 3;
         $currentDate = strtotime('yesterday 11:59');
-        $pParamHash = array('post_type' => 'event','posts_per_page' => 3);
+        $pParamHash = array('post_type' => 'event','posts_per_page' => $total_posts);
         $pParamHash['meta_query'] =  array(
             'relation'      => 'AND',
              array(
@@ -52,7 +53,7 @@ class Homepage extends Controller
                 ),
             )
         );
-        $events = array();
+        $eventsHash = $events = array();
         // check if the featured_events repeater field has event to pull out
         if( have_rows('featured_events_repeater') ){
             $eventIdHash = array();
@@ -65,17 +66,29 @@ class Homepage extends Controller
             if(empty($events->posts)){
                 unset($pParamHash['post__in']);
                 unset($events);
+            }else{
+                foreach($events->posts as $event_posts){
+                    $eventsHash[] = $event_posts;
+                }
+                $pParamHash['posts_per_page'] = $total_posts - $events->post_count;
+                unset($pParamHash['post__in']);
+                unset($events);
             }
         }
         // if no events from repeater are active, default by upcoming start date
-        if( empty($events) ){
+        if( empty($events) || ( $pParamHash['posts_per_page'] > 0 ) ){
             $pParamHash['meta_key']	= 'event_start_date';
             $pParamHash['orderby']	= 'meta_value';
             $pParamHash['order']	= 'ASC';
             $events = new WP_Query( $pParamHash);
         }
         if($events->posts){
-            return $events->posts;
+            foreach($events->posts as $event_posts){
+                $eventsHash[] = $event_posts;
+            }
+        }
+        if( !empty( $eventsHash ) ) {
+            return $eventsHash;
         }else{
             return false;
         }
