@@ -70,6 +70,7 @@ class Homepage extends Controller
                 foreach($events->posts as $event_posts){
                     $eventsHash[] = $event_posts;
                 }
+                $pParamHash['post__not_in'] = $eventIdHash;
                 $pParamHash['posts_per_page'] = $total_posts - $events->post_count;
                 unset($pParamHash['post__in']);
                 unset($events);
