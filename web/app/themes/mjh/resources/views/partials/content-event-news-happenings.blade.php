@@ -11,9 +11,9 @@
       @endforeach
     @endif
     <div class="w-100"></div>
-    <!--<div class="see-all">
-      <a href="/current-events/" class="cta-round cta-outline cta-secondary">@php _e("See All","sage"); @endphp</a>
-    </div>-->
+    <div class="see-all">
+      <a href="/current-events/" class="cta-round cta-outline cta-secondary">@php _e("See all events","sage"); @endphp</a>
+    </div>
   </div>
   <div class="post listing homepage row">
     @if ($press_posts)

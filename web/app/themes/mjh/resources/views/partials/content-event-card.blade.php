@@ -12,7 +12,7 @@
     <div class="details">
       @if (App::get_field('event_start_date',$item_id))
 	      <div class="event-dates">
-	          	@if (App::get_field('event_end_date',$item_id))
+	          	@if (App::get_field('event_end_date',$item_id) && App::get_field('event_type',$item_id) == 'ongoing')
 	          		{{ App::cleanDateOutput(App::get_field('event_start_date',$item_id),App::get_field('event_end_date',$item_id)) }}
 	          	@else
 	          		{{ App::get_field('event_start_date',$item_id) }} 
