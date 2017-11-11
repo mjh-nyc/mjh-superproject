@@ -65,27 +65,27 @@ class Homepage extends Controller
             $events = new WP_Query($pParamHash);
             if(empty($events->posts)){
                 unset($pParamHash['post__in']);
-                unset($events);
             }else{
                 foreach($events->posts as $event_posts){
                     $eventsHash[] = $event_posts;
                 }
-                $pParamHash['post__not_in'] = $eventIdHash;
                 $pParamHash['posts_per_page'] = $total_posts - $events->post_count;
                 unset($pParamHash['post__in']);
-                unset($events);
             }
+            unset($events);
+            $pParamHash['post__not_in'] = $eventIdHash;
         }
-        // if no events from repeater are active, default by upcoming start date
-        if( empty($events) || ( $pParamHash['posts_per_page'] > 0 ) ){
+
+        // if posts per page is still above 0, add on remainder events of total events to display
+        if( $pParamHash['posts_per_page'] > 0  ){
             $pParamHash['meta_key']	= 'event_start_date';
             $pParamHash['orderby']	= 'meta_value';
             $pParamHash['order']	= 'ASC';
             $events = new WP_Query( $pParamHash);
-        }
-        if($events->posts){
-            foreach($events->posts as $event_posts){
-                $eventsHash[] = $event_posts;
+            if($events->posts){
+                foreach($events->posts as $event_posts){
+                    $eventsHash[] = $event_posts;
+                }
             }
         }
         if( !empty( $eventsHash ) ) {
