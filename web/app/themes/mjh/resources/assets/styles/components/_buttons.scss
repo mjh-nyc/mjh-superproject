@@ -92,6 +92,27 @@
     padding: 0 7rem 0 2.7rem;
 }
 
+.cta-arrow-left {
+    position: relative;
+    padding: 0 27px 0 70px;
+    padding: 0 2.7rem 0 7rem;
+}
+
+.cta-arrow-left:before{
+    position: relative;
+    font-family: FontAwesome;
+    font-size: 30px;
+    line-height: 1;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-indent: 0;
+    content: "\f104";
+    right: 50px;
+    top: 10%;
+    margin-top: -15px;
+    transition: all 0.2s;   
+}
 .cta-arrow:before {
     position: absolute;
     font-family: FontAwesome;
@@ -108,14 +129,28 @@
     transition: all 0.2s;
 }
 
-.cta-arrow:hover:before {
+.cta-arrow:hover:before, .cta-arrow-left:hover:before  {
     color: #222 !important;
 }
 
-.cta-secondary.cta-arrow:before {
+.cta-secondary.cta-arrow:before, .cta-secondary.cta-arrow-left:before {
     color: #222;
 }
 
-.cta-secondary.cta-arrow:hover:before {
+.cta-secondary.cta-arrow:hover:before, .cta-secondary.cta-arrow-left:hover:before {
     color: white !important;
+}
+
+.cta-bold {
+    font-weight: bold;
+    color:$color-footer-cta;
+    text-decoration: none;
+    @include font-size(16);
+    @include media-breakpoint-up(lg) {
+        @include font-size(18);
+    }
+    &:hover {
+        color:$color-text;
+        text-decoration: underline;
+    }
 }
