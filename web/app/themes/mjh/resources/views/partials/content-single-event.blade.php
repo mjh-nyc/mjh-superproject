@@ -54,7 +54,20 @@
             <div class="event-pricing item">
               <ul>
                 @foreach (App::get_repeater_field('event_pricing') as $event_pricing)
-                  <li><span class="bold">${{ $event_pricing['event_price'] }}</span> {{ $event_pricing['event_price_label'] }}</li>
+                  <li>
+                    <span class="bold">
+                    @if(!empty($event_pricing['event_price_alternate']))
+                      @if($event_pricing['event_price_alternate'] == 'Other')
+                        {{ $event_pricing['event_price_alternate_other'] }}
+                      @else
+                        {{ $event_pricing['event_price_alternate'] }}
+                      @endif
+                    </span>
+                    @else
+                      ${{ $event_pricing['event_price'] }}
+                      </span> {{$event_pricing['event_price_label'] }}
+                    @endif
+                  </li>
                 @endforeach
               </ul>
             </div>
