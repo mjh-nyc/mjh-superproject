@@ -88,6 +88,7 @@
     <div class="entry-content">
       @include('partials.content-share')
       @php(the_content())
+      @include('partials.content-gallery')
       @include('partials.content-related-links')
     </div>
 
