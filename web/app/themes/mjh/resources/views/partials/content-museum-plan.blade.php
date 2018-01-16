@@ -36,6 +36,11 @@
         </div>
       </div>
       @include('partials.content-plan-deck-carousel')
+      @if(!empty(get_field('announcements_homepage', 'option')))
+      <div class="announcements-homepage">
+        {!! get_field('announcements_homepage', 'option') !!}
+      </div>
+      @endif
     </div>
     <div class="plan-bottom">
       <div class="plan-item">
