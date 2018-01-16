@@ -24,6 +24,7 @@
       @php(the_content())
       @include('partials.content-gallery')
       @include('partials.content-related-links')
+      @include('partials.content-related-events')
     </div>
   </div>
   @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsor_header'))
