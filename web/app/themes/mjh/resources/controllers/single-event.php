@@ -50,7 +50,6 @@ class Event extends Controller
         if(!$event){
             $event = $this->events('next',false);
         }
-
         if($event){
             return get_permalink($event);
         }else{
@@ -64,12 +63,14 @@ class Event extends Controller
      * @return object
      */
     public function getPreviousEvent() {
+        $current_post = get_the_ID();
         $event = $this->events('previous');
         if(!$event){
             $event = $this->events('previous',false);
         }
 
         if($event){
+        $previous_post_date = get_field('event_start_date',$event->Id);
             return get_permalink($event);
         }else{
             return false;
@@ -85,21 +86,21 @@ class Event extends Controller
     {
         $pParamHash = array('post_type' => 'event','posts_per_page' => 1);
         if($post_direction=='next'){
-            $compare = ">";
-            $compare_equal_to = ">";
+            $compare_time = ">";
+            $compare_date = ">";
             $pParamHash['order']    = 'ASC';
         }elseif($post_direction=='previous'){
-            $compare = "<";
-            $compare_equal_to = "<";
+            $compare_time = "<";
+            $compare_date = "<";
             $pParamHash['order']    = 'DESC';
         }
 
         if($same_day){
-            $compare_equal_to.="=";
+            $compare_date.="=";
             $start_time = $this->event_start_time;
         }else{
+            $compare_time = ">=";
             $start_time = '00:00:00';
-
         }
 
         $pParamHash['meta_key'] = 'event_start_date';
@@ -110,15 +111,16 @@ class Event extends Controller
                 'key'       => 'event_start_date',
                 'value'     => $this->event_start_date,
                 'type'      => 'DATETIME',
-                'compare'   => $compare_equal_to,
+                'compare'   => $compare_date,
             ),
             array(
                 'key'       => 'event_start_time',
                 'value'     => $start_time,
                 'type'      => 'TIME',
-                'compare'   => $compare,
+                'compare'   => $compare_time,
             ),
         );
+
         $this->events = new WP_Query($pParamHash);
         if($this->events->posts){
             return $this->events->posts[0];
