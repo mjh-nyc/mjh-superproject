@@ -13,8 +13,10 @@
       @if (App::get_field('event_start_date',$item_id))
 	      <div class="event-dates">
 	          	@if (App::get_field('event_end_date',$item_id) && App::get_field('event_type',$item_id) == 'ongoing')
+                {{ date('l',strtotime(App::get_field('event_start_date',$item_id))) }}</br>
 	          		{{ App::cleanDateOutput(App::get_field('event_start_date',$item_id),App::get_field('event_end_date',$item_id)) }}
 	          	@else
+                {!! date('l',strtotime(App::get_field('event_start_date',$item_id))) !!}</br>
 	          		{{ App::get_field('event_start_date',$item_id) }} 
 	          	@endif
 	          	@if (App::get_field('event_type',$item_id) == 'onetime' && App::get_field('event_start_time',$item_id))
