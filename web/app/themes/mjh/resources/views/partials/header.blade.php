@@ -5,7 +5,7 @@
       <i class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i> @php _e("Attention","sage"); @endphp
     </div>-->
     <div class="announcement-content">
-      {{App::getAnnouncement()}}
+      {!! App::getAnnouncement() !!}
     </div>
   </div>
   @else

@@ -179,6 +179,16 @@
     }
 }
 
+.rss-link{
+    margin-top: 30px;
+    text-align: center !important;
+    @include media-breakpoint-up(md) {
+        margin-top: 40px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: 60px;
+    }       
+}
 .listing-wrapper {
     margin-top: 30px;
     justify-content: center !important;
@@ -810,6 +820,19 @@
             margin-bottom: 0.5em;
         }
     }
+    .announcements-homepage{
+        @include bentonBd();
+        @include font-size(18);
+        @include media-breakpoint-up(md) {
+            @include font-size(22);
+        }
+        @include media-breakpoint-up(lg) {
+            @include font-size(26);
+        }
+        margin-bottom: 1.7em;
+        max-width: 85%;
+        text-align: center;
+    }
     .plan-bottom {
         .plan-title {
             @include font-size(14);
@@ -1338,7 +1361,7 @@
     }
 }
 
-.related-links {
+.related-links, .related-events {
     margin-top: 100px;
     margin-top: 10rem;
     @include listReset();
