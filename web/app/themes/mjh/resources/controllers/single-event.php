@@ -46,6 +46,7 @@ class Event extends Controller
      * @return object
      */
     public function getNextEvent() {
+        return false;
         $event = $this->events('next');
         if(!$event){
             $event = $this->events('next',false);
@@ -63,15 +64,19 @@ class Event extends Controller
      * @return object
      */
     public function getPreviousEvent() {
-        $current_post = get_the_ID();
+        return false;
         $event = $this->events('previous');
         if(!$event){
             $event = $this->events('previous',false);
         }
-
         if($event){
-        $previous_post_date = get_field('event_start_date',$event->Id);
-            return get_permalink($event);
+            $previous_post_date = get_field('event_start_date', $event->ID);
+
+            if(time() <= strtotime($previous_post_date)){
+                return get_permalink($event);
+            }else{
+                return false;
+            }
         }else{
             return false;
         }
