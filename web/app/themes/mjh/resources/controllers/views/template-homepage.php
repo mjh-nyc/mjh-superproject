@@ -118,7 +118,26 @@ class Homepage extends Controller
     public function pressPosts() {
         $cat = App::getPressCategory();
         $pParamHash = array('category__in'=>$cat->term_id);
-        return $this->getPosts($pParamHash);
+        $stickyHash = App::getPressStickyPosts();
+        // Hackish method to include sticky press posts to top of list.
+        if(!empty($stickyHash)){
+            $pParamHash['post__not_in'] = $stickyHash;
+            $press_count =10;
+            $pressHash = array();
+            foreach($stickyHash AS $post_id){
+                $pressHash[] = get_post($post_id);
+            }
+            $pParamHash['posts_per_page'] = $press_count - count($stickyHash);
+            $posts = $this->getPosts($pParamHash);
+            if($posts){
+                foreach($posts AS $post){
+                    $pressHash[] = $post;
+                }
+            }
+            return $pressHash;
+        }else{
+          return $this->getPosts($pParamHash);
+        }
     }
 
     /**
@@ -129,7 +148,9 @@ class Homepage extends Controller
     private function getPosts($pParamHash) {
         $cat_id  = get_cat_ID( 'press' );
         $pParamHash['post_type'] = 'post';
-        $pParamHash['post_per_page'] = 10;
+        if(empty($pParamHash['posts_per_page'])){
+            $pParamHash['posts_per_page'] = 10;
+        }
         $posts = new WP_Query( $pParamHash);
         if($posts->posts){
          return $posts->posts;
