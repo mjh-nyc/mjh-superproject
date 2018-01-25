@@ -8,7 +8,7 @@
   @while(have_posts()) @php(the_post())
       @if($blogs)
       <div class="rss-link">
-        <a href="{!! get_site_url(); !!}/feed" class="cta-round cta-secondary">@php _e("RSS feed","sage"); @endphp</a>
+        <a href="{!! get_home_url(); !!}/feed" class="cta-round cta-secondary">@php _e("RSS feed","sage"); @endphp</a>
       </div>
       <div class="listing-wrapper row">
         @foreach ($blogs as $blog_post)
