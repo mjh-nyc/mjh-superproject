@@ -16,6 +16,44 @@ function theme_prefix_setup() {
 }
 add_action( 'after_setup_theme', 'App\\theme_prefix_setup' );
 
+/**
+* Add the site logo max-width option to the Site Identity section.
+*/
+/*function mjh_customize_register($wp_customize){
+    $wp_customize->add_setting( 'custom_logo_max_width', array(
+        'default'           => '363',
+        'transport'         => 'refresh',
+    ) );
+    $wp_customize->add_control(
+        'custom_logo_max_width', 
+        array(
+            'default'           => '363',
+            'type'              => 'custom-range',
+            'label'             => esc_html__( 'Logo Max Width', 'sage' ),
+            'description'       => 'Enter the maximum width of the logo in px',
+            'section'           => 'title_tagline',
+            'priority'          => 8,
+            'input_attrs'       => array(
+                'min'           => 0,
+                'max'           => 200,
+                'step'          => 2,
+            ),
+        )
+    );
+}
+add_action('customize_register', 'App\\mjh_customize_register');
+
+//code to output the css into the header 
+function mjh_customize_css(){
+    ?>
+         <style type="text/css">
+             .banner .custom-logo-link img { max-width: <?php echo get_theme_mod('custom_logo_max_width', '363') ."px"; ?>; }
+         </style>
+    <?php
+}
+add_action( 'wp_head', 'App\\mjh_customize_css');*/
+
+
 
 function my_login_logo_url() {
     return home_url();

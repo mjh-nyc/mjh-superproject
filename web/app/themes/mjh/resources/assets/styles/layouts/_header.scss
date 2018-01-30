@@ -86,15 +86,13 @@
         }
         img {
             image-rendering: -webkit-optimize-contrast;
-            width: 203px;
-            height: auto;
-             @include media-breakpoint-up(md) {
-                width: 273px;
-                height: auto;
+            height: 30px;
+            width: auto;
+            @include media-breakpoint-up(md) {
+                height: 40px;
             }
             @include media-breakpoint-up(lg) {
-                width: 363px;
-                height: auto;
+                height: 50px;
             }
 
         }
