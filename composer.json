@@ -110,7 +110,8 @@
     "yoast/wordpress-seo-premium": "^4.9",
     "deliciousbrains/wp-offload-s3-pro": "^1.0",
     "wpackagist-plugin/amazon-web-services": "^1.0",
-    "johnpbloch/wordpress": "4.9.2"
+    "johnpbloch/wordpress": "4.9.2",
+    "wpackagist-plugin/tinymce-advanced": "^4.6"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
