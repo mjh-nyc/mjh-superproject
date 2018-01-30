@@ -18235,7 +18235,7 @@ footer section.widget .content .main h3,
 
 @media (min-width: 992px) {
   .banner .custom-logo-link img {
-    height: 50px;
+    height: 60px;
   }
 }
 
@@ -21092,70 +21092,88 @@ footer .copyright .links ul a {
   }
 }
 
-.home .announcements-homepage {
+.home .special-announcement {
+  background-color: #65398D;
+}
+
+.home .special-announcement .special-announcement-content {
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   font-family: benton-sans, sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   font-size: 1.8rem;
-  margin-bottom: 1.7em;
   max-width: 85%;
   text-align: center;
+  color: white;
 }
 
 @media (min-width: 768px) {
-  .home .announcements-homepage {
+  .home .special-announcement .special-announcement-content {
     font-size: 22px;
     font-size: 2.2rem;
   }
 }
 
 @media (min-width: 992px) {
-  .home .announcements-homepage {
+  .home .special-announcement .special-announcement-content {
     font-size: 26px;
     font-size: 2.6rem;
   }
 }
 
-.home .plan-bottom .plan-title {
+.home .recommended-by {
+  background-color: #5A317F;
+}
+
+.home .recommended-by .recommended-by-content {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.home .recommended-by .recommended-by-content .plan-title {
+  color: white;
   font-size: 14px;
   font-size: 1.4rem;
   margin-bottom: 1em;
 }
 
 @media (min-width: 768px) {
-  .home .plan-bottom .plan-title {
+  .home .recommended-by .recommended-by-content .plan-title {
     font-size: 18px;
     font-size: 1.8rem;
   }
 }
 
-.home .plan-bottom .plan-item {
+.home .recommended-by .recommended-by-content .plan-item {
   text-align: center;
 }
 
-.home .plan-bottom .plan-item ul {
+.home .recommended-by .recommended-by-content .plan-item ul {
   list-style: none;
-  padding: 0 0 34px;
+  padding: 0;
+  margin-bottom: 0;
 }
 
-.home .plan-bottom .plan-item ul li {
+.home .recommended-by .recommended-by-content .plan-item ul li {
   display: inline-block;
   margin: 0 20px 0 0;
 }
 
-.home .plan-bottom .plan-item ul li img {
+.home .recommended-by .recommended-by-content .plan-item ul li img {
   height: 32px;
   width: auto;
 }
 
 @media (min-width: 576px) {
-  .home .plan-bottom .plan-item ul li img {
+  .home .recommended-by .recommended-by-content .plan-item ul li img {
     height: auto;
   }
 }
 
-.home .plan-bottom .plan-item ul li:last-child {
+.home .recommended-by .recommended-by-content .plan-item ul li:last-child {
   margin: 0;
 }
 
