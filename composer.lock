@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cab877ed032069aa8a1847b627d212d5",
+    "content-hash": "caefc8d0f0dce4d2854aa8d40da3873c",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.5.14",
+            "version": "5.6.7",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.5.14",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.6.7",
                 "reference": null,
                 "shasum": null
             },
@@ -134,17 +134,6 @@
             "dist": {
                 "type": "zip",
                 "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org",
-                "reference": null,
-                "shasum": null
-            },
-            "type": "wordpress-plugin"
-        },
-        {
-            "name": "formidableforms/formidable-pro",
-            "version": "2.03.09",
-            "dist": {
-                "type": "zip",
-                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-2.03.09.zip",
                 "reference": null,
                 "shasum": null
             },
