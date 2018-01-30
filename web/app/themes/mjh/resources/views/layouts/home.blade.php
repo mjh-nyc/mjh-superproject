@@ -11,6 +11,14 @@
       <div class="wrap museum-plan container-fluid" role="document">
             @yield('museum-plan')
       </div>
+      @if(!empty(App::get_field('announcements_homepage', 'option')))
+        <div class="wrap special-announcement container-fluid" role="document">
+              @yield('special-announcement')
+        </div>
+      @endif
+      <div class="wrap recommended-by container-fluid" role="document">
+        @yield('recommended-by')
+      </div>
       <div class="wrap container" role="document">
         <div class="content">
           <main class="main">
