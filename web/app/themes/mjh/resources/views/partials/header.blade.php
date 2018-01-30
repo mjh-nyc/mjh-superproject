@@ -48,9 +48,9 @@
     <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ) {!! $highlighted_exhibition_featured_image !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true" alt="{{App::featuredImageAlt(get_post_thumbnail_id())}}">
       <div class="sr-only">{{App::featuredImageAlt(get_post_thumbnail_id())}}</div>
       @include('partials.page-header')
-      <div class="image-credit">
+      <!--<div class="image-credit">
         {{App::featuredImageDesc(get_post_thumbnail_id())}}
-      </div>
+      </div>-->
     </div>
   @endif
 </header>
