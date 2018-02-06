@@ -80,15 +80,17 @@
             </div>
           </div>
         @endif
+          <div class="col-12 back-link">
+            <div class="events list-link">
+              <a class="cta-bold" href="/events">@php _e("See all events","sage"); @endphp</a>
+            </div>
+          </div>
         </div>
       </div>
 
   <div class="col-content row">
 
     <div class="entry-content">
-      <div class="events list-link">
-        <a class="cta-bold" href="/events">@php _e("See all events","sage"); @endphp</a>
-      </div>
       @include('partials.content-share')
       @php(the_content())
       @include('partials.content-gallery')

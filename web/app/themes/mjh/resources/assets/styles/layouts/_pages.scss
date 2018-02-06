@@ -301,9 +301,7 @@
             }
         }
     }*/
-    .list-link{
-        margin-bottom:23px;
-    }
+    
     .posts-links{
         display: flex;
         justify-content: space-between;
@@ -379,6 +377,14 @@
         text-align: center;
     }
     @include listReset();
+
+    .back-link {
+        background-color: white;
+        margin:0 0 -3px 0;
+    }
+    .list-link{
+        padding: 2rem;
+    }
 }
 
 
@@ -529,7 +535,7 @@
             @include clearfix;
             .share-channel, .calendar-link {
                 display: inline-block;
-                margin-right: 10px;
+                margin-right: 6px;
                 a {
                     color: #A5A4A6;
                     display: block;
@@ -548,6 +554,17 @@
                     color: $brand-primary;
                     border: 1px solid $brand-primary;
                 }
+            }
+        }
+        .calendar-options {
+            text-align: right;
+            .calendar-link {
+               margin-right: 0px;
+               margin-left: 6px; 
+               span {
+                    font-size: 1.3rem;
+                    color:$color-dark-grey;
+               }
             }
         }
     }
