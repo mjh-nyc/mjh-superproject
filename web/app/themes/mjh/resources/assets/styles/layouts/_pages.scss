@@ -33,6 +33,12 @@
             @include media-breakpoint-up(md) {
                 padding: 5rem 0 10rem;
             }
+
+            .listing-items {
+                margin:0;
+                padding: 0;
+                list-style: none;
+            }
         }
     }
 }
@@ -961,8 +967,16 @@
         @include font-size(21);
         color: $color-text;
     }
-    a {
-        display: block;
+    .desc {
+        margin-top: 3rem;
+    }
+    ul {
+        margin: 3rem 0 0 0;
+        padding: 0;
+        list-style: none;
+        li {
+            padding-bottom: 1rem;
+        }
     }
 }
 

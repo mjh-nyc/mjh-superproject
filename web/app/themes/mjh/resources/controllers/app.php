@@ -628,6 +628,7 @@ class App extends Controller
         'current' => max( 1, get_query_var('paged') ),
         'mid_size'  => 4,
         'prev_next' => false,
+        'add_args' => true,
         'total' => $max_num_pages
         ) );
     }
