@@ -836,7 +836,6 @@
             margin:0 auto;
             padding-top: 2rem;
             padding-bottom: 2rem; 
-            @include bentonBd();
             @include font-size(18);
             @include media-breakpoint-up(md) {
                 @include font-size(22);
@@ -847,6 +846,22 @@
             max-width: 85%;
             text-align: center;
             color:$color-primary-header;
+            p {
+                margin:0;
+            }
+            a {
+                &:link,
+                &:visited {
+                    color:white;
+                    text-decoration:underline;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    color: black;
+                    text-decoration: none;
+                }
+            }
         }
     }
     .recommended-by {
