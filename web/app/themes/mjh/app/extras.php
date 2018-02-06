@@ -160,6 +160,19 @@ function disable_wp_emojicons() {
 add_action( 'init', 'App\\disable_wp_emojicons' );
 
 
+//Update styles for the ACFPRO dropdown that was blowing up the layout
+add_action('admin_head', 'App\\update_acfpro_dropdown_style');
+
+function update_acfpro_dropdown_style() {
+  echo '<style>
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      white-space: normal;
+    }
+    .select2-selection.select2-selection--single {
+        overflow:hidden;
+    }
+  </style>';
+}
 
 //Add options page
 if( function_exists('acf_add_options_page') ) {
