@@ -16,7 +16,7 @@ class Press extends Controller
      */
     function __construct()
     {
-        $this->pressCategory= App::getPressCategory();
+        $this->pressCategory= App::getPressCategory(App::getCurrentPageSlug());
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
@@ -77,4 +77,6 @@ class Press extends Controller
     public function getMaxNumPages() {
         return $this->press->max_num_pages;
     }
+
+
 }
