@@ -22,20 +22,30 @@ class Press extends Controller
 
 
     /**
-     * Return press posts functioned called from the balde template
+     * Return press posts functioned called from the blade template
      *
      * @return array
      */
     public function press() {
-        return $this->getPress(App::getCurrentPageSlug(), false);
+        return $this->getPress(App::getCurrentPageSlug(), true);
     }
 
     public function coverage() {
-        return $this->getPress('coverage', true);
+        $slug = App::getCurrentPageSlug();
+        $grouped = false;
+        if($slug == 'coverage'){
+            $grouped = true;
+        }
+        return $this->getPress('coverage', $grouped);
 
     }
     public function releases() {
-        return $this->getPress('releases', true);
+        $slug = App::getCurrentPageSlug();
+        $grouped = false;
+        if($slug == 'releases'){
+            $grouped = true;
+        }
+        return $this->getPress('releases', $grouped);
     }
 
 

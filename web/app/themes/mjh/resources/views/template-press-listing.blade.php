@@ -18,7 +18,7 @@
             <div class="press-content-main col-md-8"> 
               @if($press)
                 @foreach ($press as $press_group)
-                  @include('partials.content-press-listing', ['press_group'=>$press_group])
+                  @include('partials.content-press-listing')
                 @endforeach
               @else
                 <div style="margin-bottom: 100px;">
@@ -39,15 +39,17 @@
       <div class="press-content-main col-md-8"> 
         <div class="coverage-listing">
           @if($coverage)
+            <h3>@php _e("Recent Press Coverage","sage"); @endphp</h3>
             @foreach ($coverage as $press_item)
-             @include('partials.content-press-card')        
+             @include('partials.content-press-card',['item_id'=>$press_item->ID])
             @endforeach
           @endif
         </div>
         <div class="releases-listing">
           @if($releases)
+            <h3>@php _e("Museum Press Releases","sage"); @endphp</h3>
             @foreach ($releases as $press_item)
-              @include('partials.content-press-card')
+              @include('partials.content-press-card',['item_id'=>$press_item->ID])
             @endforeach
           @endif
         </div>
