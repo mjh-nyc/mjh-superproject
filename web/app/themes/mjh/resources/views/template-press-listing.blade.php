@@ -37,8 +37,23 @@
       @endwhile
     @else
       <div class="press-content-main col-md-8"> 
-        PRINT TWO SECTIONS HERE FOR PRESS COVERAGE AND PRESS RELEASES AS DESIGNED
+        <div class="coverage-listing">
+          @if($coverage)
+            @foreach ($coverage as $press_item)
+             @include('partials.content-press-card')        
+            @endforeach
+          @endif
+        </div>
+        <div class="releases-listing">
+          @if($releases)
+            @foreach ($releases as $press_item)
+              @include('partials.content-press-card')
+            @endforeach
+          @endif
+        </div>
+
       </div>
+       
     @endif
   </div>
 @endsection

@@ -16,17 +16,37 @@ class Press extends Controller
      */
     function __construct()
     {
-        $this->pressCategory= App::getPressCategory(App::getCurrentPageSlug());
+        //$this->pressCategory= App::getPressCategory(App::getCurrentPageSlug());
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
+
     /**
-     * Return upcoming events posts
+     * Return press posts functioned called from the balde template
      *
      * @return array
      */
-    public function press()
+    public function press() {
+        return $this->getPress(App::getCurrentPageSlug(), false);
+    }
+
+    public function coverage() {
+        return $this->getPress('coverage', true);
+
+    }
+    public function releases() {
+        return $this->getPress('releases', true);
+    }
+
+
+    /**
+     * Return press based on category requested
+     *
+     * @return array
+     */
+    private function getPress($pressCategory, $grouped)
     {
+        $pressCategory_array = App::getPressCategory($pressCategory);
         $currentDate = strtotime('today midnight');
         $pParamHash = array('post_type' => 'post','posts_per_page' => 20,'paged'=>$this->paged);
         $pParamHash['tax_query'] =  array(
@@ -34,7 +54,7 @@ class Press extends Controller
             '0'=> array(
                 'taxonomy'	 => 'category',
                 'field'    => 'term_id',
-                'terms'    => array($this->pressCategory->term_id),
+                'terms'    => array($pressCategory_array->term_id),
                 'operator' => 'IN',
                 )
         );
@@ -47,7 +67,13 @@ class Press extends Controller
 
 	    $this->press = new WP_Query( $pParamHash);
         if($this->press->posts){
-            return $this->groupPressItems($this->press->posts);
+            //should posts be grouped by date?
+            if ($grouped) {
+                return $this->groupPressItems($this->press->posts);
+            } else {
+                 return $this->press->posts;
+            }
+            
         }else{
             return false;
         }
