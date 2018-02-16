@@ -33,6 +33,82 @@
             @include media-breakpoint-up(md) {
                 padding: 5rem 0 10rem;
             }
+
+            .listing-items {
+                margin:0;
+                padding: 0;
+                list-style: none;
+                .listing-item {
+                    margin-bottom: 1.5rem;
+                    img {
+                        height: 35px !important;
+                        width: auto !important;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+            
+            h3 {
+                margin-bottom: 3rem;
+            }
+            .see-all {
+                margin-bottom: 6rem;
+                text-align: center;
+            }
+            
+            .press-card-listing {
+                @include make-row();
+                
+                .press-card {
+                    @include make-col-ready();
+                    @include media-breakpoint-up(md) {
+                        @include make-col(6);
+                        
+                    }
+                    @include media-breakpoint-up(lg) {
+                        @include make-col(4);
+                    }
+                    
+                    .press-card-wrapper {
+                        border: 1px solid $divider;
+                        padding: 1rem;
+                        margin-bottom: 30px;
+                        position: relative;
+                        
+                        .date {
+                            font-size: 1.2rem;
+                            margin-bottom: 2rem;
+                        }
+                        .info {
+                            display: flex;
+                            
+                            flex-direction: column;
+                            align-content: space-between;
+                            @include media-breakpoint-up(md) {
+                                min-height: 250px;
+                            }
+                            h3 {
+                                flex-grow: 1;
+                            }
+                            .publication_logo {
+                                img {
+                                    max-width: 100%;
+                                    height: auto;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                &.releases-listing {
+                    .slide-card {
+                        box-shadow: 0 0 10px rgba(116, 71, 156, 0.1);
+                        border: 1px solid $color-visitplanbg;
+                    }
+                }
+            }
+
+           
         }
     }
 }
@@ -65,44 +141,10 @@
         .main {
             justify-content: flex-start !important;
             .subPageNav {
-                @include listReset();
                 @include make-col-ready();
                 margin-bottom: 2rem;
                 @include media-breakpoint-up(md) {
                     @include make-col(3);
-                }
-                ul {
-                    border: 1px solid $color-footer-separator;
-                    li {
-                        border-bottom: 1px solid $color-footer-separator;
-                        @include bentonBd();
-                        padding: 0;
-                        a {
-                            display: block;
-                            @include font-size(12);
-                            line-height: 1;
-                            padding: 10px;
-                            @include media-breakpoint-up(md) {
-                                @include font-size(17);
-                                padding: 16px;
-                            }
-                            color: #333333;
-                            background: white;
-                        }
-                        a:hover {
-                            color: white;
-                            background: #333;
-                            text-decoration: none;
-                        }
-                    }
-                    li:last-child {
-                        border-bottom: 0;
-                    }
-                    .current {
-                        a {
-                            color: #AEADAD;
-                        }
-                    }
                 }
             }
             .page-content {
@@ -110,6 +152,43 @@
                 @include media-breakpoint-up(md) {
                     @include make-col(7);
                 }
+            }
+        }
+    }
+}
+
+.subPageNav {
+    @include listReset();
+    ul {
+        border: 1px solid $color-footer-separator;
+        li {
+            border-bottom: 1px solid $color-footer-separator;
+            @include bentonBd();
+            padding: 0 !important;
+            a {
+                display: block;
+                @include font-size(12);
+                line-height: 1;
+                padding: 10px;
+                @include media-breakpoint-up(md) {
+                    @include font-size(17);
+                    padding: 16px;
+                }
+                color: #333333;
+                background: white;
+            }
+            a:hover {
+                color: white;
+                background: #333;
+                    ext-decoration: none;
+            }
+        }
+        li:last-child {
+            border-bottom: 0;
+        }
+        .current {
+            a {
+                color: #AEADAD;
             }
         }
     }
@@ -181,6 +260,7 @@
 
 .rss-link{
     margin-top: 30px;
+    margin-bottom: 3rem;
     text-align: center !important;
     @include media-breakpoint-up(md) {
         margin-top: 40px;
@@ -190,13 +270,13 @@
     }       
 }
 .listing-wrapper {
-    margin-top: 30px;
+    margin-bottom: 30px;
     justify-content: center !important;
     @include media-breakpoint-up(md) {
-        margin-top: 40px;
+        margin-bottom: 40px;
     }
     @include media-breakpoint-up(lg) {
-        margin-top: 60px;
+        margin-bottom: 60px;
     }
     article {
         margin-bottom: 3rem;
@@ -301,9 +381,7 @@
             }
         }
     }*/
-    .list-link{
-        margin-bottom:23px;
-    }
+    
     .posts-links{
         display: flex;
         justify-content: space-between;
@@ -379,6 +457,14 @@
         text-align: center;
     }
     @include listReset();
+
+    .back-link {
+        background-color: white;
+        margin:0 0 -3px 0;
+    }
+    .list-link{
+        padding: 2rem;
+    }
 }
 
 
@@ -529,7 +615,7 @@
             @include clearfix;
             .share-channel, .calendar-link {
                 display: inline-block;
-                margin-right: 10px;
+                margin-right: 6px;
                 a {
                     color: #A5A4A6;
                     display: block;
@@ -548,6 +634,17 @@
                     color: $brand-primary;
                     border: 1px solid $brand-primary;
                 }
+            }
+        }
+        .calendar-options {
+            text-align: right;
+            .calendar-link {
+               margin-right: 0px;
+               margin-left: 6px; 
+               span {
+                    font-size: 1.3rem;
+                    color:$color-dark-grey;
+               }
             }
         }
     }
@@ -829,45 +926,75 @@
             margin-bottom: 0.5em;
         }
     }
-    .announcements-homepage{
-        @include bentonBd();
-        @include font-size(18);
-        @include media-breakpoint-up(md) {
-            @include font-size(22);
-        }
-        @include media-breakpoint-up(lg) {
-            @include font-size(26);
-        }
-        margin-bottom: 1.7em;
-        max-width: 85%;
-        text-align: center;
-    }
-    .plan-bottom {
-        .plan-title {
-            @include font-size(14);
+    .special-announcement {
+        background-color: $color-deep-purple1;
+
+        .special-announcement-content {
+            margin:0 auto;
+            padding-top: 2rem;
+            padding-bottom: 2rem; 
+            @include font-size(18);
             @include media-breakpoint-up(md) {
-                @include font-size(18);
+                @include font-size(22);
             }
-            margin-bottom: 1em;
-        }
-        .plan-item {
+            @include media-breakpoint-up(lg) {
+                @include font-size(26);
+            }
+            max-width: 85%;
             text-align: center;
-            ul {
-                list-style: none;
-                padding: 0 0 34px;
-                li {
-                    display: inline-block;
-                    margin: 0 20px 0 0;
-                    img {
-                        height: 32px;
-                        width: auto;
-                        @include media-breakpoint-up(sm) {
-                            height: auto;
+            color:$color-primary-header;
+            p {
+                margin:0;
+            }
+            a {
+                &:link,
+                &:visited {
+                    color:white;
+                    text-decoration:underline;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    color: black;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .recommended-by {
+        background-color: $color-deep-purple2;
+        .recommended-by-content {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            
+            .plan-title {
+                color:$color-primary-header;
+                @include font-size(14);
+                @include media-breakpoint-up(md) {
+                    @include font-size(18);
+                }
+                margin-bottom: 1em;
+            }
+            .plan-item {
+                text-align: center;
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin-bottom: 0;
+                    li {
+                        display: inline-block;
+                        margin: 0 20px 0 0;
+                        img {
+                            height: 32px;
+                            width: auto;
+                            @include media-breakpoint-up(sm) {
+                                height: auto;
+                            }
                         }
                     }
-                }
-                li:last-child {
-                    margin: 0;
+                    li:last-child {
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -914,8 +1041,16 @@
         @include font-size(21);
         color: $color-text;
     }
-    a {
-        display: block;
+    .desc {
+        margin-top: 3rem;
+    }
+    ul {
+        margin: 3rem 0 0 0;
+        padding: 0;
+        list-style: none;
+        li {
+            padding-bottom: 1rem;
+        }
     }
 }
 
@@ -1120,7 +1255,7 @@
 
 .slide-card {
     background: $color-slide-bg;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
     position: relative;
     color: $color-slide-text;
@@ -1370,7 +1505,7 @@
     }
 }
 
-.related-links, .related-events {
+.related-links {
     margin-top: 100px;
     margin-top: 10rem;
     @include listReset();
@@ -1378,6 +1513,54 @@
         li {
             margin-bottom: 0.5rem;
             padding: 0;
+        }
+    }
+}
+
+.related-events {
+    .related_event_container {
+        background-color: $color-eventinfobg;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        color:white;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .related_event_thumb {
+            width:25%;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .related_event_content {
+            width: 70%;
+            &.full_width {
+                width: 100%;
+            }
+
+            .related-event-title {
+                color: $color-primary-header;
+                margin:2rem 0;
+                @include bentonBd();
+            }
+
+            a {
+                &:link,
+                &:visited {
+                    color:white;
+                    text-decoration:underline;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    color: black;
+                    text-decoration: none;
+                }
+            }
         }
     }
 }

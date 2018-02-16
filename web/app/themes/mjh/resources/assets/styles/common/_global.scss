@@ -198,7 +198,8 @@ a:hover, a:active {
                 }
             }
             h4 {
-                @include font-size(18);
+                @include bentonBd();
+                @include font-size(19);
             }
             blockquote {
                 position: relative;

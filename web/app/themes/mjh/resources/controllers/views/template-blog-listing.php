@@ -16,7 +16,7 @@ class Blogs extends Controller
      */
     function __construct()
     {
-        $this->pressCategory= App::getPressCategory();
+        $this->pressCategory= App::getPressCategory('press');
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 

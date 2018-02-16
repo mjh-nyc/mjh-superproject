@@ -36,7 +36,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-	"version": "5.5.14",
+	"version": "5.6.7",
 	"type": "wordpress-plugin",
 	"dist": {
 	  "type": "zip",
@@ -64,12 +64,24 @@
       "type": "package",
       "package": {
         "name": "formidableforms/formidable-pro",
-		"version": "2.03.09",
+		"version": "2.05.09",
 		"type": "wordpress-plugin",
 		"dist": {
 		  "type": "zip",
-		   "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-2.03.09.zip"
+		   "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-2.05.09.zip"
 		}
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-offload-s3-pro",
+    "version": "1.5.1",
+    "type": "wordpress-plugin",
+    "dist": {
+      "type": "zip",
+       "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org"
+    }
       }
     },
     {
@@ -81,7 +93,7 @@
 		"source": {
 		  "type": "git",
 		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-		   "reference": "1.2.1"
+		   "reference": "1.2.4"
 		}
       }
     }
@@ -90,13 +102,16 @@
     "php": ">=5.6",
     "composer/installers": "~1.2.0",
     "vlucas/phpdotenv": "^2.0.1",
-    "johnpbloch/wordpress": "4.7.5",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.5",
     "mjh-nyc/mjh-custom-configurations": "dev-master",
-    "formidableforms/formidable-pro": "^2.03.08",
-    "yoast/wordpress-seo-premium": "^4.9"
+    "yoast/wordpress-seo-premium": "^4.9",
+    "deliciousbrains/wp-offload-s3-pro": "^1.0",
+    "wpackagist-plugin/amazon-web-services": "^1.0",
+    "johnpbloch/wordpress": "4.9.2",
+    "wpackagist-plugin/tinymce-advanced": "^4.6",
+    "formidableforms/formidable-pro": "^2.05"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
