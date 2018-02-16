@@ -36,24 +36,33 @@
 
       @endwhile
     @else
-      <div class="press-content-main col-md-8"> 
-        <div class="coverage-listing">
-          @if($coverage)
-            <h3>@php _e("Recent Press Coverage","sage"); @endphp</h3>
-            @foreach ($coverage as $press_item)
-             @include('partials.content-press-card',['item_id'=>$press_item->ID])
-            @endforeach
-          @endif
-        </div>
-        <div class="releases-listing">
-          @if($releases)
-            <h3>@php _e("Museum Press Releases","sage"); @endphp</h3>
+      <div class="press-content-main col-md-8">
+        @if($coverage)
+          <h3>@php _e("Recent Press Coverage","sage"); @endphp</h3>
+          <div class="press-card-listing coverage-listing">
+                
+              @foreach ($coverage as $press_item)
+               @include('partials.content-press-card',['item_id'=>$press_item->ID])
+              @endforeach
+            
+          </div>
+          <div class="see-all">
+            <a href="/press/coverage/" class="cta-round cta-outline cta-secondary">@php _e("See all press coverage","sage"); @endphp</a>
+          </div>
+        @endif
+
+        @if($releases)
+          <h3>@php _e("Museum Press Releases","sage"); @endphp</h3>
+          <div class="press-card-listing releases-listing">
             @foreach ($releases as $press_item)
               @include('partials.content-press-card',['item_id'=>$press_item->ID])
             @endforeach
-          @endif
-        </div>
-
+          </div>
+          <div class="see-all">
+            <a href="/press/releases/" class="cta-round cta-outline cta-secondary">@php _e("See all museum press releases","sage"); @endphp</a>
+          </div>
+        @endif
+        
       </div>
        
     @endif
