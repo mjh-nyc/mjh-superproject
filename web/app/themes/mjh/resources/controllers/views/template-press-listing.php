@@ -10,6 +10,7 @@ class Press extends Controller
     var $paged = 1;
     var $pressCategory;
     var $press;
+    var $posts_per_page;
     /**
      * Constructor
      *
@@ -17,6 +18,7 @@ class Press extends Controller
     function __construct()
     {
         //$this->pressCategory= App::getPressCategory(App::getCurrentPageSlug());
+        $this->posts_per_page = 20;
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
@@ -35,6 +37,8 @@ class Press extends Controller
         $grouped = false;
         if($slug == 'coverage'){
             $grouped = true;
+        }else{
+            $this->posts_per_page = 6;
         }
         return $this->getPress('coverage', $grouped);
 
@@ -44,6 +48,8 @@ class Press extends Controller
         $grouped = false;
         if($slug == 'releases'){
             $grouped = true;
+        }else{
+            $this->posts_per_page = 6;
         }
         return $this->getPress('releases', $grouped);
     }
@@ -58,7 +64,7 @@ class Press extends Controller
     {
         $pressCategory_array = App::getPressCategory($pressCategory);
         $currentDate = strtotime('today midnight');
-        $pParamHash = array('post_type' => 'post','posts_per_page' => 20,'paged'=>$this->paged);
+        $pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
         $pParamHash['tax_query'] =  array(
             'relation'      => 'AND',
             '0'=> array(
