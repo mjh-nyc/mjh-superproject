@@ -10,6 +10,7 @@
 		</ul>-->
 
 		<ul>
+			
 			@if (empty(App::get_repeater_field('related_link_repeater')))
 				@php $item_id = wp_get_post_parent_id( $post->ID ) @endphp
 			@else
