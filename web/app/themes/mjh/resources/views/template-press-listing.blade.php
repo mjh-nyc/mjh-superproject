@@ -6,12 +6,8 @@
 @section('content')
   <div class="row">
     <div class="press-content-aside col-md-4">
-      <h3>
-        @php _e("Museum Press","sage"); @endphp
-      </h3>
       @include('partials.content-side-navigation')
-      @include('partials.content-side-press-listing')
-      
+      @include('partials.content-side-press-listing')   
     </div>
     @if ($post->post_name !='press')
       @while(have_posts()) @php(the_post())
