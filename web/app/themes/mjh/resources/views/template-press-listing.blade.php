@@ -7,7 +7,13 @@
   <div class="row">
     <div class="press-content-aside col-md-4">
       <h3>
-        <a href="/press"><i class="fa fa-newspaper-o" style="display: inline-block; padding-right: 10px;"></i>@php _e("Press Home","sage"); @endphp</a>
+        @if ($post->post_name !='press')
+          <a href="/press">
+        @endif
+        <i class="fa fa-newspaper-o" style="display: inline-block; padding-right: 10px;"></i>@php _e("Press Home","sage"); @endphp
+        @if ($post->post_name !='press')
+          </a>
+        @endif
       </h3>
       @include('partials.content-side-press-listing')   
     </div>
