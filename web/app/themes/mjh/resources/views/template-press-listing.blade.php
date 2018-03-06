@@ -10,7 +10,7 @@
         @if ($post->post_name !='press')
           <a href="/press">
         @endif
-        <i class="fa fa-newspaper-o" style="display: inline-block; padding-right: 10px;"></i>@php _e("Press Home","sage"); @endphp
+        @php _e("Press Home","sage"); @endphp
         @if ($post->post_name !='press')
           </a>
         @endif
@@ -22,7 +22,13 @@
             <div class="press-content-main col-md-8"> 
               @if($press)
                 @foreach ($press as $press_group)
-                  @include('partials.content-press-listing')
+                  {{--@include('partials.content-press-listing')--}}
+                  <h3>{{$press_group['display_date']}}</h3>
+                  <div class="press-card-listing">
+                    @foreach ($press_group['posts'] as $press_item)
+                      @include('partials.content-press-card',['item_id'=>$press_item->ID])
+                    @endforeach
+                  </div>
                 @endforeach
               @else
                 <div style="margin-bottom: 100px;">
@@ -51,7 +57,7 @@
             
           </div>
           <div class="see-all">
-            <a href="/press/coverage/" class="cta-round cta-outline cta-secondary">@php _e("See all press coverage","sage"); @endphp</a>
+            <a href="/press/coverage/" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
           </div>
         @endif
 
@@ -63,7 +69,7 @@
             @endforeach
           </div>
           <div class="see-all">
-            <a href="/press/releases/" class="cta-round cta-outline cta-secondary">@php _e("See all museum press releases","sage"); @endphp</a>
+            <a href="/press/releases/" class="cta-round cta-arrow cta-secondary">@php _e("See All Museum Press Releases","sage"); @endphp</a>
           </div>
         @endif
         
