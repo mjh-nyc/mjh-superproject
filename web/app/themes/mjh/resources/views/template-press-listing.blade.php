@@ -21,15 +21,11 @@
       @while(have_posts()) @php(the_post())
             <div class="press-content-main col-md-8"> 
               @if($press)
-                @foreach ($press as $press_group)
-                  {{--@include('partials.content-press-listing')--}}
-                  <h3>{{$press_group['display_date']}}</h3>
                   <div class="press-card-listing">
-                    @foreach ($press_group['posts'] as $press_item)
+                    @foreach ($press as $press_item)
                       @include('partials.content-press-card',['item_id'=>$press_item->ID])
                     @endforeach
                   </div>
-                @endforeach
               @else
                 <div style="margin-bottom: 100px;">
                   <div class="alert alert-warning">

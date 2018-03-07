@@ -29,14 +29,15 @@ class Press extends Controller
      * @return array
      */
     public function press() {
-        return $this->getPress(App::getCurrentPageSlug(), true);
+        $grouped = false;
+        return $this->getPress(App::getCurrentPageSlug(), $grouped);
     }
 
     public function coverage() {
         $slug = App::getCurrentPageSlug();
         $grouped = false;
         if($slug == 'coverage'){
-            $grouped = true;
+            //$grouped = true;
         }else{
             $this->posts_per_page = 6;
         }
@@ -47,7 +48,7 @@ class Press extends Controller
         $slug = App::getCurrentPageSlug();
         $grouped = false;
         if($slug == 'releases'){
-            $grouped = true;
+            //$grouped = true;
         }else{
             $this->posts_per_page = 6;
         }
