@@ -11,6 +11,10 @@ class Press extends Controller
     var $pressCategory;
     var $press;
     var $posts_per_page;
+    var $max_num_pages_press;
+    var $max_num_pages_coverage;
+    var $max_num_pages_releases;
+
     /**
      * Constructor
      *
@@ -30,7 +34,11 @@ class Press extends Controller
      */
     public function press() {
         $grouped = false;
-        return $this->getPress(App::getCurrentPageSlug(), $grouped);
+        $press = $this->getPress(App::getCurrentPageSlug(), $grouped);
+        if(!empty($press)){
+            $this->max_num_pages_press = $this->press->max_num_pages;
+        }
+        return $press;
     }
 
     public function coverage() {
@@ -41,8 +49,11 @@ class Press extends Controller
         }else{
             $this->posts_per_page = 6;
         }
-        return $this->getPress('coverage', $grouped);
-
+        $press = $this->getPress('coverage', $grouped);
+        if(!empty($press)){
+            $this->max_num_pages_coverage = $this->press->max_num_pages;
+        }
+        return $press;
     }
     public function releases() {
         $slug = App::getCurrentPageSlug();
@@ -52,7 +63,11 @@ class Press extends Controller
         }else{
             $this->posts_per_page = 6;
         }
-        return $this->getPress('releases', $grouped);
+        $press = $this->getPress('releases', $grouped);
+        if(!empty($press)){
+            $this->max_num_pages_releases = $this->press->max_num_pages;
+        }
+        return $press;
     }
 
 
@@ -117,9 +132,24 @@ class Press extends Controller
      *
      * @return int
      */
-    public function getMaxNumPages() {
-        return $this->press->max_num_pages;
+    public function getMaxNumPagesPress() {
+        return $this->max_num_pages_press;
     }
-
+    /**
+     * Return max page for pagination
+     *
+     * @return int
+     */
+    public function getMaxNumPagesCoverage() {
+        return $this->max_num_pages_coverage;
+    }
+    /**
+     * Return max page for pagination
+     *
+     * @return int
+     */
+    public function getMaxNumPagesReleases() {
+        return $this->max_num_pages_releases;
+    }
 
 }

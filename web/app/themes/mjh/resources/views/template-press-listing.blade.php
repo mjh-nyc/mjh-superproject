@@ -36,8 +36,8 @@
               @endif
             </div>
 
-          @if ($get_max_num_pages)
-            @include('partials.pagination',['max_num_pages'=>$get_max_num_pages])
+          @if ($get_max_num_pages_press)
+            @include('partials.pagination',['max_num_pages'=>$get_max_num_pages_press])
           @endif
 
       @endwhile
