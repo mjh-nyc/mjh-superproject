@@ -22,7 +22,7 @@ class Press extends Controller
     function __construct()
     {
         //$this->pressCategory= App::getPressCategory(App::getCurrentPageSlug());
-        $this->posts_per_page = 20;
+        $this->posts_per_page = 21;
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
