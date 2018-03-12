@@ -12,11 +12,11 @@
             <label for="event-dates">@php _e("Display","sage"); @endphp</label>
             <div class="styled-select slate">
             <select name="event-dates" id="event-dates" class="">
-              <option value="upcoming" @if($event_dates_request ==='upcoming')selected="selected" @endif >@php _e("All upcoming events","sage"); @endphp</option>
-              <option value="live" @if($event_dates_request ==='live')selected="selected" @endif >@php _e("All upcoming live events","sage"); @endphp</option>
-              <option value="month" @if($event_dates_request ==='month')selected="selected" @endif >@php _e("Events this month","sage"); @endphp</option>
-              <option value="next-month" @if($event_dates_request ==='next-month')selected="selected" @endif >@php _e("Events next month","sage"); @endphp</option>
-              <option value="past" @if($event_dates_request ==='past')selected="selected" @endif >@php _e("All past events","sage"); @endphp</option>
+              <option value="upcoming" @if($event_dates_request ==='upcoming')selected="selected" @endif >@php _e("Upcoming","sage"); @endphp</option>
+             {{-- <option value="live" @if($event_dates_request ==='live')selected="selected" @endif >@php _e("All upcoming live events","sage"); @endphp</option> --}}
+              {{-- <option value="month" @if($event_dates_request ==='month')selected="selected" @endif >@php _e("Events this month","sage"); @endphp</option> --}}
+              {{-- <option value="next-month" @if($event_dates_request ==='next-month')selected="selected" @endif >@php _e("Events next month","sage"); @endphp</option> --}}
+              <option value="past" @if($event_dates_request ==='past')selected="selected" @endif >@php _e("Past","sage"); @endphp</option>
             </select>
             </div>
           </div>
