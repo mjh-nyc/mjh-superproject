@@ -456,16 +456,14 @@
     .buy-tix {
         text-align: center;
     }
-    @include listReset();
-
-    .back-link {
-        background-color: white;
-        margin:0 0 -3px 0;
-    }
-    .list-link{
-        padding: 2rem;
+    @include listReset();  
+}
+.single-event, .single-exhibition {
+    &.see-all {
+        margin:2rem auto;
     }
 }
+
 
 
 .exhibition-template-default {
