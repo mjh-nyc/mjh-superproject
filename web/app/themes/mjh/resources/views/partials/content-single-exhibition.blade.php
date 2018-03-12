@@ -15,6 +15,11 @@
       
     @endif
 
+  <div class="row back-link">
+        <div class="single-exhibition see-all">
+          <a class="cta-round cta-outline cta-secondary" href="/current-exhibitions/">@php _e("See all current exhibitions","sage"); @endphp</a>
+        </div>
+      </div>
 
   <div class="col-content row">
 
