@@ -23,7 +23,5 @@
 			</div>
 		</div>
 	</div>
-	@if ( ($post->post_type == 'event') && (App::get_field('event_type',get_the_ID()) != 'recurring'))
-		@include('partials.content-calendar-link')
-	@endif
+	@include('partials.content-calendar-link')
 </div>
