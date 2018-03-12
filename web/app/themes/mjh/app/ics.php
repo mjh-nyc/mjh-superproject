@@ -94,6 +94,7 @@ class ICS {
       'VERSION:2.0',
       'PRODID:-//Museum of Jewish Heritage/Events v1.0//EN',
       'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
       'BEGIN:VEVENT'
     );
 
