@@ -101,7 +101,7 @@ class Homepage extends Controller
      * @return array
      */
     public function blogPosts() {
-        $cat = App::getPressCategory();
+        $cat = App::getPressCategory('press');
         $pParamHash = array('category__not_in'=>$cat->term_id);
         $stickyHash = App::getPressStickyPosts();
         if(!empty($stickyHash)){
@@ -116,7 +116,7 @@ class Homepage extends Controller
      * @return array
      */
     public function pressPosts() {
-        $cat = App::getPressCategory();
+        $cat = App::getPressCategory('press');
         $pParamHash = array('category__in'=>$cat->term_id);
         $stickyHash = App::getPressStickyPosts();
         // Hackish method to include sticky press posts to top of list.

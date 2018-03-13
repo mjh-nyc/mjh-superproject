@@ -450,8 +450,14 @@ class App extends Controller
      *
      * @return object
      */
-    public static function getPressCategory(){
-        return  get_term_by( 'slug', 'press', 'category');
+    public static function getPressCategory($slug){
+        return  get_term_by( 'slug', $slug, 'category');
+    }
+
+    public static function getCurrentPageSlug() {
+        global $post;
+        $post_slug=$post->post_name;
+        return $post_slug;
     }
 
     /**
@@ -628,6 +634,7 @@ class App extends Controller
         'current' => max( 1, get_query_var('paged') ),
         'mid_size'  => 4,
         'prev_next' => false,
+        'add_args' => true,
         'total' => $max_num_pages
         ) );
     }

@@ -80,16 +80,37 @@
             </div>
           </div>
         @endif
+          
+        </div>
+      </div>
+
+  <div class="row back-link">
+        <div class="single-event see-all">
+          <a class="cta-round cta-outline cta-secondary" href="/events">@php _e("See all upcoming events","sage"); @endphp</a>
         </div>
       </div>
 
   <div class="col-content row">
 
     <div class="entry-content">
+      
       @include('partials.content-share')
       @php(the_content())
       @include('partials.content-gallery')
       @include('partials.content-related-links')
+      <div class="posts-links">
+          @if ($get_previous_event)
+          <div class="previous">
+            <a href="{{$get_previous_event}}" class="cta-round cta-secondary cta-arrow-left">@php _e("Previous event","sage"); @endphp</a>
+          </div>
+          @endif
+          @if ($get_next_event)
+          <div class="next">
+            <a href="{{$get_next_event}}" class="cta-round cta-secondary cta-arrow">@php _e("Next event","sage"); @endphp</a>
+          </div>
+           @endif
+      </div>
+  </div>
     </div>
 
      @if (App::get_repeater_field('primary_sponsors_repeater') || App::get_repeater_field('secondary_sponsors_repeater'))
@@ -106,8 +127,6 @@
         @endif
       </div>
     @endif
-
-  </div>
   <footer>
 
   </footer>
