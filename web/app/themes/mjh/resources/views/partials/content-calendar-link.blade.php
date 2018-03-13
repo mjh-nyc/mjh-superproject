@@ -1,4 +1,4 @@
-@if ( ($post->post_type == 'event') && (App::get_field('event_type',get_the_ID()) != 'recurring'))
+@if ( ($post->post_type == 'event') && (App::get_field('event_type',get_the_ID()) == 'onetime'))
 	@if( (App::get_field('event_type',get_the_ID()) == 'ongoing') || ( App::get_field('event_type',get_the_ID()) == 'onetime' && App::get_field('event_end_time') ) )
 		<div class="calendar">
 			<div class="calendar-header">
