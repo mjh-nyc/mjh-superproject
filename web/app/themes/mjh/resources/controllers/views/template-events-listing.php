@@ -258,7 +258,7 @@ class Events extends Controller
                 foreach($eventsSorted AS $eventsSortedTime){
                     if(count($eventsSortedTime) > 1){
                         foreach($eventsSortedTime As $eventsSortedTimeSame){
-                            $eventsPostsHash[] = array_shift($eventsSortedTimeSame);
+                            $eventsPostsHash[] = $eventsSortedTimeSame;
                         }
                     }else{
                         $eventsPostsHash[] = array_shift($eventsSortedTime);
