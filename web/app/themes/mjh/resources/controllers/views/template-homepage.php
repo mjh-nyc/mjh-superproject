@@ -89,9 +89,60 @@ class Homepage extends Controller
             }
         }
         if( !empty( $eventsHash ) ) {
-            return $eventsHash;
+            return $this->eventSortByTime($eventsHash);
         }else{
             return false;
+        }
+    }
+
+    /**
+     * Sort events by date and time. Done manually since certain event types don't utilize times
+     *
+     * @return array
+     */
+    private function eventSortByTime($eventsHash) {
+        $events = $eventsHash;
+        if(!empty($events)){
+            $eventHash = array();
+            foreach($events AS $event){
+                $event_type = get_field( "event_type", $event->ID );
+                switch($event_type){
+                    // Always set date/time keys to zero since it is top of the list
+                    case 'recurring':
+                        $eventHash[0][0][] = $event;
+                    break;
+                    // Set array hash to date and time for the keys, then sort by time key
+                    case'onetime':
+                        $event_start_date = get_field( "event_start_date", $event->ID );
+                        $event_start_time = get_field( "event_start_time", $event->ID );
+                        if(empty($event_start_time)){
+                            $event_start_time=0;
+                        }
+                        $eventHash[strtotime($event_start_date)][strtotime($event_start_time)][]= $event;
+                        ksort($eventHash[strtotime($event_start_date)]);
+                    break;
+                    // Set array hash to date only for the keys, then sort by time key, which is set to zero for ongoing
+                    case'ongoing':
+                        $event_start_date = get_field( "event_start_date", $event->ID );
+                        $eventHash[strtotime($event_start_date)][0][]= $event;
+                        ksort($eventHash[strtotime($event_start_date)]);
+                    break;
+                }
+            }
+            // Set up posts hash
+            $eventsPostsHash = array();
+            foreach($eventHash AS $key => $eventsSorted){
+                foreach($eventsSorted AS $eventsSortedTime){
+                    if(count($eventsSortedTime) > 1){
+                        foreach($eventsSortedTime As $eventsSortedTimeSame){
+                            $eventsPostsHash[] = $eventsSortedTimeSame;
+                        }
+                    }else{
+                        $eventsPostsHash[] = array_shift($eventsSortedTime);
+                    }
+                }
+            }
+            return $eventsPostsHash;
         }
     }
 
