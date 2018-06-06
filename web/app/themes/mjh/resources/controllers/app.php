@@ -252,6 +252,26 @@ class App extends Controller
         return $term_string;
     }
 
+
+
+    /**
+     * Return the taxonomy terms
+     *
+     * @return array
+     */
+    public static function getTaxonomyTerms($taxonomy = '')
+    {
+        $terms = array();
+        if ($taxonomy){
+            $terms = get_terms( array(
+                'taxonomy' => $taxonomy,
+                'hide_empty' => true,
+            ) );
+        }
+        return $terms;
+    }
+
+
     /**
      * Return the post excerpt, if no ID provided, will use current post id
      *

@@ -103,6 +103,9 @@ export default {
         jQuery("#event-category").change(function() {
             jQuery("#event-listing-form").submit();
         });
+        jQuery("#publication-category").change(function() {
+            jQuery("#publication-listing-form").submit();
+        });
 
         //testimony card more link trigger
         jQuery(".testimony-card .more").on( "click", function(event) {
