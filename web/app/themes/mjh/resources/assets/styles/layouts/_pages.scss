@@ -468,8 +468,8 @@
     }
     @include listReset();  
 }
-.single-event, .single-exhibition {
-    &.see-all {
+.single-event, .single-exhibition, .single-publication {
+    .see-all {
         margin:2rem auto;
     }
 }
@@ -1167,6 +1167,11 @@
     }
 }
 
+.template-testimonies-listing {
+    .listing-wrapper {
+        margin-top: 6rem;
+    }
+}
 .event-card, .blog-card, .testimony-card, .publication-card {
     position: relative;
     @include media-breakpoint-up(md) {
