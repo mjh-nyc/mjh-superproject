@@ -16,6 +16,11 @@ export default {
         jQuery('#menu-primary-navigation .menu-item-has-children > a').bind('click', function(event) {
             event.preventDefault();
             jQuery(this).parent().toggleClass('open').find('ul').slideToggle();
+            //adjust overlay height
+            //becuase we're animating the navigation items down, we have to wait for the animation to complete
+            setTimeout(function () {
+                jQuery('.overlay-nav').css({ 'height': jQuery(document).height() });
+            }, 1000);
 
         })
         //automatically expand parent if we're on a subpage
@@ -102,6 +107,9 @@ export default {
         });
         jQuery("#event-category").change(function() {
             jQuery("#event-listing-form").submit();
+        });
+        jQuery("#publication-category").change(function() {
+            jQuery("#publication-listing-form").submit();
         });
 
         //testimony card more link trigger
