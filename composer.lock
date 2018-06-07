@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea8ab35b2cf8b69ef72f07ead303b293",
+    "content-hash": "f077c322eb56c102dc6cbe8277501f10",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -513,6 +513,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/amazon-web-services/"
+        },
+        {
+            "name": "wpackagist-plugin/flowpaper-lite-pdf-flipbook",
+            "version": "1.8.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/flowpaper-lite-pdf-flipbook/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1525130944",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/flowpaper-lite-pdf-flipbook/"
         },
         {
             "name": "wpackagist-plugin/tinymce-advanced",
