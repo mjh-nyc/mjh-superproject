@@ -111,6 +111,7 @@
     "wpackagist-plugin/amazon-web-services": "^1.0",
     "johnpbloch/wordpress": "4.9.2",
     "wpackagist-plugin/tinymce-advanced": "^4.6",
+    "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
     "formidableforms/formidable-pro": "^2.05"
   },
   "require-dev": {
