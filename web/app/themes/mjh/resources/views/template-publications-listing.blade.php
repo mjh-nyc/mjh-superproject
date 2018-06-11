@@ -6,6 +6,7 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
+      {{--
       <div class="publication-form">
         <form id="publication-listing-form" name="publication-listing-form" method='get' action="{!! APP::getPermalink() !!}">
           <div class="wrap">
@@ -21,9 +22,10 @@
             </div>
           </div>
         </form>
-      </div>
+      </div> --}}
+
       @if($publications)
-      <div class="listing-wrapper row">
+      <div class="listing-wrapper row" style="margin-top: 3rem;">
         @foreach ($publications as $publication)
           <article @php(post_class())>
             @include('partials.content-publication-card', ['item_id'=>$publication->ID])

@@ -7,17 +7,13 @@
     </div>
     --}}
 
-    <div class="row back-link">
-        <div class="single-publication see-all">
-          <a class="cta-round cta-outline cta-secondary" href="/mjh-publications">@php _e("See all publications","sage"); @endphp</a>
-        </div>
-    </div>
+    
 
     <div class="post-body">
       {{-- @php(the_content()) --}}
       
       @php 
-      $pdfFile = App::get_field('publication_pdf');
+      $pdfFile = "https://d3k74ww17vqc8e.cloudfront.net/app/uploads/2018/06/11130149/EyewitnessBook_Pages_5.30.18.pdf"; //App::get_field('publication_pdf');
       echo do_shortcode('[flipbook pdf="'.$pdfFile.'" width="100%" height="100%" theme="light"]'); @endphp 
     </div>
     @include('partials.content-gallery')
