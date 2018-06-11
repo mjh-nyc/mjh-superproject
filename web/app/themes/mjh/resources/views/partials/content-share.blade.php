@@ -24,4 +24,5 @@
 		</div>
 	</div>
 	@include('partials.content-calendar-link')
+	@include('partials.content-back-link')
 </div>
