@@ -13,7 +13,7 @@
       {{-- @php(the_content()) --}}
       
       @php 
-      $pdfFile = "https://d3k74ww17vqc8e.cloudfront.net/app/uploads/2018/06/11130149/EyewitnessBook_Pages_5.30.18.pdf"; //App::get_field('publication_pdf');
+      $pdfFile = App::get_field('publication_pdf');
       echo do_shortcode('[flipbook pdf="'.$pdfFile.'" width="100%" height="100%" theme="light"]'); @endphp 
     </div>
     @include('partials.content-gallery')
