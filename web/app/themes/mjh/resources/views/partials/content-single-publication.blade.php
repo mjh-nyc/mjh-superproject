@@ -7,11 +7,7 @@
     </div>
     --}}
 
-    <div class="row back-link">
-        <div class="single-publication see-all">
-          <a class="cta-round cta-outline cta-secondary" href="/mjh-publications">@php _e("See all publications","sage"); @endphp</a>
-        </div>
-    </div>
+    
 
     <div class="post-body">
       {{-- @php(the_content()) --}}
