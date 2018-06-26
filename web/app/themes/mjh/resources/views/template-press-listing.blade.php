@@ -58,14 +58,14 @@
         @endif
 
         @if($releases)
-          <h3>@php _e("Museum Press Releases","sage"); @endphp</h3>
+          <h3>@php _e("Press Releases","sage"); @endphp</h3>
           <div class="press-card-listing releases-listing">
             @foreach ($releases as $press_item)
               @include('partials.content-press-card',['item_id'=>$press_item->ID])
             @endforeach
           </div>
           <div class="see-all">
-            <a href="/press/releases/" class="cta-round cta-arrow cta-secondary">@php _e("See All Museum Press Releases","sage"); @endphp</a>
+            <a href="/press/releases/" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Releases","sage"); @endphp</a>
           </div>
         @endif
         
