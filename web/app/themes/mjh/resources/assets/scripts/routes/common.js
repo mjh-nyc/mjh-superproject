@@ -90,10 +90,15 @@ export default {
       });
 
       var overlay = jQuery(".overlay-nav");
-      var header = jQuery("header.banner");
+      var header = jQuery(".top-wrapper");
+      var announcement = jQuery(".announcement");
+      var offset = 14;
       function setNavOffset() {
         if (jQuery( window ).width() < 576) {
           var header_height = header.height();
+          if (announcement.length) {
+            header_height += announcement.height() + offset;
+          }
           overlay.css("top",header_height+"px");
         } else {
           overlay.css("top","0");
