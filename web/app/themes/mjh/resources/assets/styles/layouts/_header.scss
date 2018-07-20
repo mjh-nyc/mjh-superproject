@@ -278,7 +278,7 @@
     z-index: $zindex-modal;
     background: black;
     left: 0;
-    top: 58px;
+    /*top: 58px;*/
     padding-top: 26px;
     @include media-breakpoint-up(sm) {
         top: 0;
