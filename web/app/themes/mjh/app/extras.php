@@ -360,7 +360,9 @@ add_action( 'widgets_init', function(){
 
 /* END find us widget  ****************************/
 
-function redirect_events() {
+
+//Redirect listing pages from archive template to custom templates
+function redirect_listing_pages() {
     $path = '';
     if( !empty( $_SERVER['REDIRECT_URL'] ) ){
         $path =  $_SERVER['REDIRECT_URL'];
@@ -369,11 +371,17 @@ function redirect_events() {
             case'/events/':
                 wp_redirect( $root_url.'/current-events' );
                 exit;
+            case'/publications/':
+                wp_redirect( $root_url.'/mjh-publications' );
+                exit;
+            case'/testimonies/':
+                wp_redirect( $root_url.'/survivor-testimonies' );
+                exit;
             break;
         }
     }
 }
-add_action( 'init', 'App\\redirect_events' );
+add_action( 'init', 'App\\redirect_listing_pages' );
 
 // hook add_query_vars function into query_vars
 function mjh_add_query_vars($aVars) {

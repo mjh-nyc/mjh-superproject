@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "119278f66ad40738ef58213a7d3e1c22",
+    "content-hash": "6d1de55159373a55dd11376f21efc254",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -284,10 +284,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-                "reference": "1.2.5"
+                "reference": "1.2.6"
             },
             "type": "wordpress-muplugin",
-            "time": "2018-02-16T21:34:58+00:00"
+            "time": "2018-06-07T15:50:51+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -496,15 +496,15 @@
         },
         {
             "name": "wpackagist-plugin/amazon-web-services",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/amazon-web-services/",
-                "reference": "tags/1.0.4"
+                "reference": "tags/1.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -515,16 +515,36 @@
             "homepage": "https://wordpress.org/plugins/amazon-web-services/"
         },
         {
-            "name": "wpackagist-plugin/tinymce-advanced",
-            "version": "4.6.7",
+            "name": "wpackagist-plugin/flowpaper-lite-pdf-flipbook",
+            "version": "1.8.9",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
-                "reference": "tags/4.6.7"
+                "url": "https://plugins.svn.wordpress.org/flowpaper-lite-pdf-flipbook/",
+                "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.4.6.7.zip",
+                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1525130944",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/flowpaper-lite-pdf-flipbook/"
+        },
+        {
+            "name": "wpackagist-plugin/tinymce-advanced",
+            "version": "4.7.11",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
+                "reference": "tags/4.7.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.4.7.11.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -533,6 +553,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
+        },
+        {
+            "name": "wpackagist-plugin/unbounce",
+            "version": "1.0.36",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/unbounce/",
+                "reference": "tags/1.0.36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/unbounce.1.0.36.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/unbounce/"
         },
         {
             "name": "yoast/wordpress-seo-premium",

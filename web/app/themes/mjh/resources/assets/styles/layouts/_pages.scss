@@ -26,6 +26,19 @@
         }
     }
 }
+.single-publication {
+    .wrap.container {
+        .content {
+            padding: 5rem 0;
+            @include media-breakpoint-up(md) {
+                padding: 5rem 0 10rem;
+            }
+            .single-publication--back-link {
+                padding-top:33px;
+            }
+        }
+    }
+}
 .template-press-listing {
     .wrap.container {
         .content {
@@ -458,8 +471,8 @@
     }
     @include listReset();  
 }
-.single-event, .single-exhibition {
-    &.see-all {
+.single-event, .single-exhibition, .single-publication {
+    .see-all {
         margin:2rem auto;
     }
 }
@@ -634,9 +647,9 @@
                 }
             }
         }
-        .calendar-options {
+        .calendar-options, .small-back-link--options {
             text-align: right;
-            .calendar-link {
+            .calendar-link, .small-back-link--link {
                margin-right: 0px;
                margin-left: 6px; 
                span {
@@ -652,6 +665,10 @@
         overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
         @include media-breakpoint-up(sm) {
+            padding-top: 133px;
+            margin-top: -133px;
+        }
+        @include media-breakpoint-up(md) {
             padding-top: 143px;
             margin-top: -143px;
         }
@@ -1089,7 +1106,7 @@
     }
 }
 
-.event-form {
+.event-form, .publication-form {
     padding: 3rem 0;
     @include clearfix;
     @include media-breakpoint-up(lg) {
@@ -1157,7 +1174,12 @@
     }
 }
 
-.event-card, .blog-card, .testimony-card {
+.template-testimonies-listing {
+    .listing-wrapper {
+        margin-top: 6rem;
+    }
+}
+.event-card, .blog-card, .testimony-card, .publication-card {
     position: relative;
     @include media-breakpoint-up(md) {
         height: 365px;
@@ -1186,6 +1208,9 @@
             @include font-size(12);
             @include media-breakpoint-up(lg) {
                 @include font-size(18);
+            }
+            &.pub {
+                background: $color-visitplanbg;
             }
         }
     }

@@ -61,6 +61,9 @@
         }
 
          .announcement-content {
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
             p {
                 margin: 0;
             }
@@ -278,7 +281,7 @@
     z-index: $zindex-modal;
     background: black;
     left: 0;
-    top: 58px;
+    /*top: 58px;*/
     padding-top: 26px;
     @include media-breakpoint-up(sm) {
         top: 0;

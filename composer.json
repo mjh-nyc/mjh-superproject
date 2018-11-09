@@ -93,7 +93,7 @@
 		"source": {
 		  "type": "git",
 		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-		   "reference": "1.2.5"
+		   "reference": "1.2.6"
 		}
       }
     }
@@ -111,7 +111,9 @@
     "wpackagist-plugin/amazon-web-services": "^1.0",
     "johnpbloch/wordpress": "4.9.2",
     "wpackagist-plugin/tinymce-advanced": "^4.6",
-    "formidableforms/formidable-pro": "^2.05"
+    "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
+    "formidableforms/formidable-pro": "^2.05",
+    "wpackagist-plugin/unbounce": "1.0.36"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"

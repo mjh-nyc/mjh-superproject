@@ -47,7 +47,7 @@ If you want to automatically generate the security keys (assuming you have wp-cl
 
 5. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
 
-6. In project root, run `composer update` to bring down wordpress core, dependencies and contributed plugins
+6. In project root, run `composer install` to bring down wordpress core, dependencies and contributed plugins
 
 7. Import your database provided by MJH team or it will ask to install barebones copy
 
@@ -81,7 +81,7 @@ Please review documention in theme directory for further notes. Files can be com
 **  Contrib Plugins**
 
 - Contrib plugins can be brought in via composer to `/web/app/plugins/yourpluginname` using `composer require <package_name>:<version`> 
-
+- Source for wordpress composer packages  `https://wpackagist.org`
 
 **Custom Plugins**
 

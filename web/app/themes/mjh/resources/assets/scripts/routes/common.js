@@ -16,6 +16,11 @@ export default {
         jQuery('#menu-primary-navigation .menu-item-has-children > a').bind('click', function(event) {
             event.preventDefault();
             jQuery(this).parent().toggleClass('open').find('ul').slideToggle();
+            //adjust overlay height
+            //becuase we're animating the navigation items down, we have to wait for the animation to complete
+            setTimeout(function () {
+                jQuery('.overlay-nav').css({ 'height': jQuery(document).height() });
+            }, 1000);
 
         })
         //automatically expand parent if we're on a subpage
@@ -69,6 +74,39 @@ export default {
        sticky.options.enabled = true;
 
 
+      //set the top property of the .overlay-nav dynamically
+      //need to do this becuase we need to know the hight of announcement bar 
+      //which may appear at the top 576      
+      var resizeTimer;
+      jQuery( window ).resize(function() {
+
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+
+          setNavOffset();
+                  
+        }, 250);
+
+      });
+
+      var overlay = jQuery(".overlay-nav");
+      var header = jQuery(".top-wrapper");
+      var announcement = jQuery(".announcement");
+      var offset = 14;
+      function setNavOffset() {
+        if (jQuery( window ).width() < 576) {
+          var header_height = header.height();
+          if (announcement.length) {
+            header_height += announcement.height() + offset;
+          }
+          overlay.css("top",header_height+"px");
+        } else {
+          overlay.css("top","0");
+        }
+      }
+      //run on ready;
+      setNavOffset();
+
 
 
         jQuery(".animsition").animsition({
@@ -102,6 +140,9 @@ export default {
         });
         jQuery("#event-category").change(function() {
             jQuery("#event-listing-form").submit();
+        });
+        jQuery("#publication-category").change(function() {
+            jQuery("#publication-listing-form").submit();
         });
 
         //testimony card more link trigger
