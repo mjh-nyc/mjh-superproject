@@ -9,9 +9,9 @@
     </div>
   </div>
   @else
-  <div class="moto hidden-sm-down">
+  <!--<div class="moto hidden-sm-down">
     {{ App::siteDescription() }}
-  </div>
+  </div>-->
   @endif
 
   <div class="top-wrapper container">
