@@ -153,6 +153,7 @@
 .page-with-sidenav {
     display: flex;
     justify-content: flex-start !important;
+    align-items:flex-start;
 
     .subPageNav {
         @include make-col-ready();

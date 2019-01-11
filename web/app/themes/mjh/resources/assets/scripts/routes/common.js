@@ -151,6 +151,9 @@ export default {
             var $link = jQuery(this).find( "i" ).attr('data-link');
             window.location = $link;
         });
+
+        //stick sidebar navigation in secondary pages
+        jQuery(".subPageNav").stick_in_parent({offset_top: 100});
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
