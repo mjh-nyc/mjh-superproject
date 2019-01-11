@@ -48,7 +48,11 @@
 
 		@elseif (App::get_field('select_template_type') == 2)
 			{{-- This is press listing --}}
+			
+
 			Press
+
+
 		@else 
 			@php(the_content())
 			@include('partials.content-gallery')

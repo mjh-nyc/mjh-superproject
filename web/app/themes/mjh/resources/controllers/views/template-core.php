@@ -5,19 +5,26 @@ namespace App;
 use Sober\Controller\Controller;
 use WP_Query;
 
-class CoreBlogs extends Controller
+class CoreBlogsAndPress extends Controller
 {
     var $paged = 1;
     var $blogCategory;
     var $blogs;
+
+    var $press;
+    var $max_num_pages_press;
+    var $max_num_pages_coverage;
+    var $max_num_pages_madrid;
     /**
      * Constructor
      *
      */
     function __construct()
     {
-        $this->blogCategory= App::getPressCategory('core');
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $this->blogCategory= App::getPressCategory('core');
+        $this->pressCategory= App::getPressCategory('auschwitz');
+        $this->pressMadridCategory= App::getPressCategory('madrid');
     }
 
     /**
@@ -50,6 +57,7 @@ class CoreBlogs extends Controller
             return false;
         }
     }
+
     /**
      * Return max page for pagination
      *
