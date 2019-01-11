@@ -126,8 +126,7 @@
     }
 }
 
-.page-template-default, 
-.page-template-template-core {
+.page-template-default {
     .wrap.container {
         .main {
             justify-content: center !important;
@@ -151,6 +150,7 @@
 
 
 .page-with-sidenav {
+    width: 100%;
     display: flex;
     justify-content: flex-start !important;
     align-items:flex-start;
@@ -160,10 +160,40 @@
     }
 
     .subPageNav {
-        @include make-col-ready();
+        z-index: 143;
         margin-bottom: 2rem;
+        @include make-col-ready();
+        
         @include media-breakpoint-up(md) {
             @include make-col(3);
+        }
+        .menu-item-has-children {
+            a.parent {
+                position: relative;
+                &:before {
+                    transition: all 0.3s;
+                    font-family: FontAwesome;
+                    font-size: 25px;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-indent: 0;
+                    content: "\f105";
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    margin-top: -13px;
+                }
+            }
+            &.open {
+                a:before {
+                    -ms-transform: rotate(90deg);
+                    /* IE 9 */
+                    -webkit-transform: rotate(90deg);
+                    /* Chrome, Safari, Opera */
+                    transform: rotate(90deg);
+                }
+            }
         }
     }
     .page-content {
@@ -209,12 +239,13 @@
         &.sub-menu {
             border:none;
             li {
-                text-indent: 10%;
                 &:first-child {
                     border-top: 1px solid $color-footer-separator;
                 }
                 a {
                     font-weight: normal;
+                    padding-left: 15%;
+                    line-height: normal;
                 }
             }
         }
@@ -526,15 +557,7 @@
         }
     }
 }
-.page-template-template-core {
-    .exhibition-info {
-        margin-top: 0;
-        margin-left: 0;
-        @include media-breakpoint-up(md) {
-            margin-top: -130px;
-        }
-    }
-}
+
 .exhibition-template-default {
 
     .related-content {

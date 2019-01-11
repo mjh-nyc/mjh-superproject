@@ -158,7 +158,7 @@ export default {
           if (jQuery( window ).width() < 768) {
             jQuery(".subPageNav").trigger("sticky_kit:detach")
           } else {
-            jQuery(".subPageNav").stick_in_parent({offset_top: 100});
+            jQuery(".subPageNav").stick_in_parent({offset_top: 120});
           }
         }
         set_sticky_kit();

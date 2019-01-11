@@ -4,7 +4,7 @@
 		<ul id="menu-collapsible-sidenavigation" class="menu">
 			<!-- print top level page -->
 			@for ($i = 0; $i < count($coreSubPageNav); $i++)
-				<li class="menu-item menu-item-has-children"><a href="{{ get_the_permalink(App::get_parent_id( $coreSubPageNav[$i] )) }}">{{ App::postTitle(App::get_parent_id($coreSubPageNav[$i])) }}</a>
+				<li class="menu-item menu-item-has-children"><a href="{{ get_the_permalink(App::get_parent_id( $coreSubPageNav[$i] )) }}" class="parent"><span>{{ App::postTitle(App::get_parent_id($coreSubPageNav[$i])) }}</span></a>
 					<ul class="sub-menu">
 						<!-- subpages -->
 						@foreach (App::getSubPageNav($coreSubPageNav[$i]) as $page)

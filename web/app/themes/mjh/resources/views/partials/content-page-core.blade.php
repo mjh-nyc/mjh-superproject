@@ -21,9 +21,39 @@
 		@endif
 		@include('partials.content-share')
 		<h2>{!! App\title() !!}</h2>
-		@php(the_content())
-		@include('partials.content-gallery')
-		@include('partials.content-related-links')
+		@if (App::get_field('select_template_type') == 1)
+			{{-- This is blog listing --}}
+			@php(the_content())
+			<div class="listing-wrapper row">
+				
+				@if($blogs)
+					@foreach ($blogs as $blog_post)
+						<article @php(post_class())>
+							@include('partials.content-blog-card', ['item_id'=>$blog_post->ID])
+						</article>
+					@endforeach
+				@else
+					<div style="margin-bottom: 100px;" class="col-12">
+						<div class="alert alert-warning">
+							@php _e("There are no blog entries to display","sage"); @endphp
+						</div>
+						{!! get_search_form(false) !!}
+					</div>
+				@endif
+			</div>
+			@if ($get_max_num_pages)
+				@include('partials.pagination',['max_num_pages'=>$get_max_num_pages])
+			@endif
+
+
+		@elseif (App::get_field('select_template_type') == 2)
+			{{-- This is press listing --}}
+			Press
+		@else 
+			@php(the_content())
+			@include('partials.content-gallery')
+			@include('partials.content-related-links')
+		@endif
 	</div>
 </div>
 
