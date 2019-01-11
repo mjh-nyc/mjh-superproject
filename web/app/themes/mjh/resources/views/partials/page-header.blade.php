@@ -1,9 +1,17 @@
 <div class="page-header container">
   <h1>
-    @if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ){{$highlighted_exhibition_post_title}} @elseif ( get_post_type() == "attachment" )
+    @if ( get_post_type() == "attachment" )
   	 {!! _e("Image archives","sage") !!}
+    @elseif (App::isPageTemplate( 'views/template-core.blade.php'))
+      @if (App::get_field('highlighted_exhibition_logo','option'))
+        <img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="App::get_field('highlighted_exhibition_logo','option')['alt']" class="page-header--logo">
+      @else
+        {!! get_the_title(App::getCoreExhibitionID()) !!}
+      @endif
     @else
-      {!! App\title() !!}@endif</h1>
+      {!! App\title() !!}
+    @endif
+  </h1>
   @if ( !empty($post) && $post->post_type =='post' && !is_post_type_archive())
     <div class="post-meta">
       @if (App::get_field('publication_logo',$post->ID))

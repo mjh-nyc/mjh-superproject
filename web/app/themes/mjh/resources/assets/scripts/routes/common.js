@@ -13,7 +13,7 @@ export default {
             jQuery('#primary-nav-toggle').removeClass('open');
             jQuery('#menu-primary-navigation .open').removeClass('open').find('ul').hide();
         })
-        jQuery('#menu-primary-navigation .menu-item-has-children > a').bind('click', function(event) {
+        jQuery('#menu-primary-navigation .menu-item-has-children > a, #menu-collapsible-sidenavigation .menu-item-has-children > a').bind('click', function(event) {
             event.preventDefault();
             jQuery(this).parent().toggleClass('open').find('ul').slideToggle();
             //adjust overlay height
@@ -24,7 +24,7 @@ export default {
 
         })
         //automatically expand parent if we're on a subpage
-        jQuery('#menu-primary-navigation .current-menu-parent').toggleClass('open').find('ul').slideToggle();
+        jQuery('#menu-primary-navigation .current-menu-parent, #menu-collapsible-sidenavigation .current-menu-parent').toggleClass('open').find('ul').slideToggle();
 
         //init Gallery
         var mjh_gallery = jQuery('.mjh-gallery');
