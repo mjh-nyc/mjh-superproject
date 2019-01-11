@@ -154,6 +154,10 @@
     display: flex;
     justify-content: flex-start !important;
     align-items:flex-start;
+    flex-direction: column;
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+    }
 
     .subPageNav {
         @include make-col-ready();

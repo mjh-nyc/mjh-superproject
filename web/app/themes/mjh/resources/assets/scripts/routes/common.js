@@ -57,6 +57,7 @@ export default {
           if(didResize) {
             didResize = false;
             set_mjh_slider_width();
+            set_sticky_kit();
           }
          }, 250);
          //set on load too
@@ -153,7 +154,14 @@ export default {
         });
 
         //stick sidebar navigation in secondary pages
-        jQuery(".subPageNav").stick_in_parent({offset_top: 100});
+        function set_sticky_kit() {
+          if (jQuery( window ).width() < 768) {
+            jQuery(".subPageNav").trigger("sticky_kit:detach")
+          } else {
+            jQuery(".subPageNav").stick_in_parent({offset_top: 100});
+          }
+        }
+        set_sticky_kit();
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
