@@ -124,6 +124,17 @@ class App extends Controller
     }
 
     /**
+     * Return featured image of post src only (for CORE exhibition)
+     *
+     * @return string
+     */
+    public static function getCoreExhibitionID() {
+        //find the exhibition set as a CORE Offering
+        $coreExhibitionID = get_field('highlighted_exhibition','option');
+        return $coreExhibitionID;
+    }
+
+    /**
      * Return link for the video popup for testimonies
      *
      * @return url
@@ -573,6 +584,45 @@ class App extends Controller
         }
         return $pages;
     }
+
+    /**
+     * Get secondary nav items for the CORE exhibition, there may be multiple top level pages
+     *
+     * @return array
+     */
+    public static function hasCoreSubPageNav(){
+        
+        $pages = array();
+        $page_ids = array();
+        //are there parent pages that use the views/template-core.blade.php template
+        $args = array(
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'post_parent' => 0,
+            'meta_query' => array(
+                array(
+                    'key' => '_wp_page_template',
+                    'value' => 'views/template-core.blade.php'
+                )
+            )
+        );
+        $pages = new WP_Query( $args );
+        if( $pages->have_posts() ){
+            while( $pages->have_posts() ){
+                $pages->the_post();
+                array_push($page_ids, get_the_ID());
+            }
+        }
+        wp_reset_postdata();
+        if (count($page_ids)>0) {
+            return $page_ids;
+        } else {
+            return false;
+        }
+    }
+
+
     //Get Parent id (used from template as well, hence public declaration)
     public static function get_parent_id( $id ) {
         $parent_id = wp_get_post_parent_id($id);
