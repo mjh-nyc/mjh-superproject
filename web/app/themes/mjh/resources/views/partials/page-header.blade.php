@@ -27,3 +27,18 @@
      <p class="results-stats"><span class="bold">{{ Search::resultsFound() }}</span> results for &#8220; {!! get_search_query() !!} &#8221;</p>
   @endif
 </div>
+
+@if (App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()) || App::get_repeater_field('secondary_sponsor_header', App::getCoreExhibitionID()))
+    <div class="content-sponsors inheader">
+
+      @if (App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()))
+        <!-- Primary sponsors -->
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header', App::getCoreExhibitionID()),'sectionClass'=>"exhibition",'sectionType'=>"primary",'exhibitID'=>App::getCoreExhibitionID()])
+      @endif
+
+      @if (App::get_repeater_field('secondary_sponsors_repeater', App::getCoreExhibitionID()))
+        <!-- Secondary sponsors -->
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header', App::getCoreExhibitionID()),'sectionClass'=>"exhibition",'sectionType'=>"secondary", 'exhibitID'=>App::getCoreExhibitionID()])
+      @endif
+    </div>
+@endif

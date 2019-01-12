@@ -648,7 +648,40 @@
         }
         
     }
+
+    &.inheader {
+        border:none;
+        position: relative;
+        @include media-breakpoint-up(md) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+        }
+        z-index: 23;
+        width: auto;
+        margin: 0;
+        .sponsors {
+            margin-bottom: 0;
+            @include media-breakpoint-up(md) {
+                margin-bottom: 25px;
+            }
+        }
+        h3, h4 {
+            font-size: 50%;
+        }
+        ul  {
+            flex-direction: row;
+            li {
+                padding: 0 !important;
+                img {
+                    max-height: 30px;
+                }
+            }
+        }
+    }
 }
+
 
 .post-subheader{
     border-bottom: 1px solid #A5A4A6;

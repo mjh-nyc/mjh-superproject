@@ -38,12 +38,12 @@
 
       @if (App::get_repeater_field('primary_sponsors_repeater'))
         <!-- Primary sponsors -->
-        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary"])
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"primary", 'exhibitID'=>get_the_ID() ])
       @endif
 
       @if (App::get_repeater_field('secondary_sponsors_repeater'))
         <!-- Secondary sponsors -->
-        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary"])
+        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header'),'sectionClass'=>"exhibition",'sectionType'=>"secondary", 'exhibitID'=>get_the_ID() ])
       @endif
     </div>
   @endif
