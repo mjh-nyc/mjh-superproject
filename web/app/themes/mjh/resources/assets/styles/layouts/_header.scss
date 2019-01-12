@@ -242,6 +242,11 @@
                 }
             }
         }
+        &.tall {
+            @include media-breakpoint-up(md) {
+                padding-bottom: 250px;
+            }
+        }
     }
     .hero-area:after {
         content: ' ';
