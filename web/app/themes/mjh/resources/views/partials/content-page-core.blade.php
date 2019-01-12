@@ -48,11 +48,28 @@
 
 		@elseif (App::get_field('select_template_type') == 2)
 			{{-- This is press listing --}}
-			
-
-			Press
-
-
+			@if($auschwitz_press)
+				<h3>@php _e("Recent Press Coverage","sage"); @endphp</h3>
+				<div class="press-card-listing auschwitz-listing">
+					@foreach ($releases as $press_item)
+						@include('partials.content-press-card',['item_id'=>$press_item->ID])
+					@endforeach
+				</div>
+				<div class="see-all">
+					<a href="/press/auschwitz/" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
+				</div>
+			@endif
+			@if($madrid_press)
+				<h3>@php _e("Exhibition Coverage from Madrid","sage"); @endphp</h3>
+				<div class="press-card-listing auschwitz-listing">
+					@foreach ($madrid_press as $press_item)
+						@include('partials.content-press-card',['item_id'=>$press_item->ID])
+					@endforeach
+				</div>
+				<div class="see-all">
+					<a href="/press/madrid/" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
+				</div>
+			@endif
 		@else 
 			@php(the_content())
 			@include('partials.content-gallery')

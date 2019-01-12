@@ -7,7 +7,8 @@ use WP_Query;
 
 class CoreBlogsAndPress extends Controller
 {
-    var $paged = 1;
+    var $paged;
+	var $posts_per_page;
     var $blogCategory;
     var $blogs;
 
@@ -15,6 +16,7 @@ class CoreBlogsAndPress extends Controller
     var $max_num_pages_press;
     var $max_num_pages_coverage;
     var $max_num_pages_madrid;
+
     /**
      * Constructor
      *
@@ -22,6 +24,7 @@ class CoreBlogsAndPress extends Controller
     function __construct()
     {
         $this->paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$this->posts_per_page = 21;
         $this->blogCategory= App::getPressCategory('core');
         $this->pressCategory= App::getPressCategory('auschwitz');
         $this->pressMadridCategory= App::getPressCategory('madrid');
@@ -57,6 +60,26 @@ class CoreBlogsAndPress extends Controller
             return false;
         }
     }
+
+	public function auschwitzPress() {
+		$this->posts_per_page = 9;
+		$pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
+		$press = Press::getPress('auschwitz',$pParamHash);
+		if(!empty($press->posts)){
+			$this->max_num_pages_coverage = $press->max_num_pages;
+		}
+		return $press->posts;
+	}
+
+	public function madridPress() {
+		$this->posts_per_page = 9;
+		$pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
+		$press = Press::getPress('madrid',$pParamHash);
+		if(!empty($press->posts)){
+			$this->max_num_pages_madrid = $press->max_num_pages;
+		}
+		return $press->posts;
+	}
 
     /**
      * Return max page for pagination
