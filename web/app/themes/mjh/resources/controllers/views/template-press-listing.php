@@ -34,7 +34,7 @@ class Press extends Controller
      */
     public function press() {
         $grouped = false;
-        $press = $this->getPress(App::getCurrentPageSlug(), $grouped);
+        $press = $this->getPressQuery(App::getCurrentPageSlug(), $grouped);
         if(!empty($press)){
             $this->max_num_pages_press = $this->press->max_num_pages;
         }
@@ -49,7 +49,7 @@ class Press extends Controller
         }else{
             $this->posts_per_page = 6;
         }
-        $press = $this->getPress('coverage', $grouped);
+        $press = $this->getPressQuery('coverage', $grouped);
         if(!empty($press)){
             $this->max_num_pages_coverage = $this->press->max_num_pages;
         }
@@ -63,24 +63,36 @@ class Press extends Controller
         }else{
             $this->posts_per_page = 6;
         }
-        $press = $this->getPress('releases', $grouped);
+        $press = $this->getPressQuery('releases', $grouped);
         if(!empty($press)){
             $this->max_num_pages_releases = $this->press->max_num_pages;
         }
         return $press;
     }
-
+	/**
+	 * Set up query for press items
+	 *
+	 * @return object
+	 */
+    private function getPressQuery($pressCategory, $grouped){
+		$pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
+		$this->press = Press::getPress($pressCategory,$pParamHash);
+		if ($grouped) {
+			return Press::groupPressItems($this->press->posts);
+		} else {
+			return $this->press->posts;
+		}
+	}
 
     /**
      * Return press based on category requested
      *
-     * @return array
+     * @return object
      */
-    private function getPress($pressCategory, $grouped)
+    public static function getPress($pressCategory, $pParamHash)
     {
         $pressCategory_array = App::getPressCategory($pressCategory);
         $currentDate = strtotime('today midnight');
-        $pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
         $pParamHash['tax_query'] =  array(
             'relation'      => 'AND',
             '0'=> array(
@@ -97,25 +109,14 @@ class Press extends Controller
             $pParamHash['post__not_in'] = $stickyHash;
         }
 
-	    $this->press = new WP_Query( $pParamHash);
-        if($this->press->posts){
-            //should posts be grouped by date?
-            if ($grouped) {
-                return $this->groupPressItems($this->press->posts);
-            } else {
-                 return $this->press->posts;
-            }
-            
-        }else{
-            return false;
-        }
+        return new WP_Query( $pParamHash);
     }
     /**
      * Group Press Items
      *
      * @return array
      */
-    private function groupPressItems($posts) {
+    public static function groupPressItems($posts) {
         $pressGroupHash = array();
         foreach($posts as $post){
             $date_year_month = date('Y-m',strtotime($post->post_date));
