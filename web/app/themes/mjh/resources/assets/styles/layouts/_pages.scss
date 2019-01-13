@@ -652,11 +652,12 @@
     &.inheader {
         border:none;
         position: relative;
+        display: none;
         @include media-breakpoint-up(md) {
             position: absolute;
             bottom: 0;
             left: 0;
-
+            display: block;
         }
         z-index: 23;
         width: auto;
@@ -669,6 +670,7 @@
         }
         h3, h4 {
             font-size: 50%;
+            color: white;
         }
         ul  {
             flex-direction: row;
@@ -789,14 +791,15 @@
     .carousel {
         overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
-        @include media-breakpoint-up(sm) {
+        /*@include media-breakpoint-up(sm) {
             padding-top: 133px;
             margin-top: -133px;
         }
         @include media-breakpoint-up(md) {
             padding-top: 143px;
             margin-top: -143px;
-        }
+        }*/
+        padding-top: 3rem;
         .header h1 {
             position: relative;
             padding: 16px 0 16px;
@@ -808,16 +811,49 @@
             }
         }
     }
+    .video {
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.85);
+        padding-top: 3rem;
+        height: 200px;
+        @include media-breakpoint-up(sm) {
+            padding-top: 133px;
+            margin-top: -133px;
+            height: 320px;
+        }
+        @include media-breakpoint-up(md) {
+            height: 420px;
+            padding-top: 173px;
+            margin-top: -173px;
+        }
+        @include media-breakpoint-up(lg) {
+            height: 540px;
+        }
+        @include media-breakpoint-up(xl) {
+            height: 600px;
+        }
+        &:after {
+            opacity: 0.56;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: ' ';
+            display: block;
+            background: black;
+            top: 0;
+            left: 0;
+        }
+    }
     .hero-area-home {
         height: 100%;
         position: absolute;
         width: 100%;
         top: 0;
         left: 0;
-        display: none;
+        /*display: none;
         @include media-breakpoint-up(md) {
             display: block;
-        }
+        }*/
         .slide-card {
             @include media-breakpoint-up(sm) {
                 height: 815px;
@@ -838,6 +874,40 @@
             content: ' ';
             display: block;
             background: black;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        .hero-header-wrapper {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 34;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            .hero-header {
+                padding-top: 3rem;
+                @include media-breakpoint-up(sm) {
+                    padding-top: 12rem;
+                }
+                text-align: center;
+                margin: 0 auto;
+
+                img {
+                    width: 40%;
+                    @include media-breakpoint-up(sm) {
+                        width: 30%;
+                    }
+                    @include media-breakpoint-up(md) {
+                        width: 20%;
+                    }
+                    height: auto;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
         }
     }
     .featured-carousel {
