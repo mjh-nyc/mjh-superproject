@@ -9,9 +9,9 @@
     </div>
   </div>
   @else
-  <div class="moto hidden-sm-down">
+  <!--<div class="moto hidden-sm-down">
     {{ App::siteDescription() }}
-  </div>
+  </div>-->
   @endif
 
   <div class="top-wrapper container">
@@ -45,8 +45,8 @@
   <div class="clearfix"></div>
   <!-- featured image and page title area -->
   @if (!is_front_page())
-    <div class="hero-area parallax-window" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-exhibitions-listing.blade.php') ) {!! $highlighted_exhibition_featured_image !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true" alt="{{App::featuredImageAlt(get_post_thumbnail_id())}}">
-      <div class="sr-only">{{App::featuredImageAlt(get_post_thumbnail_id())}}</div>
+    <div class="hero-area parallax-window @if(App::getCoreExhibitionID()===get_the_ID()) tall @endif" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-core.blade.php') ) {!! App::featuredImageSrc('large', App::getCoreExhibitionID()) !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true" alt="{{App::featuredImageAlt(get_post_thumbnail_id())}}">
+      <div class="sr-only">@php _e("Featured image","sage"); @endphp</div>
       @include('partials.page-header')
       <!--<div class="image-credit">
         {{App::featuredImageDesc(get_post_thumbnail_id())}}

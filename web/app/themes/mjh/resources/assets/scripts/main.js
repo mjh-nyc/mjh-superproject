@@ -10,6 +10,9 @@ import 'jquery-parallax.js/parallax.min';
 import 'waypoints/lib/jquery.waypoints.min';
 import 'waypoints/lib/shortcuts/sticky.min';
 
+//Import sticky_kit
+import 'sticky-kit/dist/sticky-kit.min';
+
 //Import animsition library
 import 'animsition/dist/js/animsition.min';
 

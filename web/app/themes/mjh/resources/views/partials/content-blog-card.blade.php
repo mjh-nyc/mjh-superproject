@@ -5,7 +5,7 @@
       <span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
     </div>
     <div class="info">
-      <h3 class="card-title">{{ App::truncateString(get_the_title($item_id),20) }}</h3>
+      <h3 class="card-title">{{ App::truncateString(get_the_title($item_id),10) }}</h3>
       <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
     </div>
     <div class="details">
