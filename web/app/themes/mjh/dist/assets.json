@@ -23,7 +23,8 @@
   "vendor/fontawesome-webfont.ttf?v=4.7.0": "vendor/fontawesome-webfont_b06871f2.ttf",
   "vendor/fontawesome-webfont.woff2?v=4.7.0": "vendor/fontawesome-webfont_af7ae505.woff2",
   "vendor/fontawesome-webfont.woff?v=4.7.0": "vendor/fontawesome-webfont_fee66e71.woff",
-  "scripts/customizer.js": "scripts/customizer_fc235de0.js",
-  "styles/main.css": "styles/main_fc235de0.css",
-  "scripts/main.js": "scripts/main_fc235de0.js"
+  "videos/auschwitz-intro.mp4": "videos/auschwitz-intro_056b10a8.mp4",
+  "scripts/customizer.js": "scripts/customizer_4dd8e6ad.js",
+  "styles/main.css": "styles/main_4dd8e6ad.css",
+  "scripts/main.js": "scripts/main_4dd8e6ad.js"
 }
