@@ -4,9 +4,22 @@
 
 @extends('layouts.home')
 
-@section('carousel')
+@section('hero')
   @while(have_posts()) @php(the_post())
-    @include('partials.content-featured-carousel')
+    @include('partials.content-featured-hero')
+  @endwhile
+@endsection
+
+@section('press-quotes')
+  @while(have_posts()) @php(the_post())
+    @include('partials.content-press-quotes')
+  @endwhile
+@endsection
+
+@section('content')
+  @include('partials.content-event-news-happenings')
+  @while(have_posts()) @php(the_post())
+    @include('partials.content-page')
   @endwhile
 @endsection
 
@@ -22,9 +35,8 @@
   @include('partials.content-recommended-by')
 @endsection
 
-@section('content')
-  @include('partials.content-event-news-happenings')
+@section('carousel')
   @while(have_posts()) @php(the_post())
-    @include('partials.content-page')
+    @include('partials.content-featured-carousel')
   @endwhile
 @endsection
