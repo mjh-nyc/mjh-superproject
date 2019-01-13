@@ -15,7 +15,7 @@ class ExhibitionListing extends Controller
      */
     function __construct()
     {
-       $this->getHighlightedExhibition();
+       //$this->getHighlightedExhibition();
     }
 
     /**
@@ -23,7 +23,7 @@ class ExhibitionListing extends Controller
      *
      */
     private function getHighlightedExhibition(){
-        $this->highlightedExhibition = App::get_field('highlighted_exhibition');
+        //$this->highlightedExhibition = App::get_field('highlighted_exhibition');
     }
 
     /**
@@ -33,7 +33,7 @@ class ExhibitionListing extends Controller
      */
     public function highlightedExhibitionFeaturedImage ()
     {
-        return App::featuredImageSrc('large',$this->highlightedExhibition->ID);
+        //return App::featuredImageSrc('large',$this->highlightedExhibition->ID);
     }
 
     /**
@@ -43,7 +43,7 @@ class ExhibitionListing extends Controller
      */
     public function highlightedExhibitionPostTitle()
     {
-        return $this->highlightedExhibition->post_title;
+        //return $this->highlightedExhibition->post_title;
     }
 
     /**
@@ -53,7 +53,7 @@ class ExhibitionListing extends Controller
      */
     public function highlightedExhibitionPostExcerpt()
     {
-        return $this->highlightedExhibition->post_excerpt;
+        //return $this->highlightedExhibition->post_excerpt;
     }
 
     /**
@@ -63,7 +63,7 @@ class ExhibitionListing extends Controller
      */
     public function highlightedExhibitionPostLink()
     {
-        return get_permalink($this->highlightedExhibition->ID);
+        //return get_permalink($this->highlightedExhibition->ID);
     }
 
     /**
@@ -73,10 +73,10 @@ class ExhibitionListing extends Controller
      */
     public function exhibitionsCurrentListings()
     {
-        $exclude_id = $this->highlightedExhibition->ID;
+        //$exclude_id = $this->highlightedExhibition->ID;
         $exhibitions = new WP_Query( [
             'post_type' => 'exhibition',
-            'post__not_in' => array($exclude_id ),
+            'post__not_in' => '', //array($exclude_id ),
             'post_per_page'=>-1,
             'status'=>'current'
             ]

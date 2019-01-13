@@ -13,7 +13,7 @@ export default {
             jQuery('#primary-nav-toggle').removeClass('open');
             jQuery('#menu-primary-navigation .open').removeClass('open').find('ul').hide();
         })
-        jQuery('#menu-primary-navigation .menu-item-has-children > a').bind('click', function(event) {
+        jQuery('#menu-primary-navigation .menu-item-has-children > a, #menu-collapsible-sidenavigation .menu-item-has-children > a').bind('click', function(event) {
             event.preventDefault();
             jQuery(this).parent().toggleClass('open').find('ul').slideToggle();
             //adjust overlay height
@@ -24,7 +24,7 @@ export default {
 
         })
         //automatically expand parent if we're on a subpage
-        jQuery('#menu-primary-navigation .current-menu-parent').toggleClass('open').find('ul').slideToggle();
+        jQuery('#menu-primary-navigation .current-menu-parent, #menu-collapsible-sidenavigation .current-menu-parent').toggleClass('open').find('ul').slideToggle();
 
         //init Gallery
         var mjh_gallery = jQuery('.mjh-gallery');
@@ -57,6 +57,7 @@ export default {
           if(didResize) {
             didResize = false;
             set_mjh_slider_width();
+            set_sticky_kit();
           }
          }, 250);
          //set on load too
@@ -151,6 +152,16 @@ export default {
             var $link = jQuery(this).find( "i" ).attr('data-link');
             window.location = $link;
         });
+
+        //stick sidebar navigation in secondary pages
+        function set_sticky_kit() {
+          if (jQuery( window ).width() < 768) {
+            jQuery(".subPageNav").trigger("sticky_kit:detach")
+          } else {
+            jQuery(".subPageNav").stick_in_parent({offset_top: 120});
+          }
+        }
+        set_sticky_kit();
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired

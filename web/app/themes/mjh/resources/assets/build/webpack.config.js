@@ -87,6 +87,14 @@ let webpackConfig = {
           name: `vendor/${config.cacheBusting}.[ext]`,
         },
       },
+      {
+        test: /\.mp4$/,
+        include: config.paths.assets,
+        loader: 'file',
+        options: {
+          name: `[path]${assetsFilenames}.[ext]`,
+        },
+      },
     ],
   },
   resolve: {

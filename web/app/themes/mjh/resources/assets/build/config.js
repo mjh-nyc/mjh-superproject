@@ -9,6 +9,25 @@ const rootPath = (userConfig.paths && userConfig.paths.root)
   ? userConfig.paths.root
   : process.cwd();
 
+const videoConfig = merge({
+    copy: 'videos/**/*',
+    proxyUrl: 'http://localhost:3000',
+    cacheBusting: '[name]_[hash]',
+    paths: {
+        root: rootPath,
+        assets: path.join(rootPath, 'resources/assets'),
+        dist: path.join(rootPath, 'dist'),
+    },
+    enabled: {
+        sourceMaps: !isProduction,
+        optimize: isProduction,
+        cacheBusting: isProduction,
+        watcher: !!argv.watch,
+    },
+    watch: [],
+    browsers: [],
+});
+
 const config = merge({
   copy: 'images/**/*',
   proxyUrl: 'http://localhost:3000',
@@ -26,7 +45,7 @@ const config = merge({
   },
   watch: [],
   browsers: [],
-}, userConfig);
+},videoConfig ,userConfig);
 
 module.exports = merge(config, {
   env: Object.assign({ production: isProduction, development: !isProduction }, argv.env),

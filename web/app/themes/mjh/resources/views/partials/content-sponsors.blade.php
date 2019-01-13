@@ -5,7 +5,7 @@
      <h4 class="subhead">{{$sectionTitle}}</h4>
   @endif
   <ul>
-  @foreach (App::get_repeater_field( $sectionType.'_sponsors_repeater') as $sponsors)
+  @foreach (App::get_repeater_field( $sectionType.'_sponsors_repeater', $exhibitID) as $sponsors)
     <li> 
       @if ($sponsors['sponsor_image'])
       <div class="{{ $sectionType }}-sponsor-image image">

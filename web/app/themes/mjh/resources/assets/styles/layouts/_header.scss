@@ -234,6 +234,18 @@
                     @include font-size(60);
                 }
             }
+            &--logo {
+                width:50%;
+                height: auto;
+                @include media-breakpoint-up(md) {
+                    width:25%;
+                }
+            }
+        }
+        &.tall {
+            @include media-breakpoint-up(md) {
+                padding-bottom: 250px;
+            }
         }
     }
     .hero-area:after {
