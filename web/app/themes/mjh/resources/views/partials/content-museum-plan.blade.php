@@ -5,7 +5,7 @@
   <div class="museum-plans">
     <div class="plan-top row justify-content-center">
       <div class="plan-item">
-        <div class="plan-icon"><img src="@asset('images/tickets.svg')" alt="{!! _e('Tickets','sage') !!}"></div>
+        <!--<div class="plan-icon"><img src="@asset('images/tickets.svg')" alt="{!! _e('Tickets','sage') !!}"></div>-->
         <div class="plan-title">{{ App::get_field('tickets_header','option')}}</div>
         <div class="content">
           {!! App::get_field('ticketing_information','option') !!}

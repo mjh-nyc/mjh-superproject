@@ -58,6 +58,7 @@ export default {
             didResize = false;
             set_mjh_slider_width();
             set_sticky_kit();
+            //set_video_height();
           }
          }, 250);
          //set on load too
@@ -162,6 +163,20 @@ export default {
           }
         }
         set_sticky_kit();
+
+        //on homepage, adjust height of video on resize
+        /*var $videohero_container = jQuery('.video');
+        var $videohero = jQuery('#herovideo');
+        function set_video_height() {
+          if (jQuery('body').hasClass('home')) {
+            if (jQuery( window ).width() < 960) {
+              $videohero_container.height($videohero.height()-$videohero_container.css('padding-top'));
+            } else {
+              $videohero_container.height(560);
+            }
+          }
+        }
+        set_video_height();*/
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
