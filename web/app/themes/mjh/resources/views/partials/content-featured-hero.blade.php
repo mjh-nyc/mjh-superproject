@@ -23,6 +23,12 @@
 	    </div>
 	@endif
 
+	@if (App::get_field('video_link','option'))
+		<div class="full-video-link">
+			<a href="{{ App::get_field('video_link','option') }}" class="cta-round cta-outline cta-arrow">@php _e("View Full Video","sage"); @endphp</a>
+		</div>
+	@endif
+
 	<video autoplay muted loop id="herovideo">
 		<!--<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">-->
 		<source src="/app/themes/mjh/resources/assets/videos/auschwitz-intro.mp4')" type="video/mp4">

@@ -66,11 +66,15 @@
     line-height: 36px;
     height: 3.6rem;
     line-height: 3.3rem;
+    background: transparent;
     @include media-breakpoint-up(md) {
         height: 46px;
         line-height: 46px;
         height: 4.6rem;
         line-height: 4.2rem;
+    }
+    &:hover {
+        background: white;
     }
 }
 

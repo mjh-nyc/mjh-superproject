@@ -909,6 +909,16 @@
                 }
             }
         }
+        .full-video-link {
+            position: absolute;
+            bottom: 25px;
+            right: 15px;
+            z-index: 444;
+            display: none;
+            @include media-breakpoint-up(md) {
+                display: block;
+            }
+        }
     }
     .featured-carousel {
         padding-bottom: 40px;
