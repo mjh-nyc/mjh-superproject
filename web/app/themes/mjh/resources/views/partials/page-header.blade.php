@@ -4,7 +4,7 @@
   	 {!! _e("Image archives","sage") !!}
     @elseif (App::isPageTemplate( 'views/template-core.blade.php') || App::getCoreExhibitionID() === get_the_ID())
       @if (App::get_field('highlighted_exhibition_logo','option'))
-        <img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="App::get_field('highlighted_exhibition_logo','option')['alt']" class="page-header--logo">
+        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="App::get_field('highlighted_exhibition_logo','option')['alt']" class="page-header--logo"></a>
       @else
         {!! get_the_title(App::getCoreExhibitionID()) !!}
       @endif

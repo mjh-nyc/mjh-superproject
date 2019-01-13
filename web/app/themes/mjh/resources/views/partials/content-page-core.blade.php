@@ -51,7 +51,7 @@
 			@if($auschwitz_press)
 				<h3>@php _e("Recent Press Coverage","sage"); @endphp</h3>
 				<div class="press-card-listing auschwitz-listing">
-					@foreach ($releases as $press_item)
+					@foreach ($auschwitz_press as $press_item)
 						@include('partials.content-press-card',['item_id'=>$press_item->ID])
 					@endforeach
 				</div>

@@ -68,6 +68,7 @@ class CoreBlogsAndPress extends Controller
 		if(!empty($press->posts)){
 			$this->max_num_pages_coverage = $press->max_num_pages;
 		}
+        //print_r($press->posts);
 		return $press->posts;
 	}
 
@@ -78,6 +79,7 @@ class CoreBlogsAndPress extends Controller
 		if(!empty($press->posts)){
 			$this->max_num_pages_madrid = $press->max_num_pages;
 		}
+        //print_r($press->posts);
 		return $press->posts;
 	}
 
