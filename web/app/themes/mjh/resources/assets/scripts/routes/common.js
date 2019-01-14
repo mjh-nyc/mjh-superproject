@@ -20,7 +20,10 @@ export default {
             //becuase we're animating the navigation items down, we have to wait for the animation to complete
             setTimeout(function () {
                 jQuery('.overlay-nav').css({ 'height': jQuery(document).height() });
+                //recalculate sticky side nav pos
+                jQuery(".subPageNav").trigger("sticky_kit:recalc");
             }, 1000);
+
 
         })
         //automatically expand parent if we're on a subpage
@@ -59,6 +62,8 @@ export default {
             set_mjh_slider_width();
             set_sticky_kit();
             //set_video_height();
+            //recalculate sticky side nav pos
+            jQuery(".subPageNav").trigger("sticky_kit:recalc");
           }
          }, 250);
          //set on load too
@@ -157,9 +162,11 @@ export default {
         //stick sidebar navigation in secondary pages
         function set_sticky_kit() {
           if (jQuery( window ).width() < 768) {
-            jQuery(".subPageNav").trigger("sticky_kit:detach")
+            jQuery(".subPageNav").trigger("sticky_kit:detach");
           } else {
             jQuery(".subPageNav").stick_in_parent({offset_top: 120});
+            //recalculate sticky side nav pos
+            jQuery(".subPageNav").trigger("sticky_kit:recalc");
           }
         }
         set_sticky_kit();
