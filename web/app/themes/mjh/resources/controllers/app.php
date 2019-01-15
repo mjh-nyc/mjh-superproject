@@ -432,7 +432,7 @@ class App extends Controller
             $social .='<a href="'.$youtube.'" target="_blank" onclick="return trackOutboundLink(\''.$youtube.'\', true)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>';
         }
         if ($young_friends) {
-            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="'.get_stylesheet_directory_uri().'/dist/images/young-friends.png" alt="'.__("Young Friends","sage").'"></a>';
+            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="'.asset_path("images/young-friends.png").'" alt="'.__("Young Friends","sage").'"></a>';
         }
 
         return $social;
