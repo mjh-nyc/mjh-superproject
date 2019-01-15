@@ -3,7 +3,7 @@
         <div class="hero-header-wrapper">
 	        <div class="hero-header">
 		        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="App::get_field('highlighted_exhibition_logo','option')['alt']" class="page-header--logo"></a>
-		        <a href="/visitor-information/purchase-tickets/" class="cta-round cta-secondary" style="margin: 25px 0;">{{ App::get_field('highlighted_exhibition_button_text','option') }}</a>
+		        <a href="{{ App::get_field('highlighted_exhibition_button_link','option') }}" class="cta-round cta-secondary" style="margin: 25px 0;">{{ App::get_field('highlighted_exhibition_button_text','option') }}</a>
 		    </div>
 		</div>
     @endif
