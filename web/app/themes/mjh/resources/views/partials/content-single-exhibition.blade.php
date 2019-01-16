@@ -28,7 +28,7 @@
             @endif
             @if  (empty($is_exhibtion_past))
               <div class="buy-tix">
-                <a href="/tickets/" class="cta-round cta-secondary">@php _e("Buy Tickets","sage"); @endphp</a>
+                <a href="{{App::get_field('exhibition_ticket_button_link')}}" class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text')}}</a>
               </div>
             @endif
         </div>

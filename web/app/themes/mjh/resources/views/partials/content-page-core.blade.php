@@ -7,7 +7,7 @@
 		  <p>{{App::get_field('exhibition_start_date', App::getCoreExhibitionID())}} &#8211; {{App::get_field('exhibition_end_date', App::getCoreExhibitionID())}}</p>
 		@endif
 		<div class="buy-tix">
-			<a href="/tickets/" class="cta-round cta-secondary">@php _e("Buy Exhibition Tickets","sage"); @endphp</a>
+			<a href="{{App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())}}" class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text', App::getCoreExhibitionID())}}</a>
 		</div>
 	</div>
 @endif

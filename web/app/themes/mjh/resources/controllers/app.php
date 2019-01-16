@@ -282,6 +282,25 @@ class App extends Controller
         return $terms;
     }
 
+	/**
+	 * Hide footer nav by post categories
+	 *
+	 * @return boolean
+	 */
+	public static function hideNavByPostCategory($id=false, $taxonomy = '')
+	{
+		$terms = App::postTerms($id, $taxonomy);
+		if(!empty($terms)){
+			foreach ($terms as $key=> $term){
+				switch($term->slug){
+					case'auschwitz':
+						return true;
+					break;
+				}
+			}
+		}
+		return false;
+	}
 
     /**
      * Return the post excerpt, if no ID provided, will use current post id
