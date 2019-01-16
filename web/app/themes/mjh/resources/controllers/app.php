@@ -324,7 +324,12 @@ class App extends Controller
         }
 
     }
-    //used by various functions to truncate the string to specified number of words
+
+	/**
+	 * Used by various functions to truncate the string to specified number of words
+	 *
+	 * @return string
+	 */
     public static function truncateString($string, $limit=5) {
         if ($string) {
             if (str_word_count($string, 0) > $limit) {
@@ -335,6 +340,18 @@ class App extends Controller
               return $string;
         }
     }
+
+	/**
+	 * Used by various functions to truncate the string to specified number of characters
+	 *
+	 * @return string
+	 */
+    public static function truncateStringByCharacter($string, $limit=50){
+		if (strlen($string) > $limit) {
+			$string = substr($string, 0, strrpos(substr($string, 0, $limit), ' ')) . '...';
+		}
+		return $string;
+	}
 
 
 
