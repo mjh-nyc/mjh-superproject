@@ -2,8 +2,8 @@
 	@if (App::get_field('highlighted_exhibition_logo','option'))
         <div class="hero-header-wrapper">
 	        <div class="hero-header">
-		        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="App::get_field('highlighted_exhibition_logo','option')['alt']" class="page-header--logo"></a>
-		        <a href="{{ App::get_field('highlighted_exhibition_button_link','option') }}" class="cta-round cta-secondary" style="margin: 25px 0;">{{ App::get_field('highlighted_exhibition_button_text','option') }}</a>
+		        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="{{App::get_field('highlighted_exhibition_logo','option')['alt']}}" class="page-header--logo"></a>
+		        <a href="{{ App::get_field('highlighted_exhibition_button_link','option')['url'] }}" @if(App::get_field('highlighted_exhibition_button_link','option')['target']) target="{{ App::get_field('highlighted_exhibition_button_link','option')['target'] }}" @endif @if(App::get_field('highlighted_exhibition_button_link','option')['title']) title="{{ App::get_field('highlighted_exhibition_button_link','option')['title'] }}" @endif class="cta-round cta-secondary" style="margin: 25px 0;">{{ App::get_field('highlighted_exhibition_button_text','option') }}</a>
 		    </div>
 		</div>
     @endif
@@ -33,6 +33,5 @@
 		<!--<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">-->
 		<source src="/app/themes/mjh/resources/assets/videos/auschwitz-intro.mp4')" type="video/mp4">
 	</video>
-
-
 </div>
+@dump(App::get_field('highlighted_exhibition_button_link','option'))

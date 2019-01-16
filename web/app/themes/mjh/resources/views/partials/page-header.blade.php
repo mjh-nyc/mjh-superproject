@@ -14,7 +14,7 @@
     @endif
   </h1>
   @if(App::getCoreExhibitionID() === get_the_ID())
-    <a href="{{App::get_field('exhibition_ticket_button_link',get_the_ID())}}" class="cta-round cta-secondary" style="margin: 25px 0;">{{App::get_field('exhibition_ticket_button_text',get_the_ID())}}</a>
+    <a href="{{App::get_field('exhibition_ticket_button_link',get_the_ID())['url']}}" @if(App::get_field('exhibition_ticket_button_link',get_the_ID())['target']) target="{{ App::get_field('exhibition_ticket_button_link',get_the_ID())['target'] }}"@endif @if(App::get_field('exhibition_ticket_button_link',get_the_ID())['title']) title="{{ App::get_field('exhibition_ticket_button_link',get_the_ID())['title'] }}"@endif class="cta-round cta-secondary" style="margin: 25px 0;">{{App::get_field('exhibition_ticket_button_text',get_the_ID())}}</a>
   @endif
   @if ( !empty($post) && $post->post_type =='post' && !is_post_type_archive())
     <div class="post-meta">
