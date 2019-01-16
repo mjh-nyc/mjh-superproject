@@ -4,7 +4,7 @@
   	 {!! _e("Image archives","sage") !!}
     @elseif (App::isPageTemplate( 'views/template-core.blade.php') || App::getCoreExhibitionID() === get_the_ID())
       @if (App::get_field('highlighted_exhibition_logo','option'))
-        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="App::get_field('highlighted_exhibition_logo','option')['alt']" class="page-header--logo"></a>
+        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="{!! App::get_field('highlighted_exhibition_logo','option')['alt'] !!}" class="page-header--logo"></a>
       @else
         {!! get_the_title(App::getCoreExhibitionID()) !!}
       @endif
@@ -14,7 +14,7 @@
     @endif
   </h1>
   @if(App::getCoreExhibitionID() === get_the_ID())
-    <a href="/tickets/" class="cta-round cta-secondary" style="margin: 25px 0;">@php _e("Buy Exhibition Tickets","sage"); @endphp</a>
+    <a href="{{App::get_field('exhibition_ticket_button_link',get_the_ID())}}" class="cta-round cta-secondary" style="margin: 25px 0;">{{App::get_field('exhibition_ticket_button_text',get_the_ID())}}</a>
   @endif
   @if ( !empty($post) && $post->post_type =='post' && !is_post_type_archive())
     <div class="post-meta">
