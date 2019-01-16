@@ -7,7 +7,7 @@
 		  <p>{{App::get_field('exhibition_start_date', App::getCoreExhibitionID())}} &#8211; {{App::get_field('exhibition_end_date', App::getCoreExhibitionID())}}</p>
 		@endif
 		<div class="buy-tix">
-			<a href="{{App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())}}" class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text', App::getCoreExhibitionID())}}</a>
+			<a href="{{App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url']}}" @if(App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target']) target="{{ App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'] }}"@endif @if(App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title']) title="{{ App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'] }}"@endif class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text', App::getCoreExhibitionID())}}</a>
 		</div>
 	</div>
 @endif

@@ -28,7 +28,7 @@
             @endif
             @if  (empty($is_exhibtion_past))
               <div class="buy-tix">
-                <a href="{{App::get_field('exhibition_ticket_button_link')}}" class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text')}}</a>
+                  <a href="{{App::get_field('exhibition_ticket_button_link')['url']}}" @if(App::get_field('exhibition_ticket_button_link')['target']) target="{{ App::get_field('exhibition_ticket_button_link')['target'] }}"@endif @if(App::get_field('exhibition_ticket_button_link')['title']) title="{{ App::get_field('exhibition_ticket_button_link')['title'] }}"@endif class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text')}}</a>
               </div>
             @endif
         </div>
