@@ -15,7 +15,7 @@
 	        @endif
 
 	        {{-- print buy tickets button (if link added for this exhibition) --}}
-			@include('partials.content-exhibition-ticket-button', ['ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
+			@include('partials.content-exhibition-ticket-button', ['wrapper_class'=>'highlighted_exhibition_button', 'ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
 
 			{{-- print sponsors --}}
     		@if ( App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()) || App::get_repeater_field('secondary_sponsor_header', App::getCoreExhibitionID()) )
