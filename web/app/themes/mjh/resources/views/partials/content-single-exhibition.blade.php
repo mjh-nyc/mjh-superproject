@@ -12,10 +12,22 @@
       </div>
     @endif
   </div>
-<br>
-  <img src="@asset('images/Plan-your-visit.png')" alt="Temp" style="width: 100%; height: auto;"><br><br>
+
+  @if (App::get_field('exhibition_information','option'))
+    <div class="mjh-info">
+      <div class="mjh-info--section info">
+        {!! App::get_field('exhibition_information','option') !!}
+      </div>
+      <div class="mjh-info--section">
+          &nbsp;
+      </div>
+    </div> 
+  @endif
   
-  @include('partials.content-press-quotes')
+  
+  @if (App::getCoreExhibitionID())
+    @include('partials.content-press-quotes',['press_quotes'=>App::get_repeater_field( 'press_quotes', App::getCoreExhibitionID() )])
+  @endif
 
 @else
   <article @php(post_class(App::addLayoutClasses()))>

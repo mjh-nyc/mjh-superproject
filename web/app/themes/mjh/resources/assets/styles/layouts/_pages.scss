@@ -263,6 +263,21 @@
     }
 }
 
+.home, .single-exhibition {
+    .highlighted_exhibition_button {
+        margin: 10px 5px 25px 5px;
+        display:inline-block;
+        @include media-breakpoint-up(md) {
+            margin-top: 25px;
+        }
+        &.discover {
+            display: none;
+            @include media-breakpoint-up(sm) {
+                display:inline-block;
+            }
+        }
+    }
+}
 .template-exhibitions-listing,
 .post-type-archive-exhibition {
     .banner .hero-area {
@@ -635,7 +650,7 @@
         margin-bottom: 25px;
         @include listReset();
         .image {
-            padding: 5px;
+            padding: 10px;
             text-align: center;
         }
         .subhead {
@@ -653,16 +668,8 @@
     &.inheader {
         border:none;
         position: relative;
-        display: none;
-        @include media-breakpoint-up(md) {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            display: block;
-        }
         z-index: 23;
-        width: auto;
-        margin: 0;
+        margin: 0 auto;
         .sponsors {
             margin-bottom: 0;
             @include media-breakpoint-up(md) {
@@ -678,7 +685,7 @@
             li {
                 padding: 0 !important;
                 img {
-                    max-height: 30px;
+                    max-height: 40px;
                 }
             }
         }
@@ -693,20 +700,18 @@
     &--list {
         display: flex;
         flex-direction: column;
-        justify-content:center;
+        justify-content:space-between;
         @include media-breakpoint-up(md) {
             flex-direction: row;
         }
         article {
             width: 100%;
             @include media-breakpoint-up(md) {
-                width: 30%;
+                width: 32%;
             }
 
             .exhibtion-card {
-                height: auto !important;
-                margin: 0 15px 30px 15px;
-
+                height: 100% !important;
             }
         }
     } 
@@ -716,19 +721,76 @@
     &--list {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         @include media-breakpoint-up(md) {
             flex-direction: row;
         }
     }
     &--item {
-        width: 100%;
-        padding: 2rem; 
+        font-family: 'EksellDisplay';
+        line-height: normal;
+        margin-bottom: 2rem;
+        color: $color-text;
+        @include font-size(16);
         @include media-breakpoint-up(md) {
-            width: 30%;
+            @include font-size(20);
+        }
+        @include media-breakpoint-up(lg) {
+            @include font-size(26);
+        }
+
+        position: relative;
+        width: 100%;
+        padding: 3rem; 
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include media-breakpoint-up(md) {
+            width: 42%;
         }
         img {
             width: 100%;
             height: auto;
+        }
+        .leading-quote {
+            position: absolute;
+            left: 1.5rem;
+        }
+        &.see-more {
+            padding:0;
+            align-self: center;
+            box-shadow: none;
+            @include media-breakpoint-up(md) {
+                width: 10%;
+            }
+            .see-more-arrow {
+                background-color: black;
+                text-align: center;
+                @extend %directional-button;
+                height: 50px;
+                width: 50px;
+                &:hover:before {
+                    color: $color-text;
+                }
+                &:before {
+                    @include fa-inline-prep();
+                    position: absolute;
+                    top: 8px;
+                    text-indent: -4px;
+                    font-size: 30px;
+                    line-height: 1;
+                    color: white;
+                    content: "\f105";
+                }
+            }
+        }
+    }
+    &--source {
+        margin-top: 2rem;
+        @include media-breakpoint-up(sm) {
+            width: 50%;
         }
     }
 }
@@ -813,25 +875,27 @@
         }
     }
     .video {
+
+        margin-bottom: 3rem;
         overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
         padding-top: 3rem;
-        height: 200px;
+        height: 255px;
         @include media-breakpoint-up(sm) {
             padding-top: 133px;
             margin-top: -133px;
-            height: 320px;
+            height: 410px;
         }
         @include media-breakpoint-up(md) {
-            height: 420px;
-            padding-top: 173px;
-            margin-top: -173px;
+            height: 450px;
+            padding-top: 178px;
+            margin-top: -178px;
         }
         @include media-breakpoint-up(lg) {
             height: 540px;
         }
         @include media-breakpoint-up(xl) {
-            height: 600px;
+            height: 650px;
         }
         &:after {
             opacity: 0.56;
@@ -877,7 +941,7 @@
             background: black;
         }
         video {
-            width: 100%;
+            width: 130%;
             height: auto;
         }
         .hero-header-wrapper {
@@ -887,16 +951,19 @@
             z-index: 34;
             position: absolute;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             .hero-header {
-                padding-top: 3rem;
+                /*padding-top: 3rem;
                 @include media-breakpoint-up(sm) {
                     padding-top: 12rem;
+                }*/
+                @include media-breakpoint-up(xl) {
+                    padding-bottom: 5rem;
                 }
                 text-align: center;
                 margin: 0 auto;
 
-                img {
+                img.page-header--logo {
                     width: 40%;
                     @include media-breakpoint-up(sm) {
                         width: 30%;
@@ -1552,18 +1619,7 @@
 
 .mjh-slider {
     .slick-arrow {
-        background: white;
-        overflow: hidden;
-        border-radius: 50%;
-        position: absolute;
-        height: 40px;
-        width: 40px;
-        z-index: 10;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-        border: 0;
-        font-size: 0;
-        line-height: 0;
-        transition: all 0.2s;
+        @extend %directional-button;
         @include media-breakpoint-up(lg) {
             height: 50px;
             width: 50px;
@@ -1587,9 +1643,7 @@
         }
     }
 
-    .slick-arrow:hover {
-        background: black;
-    }
+    
     .slick-prev:hover:before,
     .slick-next:hover:before {
         color: white;
@@ -1932,6 +1986,34 @@
             }
             &:hover {
                 text-decoration:underline;
+            }
+        }
+    }
+}
+
+.mjh-info {
+    margin: 3rem 0;
+    background-color: $light-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+        background-image: url('../images/Plan-your-visit.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    &--section {
+       
+        @include media-breakpoint-up(md) {
+            width: 60%;
+        }
+        &.info {
+            padding:3rem;
+            text-align: center;
+            @include media-breakpoint-up(md) {
+                width: 40%;
             }
         }
     }

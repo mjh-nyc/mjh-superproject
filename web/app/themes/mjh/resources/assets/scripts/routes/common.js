@@ -20,8 +20,7 @@ export default {
             //becuase we're animating the navigation items down, we have to wait for the animation to complete
             setTimeout(function () {
                 jQuery('.overlay-nav').css({ 'height': jQuery(document).height() });
-                //recalculate sticky side nav pos
-                jQuery(".subPageNav").trigger("sticky_kit:recalc");
+                 jQuery(".subPageNav").trigger("sticky_kit:recalc");
             }, 1000);
 
 
@@ -169,7 +168,9 @@ export default {
             jQuery(".subPageNav").trigger("sticky_kit:recalc");
           }
         }
-        set_sticky_kit();
+        setTimeout(function () {
+          set_sticky_kit();
+        }, 1000);
 
         //on homepage, adjust height of video on resize
         /*var $videohero_container = jQuery('.video');

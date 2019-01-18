@@ -1,25 +1,23 @@
-<a href="/auschwitz-exhibition-press/in-the-news/"><img src="@asset('images/Press-callouts.png')" alt="Temp" style="width: 100%; height: auto; margin-top: 2rem;"></a>
-
-  <!--
-  @if(App::get_repeater_field( 'press_quotes' ))
-    <div class="press-quotes">
-      <div class="press-quotes--list">
-
-        @foreach (App::get_repeater_field( 'press_quotes' ) as $quote)
-          <div class="press-quotes--item">
-            <div class="press-quotes--item-text">
-              {{ $quote['press_quote'] }}
-            </div>
-            <div class="press-quotes--source">
-               @if ($quote['press_source_logo'])
-                <img src="{!! $quote['press_source_logo']['sizes']['large'] !!}" alt="{!! $quote['press_source_logo']['alt'] !!}" title="{{$quote['press_source_name']}}">
-               @else
-                <span><em>— {{$quote['press_source_name']}}</em></span> 
-               @endif
-            </div>
+@if(count($press_quotes)>0)
+  <div class="press-quotes">
+    <div class="press-quotes--list">
+      @for ($i = 0; $i < 2; $i++)
+        <div class="press-quotes--item">
+          <div class="press-quotes--item-text">
+            <span class="leading-quote">&#8220;</span>{{ $press_quotes[$i]['press_quote'] }} &#8221;
           </div>
-        @endforeach
+          <div class="press-quotes--source">
+             @if ($press_quotes[$i]['press_source_logo'])
+              <img src="{!! $press_quotes[$i]['press_source_logo']['sizes']['large'] !!}" alt="{!! $press_quotes[$i]['press_source_logo']['alt'] !!}" title="{{$press_quotes[$i]['press_source_name']}}">
+             @else
+              <span><em>— {{$press_quotes[$i]['press_source_name']}}</em></span> 
+             @endif
+          </div>
+        </div>
+      @endfor
+      <div class="press-quotes--item see-more"> 
+        <a class="see-more-arrow" href="{!! App::get_field('press_page_link','option') !!}"><span class="sr-only">{!! _e("See All","sage") !!}</span></a>
       </div>
     </div>
-  @endif
--->
+  </div>
+@endif

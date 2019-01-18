@@ -2,13 +2,16 @@
 	<div class="exhibition-info">
 		<!--<h3 class="subhead">{{App::get_field('exhibition_type', App::getCoreExhibitionID())}}</h3>-->
 		<!-- //TODO -->
-		<h3 class="subhead">Timed tickets available</h3>
+		<h3 class="subhead">{{ App::get_field('exhibition_tickets_prompt','option') }}</h3>
 		@if (App::get_field('exhibition_start_date', App::getCoreExhibitionID()))
 		  <p>{{App::get_field('exhibition_start_date', App::getCoreExhibitionID())}} &#8211; {{App::get_field('exhibition_end_date', App::getCoreExhibitionID())}}</p>
 		@endif
+
 		<div class="buy-tix">
-			<a href="{{App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url']}}" @if(App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target']) target="{{ App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'] }}"@endif @if(App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title']) title="{{ App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'] }}"@endif class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text', App::getCoreExhibitionID())}}</a>
-		</div>
+			{{-- print buy tickets button (if link added for this exhibition) --}}
+    		@include('partials.content-exhibition-ticket-button', ['ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
+    	</div>
+
 	</div>
 @endif
 <div class="page-with-sidenav">

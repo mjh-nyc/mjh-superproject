@@ -1,37 +1,41 @@
 <div class="hero-area-home">
-	@if (App::get_field('highlighted_exhibition_logo','option'))
-        <div class="hero-header-wrapper">
-	        <div class="hero-header">
-		        <a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="{{App::get_field('highlighted_exhibition_logo','option')['alt']}}" class="page-header--logo"></a>
-		        <a href="{{ App::get_field('highlighted_exhibition_button_link','option')['url'] }}" @if(App::get_field('highlighted_exhibition_button_link','option')['target']) target="{{ App::get_field('highlighted_exhibition_button_link','option')['target'] }}" @endif @if(App::get_field('highlighted_exhibition_button_link','option')['title']) title="{{ App::get_field('highlighted_exhibition_button_link','option')['title'] }}" @endif class="cta-round cta-secondary" style="margin: 25px 0;">{{ App::get_field('highlighted_exhibition_button_text','option') }}</a>
-		    </div>
-		</div>
-    @endif
+	
+    <div class="hero-header-wrapper">
+        <div class="hero-header">
+        	@if (App::get_field('highlighted_exhibition_logo','option'))
+	        	<a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="{{App::get_field('highlighted_exhibition_logo','option')['alt']}}" class="page-header--logo"></a>
+	        @else
+	        	<h1>{!! get_the_title(App::getCoreExhibitionID()) !!}</h1>
+	        @endif
 
-	@if ( App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()) || App::get_repeater_field('secondary_sponsor_header', App::getCoreExhibitionID()) )
-	    <div class="content-sponsors inheader">
+	        @if ( App::get_field('exhibition_view_prompt',App::getCoreExhibitionID()) )
+	        	<div class="highlighted_exhibition_button discover">
+	        		<a href="{!! get_the_permalink(App::getCoreExhibitionID()) !!}" class="cta-round cta-outline">{{ App::get_field('exhibition_view_prompt',App::getCoreExhibitionID()) }}</a>
+	        	</div>
+	        @endif
 
-	      @if (App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()))
-	        <!-- Primary sponsors -->
-	        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header', App::getCoreExhibitionID()),'sectionClass'=>"exhibition",'sectionType'=>"primary",'exhibitID'=>App::getCoreExhibitionID()])
-	      @endif
+	        {{-- print buy tickets button (if link added for this exhibition) --}}
+			@include('partials.content-exhibition-ticket-button', ['ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
 
-	      @if (App::get_repeater_field('secondary_sponsors_repeater', App::getCoreExhibitionID()))
-	        <!-- Secondary sponsors -->
-	        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header', App::getCoreExhibitionID()),'sectionClass'=>"exhibition",'sectionType'=>"secondary", 'exhibitID'=>App::getCoreExhibitionID()])
-	      @endif
+			{{-- print sponsors --}}
+    		@if ( App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()) || App::get_repeater_field('secondary_sponsor_header', App::getCoreExhibitionID()) )
+    			@include('partials.content-sponsors-switch')
+    		@endif	
+
 	    </div>
-	@endif
+	</div>
 
+
+
+    <!--
 	@if (App::get_field('video_link','option'))
 		<div class="full-video-link">
 			<a href="{{ App::get_field('video_link','option') }}" class="cta-round cta-outline cta-arrow">@php _e("View Full Video","sage"); @endphp</a>
 		</div>
-	@endif
+	@endif -->
 
 	<video autoplay muted loop id="herovideo">
-		<!--<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">-->
-		<source src="/app/themes/mjh/resources/assets/videos/auschwitz-intro.mp4')" type="video/mp4">
+		<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">
 	</video>
 </div>
 @dump(App::get_field('highlighted_exhibition_button_link','option'))
