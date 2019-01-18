@@ -158,3 +158,21 @@
         text-decoration: underline;
     }
 }
+
+%directional-button {
+    background: white;
+    overflow: hidden;
+    border-radius: 50%;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    transition: all 0.2s;
+    &:hover {
+        background: black;
+    }
+}

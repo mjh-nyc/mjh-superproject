@@ -14,8 +14,12 @@
     @endif
   </h1>
   @if(App::getCoreExhibitionID() === get_the_ID())
-    <a href="{{App::get_field('exhibition_ticket_button_link',get_the_ID())['url']}}" @if(App::get_field('exhibition_ticket_button_link',get_the_ID())['target']) target="{{ App::get_field('exhibition_ticket_button_link',get_the_ID())['target'] }}"@endif @if(App::get_field('exhibition_ticket_button_link',get_the_ID())['title']) title="{{ App::get_field('exhibition_ticket_button_link',get_the_ID())['title'] }}"@endif class="cta-round cta-secondary" style="margin: 25px 0;">{{App::get_field('exhibition_ticket_button_text',get_the_ID())}}</a>
+    
+    {{-- print buy tickets button (if link added for this exhibition) --}}
+    @include('partials.content-exhibition-ticket-button', ['ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
+  
   @endif
+  
   @if ( !empty($post) && $post->post_type =='post' && !is_post_type_archive())
     <div class="post-meta">
       @if (App::get_field('publication_logo',$post->ID))
@@ -30,16 +34,5 @@
 </div>
 
 @if ((App::isPageTemplate( 'views/template-core.blade.php' ) || App::getCoreExhibitionID() === get_the_ID()) && (App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()) || App::get_repeater_field('secondary_sponsor_header', App::getCoreExhibitionID())))
-    <div class="content-sponsors inheader">
-
-      @if (App::get_repeater_field('primary_sponsors_repeater', App::getCoreExhibitionID()))
-        <!-- Primary sponsors -->
-        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('primary_sponsor_header', App::getCoreExhibitionID()),'sectionClass'=>"exhibition",'sectionType'=>"primary",'exhibitID'=>App::getCoreExhibitionID()])
-      @endif
-
-      @if (App::get_repeater_field('secondary_sponsors_repeater', App::getCoreExhibitionID()))
-        <!-- Secondary sponsors -->
-        @include('partials.content-sponsors', ['sectionTitle' => App::get_field('secondary_sponsor_header', App::getCoreExhibitionID()),'sectionClass'=>"exhibition",'sectionType'=>"secondary", 'exhibitID'=>App::getCoreExhibitionID()])
-      @endif
-    </div>
+    @include('partials.content-sponsors-switch')
 @endif
