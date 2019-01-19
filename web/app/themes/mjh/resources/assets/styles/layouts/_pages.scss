@@ -863,7 +863,8 @@
             margin-top: -143px;
         }*/
         padding-top: 3rem;
-        .header h1 {
+        .header {
+            @extend h1;
             position: relative;
             padding: 16px 0 16px;
             margin: 0;
@@ -1035,8 +1036,9 @@
         background: $color-visitplanbg;
         color: white;
         .header {
+            @extend h1;
             text-align: center;
-            padding: 36px 0
+            padding: 36px 0;
         }
         /*.mjh-slider {
             box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
@@ -1349,6 +1351,7 @@
         padding-bottom: 70px;
     }
     .header {
+        @extend h1;
         text-align: center;
         padding: 45px 0;
     }
