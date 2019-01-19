@@ -34,8 +34,7 @@
 		</div>
 	@endif -->
 
-	<video autoplay muted loop id="herovideo">
-		<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">
+	<video autoplay muted loop id="herovideo" poster="{!! App::featuredImageSrc('large', App::getCoreExhibitionID()) !!}">
+		<source src="{!! App::get_field('featured_video','option') !!}" type="video/mp4">
 	</video>
 </div>
-@dump(App::get_field('highlighted_exhibition_button_link','option'))

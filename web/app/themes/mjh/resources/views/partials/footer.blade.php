@@ -50,7 +50,7 @@ document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1335537099825695'); // Insert your pixel ID here.
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img height="1" width="1" alt="" style="display:none"
 src="https://www.facebook.com/tr?id=1335537099825695&ev=PageView&noscript=1"
 /></noscript>
 <!-- DO NOT MODIFY -->
