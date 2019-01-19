@@ -2,7 +2,7 @@
 	<div class="exhibition-info">
 		<!--<h3 class="subhead">{{App::get_field('exhibition_type', App::getCoreExhibitionID())}}</h3>-->
 		<!-- //TODO -->
-		<h3 class="subhead">{{ App::get_field('exhibition_tickets_prompt','option') }}</h3>
+		<h3 class="subhead">{{ App::get_field('exhibition_tickets_prompt',App::getCoreExhibitionID()) }}</h3>
 		@if (App::get_field('exhibition_start_date', App::getCoreExhibitionID()))
 		  <p>{{App::get_field('exhibition_start_date', App::getCoreExhibitionID())}} &#8211; {{App::get_field('exhibition_end_date', App::getCoreExhibitionID())}}</p>
 		@endif
