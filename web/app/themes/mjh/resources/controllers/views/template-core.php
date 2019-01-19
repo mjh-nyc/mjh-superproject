@@ -13,7 +13,6 @@ class CoreBlogsAndPress extends Controller
     var $blogs;
 
     var $press;
-    var $max_num_pages_press;
     var $max_num_pages_coverage;
     var $max_num_pages_madrid;
 
@@ -61,34 +60,66 @@ class CoreBlogsAndPress extends Controller
         }
     }
 
+    public function getFilter() {
+        if (isset($_GET['filter'])) {
+            return $_GET['filter'];
+        } else {
+            return false;
+        }
+    }
+
 	public function auschwitzPress() {
-		$this->posts_per_page = 9;
-		$pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
-		$press = Press::getPress('auschwitz',$pParamHash);
-		if(!empty($press->posts)){
-			$this->max_num_pages_coverage = $press->max_num_pages;
-		}
-        //print_r($press->posts);
-		return $press->posts;
+		$pParamHash = array('post_type' => 'post','posts_per_page' => 6, 'paged'=>$this->paged);
+		$this->press = Press::getPress('auschwitz',$pParamHash);
+        if(!empty($this->press->posts)){
+            $this->max_num_pages_coverage = $this->press->max_num_pages;
+        }
+        if($this->press->posts){
+            return $this->press->posts;
+        }else{
+            return false;
+        }
 	}
 
 	public function madridPress() {
-		$this->posts_per_page = 9;
-		$pParamHash = array('post_type' => 'post','posts_per_page' => $this->posts_per_page,'paged'=>$this->paged);
-		$press = Press::getPress('madrid',$pParamHash);
-		if(!empty($press->posts)){
-			$this->max_num_pages_madrid = $press->max_num_pages;
-		}
-        //print_r($press->posts);
-		return $press->posts;
+		$pParamHash = array('post_type' => 'post','posts_per_page' => 6,'paged'=>$this->paged);
+		$this->press = Press::getPress('madrid',$pParamHash);
+		if(!empty($this->press->posts)){
+            $this->max_num_pages_madrid = $this->press->max_num_pages;
+        }
+        if($this->press->posts){
+            return $this->press->posts;
+        }else{
+            return false;
+        }
 	}
 
     /**
-     * Return max page for pagination
+     * Return max page for blog pagination
      *
      * @return int
      */
     public function getMaxNumPages() {
         return $this->blogs->max_num_pages;
     }
+
+    /**
+     * Return max page for pagination for auschwitz coverage
+     *
+     * @return int
+     */
+    public function getPressMaxPages() {
+        return $this->max_num_pages_coverage;
+    }
+
+    /**
+     * Return max page for pagination for auschwitz coverage
+     *
+     * @return int
+     */
+    public function getMadridPressMaxPages() {
+        return $this->max_num_pages_madrid;
+    }
+
+
 }

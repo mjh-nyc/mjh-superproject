@@ -39,9 +39,8 @@
                 <p>{{App::get_field('exhibition_start_date')}} &#8211; {{App::get_field('exhibition_end_date')}}</p>
             @endif
             @if  (empty($is_exhibtion_past))
-              <div class="buy-tix">
-                  <a href="{{App::get_field('exhibition_ticket_button_link')['url']}}" @if(App::get_field('exhibition_ticket_button_link')['target']) target="{{ App::get_field('exhibition_ticket_button_link')['target'] }}"@endif @if(App::get_field('exhibition_ticket_button_link')['title']) title="{{ App::get_field('exhibition_ticket_button_link')['title'] }}"@endif class="cta-round cta-secondary">{{App::get_field('exhibition_ticket_button_text')}}</a>
-              </div>
+              {{-- print buy tickets button (if link added for this exhibition) --}}
+              @include('partials.content-exhibition-ticket-button', ['wrapper_class'=>'buy-tix', 'ticket_url' => App::get_field('exhibition_ticket_button_link', get_the_ID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', get_the_ID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', get_the_ID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text', get_the_ID())])
             @endif
         </div>
         

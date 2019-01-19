@@ -7,10 +7,8 @@
 		  <p>{{App::get_field('exhibition_start_date', App::getCoreExhibitionID())}} &#8211; {{App::get_field('exhibition_end_date', App::getCoreExhibitionID())}}</p>
 		@endif
 
-		<div class="buy-tix">
-			{{-- print buy tickets button (if link added for this exhibition) --}}
-    		@include('partials.content-exhibition-ticket-button', ['ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
-    	</div>
+		{{-- print buy tickets button (if link added for this exhibition) --}}
+    	@include('partials.content-exhibition-ticket-button', ['wrapper_class'=>'buy-tix', 'ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
 
 	</div>
 @endif
@@ -51,27 +49,41 @@
 
 		@elseif (App::get_field('select_template_type') == 2)
 			{{-- This is press listing --}}
-			@if($auschwitz_press)
+			@if($auschwitz_press && $get_filter !='madrid_press')
 				<h3>@php _e("Recent Press Coverage","sage"); @endphp</h3>
 				<div class="press-card-listing auschwitz-listing">
 					@foreach ($auschwitz_press as $press_item)
 						@include('partials.content-press-card',['item_id'=>$press_item->ID])
 					@endforeach
 				</div>
-				<div class="see-all">
-					<a href="/press/auschwitz/" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
-				</div>
+				@if($get_filter)
+					@if ($get_press_max_pages)
+						@include('partials.pagination',['max_num_pages'=>$get_press_max_pages])
+					@endif
+				@else
+					<div class="see-all">
+						<a href="?filter=auschwitz_press" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
+					</div>
+				@endif
+				
+
 			@endif
-			@if($madrid_press)
+			@if($madrid_press && $get_filter !='auschwitz_press')
 				<h3>@php _e("Exhibition Coverage from Madrid","sage"); @endphp</h3>
 				<div class="press-card-listing auschwitz-listing">
 					@foreach ($madrid_press as $press_item)
 						@include('partials.content-press-card',['item_id'=>$press_item->ID])
 					@endforeach
 				</div>
-				<div class="see-all">
-					<a href="/press/madrid/" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
-				</div>
+				@if($get_filter)
+					@if ($get_madrid_press_max_pages)
+						@include('partials.pagination',['max_num_pages'=>$get_madrid_press_max_pages])
+					@endif
+				@else
+					<div class="see-all">
+						<a href="?filter=madrid_press" class="cta-round cta-arrow cta-secondary">@php _e("See All Press Coverage","sage"); @endphp</a>
+					</div>
+				@endif
 			@endif
 		@else 
 			@php(the_content())
