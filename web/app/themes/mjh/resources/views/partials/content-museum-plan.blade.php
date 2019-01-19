@@ -1,6 +1,6 @@
 <div class="container museum-plan">
   <div class="header">
-    <h1>{!! _e('Plan your visit','sage') !!}</h1>
+    {!! _e('Plan your visit','sage') !!}
   </div>
   <div class="museum-plans">
     <div class="plan-top row justify-content-center">

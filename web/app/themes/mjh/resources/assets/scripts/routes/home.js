@@ -50,7 +50,7 @@ export default {
 
         });
         //update the header title based on slide loaded
-        var header_container = jQuery('.onview h1');
+        var header_container = jQuery('.onview .header');
         var curr_header = jQuery('.exhibtion-card.slick-center').attr('data-header');
         jQuery('.slider-nav').on('afterChange', function(){
             // let's do this after changing slides

@@ -1,6 +1,6 @@
 <div class="container event-news-happenings">
   <div class="header">
-    <h1>@php _e("Museum Experiences","sage"); @endphp</h1>
+    @php _e("Museum Experiences","sage"); @endphp
   </div>
   <div class="events listing hompage row">
     @if ($upcoming_events)
