@@ -5,12 +5,18 @@
     <div class="animsition">
       @php(do_action('get_header'))
       @include('partials.header')
-      <div class="wrap video container-fluid" role="document">
-            @yield('hero')
-      </div>
-      <div class="wrap press-quotes container" role="document">
-        @yield('press-quotes')
-      </div>
+      @if (App::get_field('highlight_a_specific_exhibition','option'))
+        <div class="wrap video container-fluid" role="document">
+              @yield('hero')
+        </div>
+        <div class="wrap press-quotes container" role="document">
+          @yield('press-quotes')
+        </div>
+      @else
+        <div class="wrap carousel container-fluid no-feature" role="document">
+            @yield('carousel')
+        </div>
+      @endif
       <div class="wrap container" role="document">
         <div class="content">
           <main class="main">
@@ -29,10 +35,11 @@
       <div class="wrap recommended-by container-fluid" role="document">
         @yield('recommended-by')
       </div>
-      
-      <div class="wrap carousel container-fluid" role="document">
-            @yield('carousel')
-      </div>
+      @if (App::get_field('highlight_a_specific_exhibition','option'))
+        <div class="wrap carousel container-fluid" role="document">
+              @yield('carousel')
+        </div>
+      @endif
       @php(do_action('get_footer'))
       @include('partials.footer')
       @php(wp_footer())
