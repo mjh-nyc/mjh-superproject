@@ -127,10 +127,10 @@
         border-bottom: 1px solid $color-header-separator;
         margin-bottom: 10px;
         @include font-size(10);
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             @include font-size(12);
         }
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(xl) {
             @include font-size(14);
         }
         @media (max-width: 575px) {
@@ -178,7 +178,7 @@
             display: inline-block;
         }
         display: none;
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(md) {
             display: inline-block;
         }
     }

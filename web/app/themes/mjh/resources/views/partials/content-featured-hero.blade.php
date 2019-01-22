@@ -2,8 +2,8 @@
 	
     <div class="hero-header-wrapper">
         <div class="hero-header">
-        	@if (App::get_field('highlighted_exhibition_logo','option'))
-	        	<a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo','option')['url'] }}" alt="{{App::get_field('highlighted_exhibition_logo','option')['alt']}}" class="page-header--logo"></a>
+        	@if (App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID()))
+	        	<a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['url'] }}" alt="{{App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['alt']}}" class="page-header--logo"></a>
 	        @else
 	        	<h1>{!! get_the_title(App::getCoreExhibitionID()) !!}</h1>
 	        @endif
@@ -33,9 +33,12 @@
 			<a href="{{ App::get_field('video_link','option') }}" class="cta-round cta-outline cta-arrow">@php _e("View Full Video","sage"); @endphp</a>
 		</div>
 	@endif -->
-
-	<video autoplay muted loop id="herovideo">
-		<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">
-	</video>
+	@if(App::get_field('featured_video',App::getCoreExhibitionID()))
+		<video autoplay muted loop id="herovideo" poster="{!! App::featuredImageSrc('large',App::getCoreExhibitionID()) !!}">
+			<!--<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">-->
+				<source src="{!! App::get_field('featured_video',App::getCoreExhibitionID()) !!}" type="video/mp4">
+		</video>
+	@else
+		{!! App::featuredImage('large',App::getCoreExhibitionID()) !!}
+	@endif
 </div>
-@dump(App::get_field('highlighted_exhibition_button_link','option'))
