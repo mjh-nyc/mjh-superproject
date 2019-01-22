@@ -730,6 +730,13 @@
         @include media-breakpoint-up(md) {
             flex-direction: row;
         }
+
+        &.single {
+            justify-content: center;
+            .press-quotes--item {
+                margin-right: 3rem;
+            }
+        }
     }
     &--item {
         font-family: 'EksellDisplay';
