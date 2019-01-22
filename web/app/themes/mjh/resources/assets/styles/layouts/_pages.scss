@@ -137,9 +137,10 @@
             @include make-row();
             justify-content: center !important;
             .page-content {
+                margin: 0 auto;
                 @include make-col-ready();
                 @include media-breakpoint-up(md) {
-                    @include make-col(8);
+                    @include make-col(9);
                 }
             }
 
