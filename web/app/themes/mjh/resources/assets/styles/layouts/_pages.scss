@@ -773,9 +773,11 @@
         &.see-more {
             padding:0;
             align-self: center;
+            
             box-shadow: none;
             @include media-breakpoint-up(md) {
                 width: 10%;
+                margin-bottom: 75px;
             }
             .see-more-arrow {
                 background-color: black;
