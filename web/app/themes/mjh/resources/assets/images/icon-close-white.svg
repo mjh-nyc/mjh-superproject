@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>Untitled</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Close-BTN" fill="#FFFFFF">
-            <rect id="Rectangle-5" transform="translate(19.000000, 19.000000) rotate(-315.000000) translate(-19.000000, -19.000000) " x="-5" y="17" width="48" height="4" rx="2"></rect>
-            <rect id="Rectangle-5" transform="translate(19.000000, 19.000000) rotate(-45.000000) translate(-19.000000, -19.000000) " x="-5" y="17" width="48" height="4" rx="2"></rect>
-        </g>
-    </g>
-</svg>
+<svg height="38" viewBox="0 0 38 38" width="38" xmlns="http://www.w3.org/2000/svg"><g fill="#fff" fill-rule="evenodd"><rect height="4" rx="2" transform="matrix(.70710678 .70710678 -.70710678 .70710678 19 -7.870058)" width="48" x="-5" y="17"/><rect height="4" rx="2" transform="matrix(.70710678 -.70710678 .70710678 .70710678 -7.870058 19)" width="48" x="-5" y="17"/></g></svg>
