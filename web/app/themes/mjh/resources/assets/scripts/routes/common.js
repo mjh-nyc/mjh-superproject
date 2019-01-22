@@ -45,11 +45,16 @@ export default {
         }
         //set the width of the mjh-slider content using the 4:6 ratio
         //first get width of the container
+        var $page_content = jQuery('.entry-content, .page-content'); //cache it
         var set_mjh_slider_width = function() {
-          var content_col_width = jQuery('.entry-content, .page-content').width();
+          var content_col_width = $page_content.width();
           var mjh_slider_height = content_col_width * (4/6);
           jQuery('.mjh-gallery .slide-image').css('height', mjh_slider_height);
+          //adjust nav arrow positions
+          jQuery('.mjh-gallery .slick-arrow').css('top',mjh_slider_height/2);
         };
+
+
         var didResize = false;
         jQuery(window).resize(function() {
           didResize = true;
