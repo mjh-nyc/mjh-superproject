@@ -559,12 +559,16 @@
     padding: 30px;
     .subhead {
         color: white !important;
+        margin-bottom: 0;
     }
     @include font-size(16);
    
    
     @include media-breakpoint-up(lg) {
         @include font-size(19);
+    }
+    p {
+        margin-bottom: 0;
     }
     .buy-tix {
         margin-top: 15px;
@@ -958,6 +962,7 @@
                 @include media-breakpoint-up(sm) {
                     padding-top: 12rem;
                 }*/
+                color: white;
                 @include media-breakpoint-up(xl) {
                     padding-bottom: 5rem;
                 }
@@ -975,6 +980,10 @@
                     height: auto;
                     display: block;
                     margin: 0 auto;
+                }
+                img.wp-post-image {
+                    width: 100%;
+                    height: auto;
                 }
             }
         }
