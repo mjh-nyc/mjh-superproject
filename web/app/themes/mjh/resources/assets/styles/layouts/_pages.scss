@@ -859,14 +859,17 @@
     .carousel {
         overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
-        /*@include media-breakpoint-up(sm) {
-            padding-top: 133px;
-            margin-top: -133px;
+
+        &.no-feature {
+            @include media-breakpoint-up(sm) {
+                padding-top: 133px;
+                margin-top: -133px;
+            }
+            @include media-breakpoint-up(md) {
+                padding-top: 143px;
+                margin-top: -143px;
+            }
         }
-        @include media-breakpoint-up(md) {
-            padding-top: 143px;
-            margin-top: -143px;
-        }*/
         padding-top: 3rem;
         .header {
             @extend h1;
