@@ -189,6 +189,12 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title' 	=> 'Museum Stats',
 		'parent_slug' 	=> 'options-general.php',
 	));
+    // add sub page
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Exhibition Options',
+        'menu_title'    => 'Exhibition Options',
+        'parent_slug'   => 'edit.php?post_type=exhibition',
+    ));
 }
 
 

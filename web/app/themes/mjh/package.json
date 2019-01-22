@@ -71,6 +71,7 @@
     "lity": "^2.2.2",
     "modernizr": "^3.5.0",
     "slick-carousel": "^1.6.0",
+    "sticky-kit": "^1.1.3",
     "waypoints": "^4.0.1"
   }
 }

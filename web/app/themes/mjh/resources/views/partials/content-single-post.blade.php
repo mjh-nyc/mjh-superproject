@@ -10,11 +10,13 @@
       @php(the_content())
     </div>
     @include('partials.content-gallery')
-    <nav class="page-nav row no-gutters">
-      @php(previous_post_link('
-      <div class="nav-previous"><span class="nav-direction">Previous</span></br>%link</div>','%title',true)) @php(next_post_link('
-      <div class="nav-next"><span class="nav-direction">Next</span></br>%link</div>','%title',true))
-    </nav>
+    @if(!App::hideNavByPostCategory(get_the_id(),'category'))
+      <nav class="page-nav row no-gutters">
+        @php(previous_post_link('
+        <div class="nav-previous"><span class="nav-direction">Previous</span></br>%link</div>','%title',true)) @php(next_post_link('
+        <div class="nav-next"><span class="nav-direction">Next</span></br>%link</div>','%title',true))
+      </nav>
+    @endif
     @include('partials.content-related-links')
   </div>
 </article>

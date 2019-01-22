@@ -10,7 +10,9 @@ const rootPath = (userConfig.paths && userConfig.paths.root)
   : process.cwd();
 
 const config = merge({
+  open: true,
   copy: 'images/**/*',
+  copyVideos: 'videos/**/*',
   proxyUrl: 'http://localhost:3000',
   cacheBusting: '[name]_[hash]',
   paths: {
@@ -26,7 +28,7 @@ const config = merge({
   },
   watch: [],
   browsers: [],
-}, userConfig);
+},userConfig);
 
 module.exports = merge(config, {
   env: Object.assign({ production: isProduction, development: !isProduction }, argv.env),

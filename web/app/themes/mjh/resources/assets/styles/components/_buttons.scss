@@ -66,11 +66,15 @@
     line-height: 36px;
     height: 3.6rem;
     line-height: 3.3rem;
+    background: transparent;
     @include media-breakpoint-up(md) {
         height: 46px;
         line-height: 46px;
         height: 4.6rem;
         line-height: 4.2rem;
+    }
+    &:hover {
+        background: white;
     }
 }
 
@@ -152,5 +156,23 @@
     &:hover {
         color:$color-text;
         text-decoration: underline;
+    }
+}
+
+%directional-button {
+    background: white;
+    overflow: hidden;
+    border-radius: 50%;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    transition: all 0.2s;
+    &:hover {
+        background: black;
     }
 }

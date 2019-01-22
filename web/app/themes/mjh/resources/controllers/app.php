@@ -124,6 +124,17 @@ class App extends Controller
     }
 
     /**
+     * Return featured image of post src only (for CORE exhibition)
+     *
+     * @return string
+     */
+    public static function getCoreExhibitionID() {
+        //find the exhibition set as a CORE Offering
+        $coreExhibitionID = get_field('highlighted_exhibition','option');
+        return $coreExhibitionID;
+    }
+
+    /**
      * Return link for the video popup for testimonies
      *
      * @return url
@@ -271,6 +282,25 @@ class App extends Controller
         return $terms;
     }
 
+	/**
+	 * Hide footer nav by post categories
+	 *
+	 * @return boolean
+	 */
+	public static function hideNavByPostCategory($id=false, $taxonomy = '')
+	{
+		$terms = App::postTerms($id, $taxonomy);
+		if(!empty($terms)){
+			foreach ($terms as $key=> $term){
+				switch($term->slug){
+					case'auschwitz':
+						return true;
+					break;
+				}
+			}
+		}
+		return false;
+	}
 
     /**
      * Return the post excerpt, if no ID provided, will use current post id
@@ -294,7 +324,12 @@ class App extends Controller
         }
 
     }
-    //used by various functions to truncate the string to specified number of words
+
+	/**
+	 * Used by various functions to truncate the string to specified number of words
+	 *
+	 * @return string
+	 */
     public static function truncateString($string, $limit=5) {
         if ($string) {
             if (str_word_count($string, 0) > $limit) {
@@ -305,6 +340,18 @@ class App extends Controller
               return $string;
         }
     }
+
+	/**
+	 * Used by various functions to truncate the string to specified number of characters
+	 *
+	 * @return string
+	 */
+    public static function truncateStringByCharacter($string, $limit=50){
+		if (strlen($string) > $limit) {
+			$string = substr($string, 0, strrpos(substr($string, 0, $limit), ' ')) . '...';
+		}
+		return $string;
+	}
 
 
 
@@ -421,7 +468,7 @@ class App extends Controller
             $social .='<a href="'.$youtube.'" target="_blank" onclick="return trackOutboundLink(\''.$youtube.'\', true)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>';
         }
         if ($young_friends) {
-            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="'.get_stylesheet_directory_uri().'/dist/images/young-friends.png" alt="'.__("Young Friends","sage").'"></a>';
+            $social .='<a href="'.$young_friends.'" target="_blank" onclick="return trackOutboundLink(\''.$young_friends.'\', true)" class="yf"><img src="'.asset_path("images/young-friends.png").'" alt="'.__("Young Friends","sage").'"></a>';
         }
 
         return $social;
@@ -573,6 +620,45 @@ class App extends Controller
         }
         return $pages;
     }
+
+    /**
+     * Get secondary nav items for the CORE exhibition, there may be multiple top level pages
+     *
+     * @return array
+     */
+    public static function hasCoreSubPageNav(){
+        
+        $pages = array();
+        $page_ids = array();
+        //are there parent pages that use the views/template-core.blade.php template
+        $args = array(
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'post_parent' => 0,
+            'meta_query' => array(
+                array(
+                    'key' => '_wp_page_template',
+                    'value' => 'views/template-core.blade.php'
+                )
+            )
+        );
+        $pages = new WP_Query( $args );
+        if( $pages->have_posts() ){
+            while( $pages->have_posts() ){
+                $pages->the_post();
+                array_push($page_ids, get_the_ID());
+            }
+        }
+        wp_reset_postdata();
+        if (count($page_ids)>0) {
+            return $page_ids;
+        } else {
+            return false;
+        }
+    }
+
+
     //Get Parent id (used from template as well, hence public declaration)
     public static function get_parent_id( $id ) {
         $parent_id = wp_get_post_parent_id($id);

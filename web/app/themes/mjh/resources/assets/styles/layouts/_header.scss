@@ -127,10 +127,10 @@
         border-bottom: 1px solid $color-header-separator;
         margin-bottom: 10px;
         @include font-size(10);
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             @include font-size(12);
         }
-        @include media-breakpoint-up(lg) {
+        @include media-breakpoint-up(xl) {
             @include font-size(14);
         }
         @media (max-width: 575px) {
@@ -178,7 +178,7 @@
             display: inline-block;
         }
         display: none;
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(md) {
             display: inline-block;
         }
     }
@@ -233,6 +233,18 @@
                 @include media-breakpoint-up(lg) {
                     @include font-size(60);
                 }
+            }
+            &--logo {
+                width:50%;
+                height: auto;
+                @include media-breakpoint-up(md) {
+                    width:25%;
+                }
+            }
+        }
+        &.tall {
+            @include media-breakpoint-up(md) {
+                padding-bottom: 250px;
             }
         }
     }
@@ -406,16 +418,12 @@
                     @include font-size(34);
                 }
                 border-bottom: 1px solid white;
+                padding:10px 0;
                 a {
                     display: inline-block;
                     width: 100%;
-                    line-height: 50px;
-                    @include media-breakpoint-up(md) {
-                        line-height: 60px;
-                    }
-                    @include media-breakpoint-up(lg) {
-                        line-height: 77px;
-                    }
+                    line-height: normal;
+                    padding-right: 25px;
                 }
                 &.current-menu-item {
                     a {
@@ -462,7 +470,8 @@
                     border: 0;
                     @include bentonReg();
                     @include font-size(14);
-                    line-height: 2;
+                    line-height: normal;
+                    padding:8px 0;
                     @include media-breakpoint-up(md) {
                         @include font-size(18);
                     }
@@ -470,7 +479,7 @@
                         @include font-size(24);
                     }
                     a {
-                        line-height: 2;
+                        line-height: normal;
                     }
                     a:before {
                         display: none;
