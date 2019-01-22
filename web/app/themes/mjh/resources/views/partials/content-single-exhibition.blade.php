@@ -26,7 +26,7 @@
   
   
   @if (App::getCoreExhibitionID())
-    @include('partials.content-press-quotes',['press_quotes'=>App::get_repeater_field( 'press_quotes', App::getCoreExhibitionID() )])
+    @include('partials.content-press-quotes',['press_quotes'=>App::get_repeater_field( 'press_quotes', App::getCoreExhibitionID()) ])
   @endif
 
 @else
