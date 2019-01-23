@@ -164,8 +164,13 @@
         z-index: 143;
         margin-bottom: 2rem;
         @include make-col-ready();
+        padding-right: 0;
+        padding-left: 0;
         
         @include media-breakpoint-up(md) {
+            @include make-col(4);
+        }
+        @include media-breakpoint-up(lg) {
             @include make-col(3);
         }
         .menu-item-has-children {
@@ -199,7 +204,12 @@
     }
     .page-content {
         @include make-col-ready();
+        padding-right: 0;
+        padding-left: 0;
         @include media-breakpoint-up(md) {
+            @include make-col(8);
+        }
+        @include media-breakpoint-up(lg) {
             @include make-col(9);
         }
     }
@@ -711,8 +721,13 @@
         }
         article {
             width: 100%;
+            margin-bottom: 3rem;
+            &:last-child {
+                margin-bottom:0;
+            }
             @include media-breakpoint-up(md) {
                 width: 32%;
+                margin-bottom: 0;
             }
 
             .exhibtion-card {
