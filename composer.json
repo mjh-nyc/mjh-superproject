@@ -52,11 +52,11 @@
       "type": "package",
       "package": {
         "name": "yoast/wordpress-seo-premium",
-		"version": "4.9",
+		"version": "9.5",
 		"type": "wordpress-plugin",
 		"dist": {
 		  "type": "zip",
-		   "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-4.9.zip"
+		   "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
 		}
       }
     },
@@ -106,7 +106,7 @@
     "roots/wp-password-bcrypt": "1.0.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.5",
     "mjh-nyc/mjh-custom-configurations": "dev-master",
-    "yoast/wordpress-seo-premium": "^4.9",
+    "yoast/wordpress-seo-premium": "^9.5",
     "deliciousbrains/wp-offload-s3-pro": "^1.0",
     "wpackagist-plugin/amazon-web-services": "^1.0",
     "johnpbloch/wordpress": "4.9.2",
