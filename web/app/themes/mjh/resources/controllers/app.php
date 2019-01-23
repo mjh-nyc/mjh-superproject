@@ -636,6 +636,8 @@ class App extends Controller
             'post_status' => 'publish',
             'posts_per_page' => -1,
             'post_parent' => 0,
+            'order' => 'ASC',
+            'orderby' => 'menu_order',
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',
