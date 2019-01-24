@@ -73,40 +73,52 @@ class Events extends Controller
                 $this->setMetaMonthlyDateQuery($pParamHash, $event_start_date->getTimestamp(), $event_end_date->getTimestamp());
             break;
             case 'past':
-                $pParamHash['meta_query'] =  array(
-                    'relation'      => 'AND',
-                     array(
-                        'relation'      => 'OR',
-                         array(
-                            'relation'      => 'AND',
-                            '0'=> array(
-                                'key'       => 'event_end_date',
-                                'value'     => date('Y-m-d H:i:s', $currentDate),
-                                'type'      => 'DATETIME',
-                                'compare'   => '<',
-                            ),
-                            '1'=> array(
-                                'key'       => 'event_type',
-                                'compare'   => '=',
-                                'value'     => 'ongoing'
-                            )
-                        ),
-                        array(
-                            'relation'      => 'AND',
-                            '0'=> array(
-                                'key'       => 'event_start_date',
-                                'value'     => date('Y-m-d H:i:s', $currentDate),
-                                'type'      => 'DATETIME',
-                                'compare'   => '<',
-                            ),
-                            '1'=> array(
-                                'key'       => 'event_type',
-                                'compare'   => '=',
-                                'value'     => 'onetime'
-                            )
-                        ),
-                    )
-                );
+				//Get ids of all ongoing past events
+				$pastOngoingHash = array('post_type' => 'event','posts_per_page' => -1);
+				$pastOngoingHash['meta_query']= array(
+					'relation'      => 'AND',
+					'0'=> array(
+						'key'       => 'event_end_date',
+						'value'     => date('Y-m-d H:i:s', $currentDate),
+						'type'      => 'DATETIME',
+						'compare'   => '<',
+					),
+					'1'=> array(
+						'key'       => 'event_type',
+						'compare'   => '=',
+						'value'     => 'ongoing'
+					)
+				);
+				$pastOngGoing = new WP_Query( $pastOngoingHash);
+				// Set post id in main wp_query parameter hash
+				if(!empty($pastOngGoing->posts)){
+					foreach($pastOngGoing->posts as $post){
+						$pParamHash['post__in'][] = $post->ID;
+					}
+				}
+				//Get ids of all onetime past events
+				$pastOneTimeHash = array('post_type' => 'event','posts_per_page' => -1);
+				$pastOneTimeHash['meta_query']= array(
+					'relation'      => 'AND',
+					'0'=> array(
+						'key'       => 'event_start_date',
+						'value'     => date('Y-m-d H:i:s', $currentDate),
+						'type'      => 'DATETIME',
+						'compare'   => '<',
+					),
+					'1'=> array(
+						'key'       => 'event_type',
+						'compare'   => '=',
+						'value'     => 'onetime'
+					)
+				);
+				$pastOneTime = new WP_Query($pastOneTimeHash);
+				// Set post id in main wp_query parameter hash
+				if(!empty($pastOneTime->posts)){
+					foreach($pastOneTime->posts as $post){
+						$pParamHash['post__in'][] = $post->ID;
+					}
+				}
                 $pParamHash['meta_key'] = 'event_start_date';
                 $pParamHash['orderby']  = 'meta_value';
                 $pParamHash['order']    = 'DESC';
