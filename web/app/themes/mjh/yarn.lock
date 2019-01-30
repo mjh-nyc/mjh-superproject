@@ -6264,6 +6264,11 @@ unpipe@~1.0.0:
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
+unveil2@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/unveil2/-/unveil2-2.0.8.tgz#246e8c335b3935f750ebd9a8169b89affa12c703"
+  integrity sha512-0vDgeANL0eYa9J0iUlcOnseS4kwjJKiOMUrIBhOdCq2he+Dui/A9hEsCiKJcHYrw3Bm6j6zPOLreRprsfRJiJA==
+
 unzip-response@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/unzip-response/-/unzip-response-1.0.2.tgz#b984f0877fc0a89c2c773cc1ef7b5b232b5b06fe"

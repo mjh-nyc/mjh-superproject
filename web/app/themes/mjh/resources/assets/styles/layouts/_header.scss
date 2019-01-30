@@ -24,6 +24,35 @@
     }
 }
 
+.banner,
+.overlay-nav {
+    .actions {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            margin-left: 20px;
+            display: inline-block;
+        }
+    }
+}
+.overlay-nav {
+    .actions {
+        margin-bottom: 50px;
+        li {
+            margin-left: 0;
+            margin-right: 20px;
+        }
+    }
+}
+.banner {
+    .actions {
+        display: none;
+        @include media-breakpoint-up(md) {
+            display: inline-block;
+        }
+    }
+}
 .banner {
     color: $color-header-text;
     a {
@@ -169,19 +198,7 @@
     .menu-button-top-navigation-container {
         display: inline-block;
     }
-    .actions {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-            margin-left: 20px;
-            display: inline-block;
-        }
-        display: none;
-        @include media-breakpoint-up(md) {
-            display: inline-block;
-        }
-    }
+    
     .overlay-toggle {
         margin-left: 20px;
         float: right;

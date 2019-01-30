@@ -62,6 +62,9 @@
     </div>
     <div class="row">
       <div class="wrapper">
+        @if (has_nav_menu('buttontop_navigation'))
+          {!! wp_nav_menu(['theme_location' => 'buttontop_navigation', 'menu_class' => 'actions']) !!}
+        @endif
         <div class="site-search">
           {!! get_search_form(false) !!}
         </div>

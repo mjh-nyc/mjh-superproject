@@ -1,7 +1,7 @@
 {{-- You must pass the post ID to this template as $item_id --}}
 <div class="testimony-card slide-card">
   <a href="{{ App::getTestimonyLink($item_id) }}" class="card-link" @if (App::get_field('testimony_platform',$item_id)!="other") data-lity @endif>
-    <div class="card-image tint" style="background-image:url({{App::featuredTestimonailImageSrc('square@2x',$item_id)}})">
+    <div class="card-image tint lazy" data-src="{{App::featuredTestimonailImageSrc('square@2x',$item_id)}}">
       <span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
       <div class="play-btn"><img src="@asset('images/play-button.svg')" alt="Play"></div>
     </div>

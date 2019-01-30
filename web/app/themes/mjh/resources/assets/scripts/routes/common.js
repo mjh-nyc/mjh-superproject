@@ -1,5 +1,10 @@
 export default {
     init() {
+        //lazy load images off screen anything that has a lazy class
+        jQuery('.lazy').unveil({
+          offset: 100,
+        });
+
         // JavaScript to be fired on all pages
         jQuery('#primary-nav-toggle').bind('click', function(event) {
             event.preventDefault();
