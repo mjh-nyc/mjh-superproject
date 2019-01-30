@@ -9,7 +9,7 @@
             </div>
             <div class="press-quotes--source">
                @if ($press_quotes[$i]['press_source_logo'])
-                <img src="{!! $press_quotes[$i]['press_source_logo']['sizes']['large'] !!}" alt="{!! $press_quotes[$i]['press_source_logo']['alt'] !!}" title="{{$press_quotes[$i]['press_source_name']}}">
+                <img src="{!! $press_quotes[$i]['press_source_logo']['sizes']['medium'] !!}" data-src="{!! $press_quotes[$i]['press_source_logo']['sizes']['medium'] !!}" class="lazy" alt="{!! $press_quotes[$i]['press_source_logo']['alt'] !!}" title="{{$press_quotes[$i]['press_source_name']}}">
                @else
                 <span><em>— {{$press_quotes[$i]['press_source_name']}}</em></span> 
                @endif

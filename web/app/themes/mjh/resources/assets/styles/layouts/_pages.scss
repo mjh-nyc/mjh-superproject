@@ -1000,10 +1000,10 @@
                 img.page-header--logo {
                     width: 40%;
                     @include media-breakpoint-up(sm) {
-                        width: 30%;
-                    }
-                    @include media-breakpoint-up(md) {
                         width: 20%;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        width: 40%;
                     }
                     height: auto;
                     display: block;
