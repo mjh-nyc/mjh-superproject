@@ -19,6 +19,9 @@ import 'animsition/dist/js/animsition.min';
 //Import lity responsive lightbox
 import 'lity/dist/lity.min';
 
+//Import lazy load unveil2
+import 'unveil2/dist/jquery.unveil2.min';
+
 
 /** import local dependencies */
 import Router from './util/Router';

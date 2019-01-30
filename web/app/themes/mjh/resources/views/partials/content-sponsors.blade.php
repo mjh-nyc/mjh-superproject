@@ -9,7 +9,7 @@
     <li> 
       @if ($sponsors['sponsor_image'])
       <div class="{{ $sectionType }}-sponsor-image image">
-        @if ($sponsors['sponsor_url'])<a href="{{ $sponsors['sponsor_url'] }}" target="_blank">@endif <img src="{!! $sponsors['sponsor_image']['sizes']['large'] !!}" alt="{!! $sponsors['sponsor_image']['alt'] !!}" title="{{$sponsors['sponsor_name']}}"> @if ($sponsors['sponsor_url'])</a>@endif
+        @if ($sponsors['sponsor_url'])<a href="{{ $sponsors['sponsor_url'] }}" target="_blank">@endif <img src="{!! $sponsors['sponsor_image']['sizes']['medium'] !!}" data-src="{!! $sponsors['sponsor_image']['sizes']['medium'] !!}" class="lazy" alt="{!! $sponsors['sponsor_image']['alt'] !!}" title="{{$sponsors['sponsor_name']}}"> @if ($sponsors['sponsor_url'])</a>@endif
       </div>
       @else
 

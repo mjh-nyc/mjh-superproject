@@ -81,7 +81,10 @@ class App extends Controller
             $id = get_the_ID();
         }
         if (has_post_thumbnail( $id ) ) {
-            $image = get_the_post_thumbnail_url($id, $size);
+            $thumb_id = get_post_thumbnail_id($id);
+            $thumb_url_array = wp_get_attachment_image_src($thumb_id, $size, true);
+            $image = $thumb_url_array[0];
+
         } elseif (get_field('testimony_platform',$id)) {
             //this is a testimony, use the video screenshot as featured image
             $image = App::featuredTestimonailImageSrc('large',$id);
@@ -111,7 +114,9 @@ class App extends Controller
 
         if (has_post_thumbnail( $id ) ) {
             //if featured image set, use that
-            $image = get_the_post_thumbnail_url($id, $size);
+            $thumb_id = get_post_thumbnail_id($id);
+            $thumb_url_array = wp_get_attachment_image_src($thumb_id, $size, true);
+            $image = $thumb_url_array[0];
         } elseif($testimony_platform =='youtube' && $testimony_video_id) {
             $image = 'https://img.youtube.com/vi/'.$testimony_video_id.'/hqdefault.jpg';
         } elseif($testimony_platform =='vimeo' && $testimony_video_id) {
@@ -636,6 +641,8 @@ class App extends Controller
             'post_status' => 'publish',
             'posts_per_page' => -1,
             'post_parent' => 0,
+            'order' => 'ASC',
+            'orderby' => 'menu_order',
             'meta_query' => array(
                 array(
                     'key' => '_wp_page_template',

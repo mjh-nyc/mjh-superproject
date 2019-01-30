@@ -3,10 +3,9 @@
 --}}
 @extends('layouts.app')
 @if(App::get_field('redirect_link'))
-	@php 
-	$loc = App::get_field('redirect_link');
-	header('location:'.$loc);
-	@endphp
+    <script type="text/javascript">
+        window.location.replace( '{!! App::get_field('redirect_link') !!}');
+    </script>
 @endif
 @section('content')
   @while(have_posts()) @php(the_post())
