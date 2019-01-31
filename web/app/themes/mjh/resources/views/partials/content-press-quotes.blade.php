@@ -7,7 +7,7 @@
             <div class="press-quotes--item-text">
               <span class="leading-quote">&#8220;</span>{{ $press_quotes[$i]['press_quote'] }} &#8221;
             </div>
-            <div class="press-quotes--source">
+            <div class="press-quotes--source @if (!$press_quotes[$i]['press_source_logo']) text-only @endif">
                @if ($press_quotes[$i]['press_source_logo'])
                 <img src="{!! $press_quotes[$i]['press_source_logo']['sizes']['medium'] !!}" data-src="{!! $press_quotes[$i]['press_source_logo']['sizes']['medium'] !!}" class="lazy" alt="{!! $press_quotes[$i]['press_source_logo']['alt'] !!}" title="{{$press_quotes[$i]['press_source_name']}}">
                @else

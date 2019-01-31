@@ -17,6 +17,10 @@
       </div>
     </div>
   </div>
+  <!--exit prompt-->
+  <div id="exit-prompt" class="exit-message lity-hide">
+    {!! App::get_field('site_exit_prompt','options') !!} 
+  </div>
 </footer>
 <script>
 //Google Analytics Code
