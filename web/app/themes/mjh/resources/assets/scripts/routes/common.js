@@ -5,6 +5,7 @@ export default {
           offset: 100,
         });
 
+
         // JavaScript to be fired on all pages
         jQuery('#primary-nav-toggle').bind('click', function(event) {
             event.preventDefault();
@@ -198,6 +199,19 @@ export default {
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
+        //Adding "leaving this website prompt" to all links that have a "exit-prompt" class
+        // Bind as an event handler
+        //var lity = window.lity;
+        var $external_links = jQuery('.exit-prompt a');
 
+        $external_links.attr('data-lity','');
+        $external_links.attr('target','_parent');
+        $external_links.attr('href','#exit-prompt');
+        $external_links.bind('click', function() {
+          //jQuery(this).attr('data-lity','');
+          //jQuery(this).attr('target','_parent');
+          //jQuery(this).attr('href','#exit-prompt');
+          //event.preventDefault();
+        });
     },
 };
