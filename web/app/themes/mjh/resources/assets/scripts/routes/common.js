@@ -202,7 +202,7 @@ export default {
         //Adding "leaving this website prompt" to all links that have a "exit-prompt" class
         // Bind as an event handler
         //var lity = window.lity;
-        jQuery('.exit-prompt a').bind('click', function(event) {
+        jQuery('.exit-prompt a, a.exit-prompt').bind('click', function(event) {
           event.preventDefault();
           var href='';
           var data_url = jQuery(this).attr('data-url');
