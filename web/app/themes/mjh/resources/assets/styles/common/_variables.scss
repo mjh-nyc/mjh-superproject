@@ -47,12 +47,12 @@ $link-hover: #000000;
 
 //
 @font-face {
-    font-family: 'EksellDisplay';
-    font-display: fallback;
+    font-family: 'EksellDisplay', "Helvetica", "Arial", sans-serif;
     src: url('../fonts/EksellDisplayWeb-Medium.eot');
     src: url('../fonts/EksellDisplayWeb-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/EksellDisplayWeb-Medium.woff2') format('woff2'), url('../fonts/EksellDisplayWeb-Medium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 //BentonSans
