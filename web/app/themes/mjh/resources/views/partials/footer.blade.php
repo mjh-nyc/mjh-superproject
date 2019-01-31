@@ -19,7 +19,11 @@
   </div>
   <!--exit prompt-->
   <div id="exit-prompt" class="exit-message lity-hide">
-    {!! App::get_field('site_exit_prompt','options') !!} 
+    <div class="container">
+      {!! App::get_field('site_exit_prompt','options') !!}
+      <a href="#" class="exit cta-round cta-primary"> {{ App::get_field('site_exit_proceed_button_text','options') }} </a> &nbsp; <a href="javascript:void(0);" data-lity-close>Cancel</a>
+    </div>
+
   </div>
 </footer>
 <script>
