@@ -5,6 +5,7 @@ export default {
           offset: 100,
         });
 
+
         // JavaScript to be fired on all pages
         jQuery('#primary-nav-toggle').bind('click', function(event) {
             event.preventDefault();
@@ -198,6 +199,29 @@ export default {
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
-
+        //Adding "leaving this website prompt" to all links that have a "exit-prompt" class
+        // Bind as an event handler
+        //var lity = window.lity;
+        jQuery('.exit-prompt a, a.exit-prompt').bind('click', function(event) {
+          event.preventDefault();
+          var href='';
+          var data_url = jQuery(this).attr('data-url');
+          if (typeof data_url !== typeof undefined && data_url !== false) {
+            // Element has this attribute, use it
+            href = data_url;
+          } else {
+            //set the attr and use the actual href to generate the exit button
+            //move the link url into an attr so we can re-use
+            href = jQuery(this).attr('href');
+            jQuery(this).attr('data-url', href);
+          } 
+          
+          //move this URL into button in exit promt popup
+          jQuery('#exit-prompt a.exit').attr('href',href);
+          //now convert this link to a lity popup link
+          jQuery(this).attr('data-lity','');
+          jQuery(this).attr('target','_parent');
+          jQuery(this).attr('href','#exit-prompt');
+        });
     },
 };
