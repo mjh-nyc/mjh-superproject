@@ -303,3 +303,14 @@ transition: background .2s linear;
     top: 0;
     left: 0;
 }
+.exit-message {
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+  h2 {
+    font-size: 3rem;
+  }
+  p {
+
+  }
+}
