@@ -821,6 +821,12 @@
         @include media-breakpoint-up(sm) {
             width: 50%;
         }
+        &.text-only {
+            font-size: initial;
+            @include media-breakpoint-up(sm) {
+                width: 100%;
+            }
+        }
     }
 }
 
