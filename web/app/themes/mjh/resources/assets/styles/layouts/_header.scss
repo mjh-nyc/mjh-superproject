@@ -38,10 +38,23 @@
 }
 .overlay-nav {
     .actions {
-        margin-bottom: 50px;
+        margin-bottom: 25px;
         li {
+            margin-bottom: 10px;
             margin-left: 0;
-            margin-right: 20px;
+            margin-right: 0;
+            display: block;
+            @include media-breakpoint-up(sm) {
+                display: inline-block;
+                margin-right: 20px;
+            }
+            a {
+                text-align: center;
+                display: block;
+                @include media-breakpoint-up(sm) {
+                    display: inline-block;
+                }
+            }
         }
     }
 }
