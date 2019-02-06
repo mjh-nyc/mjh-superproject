@@ -47,3 +47,7 @@
   @extend .sr-only;
   @extend .sr-only-focusable;
 }
+
+#wpadminbar .display-name{
+  display: none;
+}
