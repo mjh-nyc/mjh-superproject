@@ -2,11 +2,13 @@
 	
     <div class="hero-header-wrapper">
         <div class="hero-header">
+			<h1>
         	@if (App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID()))
-	        	<a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['sizes']['medium'] }}" alt="{{App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['alt']}}" class="page-header--logo"></a>
+				<a href="{{ get_the_permalink(App::getCoreExhibitionID()) }}"><img src="{{ App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['sizes']['medium'] }}" @if(App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['alt']) alt="{{App::get_field('highlighted_exhibition_logo',App::getCoreExhibitionID())['alt']}}" @endif class="page-header--logo"></a>
 	        @else
-	        	<h1>{!! get_the_title(App::getCoreExhibitionID()) !!}</h1>
+				{!! get_the_title(App::getCoreExhibitionID()) !!}
 	        @endif
+			</h1>
 
 	        @if ( App::get_field('exhibition_view_prompt',App::getCoreExhibitionID()) )
 	        	<div class="highlighted_exhibition_button discover">

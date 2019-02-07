@@ -45,7 +45,7 @@
   <div class="clearfix"></div>
   <!-- featured image and page title area -->
   @if (!is_front_page())
-    <div class="hero-area parallax-window @if(App::getCoreExhibitionID()===get_the_ID()) tall @endif" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-core.blade.php') ) {!! App::featuredImageSrc('large', App::getCoreExhibitionID()) !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true" alt="{{App::featuredImageAlt(get_post_thumbnail_id())}}">
+    <div class="hero-area parallax-window @if(App::getCoreExhibitionID()===get_the_ID()) tall @endif" data-parallax="scroll" data-image-src="@if (App::isPageTemplate( 'views/template-core.blade.php') ) {!! App::featuredImageSrc('large', App::getCoreExhibitionID()) !!} @else {{App::featuredImageSrc('large')}} @endif" data-over-scroll-fix="true" @if (App::featuredImageAlt(get_post_thumbnail_id())) alt="{{App::featuredImageAlt(get_post_thumbnail_id())}}" @endif>
       <div class="sr-only">@php _e("Featured image","sage"); @endphp</div>
       @include('partials.page-header')
       <!--<div class="image-credit">
