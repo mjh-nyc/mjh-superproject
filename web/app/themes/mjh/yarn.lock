@@ -3365,7 +3365,7 @@ jquery-parallax.js@^1.4.3:
   dependencies:
     jquery ">=1.7"
 
-"jquery@1.12.4 - 3", jquery@>=1.7, jquery@>=1.7.2, jquery@>=1.9.1, jquery@^3.1.1:
+"jquery@1.12.4 - 3", jquery@>=1.7, jquery@>=1.9.1, jquery@^3.1.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
   integrity sha1-XE2d5lKvbNCncBVKYxu6ErAVx4c=
@@ -5615,11 +5615,9 @@ slice-ansi@0.0.4:
   integrity sha1-7b+JA/ZvfOL46v1s7tZeJkyDGzU=
 
 slick-carousel@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.6.0.tgz#780f378e470f4e6f6bec1aa2bae0475f4f9eb085"
-  integrity sha1-eA83jkcPTm9r7BqiuuBHX0+esIU=
-  dependencies:
-    jquery ">=1.7.2"
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+  integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
 
 sntp@1.x.x:
   version "1.0.9"
