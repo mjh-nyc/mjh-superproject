@@ -5,9 +5,15 @@
 .social-channels {
     padding-top: 4px;
     @include font-size(20);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     @include media-breakpoint-up(md) {
         @include font-size(23);
         padding-top: 3px;
+        justify-content: flex-start;
     }
     a {
         margin-right: 10px;
