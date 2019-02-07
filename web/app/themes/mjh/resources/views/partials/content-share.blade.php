@@ -16,7 +16,7 @@
 				</div>
 			@endif
 			<div class="share-channel">
-				<a href="https://www.linkedin.com/shareArticle?mini=true&url={!! get_the_permalink(); !!}&title={!! urlencode(App::postTitle()); !!}&summary={!! urlencode(App::postExcerpt()); !!}&source={!! get_bloginfo("name") !!}" target="_blank" onclick="ga('send', 'event', 'social', 'share', 'linkedin');"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				<a href="https://www.linkedin.com/shareArticle?mini=true&url={!! get_the_permalink(); !!}&title={!! urlencode(App::postTitle()); !!}&summary={!! urlencode(App::postExcerpt()); !!}&source={!! urlencode(get_bloginfo("name")) !!}" target="_blank" onclick="ga('send', 'event', 'social', 'share', 'linkedin');"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 			</div>
 			<div class="share-channel">
 				<a href="mailto:?&subject=I thought you might find this interesting!&body={!! App::postTitle(); !!}%0A%0A{!! get_the_permalink(); !!}" onclick="ga('send', 'event', 'social', 'share', 'email');"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
