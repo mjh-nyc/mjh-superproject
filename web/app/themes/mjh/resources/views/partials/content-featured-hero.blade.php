@@ -34,10 +34,12 @@
 		</div>
 	@endif -->
 	@if(App::get_field('featured_video',App::getCoreExhibitionID()))
-		<video autoplay muted loop id="herovideo" poster="{!! App::featuredImageSrc('large',App::getCoreExhibitionID()) !!}">
-			<!--<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">-->
-				<source src="{!! App::get_field('featured_video',App::getCoreExhibitionID()) !!}" type="video/mp4">
-		</video>
+		<div class="hero-video">
+			<video playsinline autoplay muted loop id="herovideo" poster="{!! App::featuredImageSrc('large',App::getCoreExhibitionID()) !!}">
+				<!--<source src="@asset('videos/auschwitz-intro.mp4')" type="video/mp4">-->
+					<source src="{!! App::get_field('featured_video',App::getCoreExhibitionID()) !!}" type="video/mp4">
+			</video>
+		</div>
 	@else
 		{!! App::featuredImage('large',App::getCoreExhibitionID()) !!}
 	@endif
