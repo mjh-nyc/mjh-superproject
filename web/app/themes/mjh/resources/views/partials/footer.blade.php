@@ -80,12 +80,6 @@ src="https://www.facebook.com/tr?id=1335537099825695&ev=PageView&noscript=1"
 <!--
 Event snippet for MOJH Retargeting Pixel on https://mjhnyc.org/: Please do not remove.
 -->
-<script>
-    gtag('event', 'conversion', {
-        'allow_custom_scripts': true,
-        'send_to': 'DC-9105301/retar0/mojhr0+standard'
-    });
-</script>
 <noscript>
   <img src="https://ad.doubleclick.net/ddm/activity/src=9105301;type=retar0;cat=mojhr0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" alt=""/>
 </noscript>
