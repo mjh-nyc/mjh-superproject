@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9435ab5508d61c25ea7f5c19e696a40",
+    "content-hash": "2bf71aa0da2f78dd107c47cddaee08ba",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -632,26 +632,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
-        },
-        {
-            "name": "wpackagist-plugin/unbounce",
-            "version": "1.0.44",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/unbounce/",
-                "reference": "tags/1.0.44"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/unbounce.1.0.44.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/unbounce/"
         },
         {
             "name": "wpackagist-plugin/wp-super-cache",

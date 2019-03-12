@@ -113,7 +113,6 @@
     "wpackagist-plugin/tinymce-advanced": "^5.1",
     "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
     "formidableforms/formidable-pro": "^3.05",
-    "wpackagist-plugin/unbounce": "^1.0.36",
     "wpackagist-plugin/wp-super-cache":">=1.4.8",
     "wpackagist-plugin/formidable": "3.06.02"
   },
