@@ -36,11 +36,11 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-	"version": "5.6.7",
+	"version": "5.7.13",
 	"type": "wordpress-plugin",
 	"dist": {
 	  "type": "zip",
-	   "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+	   "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0"
 	},
 	"require": {
 	  "philippbaschke/acf-pro-installer": "^1.0",
@@ -64,11 +64,11 @@
       "type": "package",
       "package": {
         "name": "formidableforms/formidable-pro",
-		"version": "2.05.09",
+		"version": "3.06.02",
 		"type": "wordpress-plugin",
 		"dist": {
 		  "type": "zip",
-		   "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-2.05.09.zip"
+		   "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-3.06.02.zip"
 		}
       }
     },
@@ -93,7 +93,7 @@
 		"source": {
 		  "type": "git",
 		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-		   "reference": "1.4.8"
+		   "reference": "1.4.9"
 		}
       }
     }
@@ -104,17 +104,17 @@
     "vlucas/phpdotenv": "^2.0.1",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.5",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
     "mjh-nyc/mjh-custom-configurations": "dev-master",
     "yoast/wordpress-seo-premium": "^9.5",
     "deliciousbrains/wp-offload-s3-pro": "^1.0",
     "wpackagist-plugin/amazon-web-services": "^1.0",
-    "johnpbloch/wordpress": "4.9.2",
-    "wpackagist-plugin/tinymce-advanced": "^4.6",
+    "johnpbloch/wordpress": "~5.1.0",
+    "wpackagist-plugin/tinymce-advanced": "^5.1",
     "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
-    "formidableforms/formidable-pro": "^2.05",
-    "wpackagist-plugin/unbounce": "1.0.36",
-    "wpackagist-plugin/wp-super-cache":">=1.4.8"
+    "formidableforms/formidable-pro": "^3.05",
+    "wpackagist-plugin/wp-super-cache":">=1.4.8",
+    "wpackagist-plugin/formidable": "3.06.02"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
