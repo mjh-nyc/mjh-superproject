@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6ea35aeb15bc6faa334366e470f7d39",
+    "content-hash": "544647fc1bb3bc835424e0058ec4907a",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.6.7",
+            "version": "5.7.13",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.6.7",
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.7.13",
                 "reference": null,
                 "shasum": null
             },
@@ -141,10 +141,10 @@
         },
         {
             "name": "formidableforms/formidable-pro",
-            "version": "2.05.09",
+            "version": "3.06.02",
             "dist": {
                 "type": "zip",
-                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-2.05.09.zip",
+                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-3.06.02.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -152,20 +152,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.9.2",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "34627d0b992bbe9ed909c73b27307297fb21f2a4"
+                "reference": "bdb6632aea9872b7c71322c724a8acfc0ec9ee7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/34627d0b992bbe9ed909c73b27307297fb21f2a4",
-                "reference": "34627d0b992bbe9ed909c73b27307297fb21f2a4",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/bdb6632aea9872b7c71322c724a8acfc0ec9ee7f",
+                "reference": "bdb6632aea9872b7c71322c724a8acfc0ec9ee7f",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "4.9.2",
+                "johnpbloch/wordpress-core": "5.1.0",
                 "johnpbloch/wordpress-core-installer": "^1.0",
                 "php": ">=5.3.2"
             },
@@ -187,32 +187,32 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2018-01-16T23:12:18+00:00"
+            "time": "2019-02-22T18:16:29+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "4.9.2",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "59292fac30315323ce99e1a1d362015581e5d8e6"
+                "reference": "07c57b738c9967e5643641a44e659b5851c066af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/59292fac30315323ce99e1a1d362015581e5d8e6",
-                "reference": "59292fac30315323ce99e1a1d362015581e5d8e6",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/07c57b738c9967e5643641a44e659b5851c066af",
+                "reference": "07c57b738c9967e5643641a44e659b5851c066af",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "provide": {
-                "wordpress/core-implementation": "4.9.2"
+                "wordpress/core-implementation": "5.1.0"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -227,7 +227,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2018-01-16T23:12:12+00:00"
+            "time": "2019-02-22T18:16:24+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -594,16 +594,36 @@
             "homepage": "https://wordpress.org/plugins/flowpaper-lite-pdf-flipbook/"
         },
         {
-            "name": "wpackagist-plugin/tinymce-advanced",
-            "version": "4.8.2",
+            "name": "wpackagist-plugin/formidable",
+            "version": "3.06.02",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
-                "reference": "tags/4.8.2"
+                "url": "https://plugins.svn.wordpress.org/formidable/",
+                "reference": "tags/3.06.02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.4.8.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/formidable.3.06.02.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/formidable/"
+        },
+        {
+            "name": "wpackagist-plugin/tinymce-advanced",
+            "version": "5.1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
+                "reference": "tags/5.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.1.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -615,15 +635,15 @@
         },
         {
             "name": "wpackagist-plugin/unbounce",
-            "version": "1.0.36",
+            "version": "1.0.44",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/unbounce/",
-                "reference": "tags/1.0.36"
+                "reference": "tags/1.0.44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/unbounce.1.0.36.zip",
+                "url": "https://downloads.wordpress.org/plugin/unbounce.1.0.44.zip",
                 "reference": null,
                 "shasum": null
             },
