@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "544647fc1bb3bc835424e0058ec4907a",
+    "content-hash": "b9435ab5508d61c25ea7f5c19e696a40",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -284,10 +284,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-                "reference": "1.4.8"
+                "reference": "1.4.9"
             },
             "type": "wordpress-muplugin",
-            "time": "2019-03-08T20:47:38+00:00"
+            "time": "2019-03-12T19:42:39+00:00"
         },
         {
             "name": "oscarotero/env",
