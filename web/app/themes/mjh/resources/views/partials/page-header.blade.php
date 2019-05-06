@@ -17,6 +17,10 @@
     
     {{-- print buy tickets button (if link added for this exhibition) --}}
     @include('partials.content-exhibition-ticket-button', ['wrapper_class'=>'highlighted_exhibition_button', 'ticket_url' => App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['url'], 'ticket_url_target'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['target'], 'ticket_url_title'=>App::get_field('exhibition_ticket_button_link', App::getCoreExhibitionID())['title'], 'ticket_url_text'=>App::get_field('exhibition_ticket_button_text',App::getCoreExhibitionID())])
+
+    <div class="highlighted_exhibition_annonce">
+      <p>{!! App::get_field('exhibition_notes_announcements',App::getCoreExhibitionID()) !!}</p>
+    </div>
   
   @endif
   
