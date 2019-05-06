@@ -10,7 +10,10 @@
 	        @endif
 			</h1>
 
-	        @if ( App::get_field('exhibition_view_prompt',App::getCoreExhibitionID()) )
+			<div class="highlighted_exhibition_annonce">
+				<p>{!! App::get_field('exhibition_notes_announcements',App::getCoreExhibitionID()) !!}</p>
+			</div>
+			@if ( App::get_field('exhibition_view_prompt',App::getCoreExhibitionID()) )
 	        	<div class="highlighted_exhibition_button discover">
 	        		<a href="{!! get_the_permalink(App::getCoreExhibitionID()) !!}" class="cta-round cta-outline">{{ App::get_field('exhibition_view_prompt',App::getCoreExhibitionID()) }}</a>
 	        	</div>

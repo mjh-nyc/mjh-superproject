@@ -275,12 +275,39 @@
 }
 
 .home, .single-exhibition {
+    .highlighted_exhibition_annonce {
+        /*transform:rotate(-6deg);
+        pointer-events: none;
+        position: absolute;
+        left: 50%;
+        margin: 0 auto;
+        display: inline;
+        width: 300px;
+        margin-left: -150px;
+        margin-top: -4px;*/
+        margin: 2rem auto;
+        p {
+            display: block;
+            background-color: $color-header-alertbg;
+            box-shadow: 10px 0 0 $color-header-alertbg, -10px 0 0 $color-header-alertbg;
+            display: inline;
+            box-decoration-break: clone;
+            text-decoration: none;
+            border-bottom: none;
+            line-height: 1.3em;
+            @include media-breakpoint-up(md) {
+                font-size: 2rem;
+            }
+            padding: 7px 0;
+            font-style: italic;
+        }
+    }
     .highlighted_exhibition_button {
         margin: 10px 5px 25px 5px;
         display:inline-block;
-        @include media-breakpoint-up(md) {
-            margin-top: 25px;
-        }
+        //@include media-breakpoint-up(md) {
+           // margin-top: 30px;
+        //}
         &.discover {
             display: none;
             @include media-breakpoint-up(sm) {
@@ -919,19 +946,19 @@
         overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
         padding-top: 3rem;
-        height: 255px;
+        height: 300px;
         @include media-breakpoint-up(sm) {
             padding-top: 133px;
             margin-top: -133px;
             height: 410px;
         }
         @include media-breakpoint-up(md) {
-            height: 450px;
+            height: 500px;
             padding-top: 178px;
             margin-top: -178px;
         }
         @include media-breakpoint-up(lg) {
-            height: 540px;
+            height: 600px;
         }
         @include media-breakpoint-up(xl) {
             height: 650px;
