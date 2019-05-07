@@ -294,13 +294,12 @@
             box-decoration-break: clone;
             text-decoration: none;
             border-bottom: none;
-            padding: 7px 0;*/
+            padding: 7px 0;
+            font-style: italic;*/
             line-height: 1.3em;
             @include media-breakpoint-up(md) {
                 font-size: 2rem;
             }
-            
-            font-style: italic;
         }
     }
     .highlighted_exhibition_button {
