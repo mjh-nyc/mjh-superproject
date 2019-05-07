@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ab0221c6af0ce6694c946b55b7f1f5c",
+    "content-hash": "2c9e2ab9af6478b3300d958e95f2d1b3",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -287,7 +287,7 @@
                 "reference": "1.5.0"
             },
             "type": "wordpress-muplugin",
-            "time": "2019-05-06 23:44:00"
+            "time": "2019-05-06T23:44:00+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -615,6 +615,26 @@
             "homepage": "https://wordpress.org/plugins/formidable/"
         },
         {
+            "name": "wpackagist-plugin/inactive-logout",
+            "version": "1.8.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/inactive-logout/",
+                "reference": "tags/1.8.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/inactive-logout.1.8.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/inactive-logout/"
+        },
+        {
             "name": "wpackagist-plugin/tinymce-advanced",
             "version": "5.1.0",
             "source": {
@@ -659,7 +679,7 @@
             "version": "9.5",
             "dist": {
                 "type": "zip",
-                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip",
+                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip",
                 "reference": null,
                 "shasum": null
             },
