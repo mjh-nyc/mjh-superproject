@@ -114,7 +114,8 @@
     "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
     "formidableforms/formidable-pro": "^3.05",
     "wpackagist-plugin/wp-super-cache":">=1.4.8",
-    "wpackagist-plugin/formidable": "3.06.02"
+    "wpackagist-plugin/formidable": "3.06.02",
+    "wpackagist-plugin/inactive-logout": "1.8.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"

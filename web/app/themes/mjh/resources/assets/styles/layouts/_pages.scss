@@ -285,20 +285,21 @@
         width: 300px;
         margin-left: -150px;
         margin-top: -4px;*/
-        margin: 2rem auto;
+        margin: 1rem auto;
         p {
             display: block;
-            background-color: $color-header-alertbg;
+            /*background-color: $color-header-alertbg;
             box-shadow: 10px 0 0 $color-header-alertbg, -10px 0 0 $color-header-alertbg;
             display: inline;
             box-decoration-break: clone;
             text-decoration: none;
             border-bottom: none;
+            padding: 7px 0;*/
             line-height: 1.3em;
             @include media-breakpoint-up(md) {
                 font-size: 2rem;
             }
-            padding: 7px 0;
+            
             font-style: italic;
         }
     }
