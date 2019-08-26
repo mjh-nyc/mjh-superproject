@@ -109,7 +109,7 @@
     "yoast/wordpress-seo-premium": "^9.5",
     "deliciousbrains/wp-offload-s3-pro": "^1.0",
     "wpackagist-plugin/amazon-web-services": "^1.0",
-    "johnpbloch/wordpress": "~5.1.0",
+    "johnpbloch/wordpress": "~5.2.0",
     "wpackagist-plugin/tinymce-advanced": "^5.1",
     "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
     "formidableforms/formidable-pro": "^3.05",
