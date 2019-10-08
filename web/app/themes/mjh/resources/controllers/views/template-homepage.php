@@ -4,6 +4,8 @@ namespace App;
 
 use Sober\Controller\Controller;
 use WP_Query;
+use DateTime;
+use DateTimeZone;
 
 class Homepage extends Controller
 {
@@ -244,7 +246,12 @@ class Homepage extends Controller
         $holidayHash = array();
         if(!empty($holidays)){
             foreach($holidays as $key => $holiday){
-                $holidayHash[strtotime($holiday['holiday_date'])] =$key ;
+				//Get the timezone offset since acf date does not store the timezone
+				$holidayTimestamp = strtotime($holiday['holiday_date']);
+				$dt = new DateTime("@".$holidayTimestamp);
+				$dt->setTimeZone(new DateTimeZone($currentTimeZone));
+				$holidayTimestamp = $holidayTimestamp - $dt->getOffset();
+                $holidayHash[$holidayTimestamp] =$key ;
             }
             // Check if today is a holiday
             if(array_key_exists($currentDate,$holidayHash)){
