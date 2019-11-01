@@ -136,13 +136,13 @@
     .top-wrapper {
         position: relative;
         z-index: 1049;
-        height: 58px;
+        /*height: 58px;
         @include media-breakpoint-up(sm) {
             height: 132px;
         }
         @include media-breakpoint-up(md) {
             height: 143px;
-        }
+        }*/
         @include clearfix;
         .sticky {
             @include clearfix;
@@ -160,13 +160,15 @@
         }
         img {
             image-rendering: -webkit-optimize-contrast;
-            height: 30px;
-            width: auto;
-            @include media-breakpoint-up(md) {
+            height: auto;
+            width: 90%;
+            @include media-breakpoint-up(sm) {
                 height: 40px;
+                width: auto;
             }
             @include media-breakpoint-up(lg) {
                 height: 60px;
+                width: auto;
             }
 
         }

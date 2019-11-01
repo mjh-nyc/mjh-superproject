@@ -281,9 +281,12 @@ iframe{
 .sticky-container {
   max-width: 1110px;
   margin: 0 auto;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   @include media-breakpoint-up(sm) {
     padding-bottom: 0;
+  }
+  .row {
+    align-items: center;
   }
 }
 .sticky {

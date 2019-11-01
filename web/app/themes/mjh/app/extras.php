@@ -63,7 +63,7 @@ add_filter( 'login_headerurl','App\\my_login_logo_url' );
 function my_login_logo_url_title() {
     return get_option('blogname');
 }
-add_filter( 'login_headertitle','App\\my_login_logo_url_title' );
+add_filter( 'login_headertext','App\\my_login_logo_url_title' );
 
 //change the default WP login screen logo
 function my_login_logo() {
