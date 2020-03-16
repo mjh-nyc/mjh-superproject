@@ -248,6 +248,10 @@ class Homepage extends Controller
             foreach($holidays as $key => $holiday){
 				//Get the timezone offset since acf date does not store the timezone
 				$holidayTimestamp = strtotime($holiday['holiday_date']);
+				// If empty, set it to current time
+				if(empty($holidayTimestamp)){
+                    $holidayTimestamp = strtotime('Now');
+                }
 				$dt = new DateTime("@".$holidayTimestamp);
 				$dt->setTimeZone(new DateTimeZone($currentTimeZone));
 				$holidayTimestamp = $holidayTimestamp - $dt->getOffset();
