@@ -17,6 +17,11 @@
             @yield('carousel')
         </div>
       @endif
+
+      <div class="container">
+        @yield('homepage-special-feature')
+      </div>
+
       <div class="wrap container" role="document">
         <div class="content">
           <main class="main">

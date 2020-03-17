@@ -1,3 +1,4 @@
+
 <div class="container event-news-happenings"> 
   <!--@if ($press_posts)
       <div class="col-md-6 wrapper">
@@ -9,7 +10,7 @@
       </div>
     </div>
     @endif-->
-  @if ($blog_posts)
+  @if ($blog_posts && App::get_field('blog_feature'))
   <div class="post listing homepage row"> 
       <div class="col-md-3">
         <h3>{!! _e("From the blog","sage") !!}</h3>

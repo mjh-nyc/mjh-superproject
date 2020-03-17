@@ -942,7 +942,7 @@
     }
     .video {
 
-        margin-bottom: 3rem;
+        /*margin-bottom: 3rem;*/
         overflow: hidden;
         background: rgba(0, 0, 0, 0.85);
         padding-top: 3rem;
@@ -1302,6 +1302,35 @@
             text-transform: uppercase;
             margin-bottom: 0.5em;
         }
+    }
+
+    .special-feature {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        @include media-breakpoint-up(md) {
+            margin-top: 4rem;
+        }
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        &--image {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        h2 {
+            @include font-size(24);
+            @include media-breakpoint-up(md) {
+                @include font-size(36);
+            }
+        }
+        &--content {
+            padding:3rem;
+        }
+
     }
     .special-announcement {
         background-color: $color-deep-purple1;
