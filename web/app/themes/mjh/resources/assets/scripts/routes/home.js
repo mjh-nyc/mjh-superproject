@@ -110,6 +110,7 @@ export default {
             dots: false,
             pauseOnHover: true,
             infinite: false,
+            adaptiveHeight: true,
             responsive: [
                 {
                   breakpoint: 768,

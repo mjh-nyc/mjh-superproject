@@ -533,9 +533,9 @@
             list-style: none;
             padding: 0;
             li {
-                @include font-size(17);
+                @include font-size(14);
                 @include media-breakpoint-up(lg) {
-                    @include font-size(24);
+                    @include font-size(18);
                     display: inline-block;
                     margin-right: 1rem;
                 }
