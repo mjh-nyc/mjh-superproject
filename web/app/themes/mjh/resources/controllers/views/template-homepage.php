@@ -19,6 +19,24 @@ class Homepage extends Controller
       return $exhibitions;
     }
 
+
+   /**
+     * Return aspecial feature components
+     *
+     * @return array
+     */
+    public function specialFeature() {
+        $special_feature = App::get_field('homepage_special_feature');
+
+        if( $special_feature ){
+            return $special_feature;
+        } else {
+            false;
+        }
+        
+    }
+
+
     /**
      * Return upcoming events posts
      *
