@@ -1153,24 +1153,21 @@
             -ms-transform: scale(.95);
             transform: scale(.95);
 
-            &:hover {
-                -moz-transform:none;
-                -webkit-transform: none;
-                -o-transform: none;
-                -ms-transform: none;
-                transform: none;
-            }
+            
 
 
             text-align: center;
+        }
 
+         .slick-slide {
             &.slick-center {
                 z-index: 1000;
-                -moz-transform: scale(1.05);
-                -webkit-transform: scale(1.05);
-                -o-transform: scale(1.05);
-                -ms-transform: scale(1.05);
-                transform: scale(1.05);
+                -moz-transform: scale(1.11);
+                -webkit-transform: scale(1.11);
+                -o-transform: scale(1.11);
+                -ms-transform: scale(1.11);
+                transform: scale(1.11);
+               
             }
         }
         .card-image {
