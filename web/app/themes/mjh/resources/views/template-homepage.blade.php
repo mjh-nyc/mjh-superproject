@@ -16,11 +16,15 @@
   @endwhile
 @endsection--}}
 
+@section('homepage-special-feature')
+  @include('partials.content-homepage-special-feature')
+@endsection
+
 @section('content')
   @include('partials.content-event-news-happenings')
-  @while(have_posts()) @php(the_post())
+  {{--@while(have_posts()) @php(the_post())
     @include('partials.content-page')
-  @endwhile
+  @endwhile--}}
 @endsection
 
 @section('museum-plan')
