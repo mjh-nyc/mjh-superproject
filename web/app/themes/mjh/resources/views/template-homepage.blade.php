@@ -10,11 +10,11 @@
   @endwhile
 @endsection
 
-@section('press-quotes')
+{{--@section('press-quotes')
   @while(have_posts()) @php(the_post())
      @include('partials.content-press-quotes',['press_quotes'=>App::get_repeater_field( 'press_quotes', App::getCoreExhibitionID() )])
   @endwhile
-@endsection
+@endsection--}}
 
 @section('content')
   @include('partials.content-event-news-happenings')
