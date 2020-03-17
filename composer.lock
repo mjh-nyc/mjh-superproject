@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "4bbc378821596a67038c3dbcfaea7aa7",
@@ -11,9 +11,7 @@
             "version": "5.8.3",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.8.3",
-                "reference": null,
-                "shasum": null
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.8.3"
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -133,9 +131,7 @@
             "version": "1.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org",
-                "reference": null,
-                "shasum": null
+                "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org"
             },
             "type": "wordpress-plugin"
         },
@@ -144,28 +140,26 @@
             "version": "4.02.01",
             "dist": {
                 "type": "zip",
-                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip"
             },
             "type": "wordpress-plugin"
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "5.2.5",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "68328258f36f0a5096993cab0c5cb7507d2b4258"
+                "reference": "33fca34d16818a8d893d374eecd5c8c46cab6e88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/68328258f36f0a5096993cab0c5cb7507d2b4258",
-                "reference": "68328258f36f0a5096993cab0c5cb7507d2b4258",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/33fca34d16818a8d893d374eecd5c8c46cab6e88",
+                "reference": "33fca34d16818a8d893d374eecd5c8c46cab6e88",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.2.5",
+                "johnpbloch/wordpress-core": "5.2.4",
                 "johnpbloch/wordpress-core-installer": "^1.0",
                 "php": ">=5.6.20"
             },
@@ -187,27 +181,27 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-12-12T21:46:35+00:00"
+            "time": "2019-10-14T20:47:31+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.2.5",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "997e362afdaca2d4b120869bf8459a387a9e55b3"
+                "reference": "01530fea56649a4040971fc614baa546273d964c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/997e362afdaca2d4b120869bf8459a387a9e55b3",
-                "reference": "997e362afdaca2d4b120869bf8459a387a9e55b3",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/01530fea56649a4040971fc614baa546273d964c",
+                "reference": "01530fea56649a4040971fc614baa546273d964c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.2.5"
+                "wordpress/core-implementation": "5.2.4"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -227,7 +221,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-12-12T21:46:31+00:00"
+            "time": "2019-10-14T20:47:26+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -287,7 +281,7 @@
                 "reference": "1.5.1"
             },
             "type": "wordpress-muplugin",
-            "time": "2020-03-17 16:54:24"
+            "time": "2020-03-17T16:54:24+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -447,16 +441,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.14.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
-                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +462,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -501,7 +495,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-01-13T11:15:53+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -564,9 +558,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -584,9 +576,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -604,9 +594,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -616,17 +604,15 @@
         },
         {
             "name": "wpackagist-plugin/inactive-logout",
-            "version": "1.9.5",
+            "version": "1.9.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/inactive-logout/",
-                "reference": "tags/1.9.5"
+                "reference": "tags/1.9.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/inactive-logout.1.9.5.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/inactive-logout.1.9.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -636,17 +622,15 @@
         },
         {
             "name": "wpackagist-plugin/tinymce-advanced",
-            "version": "5.3.0",
+            "version": "5.2.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
-                "reference": "trunk"
+                "reference": "tags/5.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.zip?timestamp=1583991610",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.2.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -656,17 +640,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-super-cache",
-            "version": "1.7.1",
+            "version": "1.7.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-super-cache/",
-                "reference": "tags/1.7.1"
+                "reference": "tags/1.7.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-super-cache.1.7.1.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/wp-super-cache.1.7.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -679,9 +661,7 @@
             "version": "9.5",
             "dist": {
                 "type": "zip",
-                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip",
-                "reference": null,
-                "shasum": null
+                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
             },
             "type": "wordpress-plugin"
         }
