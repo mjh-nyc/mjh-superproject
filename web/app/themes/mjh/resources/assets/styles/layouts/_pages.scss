@@ -1778,14 +1778,17 @@
             &.slick-prev {
                left: 37%;
                 @include media-breakpoint-up(md) {
-                    left: 37%;
+                    left: 40%;
                 }
             }
             &.slick-next {
                 right: 37%;
                 @include media-breakpoint-up(md) {
-                    right: 37%;
+                    right: 40%;
                 }
+            }
+            &.slick-disabled {
+                opacity: .2;
             }
         }
     }
