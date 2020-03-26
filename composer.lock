@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bbc378821596a67038c3dbcfaea7aa7",
+    "content-hash": "1a1dab62e5b860edcc8e674f7a08637d",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -619,6 +619,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/inactive-logout/"
+        },
+        {
+            "name": "wpackagist-plugin/popup-maker",
+            "version": "1.9.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/popup-maker/",
+                "reference": "tags/1.9.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/popup-maker/"
         },
         {
             "name": "wpackagist-plugin/tinymce-advanced",
