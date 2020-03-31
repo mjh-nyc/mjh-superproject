@@ -1,6 +1,6 @@
 <div class="container museum-plan">
   <div class="header">
-    {!! _e('Plan your visit','sage') !!}
+    {{ App::get_field('plan_your_visit_section_header') }}
   </div>
   <div class="museum-plans">
     <div class="plan-top row justify-content-center">

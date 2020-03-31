@@ -39,6 +39,10 @@
   @include('partials.content-recommended-by')
 @endsection
 
+@section('homepage-blog-slider')
+  @include('partials.content-homepage-blog-slider')
+@endsection
+
 @section('carousel')
   @while(have_posts()) @php(the_post())
     @include('partials.content-featured-carousel')

@@ -1498,6 +1498,89 @@
         }
     }
 }
+/* HOMEPAGE */
+.blog-slider {
+    padding-top: 6rem;
+    background-color: $color-light-grey;
+    .header {
+        @extend h1;
+        position: relative;
+        padding: 16px 0 16px;
+        margin: 0;
+        text-align: center;
+        @include media-breakpoint-up(sm) {
+            padding: 0 0 45px;
+        }
+    }
+    .featured-carousel {
+        overflow: hidden;
+        margin-top: 6rem;
+        button {
+            bottom: -60px !important;
+            &.slick-disabled {
+                opacity: .2;
+            }
+        }
+        
+        .slick-slide {
+            position: relative;
+
+            .slide {
+                padding:0 5px;
+                background-repeat: no-repeat;
+                background-size: cover;               
+                display: flex;
+                align-items: flex-end;
+                position: relative;
+                overflow: hidden;
+                height: 300px;
+                
+
+                .info {
+                    padding: 18px 20px;
+                    position: relative;
+                    z-index: 35;
+                    .card-title {
+                        
+                        @include font-size(24);
+                        @include media-breakpoint-up(md) {
+                            @include font-size(36);
+                        }
+                    }
+                   
+                }
+                &:after {
+                    opacity: 0.56;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    content: ' ';
+                    display: block;
+                    background: black;
+                    top: 0;
+                    left: 0; 
+                }
+            }
+
+            a {
+                @extend .slide-card;
+                opacity: 1 !important;
+                display: block;
+                position: relative;
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+                &:hover, &:focus, &:link, &:active {
+                    text-decoration: none;
+                    color: white;
+
+                }
+            
+            }
+            
+        }
+    }
+}
 
 .event-form, .publication-form {
     padding: 3rem 0;
@@ -1791,31 +1874,6 @@
         background:none;
         &:hover {
              background:none;
-        }
-    }
-
-    &.blog, &.press {
-        button {
-            &:focus {
-                outline: none;
-            }
-            bottom: 0;
-            top: inherit;
-            &.slick-prev {
-               left: 37%;
-                @include media-breakpoint-up(md) {
-                    left: 40%;
-                }
-            }
-            &.slick-next {
-                right: 37%;
-                @include media-breakpoint-up(md) {
-                    right: 40%;
-                }
-            }
-            &.slick-disabled {
-                opacity: .2;
-            }
         }
     }
 }
