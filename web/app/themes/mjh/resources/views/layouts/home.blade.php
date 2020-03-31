@@ -22,6 +22,12 @@
         @yield('homepage-special-feature')
       </div>
 
+      @if ($blog_posts && App::get_field('blog_feature'))
+        <div class="wrap blog-slider container-fluid">
+          @yield('homepage-blog-slider')
+        </div>
+      @endif
+
       <div class="wrap container">
         <div class="content">
           <main class="main">
@@ -40,12 +46,6 @@
       <div class="wrap recommended-by container-fluid">
         @yield('recommended-by')
       </div>
-
-      @if ($blog_posts && App::get_field('blog_feature'))
-        <div class="wrap blog-slider container-fluid">
-          @yield('homepage-blog-slider')
-        </div>
-      @endif
 
       @if (App::get_field('highlight_a_specific_exhibition','option'))
         <div class="wrap carousel container-fluid">
