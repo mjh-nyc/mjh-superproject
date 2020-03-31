@@ -110,18 +110,21 @@ export default {
             dots: false,
             pauseOnHover: true,
             infinite: false,
-            adaptiveHeight: true,
+            slidesToShow: 3,
+            
             responsive: [
                 {
                   breakpoint: 768,
                   settings: {
                     arrows: false,
+                    slidesToShow: 2,
                   },
                 },
                 {
                   breakpoint: 576,
                   settings: {
                     arrows: false,
+                    slidesToShow: 1,
                   },
                 },
               ],
