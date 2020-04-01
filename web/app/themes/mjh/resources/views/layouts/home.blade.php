@@ -22,12 +22,6 @@
         @yield('homepage-special-feature')
       </div>
 
-      @if ($blog_posts && App::get_field('blog_feature'))
-        <div class="wrap blog-slider container-fluid">
-          @yield('homepage-blog-slider')
-        </div>
-      @endif
-
       <div class="wrap container">
         <div class="content">
           <main class="main">
@@ -35,6 +29,13 @@
           </main>
         </div>
       </div>
+
+       @if ($blog_posts && App::get_field('blog_feature'))
+        <div class="wrap blog-slider container-fluid">
+          @yield('homepage-blog-slider')
+        </div>
+      @endif
+      
       <div class="wrap museum-plan container-fluid">
             @yield('museum-plan')
       </div>

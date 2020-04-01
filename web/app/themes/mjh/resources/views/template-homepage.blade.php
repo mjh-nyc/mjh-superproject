@@ -20,15 +20,16 @@
   @include('partials.content-homepage-special-feature')
 @endsection
 
-@section('homepage-blog-slider')
-  @include('partials.content-homepage-blog-slider')
-@endsection
 
 @section('content')
   @include('partials.content-event-news-happenings')
   {{--@while(have_posts()) @php(the_post())
     @include('partials.content-page')
   @endwhile--}}
+@endsection
+
+@section('homepage-blog-slider')
+  @include('partials.content-homepage-blog-slider')
 @endsection
 
 @section('museum-plan')
