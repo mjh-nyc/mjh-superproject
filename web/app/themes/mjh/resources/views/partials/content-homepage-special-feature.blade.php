@@ -8,7 +8,7 @@
          </div>   
       </div>
     @endif
-    <div class="col-md-8 special-feature--content">
+    <div class="@if ($special_feature['special_feature_image']) col-md-8 @else col-md-12 @endif special-feature--content">
       @if ($special_feature['special_feature_title'])
         <h2>{{ $special_feature['special_feature_title'] }}</h2>
       @endif
