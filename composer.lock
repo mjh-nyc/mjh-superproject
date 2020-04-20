@@ -1,19 +1,17 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b7ee2129a0d28ddfaf61de3ec018bb9",
+    "content-hash": "edf29b7dc3ed8e2d60d5620b7767cf7e",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
             "version": "5.8.3",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.8.3",
-                "reference": null,
-                "shasum": null
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.8.3"
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -133,9 +131,7 @@
             "version": "1.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org",
-                "reference": null,
-                "shasum": null
+                "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org"
             },
             "type": "wordpress-plugin"
         },
@@ -144,9 +140,7 @@
             "version": "4.02.01",
             "dist": {
                 "type": "zip",
-                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip"
             },
             "type": "wordpress-plugin"
         },
@@ -287,7 +281,7 @@
                 "reference": "1.5.2"
             },
             "type": "wordpress-muplugin",
-            "time": "2020-03-31 16:48:09"
+            "time": "2020-03-31T16:48:09+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -564,9 +558,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip",
-                "reference": "tags/1.0.5",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -584,9 +576,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943",
-                "reference": "trunk",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -604,9 +594,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip",
-                "reference": "tags/4.02.01",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -624,9 +612,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/inactive-logout.1.9.2.zip",
-                "reference": "tags/1.9.2",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/inactive-logout.1.9.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -644,9 +630,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip",
-                "reference": "tags/1.9.2",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -664,15 +648,31 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.2.1.zip",
-                "reference": "tags/5.2.1",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.2.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
+        },
+        {
+            "name": "wpackagist-plugin/woocommerce",
+            "version": "4.0.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce/",
+                "reference": "tags/4.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.4.0.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
             "name": "wpackagist-plugin/wp-super-cache",
@@ -684,9 +684,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-super-cache.1.7.0.zip",
-                "reference": "tags/1.7.0",
-                "shasum": null
+                "url": "https://downloads.wordpress.org/plugin/wp-super-cache.1.7.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -699,9 +697,7 @@
             "version": "9.5",
             "dist": {
                 "type": "zip",
-                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip",
-                "reference": null,
-                "shasum": null
+                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
             },
             "type": "wordpress-plugin"
         }
@@ -796,5 +792,6 @@
     "platform": {
         "php": ">=5.6"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
