@@ -63,72 +63,55 @@ export default {
                 curr_header = new_header;
             }
         });
-
-
-        //Unslick it if we have just one slide
-        jQuery('.slider-plan-deck').on('init', function(event, slick){
-            if (slick.slideCount === 1) {
-                slick.unslick();
-            }
-        });
-
-        jQuery('.slider-plan-deck').slick({
-            centerMode: true,
-            centerPadding: '30px',
-            slidesToShow: 1,
-            //autoplay: true,
-            pauseOnHover: true,
-            speed: 100,
-            autoplaySpeed:5000,
-            responsive: [
-                {
-                  breakpoint: 768,
-                  settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1,
-                  },
-                },
-                {
-                  breakpoint: 576,
-                  settings: {
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 1,
-                  },
-                },
-              ],
-        });
-        
-        
-
-
         //Blog and press
-        jQuery('.slider-posts').slick({
-            dots: false,
-            pauseOnHover: true,
-            infinite: false,
-            slidesToShow: 3,
-            
-            responsive: [
-                {
-                  breakpoint: 768,
-                  settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                  },
-                },
-                {
-                  breakpoint: 576,
-                  settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                  },
-                },
-              ],
-        });
+      jQuery('.slider-posts').slick({
+        dots: false,
+        pauseOnHover: true,
+        infinite: false,
+        slidesToShow: 3,
+
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              arrows: false,
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
+
+      //Custom slider
+      jQuery('.slider-custom').slick({
+        dots: false,
+        pauseOnHover: true,
+        infinite: false,
+        slidesToShow: 3,
+
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 576,
+            settings: {
+              arrows: false,
+              slidesToShow: 1,
+            },
+          },
+        ],
+      });
 
     },
     finalize() {

@@ -1,6 +1,6 @@
-<div class="container event-news-happenings"> 
+<div class="container event-news-happenings">
   <div class="header">
-    {{App::get_field('featured_events_header')}}
+    {{get_sub_field('events_section_title')}}
   </div>
   <div class="events listing hompage row">
     @if ($upcoming_events)
@@ -15,5 +15,4 @@
       <a href="/current-events/" class="cta-round cta-outline cta-secondary">@php _e("See all events","sage"); @endphp</a>
     </div>
   </div>
-  
 </div>

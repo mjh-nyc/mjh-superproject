@@ -10,42 +10,28 @@
   @endwhile
 @endsection
 
-{{--@section('press-quotes')
-  @while(have_posts()) @php(the_post())
-     @include('partials.content-press-quotes',['press_quotes'=>App::get_repeater_field( 'press_quotes', App::getCoreExhibitionID() )])
-  @endwhile
-@endsection--}}
-
-@section('homepage-special-feature')
-  @include('partials.content-homepage-special-feature')
-@endsection
-
-
-@section('content')
-  @include('partials.content-event-news-happenings')
-  {{--@while(have_posts()) @php(the_post())
-    @include('partials.content-page')
-  @endwhile--}}
-@endsection
-
-@section('homepage-blog-slider')
-  @include('partials.content-homepage-blog-slider')
-@endsection
-
-@section('museum-plan')
-    @include('partials.content-museum-plan')
-@endsection
-
-@section('special-announcement')
-  @include('partials.content-special-announcement')
-@endsection
-
-@section('recommended-by')
-  @include('partials.content-recommended-by')
-@endsection
-
-@section('carousel')
-  @while(have_posts()) @php(the_post())
-    @include('partials.content-featured-carousel')
-  @endwhile
+@section('flexible_homepage_content_sections')
+    @while (have_rows('flexible_homepage_content_sections')) @php(the_row())
+      @if(get_row_layout()=='special_feature_section')
+        @include('partials.content-homepage-special-feature')
+      @endif
+      @if(get_row_layout()=='events_section')
+        @include('partials.content-event-news-happenings')
+      @endif
+      @if(get_row_layout()=='exhibitions_section')
+          @include('partials.content-featured-carousel')
+      @endif
+      @if(get_row_layout()=='blog_section')
+          @include('partials.content-homepage-blog-slider')
+      @endif
+      @if(get_row_layout()=='about_section')
+        @include('partials.content-homepage-about')
+      @endif
+      @if(get_row_layout()=='custom_section')
+        @include('partials.content-homepage-custom')
+      @endif
+      @if(get_row_layout()=='custom_carousel_section')
+        @include('partials.content-homepage-custom-carousel')
+      @endif
+    @endwhile
 @endsection
