@@ -16,6 +16,7 @@
       <div class="plan-item">
         <div class="plan-title">{{ get_sub_field('about_section_hours_title')}}</div>
         <div class="content">
+          {!! $get_current_schedule_text !!}
           {!!  get_sub_field('about_section_hours_copy') !!}
         </div>
       </div>

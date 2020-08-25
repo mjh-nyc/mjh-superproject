@@ -264,7 +264,7 @@ class Homepage extends Controller
      * @return string
      */
     public function getCurrentScheduleText() {
-        $regularHours =  get_field('regular_hours_repeater', 'option');
+        /*$regularHours =  get_field('regular_hours_repeater', 'option');
         $holidays =  get_field('holiday_hours_repeater', 'option');
         $currentTimeZone = get_option('timezone_string');
         $currentDay = date('l', strtotime('today midnight'.$currentTimeZone));
@@ -334,7 +334,7 @@ class Homepage extends Controller
             }
         }else{
             $hoursOutput = "We’re closed today";
-        }
-         return $hoursOutput;
+        }*/
+         return do_shortcode('[hours]');
     }
 }
