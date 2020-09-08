@@ -8,7 +8,7 @@
       height="600px"
       frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBq67Jn1q5VZ7e3s8MgRTSI6tY6vqf359g
-    &q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&center=40.7062532,-74.0022388" allowfullscreen>
+    &q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&center=40.7062532,-74.0022388&zoom=16" allowfullscreen>
     </iframe>
   </div>
   <div class="museum-map-overlay">
@@ -28,10 +28,10 @@
           @php $info_links = get_sub_field('about_section_visitor_links_repeater') @endphp
           @if(!empty($info_links))
             <ul class="links">
-              
+
               @foreach( $info_links as $info_link )
                 @if($loop->last)
-                  @php 
+                  @php
                     $button_label = $info_link['about_section_visitor_links_link']['title'];
                     $button_url = $info_link['about_section_visitor_links_link']['url'];
                     $button_target = $info_link['about_section_visitor_links_link']['target'];
@@ -41,7 +41,7 @@
                     <a href="{{ $info_link['about_section_visitor_links_link']['url'] }}" target="{{ $info_link['about_section_visitor_links_link']['target'] }}">{{ $info_link['about_section_visitor_links_link']['title'] }}</a>
                   </li>
                 @endif
-              @endforeach    
+              @endforeach
 
             </ul>
             <div class="ticket">
