@@ -9,10 +9,12 @@ export default {
             draggable: false,
             asNavFor: '.slider-nav',
         });
-        jQuery('.slider-nav').slick({
+
+        var $sliderNav = jQuery('.slider-nav');
+        $sliderNav.slick({
             slidesToShow: 3,
             centerPadding: '0',
-            slidesToScroll: 1,
+            slidesToScroll: 3,
             asNavFor: '.slider-for',
             arrows: true,
             speed: 900,
@@ -20,12 +22,14 @@ export default {
             autoplay: true,
             centerMode: true,
             pauseOnHover: true,
+            lazyLoad: 'progressive',
             responsive: [{
                     breakpoint: 768,
                     settings: {
                         centerMode: true,
                         centerPadding: '150',
                         slidesToShow: 1,
+                        slidesToScroll: 1,
                     },
                 },
                 {
@@ -35,12 +39,21 @@ export default {
                         centerMode: true,
                         centerPadding: '0',
                         slidesToShow: 1,
+                        slidesToScroll: 1,
                     },
                 },
             ],
         });
+
+        //https://github.com/kenwheeler/slick/issues/248
+        $sliderNav.on('lazyLoaded', function (e, slick, image, imageSource) {
+            image.parent().css('background-image', 'url("' + imageSource + '")');
+            image.parent().fadeIn();
+            image.hide();
+        });
+
         // there are less then 4 slides, create a rollover that highlights and loads the bg above
-        jQuery('.slider-nav').on('mouseenter', '.slick-slide', function(e) {
+        $sliderNav.on('mouseenter', '.slick-slide', function(e) {
             var $currTarget = $(e.currentTarget),
                 index = $currTarget.data('slick-index'),
                 slickObj = $('.slider-for').slick('getSlick');
@@ -52,7 +65,7 @@ export default {
         //update the header title based on slide loaded
         var header_container = jQuery('.onview .header');
         var curr_header = jQuery('.exhibtion-card.slick-center').attr('data-header');
-        jQuery('.slider-nav').on('afterChange', function(){
+        $sliderNav.on('afterChange', function(){
             // let's do this after changing slides
             //get the value of the data-header attr of the current slide\
             var new_header = jQuery('.exhibtion-card.slick-center').attr('data-header');
@@ -64,54 +77,91 @@ export default {
             }
         });
         //Blog and press
-      jQuery('.slider-posts').slick({
-        dots: false,
-        pauseOnHover: true,
-        infinite: false,
-        slidesToShow: 3,
+        var $sliderPosts = jQuery('.slider-posts');
+        $sliderPosts.slick({
+            dots: false,
+            pauseOnHover: true,
+            infinite: false,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            lazyLoad: 'progressive',
+            responsive: [
+              {
+                breakpoint: 768,
+                settings: {
+                  arrows: false,
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                },
+              },
+              {
+                breakpoint: 576,
+                settings: {
+                  arrows: false,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                },
+              },
+            ],
+        });
+        //https://github.com/kenwheeler/slick/issues/248
+        $sliderPosts.on('lazyLoaded', function (e, slick, image, imageSource) {
+            image.parent().css('background-image', 'url("' + imageSource + '")');
+            image.parent().fadeIn();
+            image.hide();
+        });
 
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 576,
-            settings: {
-              arrows: false,
-              slidesToShow: 1,
-            },
-          },
-        ],
-      });
+        //Custom slider
+        var $sliderCustom = jQuery('.slider-custom');
+            $sliderCustom.slick({
+            slidesToShow: 3,
+            centerPadding: '0',
+            slidesToScroll: 3,
+            arrows: true,
+            speed: 900,
+            autoplaySpeed:5000,
+            autoplay: true,
+            centerMode: true,
+            pauseOnHover: true,
+            lazyLoad: 'progressive',
+            responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        centerMode: true,
+                        centerPadding: '150',
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '0',
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                },
+            ],
+        });
 
-      //Custom slider
-      jQuery('.slider-custom').slick({
-        dots: false,
-        pauseOnHover: true,
-        infinite: false,
-        slidesToShow: 3,
+        //https://github.com/kenwheeler/slick/issues/248
+        $sliderCustom.on('lazyLoaded', function (e, slick, image, imageSource) {
+            image.parent().css('background-image', 'url("' + imageSource + '")');
+            image.parent().fadeIn();
+            image.hide();
+        });
 
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 576,
-            settings: {
-              arrows: false,
-              slidesToShow: 1,
-            },
-          },
-        ],
-      });
+
+        //for all sliders, choose desktop or mobile version of image
+        //first swap out data-lazy value if it's a mobile device
+        if (jQuery( window ).width() < 768) {
+          jQuery('.mjh-slider img').each(function () {
+            var mobilesrc = jQuery(this).attr('data-mobilesrc');
+            jQuery(this).attr('data-lazy',mobilesrc);
+          });
+        }
 
     },
     finalize() {

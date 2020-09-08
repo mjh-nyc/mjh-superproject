@@ -2,7 +2,8 @@
 <div class="slide-card exhibtion-card" @if ($header) data-header="{{ $header }}" @endif>
 	<!-- Hero bg in header template -->
 	<a href="{!! get_the_permalink($item_id); !!}" class="card-link">
-	<div class="card-image" style="background-image: url('{{App::featuredImageSrc('square@1x',$item_id)}}')">
+	<div class="card-image">
+		<img src="@asset('images/placeholder.png')" data-lazy="{{App::featuredImageSrc('square@2x',$item_id)}}" data-mobilesrc="{{App::featuredImageSrc('square@1x',$item_id)}}">
 		<span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
 	</div>
 	<h3 class="card-title">{{ App::truncateString(get_the_title($item_id), 8) }}</h3>

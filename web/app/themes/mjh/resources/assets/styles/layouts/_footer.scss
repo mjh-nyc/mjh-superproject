@@ -65,16 +65,14 @@ footer {
         }
     }
     .copyright {
-        justify-content: center !important; 
-
+        
         .links {
-            text-align: center;
             ul {
                 list-style: none;
                 padding: 0;
                 li {
                     display: inline-block;
-                    padding-left:14px;
+                    padding-right:10px;
                 }
                 a {
                     color:$color-footer-links;
@@ -82,7 +80,11 @@ footer {
                 }
             }
         }
-        @include media-breakpoint-up(lg) {
+        .content {
+            display: block;
+            clear: both;
+        }
+        /*@include media-breakpoint-up(lg) {
             .content {
                 @include make-col-ready();
                 @include make-col(8);
@@ -93,7 +95,7 @@ footer {
                 @include make-col(4);
                 order: 1;
             }
-        }
+        }*/
 
     }
 }

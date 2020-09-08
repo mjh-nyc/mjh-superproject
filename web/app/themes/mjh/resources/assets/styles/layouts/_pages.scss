@@ -1079,7 +1079,7 @@
             }
         }
     }
-    .featured-carousel {
+    .featured-carousel, .slider-custom {
 
         @include media-breakpoint-up(sm) {
             padding-bottom: 110px;
@@ -1122,6 +1122,13 @@
             transform: scale(1, 1);
         }
     }
+    .slider-custom {
+        .slide-card{
+            opacity: 1;
+        }
+    }
+
+
     .museum-plan {
         .header {
             @extend h1;
@@ -1152,8 +1159,15 @@
             padding-top: 0;
 
             @include make-col-ready();
-            @include media-breakpoint-up(md) {
-                @include make-col(6);
+            &:first-child {
+                @include media-breakpoint-up(md) {
+                    @include make-col(7);
+                }
+            }
+            &:last-child {
+                @include media-breakpoint-up(md) {
+                    @include make-col(5);
+                }
             }
             
             @include font-size(14);
@@ -1221,15 +1235,60 @@
             height: 70px;
         }
         .plan-title {
-            @include bentonBd();
-            @include font-size(18);
+           @extend .subhead;
+        }
+    }
+
+    .custom-section {
+        background: $color-visitplanbg;
+        color: white;
+        &--inner {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .header {
+            @extend h1;
+            text-align: center;
+        }
+        .custom-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
             @include media-breakpoint-up(md) {
-                @include font-size(22);
+                flex-direction: row;
+                justify-content: space-between;
             }
-            @include media-breakpoint-up(lg) {
-                @include font-size(26);
-            }
-            margin-bottom: 0.5em;
+            .custom-item {
+                @include media-breakpoint-up(md) {
+                    width: 46%;
+                }
+                &--title {
+                    @extend .subhead;
+                }
+            }  
+            iframe {
+                width: 100% !important;
+                div {
+                    background-color: transparent !important;
+                    background:none !important;
+                }
+                .c-public-forms,
+                .u-p\+ {
+                    padding:0 !important;
+                }
+            } 
+        } 
+    }
+
+    .custom-slider {
+        overflow: hidden;
+        .header {
+            @extend h1;
+            text-align: center;
+            padding: 45px 0;
+        }
+        .slick-arrow {
+
         }
     }
 
@@ -1838,7 +1897,7 @@
     }
 }
 
-.exhibtion-card {
+.exhibtion-card, .custom-card {
     margin: 0 5px;
     height: 410px;
     @include media-breakpoint-up(sm) {
@@ -1904,6 +1963,9 @@
             }
             margin: 0;
         }
+    }
+    .custom-card--details {
+        padding: 0 20px;
     }
 }
 
