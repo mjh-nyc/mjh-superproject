@@ -570,6 +570,7 @@ function get_hours( $atts="" ) {
     $regularHours =  get_field('regular_hours_repeater', 'option');
     $holidays =  get_field('holiday_hours_repeater', 'option');
     $currentTimeZone = get_option('timezone_string');
+    date_default_timezone_set($currentTimeZone);
     $currentDay = date('l', strtotime('today midnight'.$currentTimeZone));
     $hours = '';
     //Get current week date span
