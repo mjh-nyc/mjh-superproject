@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d0c2073db88d6da98124e247fa30fd6",
+    "content-hash": "e1d6569be8050a4a1f0f32c1e07957cd",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -278,10 +278,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-                "reference": "1.5.3"
+                "reference": "1.5.4"
             },
             "type": "wordpress-muplugin",
-            "time": "2020-08-22T23:39:39+00:00"
+            "time": "2020-09-08T00:57:40+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -578,7 +578,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip",
+                "reference": "tags/1.0.5"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -596,7 +597,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943"
+                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943",
+                "reference": "trunk"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -614,7 +616,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip"
+                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip",
+                "reference": "tags/4.02.01"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -650,7 +653,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip",
+                "reference": "tags/1.9.2"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -717,7 +721,7 @@
             "version": "9.5",
             "dist": {
                 "type": "zip",
-                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
+                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
             },
             "type": "wordpress-plugin"
         }
