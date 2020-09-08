@@ -33,7 +33,7 @@ class Homepage extends Controller
         } else {
             false;
         }
-        
+
     }
 
 
@@ -75,9 +75,21 @@ class Homepage extends Controller
         );
         $eventsHash = $events = array();
         // check if the featured_events repeater field has event to pull out
-        if( have_rows('featured_events_repeater') ){
+        $eventsRepeater = array();
+        // need to check if flexible layout for events is set up and get the subfields of the event ids
+        if( have_rows('flexible_homepage_content_sections')){
+            $layouts = get_field('flexible_homepage_content_sections');
+            foreach($layouts as $layout){
+                if($layout['acf_fc_layout'] == 'events_section'){
+                    if(!empty($layout['featured_events_repeater'])){
+                        $eventsRepeater = $layout['featured_events_repeater'];
+                    }
+                    break;
+                }
+            }
+        }
+        if( !empty($eventsRepeater) ){
             $eventIdHash = array();
-            $eventsRepeater = get_field('featured_events_repeater');
             foreach($eventsRepeater as $featureEvent){
                 $eventIdHash[] = $featureEvent['event_item'];
             }
@@ -252,7 +264,7 @@ class Homepage extends Controller
      * @return string
      */
     public function getCurrentScheduleText() {
-        $regularHours =  get_field('regular_hours_repeater', 'option');
+        /*$regularHours =  get_field('regular_hours_repeater', 'option');
         $holidays =  get_field('holiday_hours_repeater', 'option');
         $currentTimeZone = get_option('timezone_string');
         $currentDay = date('l', strtotime('today midnight'.$currentTimeZone));
@@ -322,7 +334,7 @@ class Homepage extends Controller
             }
         }else{
             $hoursOutput = "We’re closed today";
-        }
-         return $hoursOutput;
+        }*/
+         return do_shortcode('[hours]');
     }
 }

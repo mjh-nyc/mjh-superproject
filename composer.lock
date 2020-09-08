@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "edf29b7dc3ed8e2d60d5620b7767cf7e",
+    "content-hash": "7b3e1823b32456b522bda84bf8735fd1",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.8.3",
+            "version": "5.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.8.3"
+                "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0&t=5.9.0"
             },
             "require": {
                 "composer/installers": "^1.0",
@@ -278,10 +278,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-                "reference": "1.5.2"
+                "reference": "1.5.5"
             },
             "type": "wordpress-muplugin",
-            "time": "2020-03-31T16:48:09+00:00"
+            "time": "2020-09-08T19:12:28+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -578,7 +578,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/amazon-web-services.1.0.5.zip",
+                "reference": "tags/1.0.5"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -596,7 +597,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943"
+                "url": "https://downloads.wordpress.org/plugin/flowpaper-lite-pdf-flipbook.zip?timestamp=1561403943",
+                "reference": "trunk"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -614,7 +616,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip"
+                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip",
+                "reference": "tags/4.02.01"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -650,7 +653,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/popup-maker.1.9.2.zip",
+                "reference": "tags/1.9.2"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -717,7 +721,7 @@
             "version": "9.5",
             "dist": {
                 "type": "zip",
-                "url": "http://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
+                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
             },
             "type": "wordpress-plugin"
         }

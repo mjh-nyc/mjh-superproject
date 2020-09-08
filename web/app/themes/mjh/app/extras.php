@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use DateInterval;
+use DateTime;
 //Logo support
 function theme_prefix_setup() {
 
@@ -25,7 +26,7 @@ add_action( 'after_setup_theme', 'App\\theme_prefix_setup' );
         'transport'         => 'refresh',
     ) );
     $wp_customize->add_control(
-        'custom_logo_max_width', 
+        'custom_logo_max_width',
         array(
             'default'           => '363',
             'type'              => 'custom-range',
@@ -43,7 +44,7 @@ add_action( 'after_setup_theme', 'App\\theme_prefix_setup' );
 }
 add_action('customize_register', 'App\\mjh_customize_register');
 
-//code to output the css into the header 
+//code to output the css into the header
 function mjh_customize_css(){
     ?>
          <style type="text/css">
@@ -565,61 +566,114 @@ add_shortcode( 'address', 'App\\get_address' );
 
 //Get openning hours
 function get_hours( $atts="" ) {
-	// check if the repeater field has rows of data
-	if( have_rows('regular_hours_repeater','options') ):
-		$hours = '<div class="schedule row">';
-	 	// loop through the rows of data
-		$prev_exception = ""; //keep track of prev day in case the next in loop repeats, just print an asterisk and move the hours into the footnote
-		$exception_notice = false;
-
-
-	    while ( have_rows('regular_hours_repeater','options') ) : the_row();
-	        $exception_start = get_sub_field('hours_start_date_range');
-	        $exception_end = get_sub_field('hours_end_date_range');
-
-	        $day = get_sub_field('day_of_week');
-	        $opening_hour = get_sub_field('opening_hour');
-	        $closing_hour = get_sub_field('closing_hour');
-
-	        if (!$exception_start) {
-		        $hours .= '<div class="col-3 day">';
-		        	$hours .= $day;
-		        	$hours .= $prev_exception;
-		        	$prev_exception = "";
-		        $hours .= '</div>';
-		        $hours .= '<div class="col-9 hours">';
-		        	if (get_sub_field('is_museum_closed')) {
-		        		$hours .= __("Closed","sage");
-		        	} else {
-			        	$hours .= $opening_hour;
-			        	$hours .= ' &#8211; ';
-			        	$hours .= $closing_hour;
-			        }
-		        $hours .= '</div>';
-		    } else {
-		    	$prev_exception = " *";
-		    	$exception_notice .= '<br><span style="display: block; margin-left: 14px;">From <strong>'.$exception_start.'</strong> through <strong>'.$exception_end.'</strong>, we will be open from <strong>'.$opening_hour.'</strong> to <strong>'. $closing_hour .'</strong> on <strong>'. $day .'s.</strong></span>';
-		    }
-
-	    endwhile;
-	    $hours .='</div>';
-	    //add exceptions notes if encountered
-	    if ($exception_notice) {
-		    $hours .='<div class="alert alert-warning">';
-		    $hours .= __("* Note that our hours change during these times:","sage");
-		    $hours .= $exception_notice;
-		    $hours .='</div>';
-		}
-	endif;
+    // Set up variables
+    $regularHours =  get_field('regular_hours_repeater', 'option');
+    $holidays =  get_field('holiday_hours_repeater', 'option');
+    $currentTimeZone = get_option('timezone_string');
+    date_default_timezone_set($currentTimeZone);
+    $currentDay = date('l', strtotime('today midnight'.$currentTimeZone));
+    $hours = '';
+    //Get current week date span
+    $date = new DateTime(date('Y-m-d',strtotime('last sunday')));
+    $weekDatesHash = array();
+    $weekDatesHash[$date->format('l')] = array('date'=>$date->format('Y-m-d'));
+    for($i=0; $i < 6; $i++){
+        $date->add(new DateInterval('P1D'));
+        $weekDatesHash[$date->format('l')] = array('date'=>$date->format('Y-m-d'));
+    }
+    if(!empty($regularHours)) {
+        //Set hours to respective date of the week and add additional information
+        foreach ($regularHours as $hour) {
+            $weekDatesHash[$hour['day_of_week']]['hours'] = $hour;
+            if ($currentDay == $hour['day_of_week']) {
+                $weekDatesHash[$hour['day_of_week']]['active_date'] = true;
+            } else {
+                $weekDatesHash[$hour['day_of_week']]['active_date'] = false;
+            }
+            //Loop through holidays
+            if (!empty($holidays)) {
+                $tomorrowDate = date('Y-m-d', strtotime($weekDatesHash[$hour['day_of_week']]['date'] . ' +1day'));
+                foreach ($holidays as $key => $holiday) {
+                    $holidayDate = date('Y-m-d', strtotime($holiday['holiday_date']));
+                    // Check if date is a holiday
+                    if ($holidayDate == $weekDatesHash[$hour['day_of_week']]['date']) {
+                        $weekDatesHash[$hour['day_of_week']]['holiday'] = $holiday;
+                    }
+                    //Check if date is an eve of a holiday
+                    if ($holidayDate == $tomorrowDate) {
+                        $weekDatesHash[$hour['day_of_week']]['holiday_eve'] = true;
+                    }
+                }
+            }
+        }
+        if (!empty($weekDatesHash)):
+            $hours = '<div class="schedule row">';
+            // loop through weekly data hash
+            $prev_exception = ""; //keep track of prev day in case the next in loop repeats, just print an asterisk and move the hours into the footnote
+            $exception_notice = false;
+            foreach ($weekDatesHash as $day => $weekDay) :
+                $exception_start = $weekDay['hours']['hours_start_date_range'];
+                $exception_end = $weekDay['hours']['hours_end_date_range'];
+                $opening_hour = $weekDay['hours']['opening_hour'];
+                $closing_hour = $weekDay['hours']['closing_hour'];
+                $activeClass = '';
+                //Check if this date is today to set an active class
+                if (!empty($weekDay['active_date'])) {
+                    $activeClass = ' active ';
+                }
+                if (!$exception_start) {
+                    $hours .= '<div class="col-4 day' . $activeClass . '">';
+                    $hours .= $day;
+                    $hours .= $prev_exception;
+                    $prev_exception = "";
+                    $hours .= '</div>';
+                    $hours .= '<div class="col-8 hours' . $activeClass . '">';
+                    //Set hours based on ruleset
+                    if ($weekDay['hours']['is_museum_closed']) {
+                        $hours .= __("Closed", "sage");
+                    } elseif (!empty($weekDay['holiday'])) {
+                        if ($weekDay['holiday']['is_museum_closed']) {
+                            $hours .= __("Closed", "sage");
+                        } else {
+                            $hours .= $weekDay['holiday']['opening_hour'];
+                            $hours .= ' &#8211; ';
+                            $hours .= $weekDay['holiday']['closing_hour'];
+                        }
+                    } elseif (!empty($weekDay['holiday_eve'])) {
+                        $hours .= get_field('holiday_eve_opening_hour', 'option');
+                        $hours .= ' &#8211; ';
+                        $hours .= get_field('holiday_eve_closing_hour', 'option');
+                    } else {
+                        $hours .= $opening_hour;
+                        $hours .= ' &#8211; ';
+                        $hours .= $closing_hour;
+                    }
+                    $hours .= '</div>';
+                } else {
+                    $prev_exception = " *";
+                    $exception_notice .= '<br><span style="display: block; margin-left: 14px;">From <strong>' . $exception_start . '</strong> through <strong>' . $exception_end . '</strong>, we will be open from <strong>' . $opening_hour . '</strong> to <strong>' . $closing_hour . '</strong> on <strong>' . $day . 's.</strong></span>';
+                }
+            endforeach;
+            $hours .= '</div>';
+            //add exceptions notes if encountered
+            if ($exception_notice) {
+                $hours .= '<div class="alert alert-warning">';
+                $hours .= __("* Note that our hours change during these times:", "sage");
+                $hours .= $exception_notice;
+                $hours .= '</div>';
+            }
+        endif;
+    }
 
 	return $hours;
 }
 add_shortcode( 'hours', 'App\\get_hours' );
 
-//Get holidays openning hours
+//Get holidays opening hours
 function get_holiday_hours( $atts="" ) {
 	// check if the repeater field has rows of data
-	if( have_rows('holiday_hours_repeater','options') ):
+	$hours = '';
+    if( have_rows('holiday_hours_repeater','options') ):
 		$hours = '<div class="schedule row">';
 	 	// loop through the rows of data
 		while ( have_rows('holiday_hours_repeater','options') ) : the_row();
@@ -667,8 +721,6 @@ function get_holiday_notes( $atts="" ) {
 	return get_field('holiday_additional_notes', 'option');
 }
 add_shortcode( 'holiday-notes', 'App\\get_holiday_notes' );
-
-
 
 //Create a sitemap of pages
 //https://developer.wordpress.org/reference/functions/wp_list_pages/

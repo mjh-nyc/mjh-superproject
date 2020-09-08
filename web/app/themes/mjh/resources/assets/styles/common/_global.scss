@@ -36,12 +36,12 @@ h1 {
 
 .subhead {
     @include bentonBd();
-    @include font-size(16);
+    @include font-size(18);
     @include media-breakpoint-up(md) {
-        @include font-size(18);
+        @include font-size(22);
     }
     @include media-breakpoint-up(lg) {
-        @include font-size(21);
+        @include font-size(26);
     }
     margin-bottom: 10px;
     margin-bottom: 1rem;
@@ -260,6 +260,9 @@ iframe{
     }
 }
 
+.no-gutters {
+  padding: 0;
+}
 .parallax-mirror {
   display: none;
 }
