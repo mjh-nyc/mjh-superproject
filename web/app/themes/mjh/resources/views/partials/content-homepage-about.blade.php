@@ -1,4 +1,4 @@
-<div class="wrap museum-plan container-fluid">
+<div class="wrap museum-plan container-fluid no-gutters">
   @include('partials.content-museum-plan')
 </div>
 @if(!empty(App::get_field('announcements_homepage', 'option')))

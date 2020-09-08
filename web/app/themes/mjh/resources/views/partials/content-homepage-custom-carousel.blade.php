@@ -1,11 +1,11 @@
-<div class="wrap custom-slider container-fluid">
+<div class="wrap custom-slider container">
   <div class="row">
     <div class="col-md-12" style="text-align: center;">
       <div class="header">{{get_sub_field('custom_carousel_section_title')}}</div>
     </div>
   </div>
   <div class="custom-carousel row">
-    <div class="col-12 wrapper">
+    <div class="col-md-12 wrapper">
       <div class="slider-custom mjh-slider">
         @if(!empty(get_sub_field('custom_carousel_section_repeater')))
             @while (have_rows('custom_carousel_section_repeater')) @php(the_row())

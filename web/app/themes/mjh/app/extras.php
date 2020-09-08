@@ -621,12 +621,12 @@ function get_hours( $atts="" ) {
                     $activeClass = ' active ';
                 }
                 if (!$exception_start) {
-                    $hours .= '<div class="col-3 day' . $activeClass . '">';
+                    $hours .= '<div class="col-4 day' . $activeClass . '">';
                     $hours .= $day;
                     $hours .= $prev_exception;
                     $prev_exception = "";
                     $hours .= '</div>';
-                    $hours .= '<div class="col-9 hours' . $activeClass . '">';
+                    $hours .= '<div class="col-8 hours' . $activeClass . '">';
                     //Set hours based on ruleset
                     if ($weekDay['hours']['is_museum_closed']) {
                         $hours .= __("Closed", "sage");
