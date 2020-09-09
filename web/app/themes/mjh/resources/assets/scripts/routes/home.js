@@ -152,6 +152,11 @@ export default {
             image.parent().fadeIn();
             image.hide();
         });
+        //var totalCustomSlides = $sliderCustom.slick('getSlick').slideCount;
+        //console.log(totalCustomSlides);
+        /*if(totalCustomSlides < 4) {
+            $sliderCustom.css('padding-bottom','0');
+        }*/
 
 
         //for all sliders, choose desktop or mobile version of image
