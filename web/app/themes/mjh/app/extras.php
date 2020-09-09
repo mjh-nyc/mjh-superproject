@@ -819,7 +819,7 @@ function mjh_ajax_events(){
     $last_name = (string)$_REQUEST['last_name'];
     $zip = (string)$_REQUEST['zip'];
     // Check the referrer for the ajax call (setup.php creates nonce)
-    check_ajax_referer('mjh_ajax_nonce', 'mjh_nonce');
+    //check_ajax_referer('mjh_ajax_nonce', 'mjh_nonce');
     switch ($request) {
         case 'signupEmail':
             //Get account credentials and group data
