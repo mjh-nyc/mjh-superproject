@@ -8,7 +8,7 @@
       height="600px"
       frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBq67Jn1q5VZ7e3s8MgRTSI6tY6vqf359g
-    &q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&center=40.7062532,-74.0022388&zoom=16" allowfullscreen>
+    &q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&center=40.7062532,-74.0079446&zoom=16" allowfullscreen>
     </iframe>
   </div>
   <div class="museum-map-overlay container">
