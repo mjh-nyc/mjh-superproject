@@ -233,23 +233,26 @@ export default {
           data['zip'] = jQuery('.signup-form #zip').val();
           var errorMsg = '';
           if(!data['email']){
-            errorMsg += 'Please enter a email address.</br>';
+            errorMsg += 'Please enter an email address</br>';
           }
           if(!data['first_name']){
-            errorMsg += 'Please enter a first name.</br>';
+            errorMsg += 'Please enter your first name</br>';
           }
           if(!data['last_name']){
-            errorMsg += 'Please enter a last name.</br>';
+            errorMsg += 'Please enter your last name</br>';
           }
           if(!data['zip']){
-            errorMsg += 'Please enter a zip.</br>';
+            errorMsg += 'Please enter zip';
           }
 
           if(errorMsg.length > 0){
             jQuery('.signup-form .signup-form--message').addClass('error').html(errorMsg).show();
             return false;
           }
-
+          jQuery('.signup-form .signup-form--message').removeClass('error');
+          jQuery(this).text('Please wait...');
+          jQuery(this).css('opacity','0.5');
+          
           data['action'] = 'mjhAjaxEvents';
           data['request'] = 'signupEmail';
           // eslint-disable-next-line no-undef

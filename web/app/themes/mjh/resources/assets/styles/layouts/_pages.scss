@@ -1239,6 +1239,44 @@
            @extend .subhead;
         }
     }
+    .signup-form {
+        &--fields {
+            margin-bottom: 15px;
+        }
+        &--field {
+            label {
+                display: block;
+                @extend .small;
+            }
+            input {
+                width: 100%;
+                background: none;
+                border: 2px solid white;
+                color: white;
+                padding: 5px 10px;
+            }
+         }
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+            .signup-form--field {
+                width: 48%;
+            }
+        }
+        .submit-cta {
+            margin-top: 30px;
+         }
+        &--message {
+            &.success {
+                @extend .alert;
+                @extend .alert-success;
+            }
+            &.error {
+                @extend .alert;
+                @extend .alert-danger;
+            }
+        }
+    }
 
     .custom-section {
         background: $color-visitplanbg;

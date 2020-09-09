@@ -766,24 +766,37 @@ add_shortcode( 'sitemap', 'App\\make_sitemap' );
 //Get emma signup form
 function get_emma_signup_form( ) {
     $signup_form = '<div class="signup-form">';
-    $signup_form.= '<div class="signup-form--message" style="display: none"></div>';
-    $signup_form.= '<div class="signup-form--fields">';
-    $signup_form.= '<div class="signup-form--field"><label for="email">'.__('Email','sage').'</label><span class="required">*</span>';
-    $signup_form.= '<input id="email" name="email" type="text" /></div>';
-    $signup_form.= '</div>';
-    $signup_form.= '<div class="signup-form--fields">';
-    $signup_form.= '<div class="signup-form--field"><label for="first_name">'.__('First Name','sage').'</label><span class="required">*</span>';
-    $signup_form.= '<input id="first_name" name="first_name" type="text" /></div>';
-    $signup_form.= '<div class="signup-form--field"><label for="last_name">'.__('Last Name','sage').'</label><span class="required">*</span>';
-    $signup_form.= '<input id="last_name" name="last_name" type="text" /></div>';
-    $signup_form.= '</div>';
-    $signup_form.= '<div class="signup-form--fields">';
-    $signup_form.= '<div class="signup-form--field"><label for="zip">'.__('Zip','sage').'</label><span class="required">*</span>';
-    $signup_form.= '<input id="zip" name="zip" type="text" /></div>';
-    $signup_form.= '</div>';
-    $signup_form.= '<div class="signup-form--fields">';
-    $signup_form.='<a id="signup-btn" class="cta-round cta-arrow cta-secondary" href="#">'.__('Sign Up!','sage').'</a>';
-    $signup_form.= '</div>';
+        $signup_form.= '<div class="signup-form--message" style="display: none" role="alert"></div>';
+        
+        $signup_form.= '<div class="signup-form--fields">';
+            $signup_form.= '<div class="signup-form--field">';
+                $signup_form.= '<label for="email">'.__('Email','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="email" name="email" type="text">';
+            $signup_form.= '</div>';
+        $signup_form.= '</div>';
+        
+        $signup_form.= '<div class="signup-form--fields side-by-side">';
+            $signup_form.= '<div class="signup-form--field">';
+                $signup_form.= '<label for="first_name">'.__('First Name','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="first_name" name="first_name" type="text">';
+            $signup_form.= '</div>';
+        
+            $signup_form.= '<div class="signup-form--field">';
+                $signup_form.= '<label for="last_name">'.__('Last Name','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="last_name" name="last_name" type="text">';
+            $signup_form.= '</div>';
+        $signup_form.= '</div>';
+
+        $signup_form.= '<div class="signup-form--fields side-by-side">';
+            $signup_form.= '<div class="signup-form--field">';
+                $signup_form.= '<label for="zip">'.__('Zip','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="zip" name="zip" type="text" />';
+            $signup_form.= '</div>';
+        $signup_form.= '</div>';
+
+        $signup_form.= '<div class="signup-form--fields submit-cta">';
+            $signup_form.='<a id="signup-btn" class="cta-round cta-arrow cta-secondary" href="#">'.__('Sign Up!','sage').'</a>';
+        $signup_form.= '</div>';
     $signup_form.= '</div>';
     return $signup_form;
 }
