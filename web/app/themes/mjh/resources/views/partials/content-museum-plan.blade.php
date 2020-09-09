@@ -11,7 +11,7 @@
     &q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&center=40.7062532,-74.0022388&zoom=16" allowfullscreen>
     </iframe>
   </div>
-  <div class="museum-map-overlay">
+  <div class="museum-map-overlay container">
     <div class="plan-top row">
       <div class="plan-item">
         <div class="plan-title">{{ get_sub_field('about_section_hours_title')}}</div>
