@@ -252,7 +252,10 @@ export default {
           jQuery('.signup-form .signup-form--message').removeClass('error');
           jQuery(this).text('Please wait...');
           jQuery(this).css('opacity','0.5');
-          
+          if(jQuery('.signup-form #phone').val()){
+            setSuccessMessage();
+            return false;
+          }
           data['action'] = 'mjhAjaxEvents';
           data['request'] = 'signupEmail';
           // eslint-disable-next-line no-undef
@@ -264,16 +267,16 @@ export default {
             data : data,
             success: function (response) {
               if(response.data.signupSuccess===true){
-                jQuery('.signup-form .signup-form--message').addClass('success').html('Success! Thank you for signing up.').show();
-                jQuery('.signup-form .signup-form--fields').hide();
+                setSuccessMessage();
               }else{
                 jQuery('.signup-form .signup-form--message').addClass('error').html('Sorry, was not able to sign up, please verify your information and try again.').show();
               }
             },
-            complete: function () {
-
-            },
           });
         });
+        function setSuccessMessage(){
+          jQuery('.signup-form .signup-form--message').addClass('success').html('Success! Thank you for signing up.').show();
+          jQuery('.signup-form .signup-form--fields').hide();
+        }
     },
 };

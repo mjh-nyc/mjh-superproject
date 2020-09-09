@@ -767,30 +767,34 @@ add_shortcode( 'sitemap', 'App\\make_sitemap' );
 function get_emma_signup_form( ) {
     $signup_form = '<div class="signup-form">';
         $signup_form.= '<div class="signup-form--message" style="display: none" role="alert"></div>';
-        
+
         $signup_form.= '<div class="signup-form--fields">';
-            $signup_form.= '<div class="signup-form--field">';
+            $signup_form.= '<div class="signup-form--field email">';
                 $signup_form.= '<label for="email">'.__('Email','sage').' <span class="required">*</span></label>';
                 $signup_form.= '<input id="email" name="email" type="text">';
             $signup_form.= '</div>';
         $signup_form.= '</div>';
-        
+
         $signup_form.= '<div class="signup-form--fields side-by-side">';
-            $signup_form.= '<div class="signup-form--field">';
+            $signup_form.= '<div class="signup-form--field first_name">';
                 $signup_form.= '<label for="first_name">'.__('First Name','sage').' <span class="required">*</span></label>';
                 $signup_form.= '<input id="first_name" name="first_name" type="text">';
             $signup_form.= '</div>';
-        
-            $signup_form.= '<div class="signup-form--field">';
+
+            $signup_form.= '<div class="signup-form--field last_name">';
                 $signup_form.= '<label for="last_name">'.__('Last Name','sage').' <span class="required">*</span></label>';
                 $signup_form.= '<input id="last_name" name="last_name" type="text">';
             $signup_form.= '</div>';
         $signup_form.= '</div>';
 
         $signup_form.= '<div class="signup-form--fields side-by-side">';
-            $signup_form.= '<div class="signup-form--field">';
+            $signup_form.= '<div class="signup-form--field zip">';
                 $signup_form.= '<label for="zip">'.__('Zip','sage').' <span class="required">*</span></label>';
                 $signup_form.= '<input id="zip" name="zip" type="text" />';
+            $signup_form.= '</div>';
+            $signup_form.= '<div class="signup-form--field phone">';
+                $signup_form.= '<label for="phone">'.__('Phone','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="phone" name="phone" type="text">';
             $signup_form.= '</div>';
         $signup_form.= '</div>';
 
