@@ -1107,6 +1107,7 @@
             }
         }
         .slide-card {
+            overflow: hidden;
             @include media-breakpoint-up(sm) {
                 -webkit-transform: scale(0.95, 0.95);
                 -o-transform: scale(0.95, 0.95);
