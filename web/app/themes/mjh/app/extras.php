@@ -763,8 +763,8 @@ function get_nav_args($nav) {
 }
 add_shortcode( 'sitemap', 'App\\make_sitemap' );
 
-//Get signup form
-function get_signup_form( ) {
+//Get emma signup form
+function get_emma_signup_form( ) {
     $signup_form = '<div class="signup-form">';
     $signup_form.= '<div class="signup-form--message" style="display: none"></div>';
     $signup_form.= '<div class="signup-form--fields">';
@@ -787,7 +787,7 @@ function get_signup_form( ) {
     $signup_form.= '</div>';
     return $signup_form;
 }
-add_shortcode( 'signup_form', 'App\\get_signup_form' );
+add_shortcode( 'emma_signup_form', 'App\\get_emma_signup_form' );
 
 /***** //END Shortcodes ********/
 
