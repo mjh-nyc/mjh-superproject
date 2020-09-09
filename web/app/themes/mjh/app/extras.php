@@ -763,5 +763,91 @@ function get_nav_args($nav) {
 }
 add_shortcode( 'sitemap', 'App\\make_sitemap' );
 
+//Get signup form
+function get_signup_form( ) {
+    $signup_form = '<div class="signup-form">';
+    $signup_form.= '<div class="signup-form--message" style="display: none"></div>';
+    $signup_form.= '<div class="signup-form--fields">';
+    $signup_form.= '<div class="signup-form--field"><label for="email">'.__('Email','sage').'</label><span class="required">*</span>';
+    $signup_form.= '<input id="email" name="email" type="text" /></div>';
+    $signup_form.= '</div>';
+    $signup_form.= '<div class="signup-form--fields">';
+    $signup_form.= '<div class="signup-form--field"><label for="first_name">'.__('First Name','sage').'</label><span class="required">*</span>';
+    $signup_form.= '<input id="first_name" name="first_name" type="text" /></div>';
+    $signup_form.= '<div class="signup-form--field"><label for="last_name">'.__('Last Name','sage').'</label><span class="required">*</span>';
+    $signup_form.= '<input id="last_name" name="last_name" type="text" /></div>';
+    $signup_form.= '</div>';
+    $signup_form.= '<div class="signup-form--fields">';
+    $signup_form.= '<div class="signup-form--field"><label for="zip">'.__('Zip','sage').'</label><span class="required">*</span>';
+    $signup_form.= '<input id="zip" name="zip" type="text" /></div>';
+    $signup_form.= '</div>';
+    $signup_form.= '<div class="signup-form--fields">';
+    $signup_form.='<a id="signup-btn" class="cta-round cta-arrow cta-secondary" href="#">'.__('Sign Up!','sage').'</a>';
+    $signup_form.= '</div>';
+    $signup_form.= '</div>';
+    return $signup_form;
+}
+add_shortcode( 'signup_form', 'App\\get_signup_form' );
+
 /***** //END Shortcodes ********/
 
+/*** Set up ajax requests ********/
+// Set up ajax function listener
+add_action('wp_ajax_mjhAjaxEvents', 'App\\mjh_ajax_events');
+add_action('wp_ajax_nopriv_mjhAjaxEvents', 'App\\mjh_ajax_events');
+
+function mjh_ajax_events(){
+    //Array hash to return to browser
+    $pParamHash = array();
+    //Get variables from ajax request
+    $request = (string) $_REQUEST['request'];
+    $email = (string)$_REQUEST['email'];
+    $first_name = (string)$_REQUEST['first_name'];
+    $last_name = (string)$_REQUEST['last_name'];
+    $zip = (string)$_REQUEST['zip'];
+    // Check the referrer for the ajax call (setup.php creates nonce)
+    check_ajax_referer('mjh_ajax_nonce', 'mjh_nonce');
+    switch ($request) {
+        case 'signupEmail':
+            //Get account credentials and group data
+            $account_id = get_field('emma_account_id','options');
+            $public_api_key = get_field('emma_public_api_key','options');
+            $private_api_key = get_field('emma_private_api_key','options');
+            $groups = explode(',',get_field('emma_groups','options'));
+            //Set up user data
+            $member_data = array(
+                "email" => $email,
+                "fields" => array(
+                    "first_name" => $first_name,
+                    "last_name" => $last_name,
+                    "postal_code" => $zip
+                ),
+                "group_ids" => $groups
+            );
+            //Api Endpoint
+            $url = "https://api.e2ma.net/".$account_id."/members/add";
+            //Execute the api call to add a member to the emma api
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_USERPWD, $public_api_key . ":" . $private_api_key);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_POST, count($member_data));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($member_data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSLVERSION, 6);
+            $head = curl_exec($ch);
+            $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            //Check the response code and return boolean
+            if($http_code > 200) {
+                $pParamHash['signupSuccess'] = false;
+            } else {
+                $pParamHash['signupSuccess'] = true;
+            }
+        break;
+    }
+    //Return to browser with data hash
+    wp_send_json_success($pParamHash);
+}
+/***** //END ajax request ********/
