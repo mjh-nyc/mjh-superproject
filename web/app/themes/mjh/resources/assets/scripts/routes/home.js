@@ -157,8 +157,6 @@ export default {
         /*if(totalCustomSlides < 4) {
             $sliderCustom.css('padding-bottom','0');
         }*/
-
-
         //for all sliders, choose desktop or mobile version of image
         //first swap out data-lazy value if it's a mobile device
         if (jQuery( window ).width() < 768) {
@@ -167,11 +165,30 @@ export default {
             jQuery(this).attr('data-lazy',mobilesrc);
           });
         }
-
+        //Set up google embed map src
+        //Set embed map state
+        var embedMapMobile = false;
+        if (jQuery(window).width() < 1200) {
+          embedMapMobile = true;
+        }
+        //Function checks window width to determine which embed src to use, use map state so map is not constantly refreshing
+        function setEmbedMap() {
+          if (jQuery(window).width() < 1200 && !embedMapMobile) {
+            embedMapMobile = true;
+            jQuery('#museum-map-frame').attr('src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBq67Jn1q5VZ7e3s8MgRTSI6tY6vqf359g&q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&zoom=16');
+          } else if(jQuery(window).width() >= 1200 && embedMapMobile) {
+            embedMapMobile = false;
+            jQuery('#museum-map-frame').attr('src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBq67Jn1q5VZ7e3s8MgRTSI6tY6vqf359g&q=place_id:ChIJYTeZ_BFawokRe_SRVX_pKIs&center=40.7062532,-74.0079446&zoom=16');
+          }
+        }
+        //Call embed map on init of page
+        setEmbedMap();
+        //Add resize listener to set embed src
+        jQuery( window ).resize(function() {
+          setEmbedMap();
+        });
     },
     finalize() {
         // JavaScript to be fired on the home page, after the init JS
-
-
     },
 };

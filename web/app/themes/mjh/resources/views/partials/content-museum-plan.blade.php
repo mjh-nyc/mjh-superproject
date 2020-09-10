@@ -4,6 +4,7 @@
 <div class="museum-plan-wrapper">
   <div id="museum-map">
     <iframe
+      id="museum-map-frame"
       width="100%"
       height="600px"
       frameborder="0" style="border:0"
