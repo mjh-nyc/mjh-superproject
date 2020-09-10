@@ -9,7 +9,7 @@
       @php  $carousel_items = get_sub_field('custom_carousel_section_repeater');
             $carousel_total = count($carousel_items);
       @endphp
-      <div class="slider-custom mjh-slider container" @if($carousel_total < 4) style="padding-bottom: 0" @endif>
+      <div id="slider-custom-{{get_row_index()}}" class="slider-custom mjh-slider container" @if($carousel_total < 4) style="padding-bottom: 0" @endif>
         @if(!empty(get_sub_field('custom_carousel_section_repeater')))
           @while (have_rows('custom_carousel_section_repeater')) @php(the_row())
             @if(empty(get_sub_field('custom_carousel_section_is_custom_content')))
