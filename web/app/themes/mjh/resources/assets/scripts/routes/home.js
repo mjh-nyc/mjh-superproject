@@ -22,7 +22,7 @@ export default {
             autoplay: true,
             centerMode: true,
             pauseOnHover: true,
-            lazyLoad: 'progressive',
+            lazyLoad: 'ondemand',
             responsive: [{
                     breakpoint: 768,
                     settings: {
@@ -84,7 +84,7 @@ export default {
             infinite: false,
             slidesToShow: 3,
             slidesToScroll: 3,
-            lazyLoad: 'progressive',
+            lazyLoad: 'ondemand',
             responsive: [
               {
                 breakpoint: 768,
@@ -123,7 +123,7 @@ export default {
             autoplay: true,
             centerMode: true,
             pauseOnHover: true,
-            lazyLoad: 'progressive',
+            lazyLoad: 'ondemand',
             responsive: [{
                     breakpoint: 768,
                     settings: {
