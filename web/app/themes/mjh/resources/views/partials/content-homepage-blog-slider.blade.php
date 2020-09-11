@@ -1,5 +1,5 @@
 @if ($blog_posts && App::get_field('blog_feature'))
-  <div class="wrap blog-slider container-fluid">
+  <div id="slider-posts" class="wrap blog-slider container-fluid">
     <div class="row">
       <div class="col-md-12" style="text-align: center;">
         <div class="header">{{get_sub_field('blog_section_title')}}</div>

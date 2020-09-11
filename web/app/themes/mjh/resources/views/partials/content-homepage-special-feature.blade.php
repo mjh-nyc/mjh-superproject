@@ -2,7 +2,7 @@
   <div class="row special-feature no-gutters">
     @if (get_sub_field('special_feature_image'))
       @php($special_feature_image = get_sub_field('special_feature_image'))
-      <div class="col-md-4 special-feature--image lazy" data-src="{{ $special_feature_image['url'] }}">
+      <div class="col-md-4 special-feature--image lazy" data-src="{{ $special_feature_image['sizes']['square@1x'] }}|{{ $special_feature_image['sizes']['square@2x'] }}">
         <div class="sr-only">
           {{ $special_feature_image['alt'] }}
          </div>

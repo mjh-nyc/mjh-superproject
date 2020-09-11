@@ -1,6 +1,6 @@
 @php ($section_title = get_sub_field('exhibitions_section_title'))
 @if (!empty(get_sub_field('featured_carousel_repeater')))
-  <div class="wrap carousel container-fluid">
+  <div id="featured-carousel" class="wrap carousel container-fluid">
     <div class="hero-area-home">
       <div class="slider-for">
         @while (have_rows('featured_carousel_repeater')) @php(the_row())
