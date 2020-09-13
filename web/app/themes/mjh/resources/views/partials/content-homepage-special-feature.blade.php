@@ -17,7 +17,7 @@
       @endif
       @if (get_sub_field('special_feature_link'))
         @php($special_feature_link = get_sub_field('special_feature_link'))
-        <a href="{{ $special_feature_link['url'] }}" class="cta-round">{{ $special_feature_link['title'] }}</a>
+        <a href="{{ $special_feature_link['url'] }}" target="{{ $special_feature_link['target'] }}" class="cta-round">{{ $special_feature_link['title'] }}</a>
       @endif
     </div>
   </div>

@@ -50,8 +50,9 @@ export default {
 
         //https://github.com/kenwheeler/slick/issues/248
         $sliderNav.on('lazyLoaded', function (e, slick, image, imageSource) {
+          image.parent().css('opacity','0');
           image.parent().css('background-image', 'url("' + imageSource + '")');
-          image.parent().fadeIn();
+          image.parent().fadeTo( 'slow', 1 );
           image.hide();
         });
 
@@ -112,8 +113,9 @@ export default {
         });
         //https://github.com/kenwheeler/slick/issues/248
         $sliderPosts.on('lazyLoaded', function (e, slick, image, imageSource) {
+          image.parent().css('opacity','0');
           image.parent().css('background-image', 'url("' + imageSource + '")');
-          image.parent().fadeIn();
+          image.parent().fadeTo( 'slow', 1 );
           image.hide();
         });
       }
@@ -156,8 +158,9 @@ export default {
 
         //https://github.com/kenwheeler/slick/issues/248
         $sliderCustom.on('lazyLoaded', function (e, slick, image, imageSource) {
+          image.parent().css('opacity','0');
           image.parent().css('background-image', 'url("' + imageSource + '")');
-          image.parent().fadeIn();
+          image.parent().fadeTo( 'slow', 1 );
           image.hide();
         });
         //var totalCustomSlides = $sliderCustom.slick('getSlick').slideCount;
