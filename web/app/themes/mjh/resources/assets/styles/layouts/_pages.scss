@@ -1981,6 +1981,7 @@
         bottom: 0;
         padding-bottom: 20px;
         width: 100%;
+        word-break: break-word;
         h4 {
             @include bentonBd();
             @include font-size(13);
