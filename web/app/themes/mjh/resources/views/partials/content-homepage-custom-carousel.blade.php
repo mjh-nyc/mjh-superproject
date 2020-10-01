@@ -24,10 +24,16 @@
                 </div>
                 <div class="info">
                   <h3 class="card-title">
-                  @if(!empty($item_id)){{ App::truncateString(get_the_title($item_id),10) }}@else {{get_sub_field('custom_carousel_section_content')['callout_title']}} @endif</h3>
+                  @if(!empty($item_id)){!! get_the_title($item_id) !!}@else {{get_sub_field('custom_carousel_section_content')['callout_title']}} @endif</h3>
                 </div>
-                <div class="custom-card--details">
-                  @if(!empty($item_id)){{App::postExcerpt($item_id)}}@else {!! App::truncateString(get_sub_field('custom_carousel_section_content')['callout_copy'], 10) !!} @endif
+                <div class="custom-card--details description">
+                  @if(!empty($item_id))
+                    @if(has_excerpt($item_id))
+                      {!! get_the_excerpt($item_id) !!}
+                    @endif
+                  @else 
+                    {!! get_sub_field('custom_carousel_section_content')['callout_copy'] !!}
+                  @endif
                 </div>
               </a>
             </div>
