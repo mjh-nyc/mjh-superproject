@@ -65,8 +65,8 @@ export default {
         jQuery(window).resize(function() {
           didResize = true;
          });
-         
-         setInterval(function() {  
+
+         setInterval(function() {
           if(didResize) {
             didResize = false;
             set_mjh_slider_width();
@@ -92,8 +92,8 @@ export default {
 
 
       //set the top property of the .overlay-nav dynamically
-      //need to do this becuase we need to know the hight of announcement bar 
-      //which may appear at the top 576      
+      //need to do this becuase we need to know the hight of announcement bar
+      //which may appear at the top 576
       var resizeTimer;
       jQuery( window ).resize(function() {
 
@@ -101,7 +101,7 @@ export default {
         resizeTimer = setTimeout(function() {
 
           setNavOffset();
-                  
+
         }, 250);
 
       });
@@ -214,8 +214,8 @@ export default {
             //move the link url into an attr so we can re-use
             href = jQuery(this).attr('href');
             jQuery(this).attr('data-url', href);
-          } 
-          
+          }
+
           //move this URL into button in exit promt popup
           jQuery('#exit-prompt a.exit').attr('href',href);
           //now convert this link to a lity popup link
@@ -223,5 +223,60 @@ export default {
           jQuery(this).attr('target','_parent');
           jQuery(this).attr('href','#exit-prompt');
         });
+
+        jQuery('.signup-form #signup-btn').on('click',function(e){
+          e.preventDefault();
+          var data = {};
+          data['email'] = jQuery('.signup-form #email').val();
+          data['first_name'] = jQuery('.signup-form #first_name').val();
+          data['last_name'] = jQuery('.signup-form #last_name').val();
+          data['zip'] = jQuery('.signup-form #zip').val();
+          var errorMsg = '';
+          if(!data['email']){
+            errorMsg += 'Please enter an email address</br>';
+          }
+          if(!data['first_name']){
+            errorMsg += 'Please enter your first name</br>';
+          }
+          if(!data['last_name']){
+            errorMsg += 'Please enter your last name</br>';
+          }
+          if(!data['zip']){
+            errorMsg += 'Please enter zip';
+          }
+
+          if(errorMsg.length > 0){
+            jQuery('.signup-form .signup-form--message').addClass('error').html(errorMsg).show();
+            return false;
+          }
+          jQuery('.signup-form .signup-form--message').removeClass('error');
+          jQuery(this).text('Please wait...');
+          jQuery(this).css('opacity','0.5');
+          if(jQuery('.signup-form #phone').val()){
+            setSuccessMessage();
+            return false;
+          }
+          data['action'] = 'mjhAjaxEvents';
+          data['request'] = 'signupEmail';
+          // eslint-disable-next-line no-undef
+          data['mjh_nonce'] = ajax_object.ajax_nonce;
+          //Ajax call
+          jQuery.ajax({
+            // eslint-disable-next-line no-undef
+            url : ajax_object.ajax_url,
+            data : data,
+            success: function (response) {
+              if(response.data.signupSuccess===true){
+                setSuccessMessage();
+              }else{
+                jQuery('.signup-form .signup-form--message').addClass('error').html('Sorry, was not able to sign up, please verify your information and try again.').show();
+              }
+            },
+          });
+        });
+        function setSuccessMessage(){
+          jQuery('.signup-form .signup-form--message').addClass('success').html('Success! Thank you for signing up.').show();
+          jQuery('.signup-form .signup-form--fields').hide();
+        }
     },
 };

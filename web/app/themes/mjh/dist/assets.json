@@ -11,6 +11,7 @@
   "images/icon-close-white.svg": "images/icon-close-white_8b0dcdfe.svg",
   "images/icon-hamburger-white.svg": "images/icon-hamburger-white_c58e1ee0.svg",
   "images/mjh_logo_icon.svg": "images/mjh_logo_icon_ef5af421.svg",
+  "images/placeholder.png": "images/placeholder_d9535082.png",
   "images/play-button.svg": "images/play-button_5a195121.svg",
   "images/tickets.svg": "images/tickets_796ea32d.svg",
   "images/time-out-new-york-logo.png": "images/time-out-new-york-logo_166d87b3.png",
@@ -24,7 +25,7 @@
   "vendor/fontawesome-webfont.woff2?v=4.7.0": "vendor/fontawesome-webfont_af7ae505.woff2",
   "vendor/fontawesome-webfont.woff?v=4.7.0": "vendor/fontawesome-webfont_fee66e71.woff",
   "videos/auschwitz-intro.mp4": "videos/auschwitz-intro_238c9740.mp4",
-  "scripts/customizer.js": "scripts/customizer_aeb4056d.js",
-  "styles/main.css": "styles/main_aeb4056d.css",
-  "scripts/main.js": "scripts/main_aeb4056d.js"
+  "scripts/customizer.js": "scripts/customizer_7037d214.js",
+  "styles/main.css": "styles/main_7037d214.css",
+  "scripts/main.js": "scripts/main_7037d214.js"
 }
