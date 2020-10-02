@@ -9,12 +9,12 @@
       <h3 class="card-title">{{ get_the_title($item_id) }}</h3>
       <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
     </div>
+    @if(has_excerpt($item_id))
+      <div class="event-excerpt info">
+        {!! get_the_excerpt($item_id) !!}
+      </div>
+    @endif
     <div class="details">
-      @if(has_excerpt($item_id))
-        <div class="event-excerpt info">
-          {!! get_the_excerpt($item_id) !!}
-        </div>
-      @endif
       @if (App::get_field('event_start_date',$item_id))
 	      <div class="event-dates">
 	          	@if (App::get_field('event_end_date',$item_id) && App::get_field('event_type',$item_id) == 'ongoing')
