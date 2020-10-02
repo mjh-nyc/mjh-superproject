@@ -23,6 +23,7 @@ export default {
           speed: 900,
           autoplaySpeed: 5000,
           autoplay: true,
+          rows: 0,
           centerMode: true,
           pauseOnHover: true,
           lazyLoad: 'ondemand',
@@ -134,6 +135,7 @@ export default {
           centerMode: true,
           pauseOnHover: true,
           lazyLoad: 'ondemand',
+          rows: 0,
           responsive: [{
             breakpoint: 768,
             settings: {
