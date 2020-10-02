@@ -87,7 +87,7 @@
             {{ __('Also on View', 'sage') }}
           @endif
         </div>
-        <div class="row no-gutters">
+        <div class="row no-gutters listing">
           @foreach ($exhibitions_widget_listings as $exhibition_widget)
               @include('partials.content-exhibition-card', ['item_id'=>$exhibition_widget->ID, 'header'=>''])
           @endforeach
