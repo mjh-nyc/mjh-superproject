@@ -303,10 +303,16 @@
         }
     }
     .highlighted_exhibition_button {
-        margin: 10px 5px 20px 5px;
+        margin: 10px 15px 20px 15px;
         display:inline-block;
         @include media-breakpoint-up(md) {
            margin-top: 20px;
+        }
+        a {
+            height: auto;
+            border-radius: 100px;
+            line-height: normal;
+            padding: 10px 20px;
         }
         &.discover {
             display: none;
