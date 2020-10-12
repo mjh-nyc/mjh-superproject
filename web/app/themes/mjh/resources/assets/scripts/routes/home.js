@@ -177,7 +177,8 @@ export default {
         //Set up google embed map src
         //Set embed map state
         var embedMapMobile = false;
-        if (jQuery(window).width() < 1200) {
+        if (jQuery(window).width() >= 1200) {
+          //Pretend its set to mobile so it adjusts to desktop view in function below to sustain a state
           embedMapMobile = true;
         }
         //Function checks window width to determine which embed src to use, use map state so map is not constantly refreshing
