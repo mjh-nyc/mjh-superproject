@@ -93,7 +93,7 @@
 		"source": {
 		  "type": "git",
 		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-		   "reference": "1.5.6"
+		   "reference": "1.5.7"
 		}
       }
     }

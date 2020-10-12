@@ -16,17 +16,24 @@
               @php($item_id = get_sub_field('custom_carousel_section_post')[0])
             @endif
             <div class="custom-card slide-card">
-              <a href="@if(!empty($item_id)){!! get_the_permalink($item_id) !!}@else {{get_sub_field('custom_carousel_link')}} @endif" class="card-link">
+              <a href="@if(!empty($item_id)){!! get_the_permalink($item_id) !!}@else {{get_sub_field('custom_carousel_link')['url']}} @endif" class="card-link" target="@if(!empty($item_id)){{_e('_self')}}@else{{get_sub_field('custom_carousel_link')['target']}}@endif">
                 <div class="card-image">
                   <img src="@asset('images/placeholder.png')" data-lazy="@if(!empty($item_id)){{App::featuredImageSrc('square@2x',$item_id)}}@else {{get_sub_field('custom_carousel_section_content')['callout_image']['sizes']['square@2x'] }} @endif" data-mobilesrc="@if(!empty($item_id)){{App::featuredImageSrc('square@1x',$item_id)}}@else {{get_sub_field('custom_carousel_section_content')['callout_image']['sizes']['square@1x'] }} @endif">
 
                   <span class="sr-only">@if(!empty($item_id)){{ App::featuredImageAlt($item_id) }}@else {{get_sub_field('custom_carousel_section_content')['callout_image']['alt']}} @endif</span>
                 </div>
                 <div class="info">
-                  <h3 class="card-title">@if(!empty($item_id)){{ App::truncateString(get_the_title($item_id),10) }}@else {{get_sub_field('custom_carousel_section_content')['callout_title']}} @endif</h3>
+                  <h3 class="card-title">
+                  @if(!empty($item_id)){!! get_the_title($item_id) !!}@else {{get_sub_field('custom_carousel_section_content')['callout_title']}} @endif</h3>
                 </div>
-                <div class="custom-card--details">
-                  @if(!empty($item_id)){{App::postExcerpt($item_id)}}@else {!! App::truncateString(get_sub_field('custom_carousel_section_content')['callout_copy'], 10) !!} @endif
+                <div class="custom-card--details description">
+                  @if(!empty($item_id))
+                    @if(has_excerpt($item_id))
+                      {!! get_the_excerpt($item_id) !!}
+                    @endif
+                  @else 
+                    {!! get_sub_field('custom_carousel_section_content')['callout_copy'] !!}
+                  @endif
                 </div>
               </a>
             </div>

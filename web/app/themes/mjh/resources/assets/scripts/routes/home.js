@@ -23,6 +23,7 @@ export default {
           speed: 900,
           autoplaySpeed: 5000,
           autoplay: true,
+          rows: 0,
           centerMode: true,
           pauseOnHover: true,
           lazyLoad: 'ondemand',
@@ -50,8 +51,9 @@ export default {
 
         //https://github.com/kenwheeler/slick/issues/248
         $sliderNav.on('lazyLoaded', function (e, slick, image, imageSource) {
+          image.parent().css('opacity','0');
           image.parent().css('background-image', 'url("' + imageSource + '")');
-          image.parent().fadeIn();
+          image.parent().fadeTo( 'slow', 1 );
           image.hide();
         });
 
@@ -112,8 +114,9 @@ export default {
         });
         //https://github.com/kenwheeler/slick/issues/248
         $sliderPosts.on('lazyLoaded', function (e, slick, image, imageSource) {
+          image.parent().css('opacity','0');
           image.parent().css('background-image', 'url("' + imageSource + '")');
-          image.parent().fadeIn();
+          image.parent().fadeTo( 'slow', 1 );
           image.hide();
         });
       }
@@ -132,6 +135,7 @@ export default {
           centerMode: true,
           pauseOnHover: true,
           lazyLoad: 'ondemand',
+          rows: 0,
           responsive: [{
             breakpoint: 768,
             settings: {
@@ -156,8 +160,9 @@ export default {
 
         //https://github.com/kenwheeler/slick/issues/248
         $sliderCustom.on('lazyLoaded', function (e, slick, image, imageSource) {
+          image.parent().css('opacity','0');
           image.parent().css('background-image', 'url("' + imageSource + '")');
-          image.parent().fadeIn();
+          image.parent().fadeTo( 'slow', 1 );
           image.hide();
         });
         //var totalCustomSlides = $sliderCustom.slick('getSlick').slideCount;
