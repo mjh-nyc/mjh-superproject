@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use DateInterval;
+use DateTime;
 //Logo support
 function theme_prefix_setup() {
 
@@ -25,7 +26,7 @@ add_action( 'after_setup_theme', 'App\\theme_prefix_setup' );
         'transport'         => 'refresh',
     ) );
     $wp_customize->add_control(
-        'custom_logo_max_width', 
+        'custom_logo_max_width',
         array(
             'default'           => '363',
             'type'              => 'custom-range',
@@ -43,7 +44,7 @@ add_action( 'after_setup_theme', 'App\\theme_prefix_setup' );
 }
 add_action('customize_register', 'App\\mjh_customize_register');
 
-//code to output the css into the header 
+//code to output the css into the header
 function mjh_customize_css(){
     ?>
          <style type="text/css">
@@ -565,61 +566,114 @@ add_shortcode( 'address', 'App\\get_address' );
 
 //Get openning hours
 function get_hours( $atts="" ) {
-	// check if the repeater field has rows of data
-	if( have_rows('regular_hours_repeater','options') ):
-		$hours = '<div class="schedule row">';
-	 	// loop through the rows of data
-		$prev_exception = ""; //keep track of prev day in case the next in loop repeats, just print an asterisk and move the hours into the footnote
-		$exception_notice = false;
-
-
-	    while ( have_rows('regular_hours_repeater','options') ) : the_row();
-	        $exception_start = get_sub_field('hours_start_date_range');
-	        $exception_end = get_sub_field('hours_end_date_range');
-
-	        $day = get_sub_field('day_of_week');
-	        $opening_hour = get_sub_field('opening_hour');
-	        $closing_hour = get_sub_field('closing_hour');
-
-	        if (!$exception_start) {
-		        $hours .= '<div class="col-3 day">';
-		        	$hours .= $day;
-		        	$hours .= $prev_exception;
-		        	$prev_exception = "";
-		        $hours .= '</div>';
-		        $hours .= '<div class="col-9 hours">';
-		        	if (get_sub_field('is_museum_closed')) {
-		        		$hours .= __("Closed","sage");
-		        	} else {
-			        	$hours .= $opening_hour;
-			        	$hours .= ' &#8211; ';
-			        	$hours .= $closing_hour;
-			        }
-		        $hours .= '</div>';
-		    } else {
-		    	$prev_exception = " *";
-		    	$exception_notice .= '<br><span style="display: block; margin-left: 14px;">From <strong>'.$exception_start.'</strong> through <strong>'.$exception_end.'</strong>, we will be open from <strong>'.$opening_hour.'</strong> to <strong>'. $closing_hour .'</strong> on <strong>'. $day .'s.</strong></span>';
-		    }
-
-	    endwhile;
-	    $hours .='</div>';
-	    //add exceptions notes if encountered
-	    if ($exception_notice) {
-		    $hours .='<div class="alert alert-warning">';
-		    $hours .= __("* Note that our hours change during these times:","sage");
-		    $hours .= $exception_notice;
-		    $hours .='</div>';
-		}
-	endif;
+    // Set up variables
+    $regularHours =  get_field('regular_hours_repeater', 'option');
+    $holidays =  get_field('holiday_hours_repeater', 'option');
+    $currentTimeZone = get_option('timezone_string');
+    date_default_timezone_set($currentTimeZone);
+    $currentDay = date('l', strtotime('today midnight'.$currentTimeZone));
+    $hours = '';
+    //Get current week date span
+    $date = new DateTime(date('Y-m-d',strtotime('last sunday')));
+    $weekDatesHash = array();
+    $weekDatesHash[$date->format('l')] = array('date'=>$date->format('Y-m-d'));
+    for($i=0; $i < 6; $i++){
+        $date->add(new DateInterval('P1D'));
+        $weekDatesHash[$date->format('l')] = array('date'=>$date->format('Y-m-d'));
+    }
+    if(!empty($regularHours)) {
+        //Set hours to respective date of the week and add additional information
+        foreach ($regularHours as $hour) {
+            $weekDatesHash[$hour['day_of_week']]['hours'] = $hour;
+            if ($currentDay == $hour['day_of_week']) {
+                $weekDatesHash[$hour['day_of_week']]['active_date'] = true;
+            } else {
+                $weekDatesHash[$hour['day_of_week']]['active_date'] = false;
+            }
+            //Loop through holidays
+            if (!empty($holidays)) {
+                $tomorrowDate = date('Y-m-d', strtotime($weekDatesHash[$hour['day_of_week']]['date'] . ' +1day'));
+                foreach ($holidays as $key => $holiday) {
+                    $holidayDate = date('Y-m-d', strtotime($holiday['holiday_date']));
+                    // Check if date is a holiday
+                    if ($holidayDate == $weekDatesHash[$hour['day_of_week']]['date']) {
+                        $weekDatesHash[$hour['day_of_week']]['holiday'] = $holiday;
+                    }
+                    //Check if date is an eve of a holiday
+                    if ($holidayDate == $tomorrowDate) {
+                        $weekDatesHash[$hour['day_of_week']]['holiday_eve'] = true;
+                    }
+                }
+            }
+        }
+        if (!empty($weekDatesHash)):
+            $hours = '<div class="schedule row">';
+            // loop through weekly data hash
+            $prev_exception = ""; //keep track of prev day in case the next in loop repeats, just print an asterisk and move the hours into the footnote
+            $exception_notice = false;
+            foreach ($weekDatesHash as $day => $weekDay) :
+                $exception_start = $weekDay['hours']['hours_start_date_range'];
+                $exception_end = $weekDay['hours']['hours_end_date_range'];
+                $opening_hour = $weekDay['hours']['opening_hour'];
+                $closing_hour = $weekDay['hours']['closing_hour'];
+                $activeClass = '';
+                //Check if this date is today to set an active class
+                if (!empty($weekDay['active_date'])) {
+                    $activeClass = ' active ';
+                }
+                if (!$exception_start) {
+                    $hours .= '<div class="col-4 day' . $activeClass . '">';
+                    $hours .= $day;
+                    $hours .= $prev_exception;
+                    $prev_exception = "";
+                    $hours .= '</div>';
+                    $hours .= '<div class="col-8 hours' . $activeClass . '">';
+                    //Set hours based on ruleset
+                    if ($weekDay['hours']['is_museum_closed']) {
+                        $hours .= __("Closed", "sage");
+                    } elseif (!empty($weekDay['holiday'])) {
+                        if ($weekDay['holiday']['is_museum_closed']) {
+                            $hours .= __("Closed", "sage");
+                        } else {
+                            $hours .= $weekDay['holiday']['opening_hour'];
+                            $hours .= ' &#8211; ';
+                            $hours .= $weekDay['holiday']['closing_hour'];
+                        }
+                    } elseif (!empty($weekDay['holiday_eve'])) {
+                        $hours .= get_field('holiday_eve_opening_hour', 'option');
+                        $hours .= ' &#8211; ';
+                        $hours .= get_field('holiday_eve_closing_hour', 'option');
+                    } else {
+                        $hours .= $opening_hour;
+                        $hours .= ' &#8211; ';
+                        $hours .= $closing_hour;
+                    }
+                    $hours .= '</div>';
+                } else {
+                    $prev_exception = " *";
+                    $exception_notice .= '<br><span style="display: block; margin-left: 14px;">From <strong>' . $exception_start . '</strong> through <strong>' . $exception_end . '</strong>, we will be open from <strong>' . $opening_hour . '</strong> to <strong>' . $closing_hour . '</strong> on <strong>' . $day . 's.</strong></span>';
+                }
+            endforeach;
+            $hours .= '</div>';
+            //add exceptions notes if encountered
+            if ($exception_notice) {
+                $hours .= '<div class="alert alert-warning">';
+                $hours .= __("* Note that our hours change during these times:", "sage");
+                $hours .= $exception_notice;
+                $hours .= '</div>';
+            }
+        endif;
+    }
 
 	return $hours;
 }
 add_shortcode( 'hours', 'App\\get_hours' );
 
-//Get holidays openning hours
+//Get holidays opening hours
 function get_holiday_hours( $atts="" ) {
 	// check if the repeater field has rows of data
-	if( have_rows('holiday_hours_repeater','options') ):
+	$hours = '';
+    if( have_rows('holiday_hours_repeater','options') ):
 		$hours = '<div class="schedule row">';
 	 	// loop through the rows of data
 		while ( have_rows('holiday_hours_repeater','options') ) : the_row();
@@ -668,8 +722,6 @@ function get_holiday_notes( $atts="" ) {
 }
 add_shortcode( 'holiday-notes', 'App\\get_holiday_notes' );
 
-
-
 //Create a sitemap of pages
 //https://developer.wordpress.org/reference/functions/wp_list_pages/
 function make_sitemap( $atts="" ) {
@@ -711,5 +763,108 @@ function get_nav_args($nav) {
 }
 add_shortcode( 'sitemap', 'App\\make_sitemap' );
 
+//Get emma signup form
+function get_emma_signup_form( ) {
+    $signup_form = '<div class="signup-form">';
+        $signup_form.= '<div class="signup-form--message" style="display: none" role="alert"></div>';
+
+        $signup_form.= '<div class="signup-form--fields">';
+            $signup_form.= '<div class="signup-form--field email">';
+                $signup_form.= '<label for="email">'.__('Email','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="email" name="email" type="text">';
+            $signup_form.= '</div>';
+        $signup_form.= '</div>';
+
+        $signup_form.= '<div class="signup-form--fields side-by-side">';
+            $signup_form.= '<div class="signup-form--field first_name">';
+                $signup_form.= '<label for="first_name">'.__('First Name','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="first_name" name="first_name" type="text">';
+            $signup_form.= '</div>';
+
+            $signup_form.= '<div class="signup-form--field last_name">';
+                $signup_form.= '<label for="last_name">'.__('Last Name','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="last_name" name="last_name" type="text">';
+            $signup_form.= '</div>';
+        $signup_form.= '</div>';
+
+        $signup_form.= '<div class="signup-form--fields side-by-side">';
+            $signup_form.= '<div class="signup-form--field zip">';
+                $signup_form.= '<label for="zip">'.__('Zip','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="zip" name="zip" type="text" />';
+            $signup_form.= '</div>';
+            $signup_form.= '<div class="signup-form--field phone">';
+                $signup_form.= '<label for="phone">'.__('Phone','sage').' <span class="required">*</span></label>';
+                $signup_form.= '<input id="phone" name="phone" type="text">';
+            $signup_form.= '</div>';
+        $signup_form.= '</div>';
+
+        $signup_form.= '<div class="signup-form--fields submit-cta">';
+            $signup_form.='<a id="signup-btn" class="cta-round cta-arrow cta-secondary" href="#">'.__('Sign Up!','sage').'</a>';
+        $signup_form.= '</div>';
+    $signup_form.= '</div>';
+    return $signup_form;
+}
+add_shortcode( 'emma_signup_form', 'App\\get_emma_signup_form' );
+
 /***** //END Shortcodes ********/
 
+/*** Set up ajax requests ********/
+// Set up ajax function listener
+add_action('wp_ajax_mjhAjaxEvents', 'App\\mjh_ajax_events');
+add_action('wp_ajax_nopriv_mjhAjaxEvents', 'App\\mjh_ajax_events');
+
+function mjh_ajax_events(){
+    //Array hash to return to browser
+    $pParamHash = array();
+    //Get variables from ajax request
+    $request = (string) $_REQUEST['request'];
+    $email = (string)$_REQUEST['email'];
+    $first_name = (string)$_REQUEST['first_name'];
+    $last_name = (string)$_REQUEST['last_name'];
+    $zip = (string)$_REQUEST['zip'];
+    // Check the referrer for the ajax call (setup.php creates nonce)
+    //check_ajax_referer('mjh_ajax_nonce', 'mjh_nonce');
+    switch ($request) {
+        case 'signupEmail':
+            //Get account credentials and group data
+            $account_id = get_field('emma_account_id','options');
+            $public_api_key = get_field('emma_public_api_key','options');
+            $private_api_key = get_field('emma_private_api_key','options');
+            $groups = explode(',',get_field('emma_groups','options'));
+            //Set up user data
+            $member_data = array(
+                "email" => $email,
+                "fields" => array(
+                    "first_name" => $first_name,
+                    "last_name" => $last_name,
+                    "postal_code" => $zip
+                ),
+                "group_ids" => $groups
+            );
+            //Api Endpoint
+            $url = "https://api.e2ma.net/".$account_id."/members/add";
+            //Execute the api call to add a member to the emma api
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_USERPWD, $public_api_key . ":" . $private_api_key);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_POST, count($member_data));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($member_data));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSLVERSION, 6);
+            $head = curl_exec($ch);
+            $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            //Check the response code and return boolean
+            if($http_code > 200) {
+                $pParamHash['signupSuccess'] = false;
+            } else {
+                $pParamHash['signupSuccess'] = true;
+            }
+        break;
+    }
+    //Return to browser with data hash
+    wp_send_json_success($pParamHash);
+}
+/***** //END ajax request ********/

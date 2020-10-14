@@ -36,7 +36,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-	"version": "5.8.3",
+	"version": "5.9.0",
 	"type": "wordpress-plugin",
 	"dist": {
 	  "type": "zip",
@@ -93,7 +93,7 @@
 		"source": {
 		  "type": "git",
 		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-		   "reference": "1.5.2"
+		   "reference": "1.5.7"
 		}
       }
     }

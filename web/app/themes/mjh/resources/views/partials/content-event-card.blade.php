@@ -6,9 +6,14 @@
       <span class="card-category" @if (App::get_field('event_type',$item_id) == 'recurring') style="background:#033EFB" @endif >{!! App::postTermsString($item_id,'event_category') !!}</span>
     </div>
     <div class="info">
-      <h3 class="card-title">{{ App::truncateString(get_the_title($item_id), 20) }}</h3>
+      <h3 class="card-title">{{ get_the_title($item_id) }}</h3>
       <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
     </div>
+    @if(has_excerpt($item_id))
+      <div class="event-excerpt info">
+        {!! get_the_excerpt($item_id) !!}
+      </div>
+    @endif
     <div class="details">
       @if (App::get_field('event_start_date',$item_id))
 	      <div class="event-dates">

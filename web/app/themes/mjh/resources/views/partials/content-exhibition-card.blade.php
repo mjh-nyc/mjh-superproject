@@ -2,11 +2,17 @@
 <div class="slide-card exhibtion-card" @if ($header) data-header="{{ $header }}" @endif>
 	<!-- Hero bg in header template -->
 	<a href="{!! get_the_permalink($item_id); !!}" class="card-link">
-	<div class="card-image" style="background-image: url('{{App::featuredImageSrc('square@1x',$item_id)}}')">
-		<span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
+	
+	<div class="card-image @if(!is_front_page()){{_('lazy')}}@endif" @if(!is_front_page()) data-src="{{App::featuredImageSrc('square@1x',$item_id)}}|{{App::featuredImageSrc('square@2x',$item_id)}}" @endif>
+		@if(is_front_page())
+			<img src="@asset('images/placeholder.png')" data-lazy="{{App::featuredImageSrc('square@2x',$item_id)}}" data-mobilesrc="{{App::featuredImageSrc('square@1x',$item_id)}}">
+			<span class="sr-only">{{ App::featuredImageAlt($item_id) }}</span>
+		@endif
 	</div>
-	<h3 class="card-title">{{ App::truncateString(get_the_title($item_id), 8) }}</h3>
-	<p class="description">{{ App::postExcerpt($item_id) }}</p>
+	<h3 class="card-title">{!! get_the_title($item_id) !!}</h3>
+	@if(has_excerpt($item_id))
+		<p class="description">{!! get_the_excerpt($item_id) !!}</p>
+	@endif
 	@if(App::getCoreExhibitionID() != get_the_ID())
 		<div class="details">
 			<h4>{{App::get_field('exhibition_type',$item_id)}}</h4>
