@@ -96,6 +96,19 @@
 		   "reference": "1.5.7"
 		}
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "mjh-nyc/easy-accordion-pro",
+        "version": "dev-master",
+        "type": "wordpress-plugin",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/mjh-nyc/easy-accordion-pro.git",
+          "reference": "2.0.15"
+        }
+      }
     }
   ],
   "require": {
@@ -117,7 +130,8 @@
     "wpackagist-plugin/formidable": "4.02.01",
     "wpackagist-plugin/inactive-logout": "^1.8.4",
     "wpackagist-plugin/popup-maker": "^1.9",
-    "wpackagist-plugin/woocommerce": "4.0.1"
+    "wpackagist-plugin/woocommerce": "4.0.1",
+    "mjh-nyc/easy-accordion-pro": "dev-master"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
