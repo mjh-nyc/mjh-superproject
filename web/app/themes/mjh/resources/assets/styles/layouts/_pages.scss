@@ -312,7 +312,7 @@
             height: auto;
             border-radius: 100px;
             line-height: normal;
-            padding: 10px 20px;
+            padding: 12px 20px;
         }
         &.discover {
             display: none;
@@ -1292,6 +1292,10 @@
         .submit-cta {
             margin-top: 30px;
          }
+        .cta-round {
+            border: none;
+            padding: 0 3rem;
+        }
         &--message {
             &.success {
                 @extend .alert;
