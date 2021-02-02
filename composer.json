@@ -1,155 +1,159 @@
 {
-  "name": "roots/bedrock",
-  "type": "project",
-  "license": "MIT",
-  "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
-  "authors": [
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    }
-  ],
-  "keywords": [
-    "bedrock", "roots", "wordpress", "stack", "composer", "vagrant", "wp"
-  ],
-  "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
-  },
-  "config": {
-    "preferred-install": "dist",
-    "secure-http": false
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "advanced-custom-fields/advanced-custom-fields-pro",
-	"version": "5.9.0",
-	"type": "wordpress-plugin",
-	"dist": {
-	  "type": "zip",
-	   "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0"
-	},
-	"require": {
-	  "philippbaschke/acf-pro-installer": "^1.0",
-	  "composer/installers": "^1.0"
-	}
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "yoast/wordpress-seo-premium",
-		"version": "9.5",
-		"type": "wordpress-plugin",
-		"dist": {
-		  "type": "zip",
-		   "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/wordpress-seo-premium-9.5.zip"
-		}
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "formidableforms/formidable-pro",
-		"version": "4.02.01",
-		"type": "wordpress-plugin",
-		"dist": {
-		  "type": "zip",
-		   "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip"
-		}
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "deliciousbrains/wp-offload-s3-pro",
-    "version": "1.5.1",
-    "type": "wordpress-plugin",
-    "dist": {
-      "type": "zip",
-       "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org"
-    }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "mjh-nyc/mjh-custom-configurations",
-		"version": "dev-master",
-		"type": "wordpress-muplugin",
-		"source": {
-		  "type": "git",
-		   "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-		   "reference": "1.5.7"
-		}
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "mjh-nyc/easy-accordion-pro",
-        "version": "dev-master",
-        "type": "wordpress-plugin",
-        "source": {
-          "type": "git",
-          "url": "https://github.com/mjh-nyc/easy-accordion-pro.git",
-          "reference": "2.0.15"
+    "name": "roots/bedrock",
+    "type": "project",
+    "license": "MIT",
+    "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
+    "homepage": "https://roots.io/bedrock/",
+    "authors": [
+        {
+            "name": "Scott Walkinshaw",
+            "email": "scott.walkinshaw@gmail.com",
+            "homepage": "https://github.com/swalkinshaw"
+        },
+        {
+            "name": "Ben Word",
+            "email": "ben@benword.com",
+            "homepage": "https://github.com/retlehs"
         }
-      }
-    }
-  ],
-  "require": {
-    "php": ">=5.6",
-    "composer/installers": "~1.2.0",
-    "vlucas/phpdotenv": "^2.0.1",
-    "oscarotero/env": "^1.0",
-    "roots/wp-password-bcrypt": "1.0.0",
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
-    "mjh-nyc/mjh-custom-configurations": "dev-master",
-    "yoast/wordpress-seo-premium": "^9.5",
-    "deliciousbrains/wp-offload-s3-pro": "^1.0",
-    "wpackagist-plugin/amazon-web-services": "^1.0",
-    "wpackagist-plugin/tinymce-advanced": "^5.1",
-    "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
-    "formidableforms/formidable-pro": "^4.0",
-    "wpackagist-plugin/wp-super-cache":">=1.4.8",
-    "wpackagist-plugin/formidable": "4.02.01",
-    "wpackagist-plugin/inactive-logout": "^1.8.4",
-    "wpackagist-plugin/popup-maker": "^1.9",
-    "wpackagist-plugin/woocommerce": "4.0.1",
-    "mjh-nyc/easy-accordion-pro": "dev-master",
-    "johnpbloch/wordpress": "^5.6"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "^2.5.1"
-  },
-  "extra": {
-    "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
-    },
-    "wordpress-install-dir": "web/wp"
-  },
-  "scripts": {
-    "post-root-package-install": [
-      "php -r \"copy('.env.example', '.env');\""
     ],
-    "test": [
-      "vendor/bin/phpcs"
-    ]
-  }
+    "keywords": [
+        "bedrock",
+        "roots",
+        "wordpress",
+        "stack",
+        "composer",
+        "vagrant",
+        "wp"
+    ],
+    "support": {
+        "issues": "https://github.com/roots/bedrock/issues",
+        "forum": "https://discourse.roots.io/category/bedrock"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "secure-http": false
+    },
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        "1": {
+            "type": "package",
+            "package": {
+                "name": "advanced-custom-fields/advanced-custom-fields-pro",
+                "version": "5.9.0",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzU1NTZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE2LTAyLTIwIDIzOjQyOjQ0"
+                },
+                "require": {
+                    "philippbaschke/acf-pro-installer": "^1.0",
+                    "composer/installers": "^1.0"
+                }
+            }
+        },
+        "3": {
+            "type": "package",
+            "package": {
+                "name": "formidableforms/formidable-pro",
+                "version": "4.02.01",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip"
+                }
+            }
+        },
+        "4": {
+            "type": "package",
+            "package": {
+                "name": "deliciousbrains/wp-offload-s3-pro",
+                "version": "1.5.1",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://deliciousbrains.com/dl/wp-offload-s3-pro-latest.zip?licence_key=1af4b9aa-71f7-4036-a5ef-300592795795&site_url=mjhnyc.org"
+                }
+            }
+        },
+        "5": {
+            "type": "package",
+            "package": {
+                "name": "mjh-nyc/mjh-custom-configurations",
+                "version": "dev-master",
+                "type": "wordpress-muplugin",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
+                    "reference": "1.5.7"
+                }
+            }
+        },
+        "6": {
+            "type": "package",
+            "package": {
+                "name": "mjh-nyc/easy-accordion-pro",
+                "version": "dev-master",
+                "type": "wordpress-plugin",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/mjh-nyc/easy-accordion-pro.git",
+                    "reference": "2.0.15"
+                }
+            }
+        },
+        "my-yoast": {
+            "type": "composer",
+            "url": "https://my.yoast.com/packages/"
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "composer/installers": "~1.9.0",
+        "vlucas/phpdotenv": "^2.0.1",
+        "oscarotero/env": "^1.0",
+        "roots/wp-password-bcrypt": "1.0.0",
+        "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
+        "mjh-nyc/mjh-custom-configurations": "dev-master",
+        "deliciousbrains/wp-offload-s3-pro": "^1.0",
+        "wpackagist-plugin/amazon-web-services": "^1.0",
+        "wpackagist-plugin/tinymce-advanced": "^5.1",
+        "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
+        "formidableforms/formidable-pro": "^4.0",
+        "wpackagist-plugin/wp-super-cache": ">=1.4.8",
+        "wpackagist-plugin/formidable": "4.02.01",
+        "wpackagist-plugin/inactive-logout": "^1.8.4",
+        "wpackagist-plugin/popup-maker": "^1.9",
+        "wpackagist-plugin/woocommerce": "4.0.1",
+        "mjh-nyc/easy-accordion-pro": "dev-master",
+        "johnpbloch/wordpress": "^5.6",
+        "yoast/wordpress-seo-premium": "^15.7"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.5.1"
+    },
+    "extra": {
+        "installer-paths": {
+            "web/app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "wordpress-install-dir": "web/wp"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "test": [
+            "vendor/bin/phpcs"
+        ]
+    }
 }
