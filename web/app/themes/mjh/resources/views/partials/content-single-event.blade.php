@@ -6,10 +6,10 @@
   }
 @endphp
 <article @php(post_class(App::addLayoutClasses()))>
-  
+
   <div class="event-info {{ $status }}">
         <h3 class="subhead">
-          @php _e("Event details","sage"); @endphp
+          @php _e("Event details","sage"); @endphp ssssss
         </h3>
         <div class="row">
         <div class="col-12">
@@ -27,7 +27,7 @@
             @if (App::get_field('event_type') == 'onetime')
               <br> {{ App::get_field('event_start_time') }}
               @if (App::get_field('event_end_time'))
-                  &#8211; {{ App::get_field('event_end_time') }}
+                  &#8211; {!! App::eventTime(get_post_meta(get_the_ID(),'event_end_time')) !!}
               @endif
             @endif
           </div>
@@ -48,7 +48,7 @@
           </div>
         @endif
         </div>
-        
+
         @if (App::get_repeater_field('event_pricing'))
           <div class="col-12">
             <div class="event-pricing item">
@@ -80,7 +80,7 @@
             </div>
           </div>
         @endif
-          
+
         </div>
       </div>
 
@@ -93,7 +93,7 @@
   <div class="col-content row">
 
     <div class="entry-content">
-      
+
       @include('partials.content-share')
       @php(the_content())
       @include('partials.content-gallery')
