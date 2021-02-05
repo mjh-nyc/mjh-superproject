@@ -538,7 +538,7 @@ class App extends Controller
      * @return object
      */
     public static function getTestimonyCategory($id=false){
-        
+
         $cats = '';
         if ($id) {
             $terms = wp_get_object_terms( $id, 'testimony_category' );
@@ -569,6 +569,21 @@ class App extends Controller
         }
         return $date_output;
     }
+
+    /**
+     * //Bug with the acf pro get_field formatter, converting time value to utc, temporary workaround
+     *
+     * @return date/string
+     */
+    public static function eventTime($time)
+    {
+        if (!empty($time[0])) {
+            return date('g:i A', strtotime($time[0]));
+        } else {
+            return '';
+        }
+    }
+
     /**
      * Evaluate if an event is PAST, returns true if past, requires start and end dates
      *
@@ -583,7 +598,7 @@ class App extends Controller
      * @return bool
      */
     public static function evalDateStatus($start_date, $end_date){
-        //convert to timestamp 
+        //convert to timestamp
         $start_date = strtotime($start_date);
         $end_date = strtotime($end_date);
         date_default_timezone_set('America/New_York');
@@ -632,7 +647,7 @@ class App extends Controller
      * @return array
      */
     public static function hasCoreSubPageNav(){
-        
+
         $pages = array();
         $page_ids = array();
         //are there parent pages that use the views/template-core.blade.php template
