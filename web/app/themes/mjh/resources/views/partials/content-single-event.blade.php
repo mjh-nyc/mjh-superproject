@@ -9,7 +9,7 @@
 
   <div class="event-info {{ $status }}">
         <h3 class="subhead">
-          @php _e("Event details","sage"); @endphp ssssss
+          @php _e("Event details","sage"); @endphp
         </h3>
         <div class="row">
         <div class="col-12">
