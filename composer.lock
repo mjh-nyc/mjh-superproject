@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f26eb60461ab3674cebf736bcbb316a",
+    "content-hash": "f2e42a92e3ec794dbdd3ba8c2295e7ae",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -167,10 +167,10 @@
         },
         {
             "name": "formidableforms/formidable-pro",
-            "version": "4.02.01",
+            "version": "4.09.07p",
             "dist": {
                 "type": "zip",
-                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip"
+                "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.09.07p.zip"
             },
             "type": "wordpress-plugin"
         },
@@ -1504,15 +1504,15 @@
         },
         {
             "name": "wpackagist-plugin/formidable",
-            "version": "4.02.01",
+            "version": "4.09.07",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/formidable/",
-                "reference": "tags/4.02.01"
+                "reference": "tags/4.09.07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.4.02.01.zip"
+                "url": "https://downloads.wordpress.org/plugin/formidable.4.09.07.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
