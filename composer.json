@@ -58,11 +58,11 @@
             "type": "package",
             "package": {
                 "name": "formidableforms/formidable-pro",
-                "version": "4.02.01",
+                "version": "4.09.07p",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
-                    "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.02.01.zip"
+                    "url": "https://mjhnyc.org/roa6f70qqmf4rz2n5o0k/formidable-pro-4.09.07p.zip"
                 }
             }
         },
@@ -123,7 +123,7 @@
         "wpackagist-plugin/flowpaper-lite-pdf-flipbook": ">=1.8.5",
         "formidableforms/formidable-pro": "^4.0",
         "wpackagist-plugin/wp-super-cache": ">=1.4.8",
-        "wpackagist-plugin/formidable": "4.02.01",
+        "wpackagist-plugin/formidable": "^4.02.01",
         "wpackagist-plugin/inactive-logout": "^1.8.4",
         "wpackagist-plugin/popup-maker": "^1.9",
         "wpackagist-plugin/woocommerce": "4.0.1",
