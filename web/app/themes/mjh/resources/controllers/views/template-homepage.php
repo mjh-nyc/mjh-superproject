@@ -179,18 +179,25 @@ class Homepage extends Controller
     }
 
     /**
-     * Return 10 non press blog posts
+     * Return 10 non press/in memoriam blog posts
      *
      * @return array
      */
     public function blogPosts() {
-        $cat = App::getPressCategory('press');
-        $pParamHash = array('category__not_in'=>$cat->term_id);
+        $catPress = App::getPressCategory('press');
+        $catInMemoriam = App::getPressCategory('in-memoriam');
+        //TODO: Replace the above with ACF field, currently set as draft
+        //construct an array of items to be excluded, if any
+        //these come from ACF field dropdown attached to the homepage layout builder (clone)
+        //$excludePosts = get_sub_field('blog_exclude_items');
+        //array($catPress->term_id,$catInMemoriam->term_id)
+        $pParamHash = array('category__not_in'=>array($catPress->term_id,$catInMemoriam->term_id));
         $stickyHash = App::getPressStickyPosts();
         if(!empty($stickyHash)){
             $pParamHash['post__not_in'] = $stickyHash;
         }
         return $this->getPosts($pParamHash);
+
     }
 
     /**
