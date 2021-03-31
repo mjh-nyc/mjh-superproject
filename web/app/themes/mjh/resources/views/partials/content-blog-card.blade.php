@@ -8,19 +8,21 @@
       <h3 class="card-title">{{ App::truncateString(get_the_title($item_id),10) }}</h3>
       <!--<p class="description">{{App::postExcerpt($item_id)}}</p>-->
     </div>
-    <div class="details">
-      <div class="post-date">
-        @if (is_sticky($item_id))
-          <i class="fa fa-bullseye" aria-hidden="true"></i> Pinned
-        @else
-          {{ get_the_date('l, F j, Y',$item_id) }}
-        @endif
+    @if (!in_array(get_category_by_slug('in-memoriam')->term_id, App::postCategories($item_id)))
+      <div class="details">
+        <div class="post-date">
+          @if (is_sticky($item_id))
+            <i class="fa fa-bullseye" aria-hidden="true"></i> Pinned
+          @else
+            {{ get_the_date('l, F j, Y',$item_id) }}
+          @endif
+        </div>
+        <!--
+        <div class="post-author">
+          @php _e("By","sage"); @endphp {{ get_the_author_meta( 'display_name', $item_id ) }}
+        </div>
+        -->
       </div>
-      <!--
-      <div class="post-author">
-        @php _e("By","sage"); @endphp {{ get_the_author_meta( 'display_name', $item_id ) }}
-      </div>
-      -->
-    </div>
+    @endif
   </a>
 </div>

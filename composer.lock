@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c885342f50ad693f5f8344e2f867cab7",
+    "content-hash": "ab4f4f5dd13d04b49a28a92d8c17cc8c",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -577,10 +577,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-                "reference": "1.5.9"
+                "reference": "1.6.0"
             },
             "type": "wordpress-muplugin",
-            "time": "2021-03-10T03:12:04+00:00"
+            "time": "2021-03-31T21:12:12+00:00"
         },
         {
             "name": "oscarotero/env",
