@@ -5,6 +5,7 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wpsc_version = 169;
 $wp_cache_debug_username = '69c8cbd920818136ed7644ecc5d8d051';
 $wp_cache_mobile_groups = '';
 $wp_cache_home_path = '/wp/';
