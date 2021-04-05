@@ -6,6 +6,7 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
+      @include('partials.content-page')
       @if($blogs)
       <div class="rss-link">
         <a href="{!! get_home_url(); !!}/feed" class="cta-round cta-secondary">
@@ -28,6 +29,5 @@
       @if ($get_max_num_pages)
         @include('partials.pagination',['max_num_pages'=>$get_max_num_pages])
       @endif
-    @include('partials.content-page')
   @endwhile
 @endsection
