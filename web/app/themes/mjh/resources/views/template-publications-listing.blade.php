@@ -23,7 +23,7 @@
           </div>
         </form>
       </div> --}}
-
+      @include('partials.content-page')
       @if($publications)
       <div class="listing-wrapper row" style="margin-top: 3rem;">
         @foreach ($publications as $publication)
@@ -41,6 +41,5 @@
       @if ($get_max_num_pages)
         @include('partials.pagination',['max_num_pages'=>$get_max_num_pages])
       @endif
-    @include('partials.content-page')
   @endwhile
 @endsection

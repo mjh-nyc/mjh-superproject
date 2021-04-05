@@ -126,7 +126,11 @@
     }
 }
 
-.page-template-default {
+.page-template-default,
+.template-blog-listing,
+.template-events-listing,
+.template-publications-listing,
+.template-testimonies-listing {
     .wrap.container {
         .main {
             justify-content: center !important;

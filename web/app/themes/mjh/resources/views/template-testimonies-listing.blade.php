@@ -6,7 +6,7 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
-      {{-- @include('partials.content-page') --}}
+      @include('partials.content-page')
       @if($testimonies)
       <div class="listing-wrapper row">
         @foreach ($testimonies as $testimony)
