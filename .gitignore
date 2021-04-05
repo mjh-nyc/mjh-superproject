@@ -7,6 +7,7 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 
 # WP Super Cache
+web/app/wp-cache-config.php
 web/app/cache/*
 !web/app/cache/.gitkeep
 
