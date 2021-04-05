@@ -6,6 +6,7 @@
 
 @section('content')
   @while(have_posts()) @php(the_post())
+      @include('partials.content-page')
       <div class="event-form">
         <form id="event-listing-form" name="event-listing-form" method='get' action="{!! APP::getPermalink() !!}">
           <div class="wrap">
@@ -50,6 +51,6 @@
       @if ($get_max_num_pages)
         @include('partials.pagination',['max_num_pages'=>$get_max_num_pages])
       @endif
-    @include('partials.content-page')
+    
   @endwhile
 @endsection
