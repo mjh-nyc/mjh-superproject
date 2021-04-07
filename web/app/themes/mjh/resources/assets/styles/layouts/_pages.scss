@@ -394,6 +394,7 @@
 .listing-wrapper {
     margin-bottom: 30px;
     justify-content: center !important;
+    width: 100%;
     @include media-breakpoint-up(md) {
         margin-bottom: 40px;
     }
