@@ -13,7 +13,7 @@
 	@if(has_excerpt($item_id))
 		<p class="description">{!! get_the_excerpt($item_id) !!}</p>
 	@endif
-	@if(get_post_type($item_id) == "exhibition" && App::getCoreExhibitionID() != get_the_ID())
+	@if(get_post_type($item_id) == "exhibition") {{-- && App::getCoreExhibitionID() != get_the_ID() --}}
 		<div class="details">
 			<h4>{{App::get_field('exhibition_type',$item_id)}}</h4>
 			<p>
