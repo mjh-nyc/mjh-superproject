@@ -126,7 +126,6 @@
         "wpackagist-plugin/formidable": "^4.02.01",
         "wpackagist-plugin/inactive-logout": "^1.8.4",
         "wpackagist-plugin/popup-maker": "^1.9",
-        "wpackagist-plugin/woocommerce": "4.0.1",
         "mjh-nyc/easy-accordion-pro": "dev-master",
         "johnpbloch/wordpress": "^5.6",
         "yoast/wordpress-seo-premium": "^15.7"

@@ -7,7 +7,7 @@
         @php($post_id = get_sub_field('carousel_item'))
         @if (get_post_type($post_id) == "exhibition")
           <div class="slide-card lazy" data-src="{{App::get_field('hero_image',$post_id)['sizes']['large']}}"><span class="sr-only">{{App::get_field('hero_image',$post_id)['alt']}}</span></div>
-        @elseif (get_post_type($item['carousel_item']) == "event")
+        @else
           <div class="slide-card lazy" data-src="{{ App::featuredImageSrc('large',$post_id) }}"><span class="sr-only">{{ App::featuredImageAlt($post_id) }}</span></div>
         @endif
         @endwhile
