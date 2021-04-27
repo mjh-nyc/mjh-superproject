@@ -22,7 +22,7 @@ export default {
           arrows: true,
           speed: 900,
           autoplaySpeed: 5000,
-          autoplay: true,
+          autoplay: false,
           rows: 0,
           centerMode: true,
           pauseOnHover: true,
