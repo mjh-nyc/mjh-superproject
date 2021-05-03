@@ -126,7 +126,11 @@
     }
 }
 
-.page-template-default {
+.page-template-default,
+.template-blog-listing,
+.template-events-listing,
+.template-publications-listing,
+.template-testimonies-listing {
     .wrap.container {
         .main {
             justify-content: center !important;
@@ -238,7 +242,7 @@
             a:hover {
                 color: white;
                 background: #333;
-                    ext-decoration: none;
+                    text-decoration: none;
             }
             a.current {
                 color: #AEADAD;
@@ -390,6 +394,7 @@
 .listing-wrapper {
     margin-bottom: 30px;
     justify-content: center !important;
+    width: 100%;
     @include media-breakpoint-up(md) {
         margin-bottom: 40px;
     }
@@ -989,10 +994,10 @@
         width: 100%;
         top: 0;
         left: 0;
-        /*display: none;
+        display: none;
         @include media-breakpoint-up(md) {
             display: block;
-        }*/
+        }
         .slide-card {
             @include media-breakpoint-up(sm) {
                 height: 815px;
@@ -1130,11 +1135,10 @@
                 opacity: 0.75;
             }
         }
-        .slide-card:hover,
-        .slide-card.urrent {
+
+        .slide-card:hover
+        /*.slide-card.slick-center*/ {
             opacity: 1;
-        }
-        .slide-card:hover {
             -webkit-transform: scale(1, 1);
             -o-transform: scale(1, 1);
             transform: scale(1, 1);

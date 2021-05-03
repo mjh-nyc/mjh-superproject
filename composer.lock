@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c885342f50ad693f5f8344e2f867cab7",
+    "content-hash": "5ae5a843359249fcea3162d35176a195",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -577,10 +577,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjh-nyc/mjh-custom-configurations.git",
-                "reference": "1.5.9"
+                "reference": "1.6.1"
             },
             "type": "wordpress-muplugin",
-            "time": "2021-03-10T03:12:04+00:00"
+            "time": "2021-04-27T17:29:53+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -1573,24 +1573,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
-        },
-        {
-            "name": "wpackagist-plugin/woocommerce",
-            "version": "4.0.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/woocommerce/",
-                "reference": "tags/4.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce.4.0.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
             "name": "wpackagist-plugin/wp-super-cache",

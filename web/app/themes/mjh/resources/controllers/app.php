@@ -542,11 +542,12 @@ class App extends Controller
         $cats = '';
         if ($id) {
             $terms = wp_get_object_terms( $id, 'testimony_category' );
+            if($terms) {
+                foreach( $terms as $term )
+                    $term_names[] = $term->name;
 
-            foreach( $terms as $term )
-                $term_names[] = $term->name;
-
-            $cats = implode( ', ', $term_names );
+                $cats = implode( ', ', $term_names );
+            }
         }
         return $cats;
     }

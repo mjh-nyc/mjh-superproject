@@ -29,7 +29,9 @@
       @if (App::get_field('publication_logo',$post->ID))
         <div class="publication-name">{!! get_post_meta( App::get_field('publication_logo', $post->ID ), '_wp_attachment_image_alt', true);  !!}</div>
       @endif
-      <div class="post-date">@php(the_date('l, F j, Y'))</div>
+      @if (!in_array(get_category_by_slug('in-memoriam')->term_id, App::postCategories($post->ID)))
+        <div class="post-date">@php(the_date('l, F j, Y'))</div>
+      @endif
     </div>
   @endif
   @if (is_search())
