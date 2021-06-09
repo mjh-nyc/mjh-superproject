@@ -44,7 +44,7 @@ class Homepage extends Controller
      */
     public function upcomingEvents()
     {
-        $total_posts = 3;
+        $total_posts = 6;
         $currentDate = strtotime('yesterday 11:59');
         $pParamHash = array('post_type' => 'event','posts_per_page' => $total_posts);
         $pParamHash['meta_query'] =  array(
